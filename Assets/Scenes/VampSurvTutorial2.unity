@@ -235,6 +235,7 @@ MonoBehaviour:
   lastHorizontalVector: 0
   lastVerticalVector: 0
   moveDir: {x: 0, y: 0}
+  lastMovedVector: {x: 0, y: 0}
 --- !u!212 &383724006
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -538,7 +539,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 1412783553374104793, guid: 62fe71c7e36f3c84eb74159cceb97e68, type: 3}
   damage: 0
-  speed: 0
+  speed: 10
   cooldownDuration: 2
   pierce: 0
 --- !u!1 &1628600819
