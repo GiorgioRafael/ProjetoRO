@@ -9,19 +9,15 @@ public class WeaponController : MonoBehaviour
 
 
     [Header("Weapon Stats")]
-    public GameObject prefab;
-    public float damage;
-    public float speed;
-    public float cooldownDuration;
+    public WeaponScriptableObject weaponData;
     float currentCooldown;
-    public int pierce;
 
     protected PlayerMovement pm;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected virtual void Start()
     {
         pm = FindFirstObjectByType<PlayerMovement>();
-        currentCooldown = cooldownDuration; //instancia o cooldown da arma (inicial) ao cooldown da arma
+        currentCooldown = weaponData.cooldownDuration; //instancia o cooldown da arma (inicial) ao cooldown da arma
     }
 
     // Update is called once per frame
@@ -36,6 +32,6 @@ public class WeaponController : MonoBehaviour
     }
    protected virtual void Attack()
     {
-        currentCooldown = cooldownDuration; //ao atacar, instancia novamente o cooldown
+        currentCooldown = weaponData.cooldownDuration; //ao atacar, instancia novamente o cooldown
     }
 }

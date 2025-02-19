@@ -4,6 +4,7 @@ using UnityEngine;
 //script base para todas as armas melee [deve ser colocado no prefab da arma melee]
 public class MeleeWeaponBehaviour : MonoBehaviour
 {
+    public WeaponScriptableObject weaponData;
     public float destroyAfterSeconds;
     protected virtual void Start()
     {

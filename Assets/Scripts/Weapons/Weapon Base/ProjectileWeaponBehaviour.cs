@@ -6,6 +6,7 @@ using UnityEngine;
 //Script basico para o funcionamento de todas as armas que são projeteis [deve ser colocado em uma arma prefab que seja um projetil]
 public class ProjectileWeaponBehaviour : MonoBehaviour
 {
+    public WeaponScriptableObject weaponData;
     
     protected Vector3 direction;
     public float destroyAfterSeconds;

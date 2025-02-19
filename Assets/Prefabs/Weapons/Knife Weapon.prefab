@@ -100,4 +100,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0f75a9e4bc444c4bba8eca46b2e2794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponData: {fileID: 11400000, guid: 110bb3a3517e1b049bea7f28b9ce9862, type: 2}
   destroyAfterSeconds: 3
