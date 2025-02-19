@@ -5,7 +5,15 @@ using UnityEngine;
 public class EnemyScriptableObject : ScriptableObject
 {
     //status base
-    public float moveSpeed;
-    public float maxHealh;
-    public float damage;
+    [SerializeField]
+    float moveSpeed;
+    public float MoveSpeed { get => moveSpeed; private set => moveSpeed = value; }
+
+    [SerializeField]
+    float maxHealh;
+    public float MaxHealh { get => maxHealh; private set => maxHealh = value; }
+
+    [SerializeField]
+    float damage;
+    public float Damage { get => damage; private set => damage = value; }
 }
