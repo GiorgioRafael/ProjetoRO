@@ -9,13 +9,16 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
     public WeaponScriptableObject weaponData;
 
     protected Vector3 direction;
-    public float destroyAfterSeconds;
+    public float currentDestroyAfterSeconds;
 
     //Current stats
     protected float currentDamage;
     protected float currentSpeed;
     protected float currentCooldownDuration;
     protected int currentPierce;
+    //References
+    
+
 
     void Awake()
     {
@@ -23,11 +26,12 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
         currentSpeed = weaponData.Speed;
         currentCooldownDuration = weaponData.CooldownDuration;
         currentPierce = weaponData.Pierce;
+        currentDestroyAfterSeconds = weaponData.DestroyAfterSeconds;
     }
 
     protected virtual void Start()
     {
-        Destroy(gameObject, destroyAfterSeconds);
+        Destroy(gameObject, currentDestroyAfterSeconds);
     }
 
     // Update is called once per frame
