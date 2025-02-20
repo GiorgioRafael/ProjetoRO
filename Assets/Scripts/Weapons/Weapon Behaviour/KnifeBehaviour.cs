@@ -13,3 +13,4 @@ public class KnifeBehaviour : ProjectileWeaponBehaviour
         transform.position += direction * weaponData.Speed * Time.deltaTime; //seta o movimento da faca
     }
 }
+    

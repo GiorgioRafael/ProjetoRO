@@ -9,57 +9,35 @@ public class DropRateManager : MonoBehaviour
     {
         public string name;
         public GameObject itemPrefab;
-        public float dropRate; //porcentagem
+        public float dropRate; // Drop chance percentage
     }
+
     public List<Drops> drops;
 
-    /*
-    void OnDestroy()
-    
+    void OnDisable()
     {
         float randomNumber = UnityEngine.Random.Range(0f, 100f);
-        List<Drops> possibleDrops = new List<Drops>();
-        foreach (Drops rate in drops)
-        {
-            if(randomNumber <= rate.dropRate)
-            {
-                possibleDrops.Add(rate);
-            }
-            
-        }
-        //verifica se há mais de um drop possivel
-        if(possibleDrops.Count > 0)
-        {
-            Drops drops = possibleDrops[UnityEngine.Random.Range(0,possibleDrops.Count)];
-            Instantiate(drops.itemPrefab, transform.position, Quaternion.identity);
-        }
-        
-    }
-    */
-    void OnDestroy()
-{
-    float randomNumber = UnityEngine.Random.Range(0f, 100f);
-    Debug.Log("Random number = " +randomNumber);
-    Drops rarestDrop = null; // Store the rarest possible drop
+        Debug.Log("Random number rolled: " + randomNumber);
 
-    foreach (Drops rate in drops)
-    {
-        if (randomNumber <= rate.dropRate)
+        Drops rarestDrop = null;
+
+        foreach (Drops drop in drops)
         {
-            // Always pick the drop with the **lowest drop rate** that matches the roll
-            if (rarestDrop == null || rate.dropRate < rarestDrop.dropRate)
+            if (randomNumber <= drop.dropRate)
             {
-                rarestDrop = rate;
+                // Always pick the rarest drop possible
+                if (rarestDrop == null || drop.dropRate < rarestDrop.dropRate)
+                {
+                    rarestDrop = drop;
+                }
             }
         }
-    }
 
-    // If a valid drop was found, instantiate it
-    if (rarestDrop != null)
-    {
-        Instantiate(rarestDrop.itemPrefab, transform.position, Quaternion.identity);
+        // Ensure scene is still active before spawning
+        if (rarestDrop != null && gameObject.scene.isLoaded)
+        {
+            Instantiate(rarestDrop.itemPrefab, transform.position, Quaternion.identity);
+            Debug.Log("Dropped: " + rarestDrop.name);
+        }
     }
-}
-
-  
 }
