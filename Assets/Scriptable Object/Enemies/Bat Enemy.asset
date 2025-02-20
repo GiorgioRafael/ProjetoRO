@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f549fdd000318547b05a62998a2989f, type: 3}
   m_Name: Bat Enemy
   m_EditorClassIdentifier: 
-  moveSpeed: 2
-  maxHealh: 0
+  moveSpeed: 1
+  maxHealh: 10
   damage: 0

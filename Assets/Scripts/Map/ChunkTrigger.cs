@@ -7,7 +7,7 @@ public class ChunkTrigger : MonoBehaviour
     MapController mc;
 
     public GameObject targetMap;
-
+    
     void Start()
     {
         mc = FindFirstObjectByType<MapController>();
