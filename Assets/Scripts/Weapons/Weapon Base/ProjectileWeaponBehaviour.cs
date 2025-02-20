@@ -11,6 +11,8 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
     protected Vector3 direction;
     public float destroyAfterSeconds;
 
+    //Current stats
+
     protected virtual void Start()
     {
         Destroy(gameObject, destroyAfterSeconds);

@@ -20,7 +20,7 @@ public class EnemyStats : MonoBehaviour
         currentDamage -= dmg;
         if(currentHealth <= 0)
         {
-            Kill()
+            Kill();
         }
     }
     public void Kill()

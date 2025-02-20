@@ -549,6 +549,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1530587271}
   - component: {fileID: 1530587272}
+  - component: {fileID: 1530587273}
   m_Layer: 0
   m_Name: Garlic Controller
   m_TagString: Untagged
@@ -584,6 +585,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 9f5186ced0bb9bf4a8d0fec1a6050123, type: 2}
+--- !u!95 &1530587273
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530587270}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4d2ce0316b65d5c4d8e6abc102f07b45, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1628600819
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,6 +678,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bat
       objectReference: {fileID: 0}
+    - target: {fileID: 6939750556203807982, guid: 651352b9c3a399549b5d2c8f817a0a16, type: 3}
+      propertyPath: enemyData
+      value: 
+      objectReference: {fileID: 11400000, guid: 67d860d75318b3b4fb2d28e43e77a156, type: 2}
     - target: {fileID: 9221967206530067910, guid: 651352b9c3a399549b5d2c8f817a0a16, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.38
