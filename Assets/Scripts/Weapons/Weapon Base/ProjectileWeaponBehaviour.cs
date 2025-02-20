@@ -83,9 +83,18 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
         
         if(col.CompareTag("Enemy"))
         {
-            Debug.Log("Enemy Hit");
+            //Debug.Log("Enemy Hit");
             EnemyStats enemy = col.GetComponent<EnemyStats>();
             enemy.TakeDamage(currentDamage);     //Make sure to use currentDamage instead of weaponData.Damage in case any damage multipliers in the future
+            ReducePierce();
+        }
+    }
+    void ReducePierce() //destroi o objeto quando chegar a 0 (penetracao)
+    {
+        currentPierce--;
+        if(currentPierce <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }

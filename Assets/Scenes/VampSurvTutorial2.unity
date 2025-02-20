@@ -306,6 +306,7 @@ Transform:
   m_Children:
   - {fileID: 1119021976}
   - {fileID: 1530587271}
+  - {fileID: 837410574}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &383724008
@@ -494,6 +495,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 383724007}
   offset: {x: 0, y: 0, z: -10}
+--- !u!1 &837410573
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 837410574}
+  - component: {fileID: 837410576}
+  m_Layer: 0
+  m_Name: Garlic Controller Static
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &837410574
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837410573}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 383724007}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &837410576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837410573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a27b917d2f8ca4942bf61107bf230cb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponData: {fileID: 11400000, guid: 9f5186ced0bb9bf4a8d0fec1a6050123, type: 2}
 --- !u!1 &1119021975
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,7 +659,7 @@ Animator:
   m_GameObject: {fileID: 1530587270}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4d2ce0316b65d5c4d8e6abc102f07b45, type: 2}
+  m_Controller: {fileID: 9100000, guid: ec74b1686e0ff7841ac226ea1be05cb2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -704,13 +750,17 @@ PrefabInstance:
       propertyPath: enemyData
       value: 
       objectReference: {fileID: 11400000, guid: 67d860d75318b3b4fb2d28e43e77a156, type: 2}
+    - target: {fileID: 6939750556203807982, guid: 651352b9c3a399549b5d2c8f817a0a16, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9221967206530067910, guid: 651352b9c3a399549b5d2c8f817a0a16, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.04
+      value: 3.99
       objectReference: {fileID: 0}
     - target: {fileID: 9221967206530067910, guid: 651352b9c3a399549b5d2c8f817a0a16, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.12
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 9221967206530067910, guid: 651352b9c3a399549b5d2c8f817a0a16, type: 3}
       propertyPath: m_LocalPosition.z

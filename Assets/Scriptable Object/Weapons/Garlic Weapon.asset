@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Garlic Weapon
   m_EditorClassIdentifier: 
   prefab: {fileID: 8976645679002031799, guid: 74b950c9024645746a365f370e348f3c, type: 3}
-  damage: 0
+  damage: 5
   speed: 0
   cooldownDuration: 3
   pierce: 0
