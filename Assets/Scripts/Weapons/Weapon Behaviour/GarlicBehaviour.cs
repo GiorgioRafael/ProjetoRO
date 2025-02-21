@@ -18,5 +18,14 @@ public class GarlicBehaviour : MeleeWeaponBehaviour
             enemy.TakeDamage(currentDamage);
             markedEnemies.Add(col.gameObject); //marca o inimigo para nao tomar mais de um dano da mesma instancia
         }
+        else if(col.CompareTag("Prop"))
+        {
+            if(col.gameObject.TryGetComponent(out BreakableProps breakable) && !markedEnemies.Contains(col.gameObject))
+            {
+                breakable.TakeDamage(currentDamage);
+
+                markedEnemies.Add(col.gameObject);
+            }
+        }
     }
 }

@@ -113,4 +113,18 @@ public class PlayerStats : MonoBehaviour
     {
         Debug.Log("Player died");
     }
+    public void RestoreHealth(float amount)
+    {   
+        //somente cura se a vida nao estiver cheia
+        if(currentHealth < characterData.MaxHealth)
+        {
+            currentHealth += amount;
+            //se a cura passar do maximo de vida, fica com a vida cheia
+            if(currentHealth > characterData.MaxHealth) 
+            {
+                currentHealth = characterData.MaxHealth;
+            }
+        }
+
+    }
 }
