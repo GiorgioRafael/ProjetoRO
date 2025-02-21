@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8745291127194481626}
   - component: {fileID: 6386044679204685929}
   - component: {fileID: 1879013080176687947}
+  - component: {fileID: 5398299286555442252}
   - component: {fileID: 4776374857575634944}
   - component: {fileID: 7868313104021592026}
   - component: {fileID: 8087615236494379562}
@@ -144,7 +145,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -160,6 +161,33 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.84375, y: 0.6875}
   m_EdgeRadius: 0
+--- !u!50 &5398299286555442252
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7566461839616508672}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!114 &4776374857575634944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,7 +195,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7566461839616508672}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2567c6e2393c7a47884014fdd03461b, type: 3}
   m_Name: 
@@ -188,13 +216,7 @@ MonoBehaviour:
   drops:
   - name: Blue gem
     itemPrefab: {fileID: 610303841448720195, guid: a5881a8cadb00894eaaafdb1c7ce5b13, type: 3}
-    dropRate: 80
-  - name: Green gem
-    itemPrefab: {fileID: 3892653510570801751, guid: d0679886279dc434ebb91530f91dc801, type: 3}
-    dropRate: 30
-  - name: Red gem
-    itemPrefab: {fileID: 7936465947039557870, guid: 7e6c39921b1023042b869a51fd3bd3e4, type: 3}
-    dropRate: 15
+    dropRate: 100
 --- !u!114 &8087615236494379562
 MonoBehaviour:
   m_ObjectHideFlags: 0

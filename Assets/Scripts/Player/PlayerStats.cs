@@ -27,6 +27,13 @@ public class PlayerStats : MonoBehaviour
         public int endLevel;
         public int experienceCapIncrease;
     }
+
+    //iframes
+    [Header("I-Frames")]
+    public float invincibilityDuration;
+    float invincibilityTimer;
+    bool isInvincible;
+
     public List<LevelRange> levelRanges;
 
     void Awake()
@@ -44,6 +51,17 @@ public class PlayerStats : MonoBehaviour
         //Inicializa o cap de xp como o primeiro aumento de cap de xp
         experienceCap = levelRanges[0].experienceCapIncrease;
     }
+    void Update()
+    {
+        if(invincibilityTimer > 0)
+        {
+            invincibilityTimer -= Time.deltaTime;
+        }
+        else if (isInvincible)
+        {
+            isInvincible = false;
+        }
+    }
 
     public void IncreaseExperience(int amount)
     {
@@ -54,6 +72,7 @@ public class PlayerStats : MonoBehaviour
     {
         if(experience >= experienceCap)
         {
+            Debug.Log("Player leveled up");
             level++;
             experience -= experienceCap;
 
@@ -66,7 +85,32 @@ public class PlayerStats : MonoBehaviour
                     break;
                 }
             }
-            experienceCap += experienceCapIncrease;
+            /*experienceCap += experienceCapIncrease; //xp fixo por niveis */
+            experienceCap = experienceCap + experienceCapIncrease; // xp aumenta a cada nivel o nivel do cap
+            Debug.Log("Valor de xp necessario para o nivel atual: " + experienceCap);
+            /*
+            
+            */
+            LevelUpChecker(); //verifica novamente me caso de ganhar muito xp de uma vez
         }
+    }
+    public void TakeDamage(float dmg)
+    {
+        if(!isInvincible)
+        {
+            currentHealth -= dmg;
+
+            invincibilityTimer = invincibilityDuration;
+            isInvincible = true;
+        if(currentHealth <= 0)
+        {
+            Kill();
+        }
+        }
+        
+    }
+    public void Kill()
+    {
+        Debug.Log("Player died");
     }
 }
