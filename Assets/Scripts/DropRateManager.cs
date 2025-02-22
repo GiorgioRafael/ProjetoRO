@@ -17,8 +17,6 @@ public class DropRateManager : MonoBehaviour
     void OnDisable()
     {
         float randomNumber = UnityEngine.Random.Range(0f, 100f);
-        Debug.Log("Random number rolled: " + randomNumber);
-
         Drops rarestDrop = null;
 
         foreach (Drops drop in drops)
@@ -37,7 +35,6 @@ public class DropRateManager : MonoBehaviour
         if (rarestDrop != null && gameObject.scene.isLoaded)
         {
             Instantiate(rarestDrop.itemPrefab, transform.position, Quaternion.identity);
-            Debug.Log("Dropped: " + rarestDrop.name);
         }
     }
 }

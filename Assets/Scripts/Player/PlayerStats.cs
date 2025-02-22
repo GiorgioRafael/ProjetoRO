@@ -5,12 +5,22 @@ public class PlayerStats : MonoBehaviour
 {
     public CharacterScriptableObject characterData;
 
-    float currentHealth;
-    float currentRecovery;
-    float currentMoveSpeed;
-    float currentMight;
-    float currentProjectileSpeed;
-    float currentProjectileDuration;
+    //status atuais
+    [HideInInspector]
+    public float currentHealth;
+    [HideInInspector]
+    public float currentRecovery;
+    [HideInInspector]
+    public float currentMoveSpeed;
+    [HideInInspector]
+    public float currentMight;
+    [HideInInspector]
+    public float currentProjectileSpeed;
+    [HideInInspector]
+    public float currentProjectileDuration;
+
+    [HideInInspector]
+    public float currentMagnet;
 
     //experiencia e level do jogador
     [Header("Experience/Level")]
@@ -44,6 +54,7 @@ public class PlayerStats : MonoBehaviour
         currentMight = characterData.Might;
         currentProjectileSpeed = characterData.ProjectileSpeed;
         currentProjectileDuration = characterData.ProjectileDuration;
+        currentMagnet = characterData.Magnet;
     }
 
     void Start()
@@ -61,6 +72,7 @@ public class PlayerStats : MonoBehaviour
         {
             isInvincible = false;
         }
+        Recover();
     }
 
     public void IncreaseExperience(int amount)
@@ -126,5 +138,16 @@ public class PlayerStats : MonoBehaviour
             }
         }
 
+    }
+    void Recover()
+    {
+        if(currentHealth < characterData.MaxHealth)
+        {
+            currentHealth += currentRecovery * Time.deltaTime;
+        }
+        if(currentHealth > characterData.MaxHealth)
+        {
+            currentHealth = characterData.MaxHealth;
+        }
     }
 }

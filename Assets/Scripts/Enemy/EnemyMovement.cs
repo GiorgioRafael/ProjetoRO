@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public EnemyScriptableObject enemyData;
+    EnemyStats enemy;
     Transform player;
     
     void Start()
     {
+        enemy = GetComponent<EnemyStats>();
         player = FindFirstObjectByType<PlayerMovement>().transform;
 
     }
@@ -14,6 +15,7 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemyData.MoveSpeed * Time.deltaTime); //move-se sempre na direcao do player
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemy.currentMoveSpeed * Time.deltaTime); //move-se sempre na direcao do player
     }
 }
+ 
