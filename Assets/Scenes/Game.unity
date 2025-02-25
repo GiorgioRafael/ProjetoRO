@@ -528,6 +528,71 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 383724007}
   offset: {x: 0, y: 0, z: -10}
+--- !u!1 &667894842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 667894844}
+  - component: {fileID: 667894843}
+  m_Layer: 0
+  m_Name: Enemy Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &667894843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667894842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de8cfd7671060b4ba1f4223d68862cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves:
+  - waveName: Wave 1
+    enemyGroups:
+    - enemyName: Bat
+      enemyCount: 5
+      spawnCount: 0
+      enemyPrefab: {fileID: 7566461839616508672, guid: a4b683eb1487b0743a882439f0cb5aa3, type: 3}
+    waveQuota: 0
+    spawnInterval: 1
+    spawnCount: 0
+  - waveName: Wave 2
+    enemyGroups:
+    - enemyName: Red Bat
+      enemyCount: 2
+      spawnCount: 0
+      enemyPrefab: {fileID: 7566461839616508672, guid: aa5e58316f8c3264c8966cf63f34acd5, type: 3}
+    waveQuota: 0
+    spawnInterval: 1
+    spawnCount: 0
+  currentWaveCount: 0
+  waveInterval: 3
+--- !u!4 &667894844
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667894842}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1176616163
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,6 +708,7 @@ MonoBehaviour:
   - {fileID: 8137769287933365625, guid: 4e1fabc664195ef498ce2cdf38cf4a3b, type: 3}
   - {fileID: 8137769287933365625, guid: 276ff9b0097f27a4580647571c7e13ce, type: 3}
   - {fileID: 8137769287933365625, guid: 9fecf047129abd346b51a6285c5256e0, type: 3}
+  - {fileID: 8137769287933365625, guid: 03ed4523b78a117459cca681b6b7d1db, type: 3}
   player: {fileID: 383724002}
   checkerRadius: 0.2
   noTerrainPosition: {x: 0, y: 0, z: 0}
@@ -679,7 +745,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4776374857575634944, guid: a4b683eb1487b0743a882439f0cb5aa3, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5398299286555442252, guid: a4b683eb1487b0743a882439f0cb5aa3, type: 3}
       propertyPath: m_Mass
@@ -692,6 +758,10 @@ PrefabInstance:
     - target: {fileID: 7566461839616508672, guid: a4b683eb1487b0743a882439f0cb5aa3, type: 3}
       propertyPath: m_Name
       value: Bat
+      objectReference: {fileID: 0}
+    - target: {fileID: 7566461839616508672, guid: a4b683eb1487b0743a882439f0cb5aa3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8243820467467161265, guid: a4b683eb1487b0743a882439f0cb5aa3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -804,3 +874,4 @@ SceneRoots:
   - {fileID: 6842626044942053199}
   - {fileID: 1628600821}
   - {fileID: 1868548229}
+  - {fileID: 667894844}
