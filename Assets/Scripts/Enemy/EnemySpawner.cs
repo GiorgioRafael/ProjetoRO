@@ -30,7 +30,13 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Spawner Attributes")]
     float spawnTimer; //timer usado para definir quando spawnar proximo inimigo
+    public int enemiesAlive;
+    public int maxEnemiesAllowed; //numero maximo de inimigos simultaneamente
+    public bool maxEnemiesReached = false; //variavel para armazenar se se a tela esta com o maximo de inimigos
     public float waveInterval; //o intervalo entre cada wave
+
+    [Header("Spawn Positions")]
+    public List<Transform> relativeSpawnPoints; //uma lista para armazenar todos os spawn points relativos
 
     Transform player;
 
@@ -80,22 +86,46 @@ public class EnemySpawner : MonoBehaviour
         waves[currentWaveCount].waveQuota = currentWaveQuota;
         Debug.LogWarning(currentWaveQuota);
     }
+    /// <summary>
+    /// esse metodo vai parar de spawnar inimigos se a quantidade de inimigos no mapa for a maxima
+    /// o metodo so vai spawnar inimigos de uma wave especifica até o tempo de fim dessa wave (proxima wave começar)
+    /// </summary>
 
     void SpawnEnemies()
     {
-        if(waves[currentWaveCount].spawnCount < waves[currentWaveCount].waveQuota)
+        if(waves[currentWaveCount].spawnCount < waves[currentWaveCount].waveQuota &&!maxEnemiesReached)
         {
             foreach (var enemyGroup in waves[currentWaveCount].enemyGroups)
             {
                 if(enemyGroup.spawnCount < enemyGroup.enemyCount)
                 {
-                    Vector2 spawnPosition = new Vector2(player.transform.position.x + Random.Range(-10f, 10f), player.transform.position.y + Random.Range(-10f, 10f));
-                    Instantiate(enemyGroup.enemyPrefab, spawnPosition, Quaternion.identity);
+                    //limita quantidade de inimigos na tela
+                    if(enemiesAlive >= maxEnemiesAllowed)
+                    {
+                        maxEnemiesReached = true;
+                        return;
+                    }
+
+                    //spawna o inimigo em uma posicao aleatoria perto do player
+                    Instantiate(enemyGroup.enemyPrefab, player.position + relativeSpawnPoints[Random.Range(0, relativeSpawnPoints.Count)].position, Quaternion.identity);
+
+                    //Vector2 spawnPosition = new Vector2(player.transform.position.x + Random.Range(-10f, 10f), player.transform.position.y + Random.Range(-10f, 10f));
+                    //Instantiate(enemyGroup.enemyPrefab, spawnPosition, Quaternion.identity);
 
                     enemyGroup.spawnCount++;
                     waves[currentWaveCount].spawnCount++;
+                    enemiesAlive++;
                 }
             }
         }
+        //reseta a flag se a quantidade diminuir da quantidade maxima
+        if(enemiesAlive<maxEnemiesAllowed)
+        {
+            maxEnemiesReached = false;
+        }
+    }
+    public void OnEnemyKilled()
+    {
+        enemiesAlive--;
     }
 }
