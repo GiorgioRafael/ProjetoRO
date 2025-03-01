@@ -12,8 +12,8 @@ public class PlayerStats : MonoBehaviour
     public float currentRecovery;
     [HideInInspector]
     public float currentMoveSpeed;
-    [HideInInspector]
-    public float currentMight;
+    //[HideInInspector]
+    public float currentMight; // basicamente dano
     [HideInInspector]
     public float currentProjectileSpeed;
     [HideInInspector]
