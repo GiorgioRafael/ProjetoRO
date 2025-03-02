@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0953af1837496524690b54cd71adc69d, type: 3}
   m_Name: Wings Passive Item
   m_EditorClassIdentifier: 
-  multipler: 10
+  multipler: 50
