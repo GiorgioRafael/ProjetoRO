@@ -15,4 +15,8 @@ public class PassiveItemScriptableObject : ScriptableObject
     [SerializeField]
     GameObject nextLevelPrefab; // prefab do proximo nivel (ou seja: qual objeto vira quando upa de nivel)
     public GameObject NextLevelPrefab { get => nextLevelPrefab; private set => nextLevelPrefab = value; }
+
+        [SerializeField]
+    Sprite icon; //nao é pra ser modificado
+    public Sprite Icon { get => icon; private set => icon = value; }
 }

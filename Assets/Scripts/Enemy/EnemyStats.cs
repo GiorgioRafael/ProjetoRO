@@ -38,7 +38,6 @@ public class EnemyStats : MonoBehaviour
     public void TakeDamage(float dmg)
     {
         currentHealth -= dmg;
-        Debug.Log("Damage takan: " + dmg);
 
         if (currentHealth <= 0)
         {

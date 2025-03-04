@@ -20,3 +20,4 @@ MonoBehaviour:
   destroyAfterSeconds: 3
   level: 1
   nextLevelPrefab: {fileID: 1115389980996547841, guid: 526551cd39766e444ba785345889d4d5, type: 3}
+  icon: {fileID: 135091557, guid: 21591577b23b8db41a0462e1839eedb6, type: 3}

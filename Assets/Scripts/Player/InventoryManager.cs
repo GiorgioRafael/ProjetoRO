@@ -1,28 +1,34 @@
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class InventoryManager : MonoBehaviour
 {
     //dont use dictionary because unity dont have it on inspector  
 
     public List<WeaponController> weaponSlots = new List<WeaponController>(6);
     public int[] weaponLevels = new int[6];
+    public List<Image> weaponUISlots = new List<Image>(6);
 
     public List<PassiveItem> passiveItemSlots = new List<PassiveItem>(6);
     public int[] passiveItemLevels = new int[6];
+    public List<Image> passiveItemUISlots = new List<Image>(6);
 
 
     public void AddWeapon(int slotIndex, WeaponController weapon) //adiciona uma arma a um slot especifico 
     {
         weaponSlots[slotIndex] = weapon;
         weaponLevels[slotIndex] = weapon.weaponData.Level;
+        weaponUISlots[slotIndex].enabled = true;
+        weaponUISlots[slotIndex].sprite = weapon.weaponData.Icon;
     }
 
     public void addPassiveItem(int slotIndex, PassiveItem passiveItem) //adiciona um item passivo a um slot especifico
     {
         passiveItemSlots[slotIndex] = passiveItem;      
         passiveItemLevels[slotIndex] = passiveItem.passiveItemData.Level;
+        passiveItemUISlots[slotIndex].enabled = true;
+        passiveItemUISlots[slotIndex].sprite = passiveItem.passiveItemData.Icon;
     }
 
     //level up de itens 
