@@ -10,6 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0953af1837496524690b54cd71adc69d, type: 3}
-  m_Name: Wings Passive Item
+  m_Name: Wings Passive Item LV2
   m_EditorClassIdentifier: 
-  multipler: 50
+  multipler: 75
+  level: 2
+  nextLevelPrefab: {fileID: 0}

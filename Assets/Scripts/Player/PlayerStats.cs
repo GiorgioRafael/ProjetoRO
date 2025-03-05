@@ -56,13 +56,13 @@ public class PlayerStats : MonoBehaviour
     void Awake()
     {
 
-        characterData = CharacterSelector.GetData() ;
+        characterData = CharacterSelector.GetData();
         CharacterSelector.instance.DestroySingleton();
 
         inventory = GetComponent<InventoryManager>();
 
         currentHealth = characterData.MaxHealth;
-        currentRecovery  = characterData.Recovery;
+        currentRecovery = characterData.Recovery;
         currentMoveSpeed = characterData.MoveSpeed;
         currentMight = characterData.Might;
         currentProjectileSpeed = characterData.ProjectileSpeed;
@@ -84,7 +84,7 @@ public class PlayerStats : MonoBehaviour
     }
     void Update()
     {
-        if(invincibilityTimer > 0)
+        if (invincibilityTimer > 0)
         {
             invincibilityTimer -= Time.deltaTime;
         }
@@ -102,16 +102,16 @@ public class PlayerStats : MonoBehaviour
     }
     void LevelUpChecker()
     {
-        if(experience >= experienceCap)
+        if (experience >= experienceCap)
         {
             Debug.Log("Player leveled up");
             level++;
             experience -= experienceCap;
 
             int experienceCapIncrease = 0;
-            foreach(LevelRange range in levelRanges)
+            foreach (LevelRange range in levelRanges)
             {
-                if(level >= range.startLevel && level <= range.endLevel)
+                if (level >= range.startLevel && level <= range.endLevel)
                 {
                     experienceCapIncrease = range.experienceCapIncrease;
                     break;
@@ -128,31 +128,31 @@ public class PlayerStats : MonoBehaviour
     }
     public void TakeDamage(float dmg)
     {
-        if(!isInvincible)
+        if (!isInvincible)
         {
             currentHealth -= dmg;
 
             invincibilityTimer = invincibilityDuration;
             isInvincible = true;
-        if(currentHealth <= 0)
-        {
-            Kill();
+            if (currentHealth <= 0)
+            {
+                Kill();
+            }
         }
-        }
-        
+
     }
     public void Kill()
     {
         Debug.Log("Player died");
     }
     public void RestoreHealth(float amount)
-    {   
+    {
         //somente cura se a vida nao estiver cheia
-        if(currentHealth < characterData.MaxHealth)
+        if (currentHealth < characterData.MaxHealth)
         {
             currentHealth += amount;
             //se a cura passar do maximo de vida, fica com a vida cheia
-            if(currentHealth > characterData.MaxHealth) 
+            if (currentHealth > characterData.MaxHealth)
             {
                 currentHealth = characterData.MaxHealth;
             }
@@ -161,11 +161,11 @@ public class PlayerStats : MonoBehaviour
     }
     void Recover()
     {
-        if(currentHealth < characterData.MaxHealth)
+        if (currentHealth < characterData.MaxHealth)
         {
             currentHealth += currentRecovery * Time.deltaTime;
         }
-        if(currentHealth > characterData.MaxHealth)
+        if (currentHealth > characterData.MaxHealth)
         {
             currentHealth = characterData.MaxHealth;
         }
@@ -173,7 +173,8 @@ public class PlayerStats : MonoBehaviour
     public void SpawnWeapon(GameObject weapon)
     {
         //verifica se os slots estao cheios e retorna   
-        if(weaponIndex >= inventory.weaponSlots.Count - 1)
+        if (weaponIndex >= inventory.passiveItemLevels.Length - 1) //troquei count por lenght pq comecou a dar erro  (sla???)
+        //verificar depois quando tiver mais armas
         {
             Debug.LogError("inventory slots already full");
             return;
@@ -186,10 +187,10 @@ public class PlayerStats : MonoBehaviour
         weaponIndex++;
     }
 
-        public void SpawnPassiveItem(GameObject passiveWeapon)
+    public void SpawnPassiveItem(GameObject passiveWeapon)
     {
         //verifica se os slots estao cheios e retorna   
-        if(passiveItemIndex >= inventory.passiveItemSlots.Count - 1)
+        if (passiveItemIndex >= inventory.passiveItemSlots.Count - 1)
         {
             Debug.LogError("inventory slots already full");
             return;

@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0953af1837496524690b54cd71adc69d, type: 3}
   m_Name: Spinach Passive Item
   m_EditorClassIdentifier: 
-  multipler: 100
+  multipler: 50
+  level: 1
+  nextLevelPrefab: {fileID: 1632589906078573150, guid: 91937b2aa98b9374db76f9abeb80f341, type: 3}
