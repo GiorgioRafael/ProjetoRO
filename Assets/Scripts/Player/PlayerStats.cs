@@ -6,20 +6,137 @@ public class PlayerStats : MonoBehaviour
     public CharacterScriptableObject characterData;
 
     //status atuais
-    [HideInInspector]
-    public float currentHealth;
-    [HideInInspector]
-    public float currentRecovery;
-    [HideInInspector]
-    public float currentMoveSpeed;
-    [HideInInspector]
-    public float currentMight; // basicamente dano
-    [HideInInspector]
-    public float currentProjectileSpeed;
-    [HideInInspector]
-    public float currentProjectileDuration;
-    [HideInInspector]
-    public float currentMagnet;
+    float currentHealth;
+    float currentRecovery;
+    float currentMoveSpeed;
+    float currentMight; // basicamente dano
+    float currentProjectileSpeed;
+    float currentProjectileDuration;
+    float currentMagnet;
+
+    #region Current Stats Properties
+    public float CurrentHealth
+    {
+        get { return currentHealth; }
+        set 
+        {
+            if(currentHealth != value)
+            {
+                currentHealth = value;
+                if(GameManager.instance != null)
+                {
+                    GameManager.instance.currentHealthDisplay.text = "Health: " + currentHealth;
+                }
+                //da update no valor real do status
+
+            }
+        }
+    }
+
+    public float CurrentRecovery
+    {
+        get { return currentRecovery; }
+        set 
+        {
+            if(currentRecovery != value)
+            {
+                currentRecovery = value;
+                if(GameManager.instance != null)
+                {
+                    GameManager.instance.currentRecoveryDisplay.text = "Recovery: " + currentRecovery;
+                }
+                //da update no valor real do status
+
+            }
+        }
+    }
+
+    public float CurrentMoveSpeed
+    {
+        get { return currentMoveSpeed; }
+        set 
+        {
+            if(currentMoveSpeed != value)
+            {
+                currentMoveSpeed = value;
+                if(GameManager.instance != null)
+                {
+                    GameManager.instance.currentMoveSpeedDisplay.text = "Move Speed: " + currentMoveSpeed;
+                }
+                //da update no valor real do status
+
+            }
+        }
+    }
+
+    public float CurrentMight
+    {
+        get { return currentMight; }
+        set 
+        {
+            if(currentMight != value)
+            {
+                currentMight = value;
+                if(GameManager.instance != null)
+                {
+                    GameManager.instance.currentMightDisplay.text = "Might: " + currentMight;
+                }
+                //da update no valor real do status
+
+            }
+        }
+    }
+
+    public float CurrentProjectileSpeed
+    {
+        get { return currentProjectileSpeed; }
+        set 
+        {
+            if(currentProjectileSpeed!= value)
+            {
+                currentProjectileSpeed= value;
+                if(GameManager.instance != null)
+                {
+                    GameManager.instance.currentProjectileSpeedDisplay.text = "Projectile Speed: " + currentProjectileSpeed;
+                }
+                //da update no valor real do status
+
+            }
+        }
+    }
+
+    public float CurrentProjectileDuration
+    {
+        get { return currentProjectileDuration; }
+        set 
+        {
+            if(currentProjectileDuration != value)
+            {
+                currentProjectileDuration = value;
+                //da update no valor real do status
+
+            }
+        }
+    }
+
+    public float CurrentMagnet
+    {
+        get { return currentMagnet; }
+        set 
+        {
+            if(currentMagnet != value)
+            {
+                currentMagnet = value;
+                if(GameManager.instance != null)
+                {
+                    GameManager.instance.currentMagnetDisplay.text = "Current Might: " + currentMight;
+                }
+                //da update no valor real do status
+
+            }
+        }
+    }
+    #endregion
 
     //experiencia e level do jogador
     [Header("Experience/Level")]
@@ -61,13 +178,13 @@ public class PlayerStats : MonoBehaviour
 
         inventory = GetComponent<InventoryManager>();
 
-        currentHealth = characterData.MaxHealth;
-        currentRecovery = characterData.Recovery;
-        currentMoveSpeed = characterData.MoveSpeed;
-        currentMight = characterData.Might;
-        currentProjectileSpeed = characterData.ProjectileSpeed;
-        currentProjectileDuration = characterData.ProjectileDuration;
-        currentMagnet = characterData.Magnet;
+        CurrentHealth = characterData.MaxHealth;
+        CurrentRecovery = characterData.Recovery;
+        CurrentMoveSpeed = characterData.MoveSpeed;
+        CurrentMight = characterData.Might;
+        CurrentProjectileSpeed = characterData.ProjectileSpeed;
+        CurrentProjectileDuration = characterData.ProjectileDuration;
+        CurrentMagnet = characterData.Magnet;
 
         //spawna a arma inicial
         SpawnWeapon(characterData.StartingWeapon);
@@ -81,18 +198,32 @@ public class PlayerStats : MonoBehaviour
     {
         //Inicializa o cap de xp como o primeiro aumento de cap de xp
         experienceCap = levelRanges[0].experienceCapIncrease;
+
+        GameManager.instance.currentHealthDisplay.text = "Health: " + currentHealth;
+        GameManager.instance.currentRecoveryDisplay.text = "Recovery: " + currentRecovery;
+        GameManager.instance.currentMoveSpeedDisplay.text = "Move Speed: " + currentMoveSpeed;
+        GameManager.instance.currentMightDisplay.text = "Might: " + currentMight;
+        GameManager.instance.currentProjectileSpeedDisplay.text = "Projectile Speed: " + currentProjectileSpeed;
+        GameManager.instance.currentMagnetDisplay.text = "Magnet: " + currentMagnet;
     }
+
     void Update()
     {
-        if (invincibilityTimer > 0)
-        {
-            invincibilityTimer -= Time.deltaTime;
-        }
-        else if (isInvincible)
+
+    if (isInvincible)
+    {
+        invincibilityTimer -= Time.deltaTime;
+    }
+    if(isInvincible)
+    {
+        if (invincibilityTimer <= 0)
         {
             isInvincible = false;
+            Debug.Log("Iframe off");
         }
-        Recover();
+    }
+    Recover();
+
     }
 
     public void IncreaseExperience(int amount)
@@ -104,7 +235,7 @@ public class PlayerStats : MonoBehaviour
     {
         if (experience >= experienceCap)
         {
-            Debug.Log("Player leveled up");
+            //Debug.Log("Player leveled up");
             level++;
             experience -= experienceCap;
 
@@ -119,7 +250,7 @@ public class PlayerStats : MonoBehaviour
             }
             /*experienceCap += experienceCapIncrease; //xp fixo por niveis */
             experienceCap = experienceCap + experienceCapIncrease; // xp aumenta a cada nivel o nivel do cap
-            Debug.Log("Valor de xp necessario para o nivel atual: " + experienceCap);
+            //Debug.Log("Valor de xp necessario para o nivel atual: " + experienceCap);
             /*
             
             */
@@ -130,11 +261,13 @@ public class PlayerStats : MonoBehaviour
     {
         if (!isInvincible)
         {
-            currentHealth -= dmg;
+            CurrentHealth -= dmg;
 
             invincibilityTimer = invincibilityDuration;
             isInvincible = true;
-            if (currentHealth <= 0)
+            Debug.Log("Iframe on");
+
+            if (CurrentHealth <= 0)
             {
                 Kill();
             }
@@ -148,26 +281,26 @@ public class PlayerStats : MonoBehaviour
     public void RestoreHealth(float amount)
     {
         //somente cura se a vida nao estiver cheia
-        if (currentHealth < characterData.MaxHealth)
+        if (CurrentHealth < characterData.MaxHealth)
         {
-            currentHealth += amount;
+            CurrentHealth += amount;
             //se a cura passar do maximo de vida, fica com a vida cheia
-            if (currentHealth > characterData.MaxHealth)
+            if (CurrentHealth > characterData.MaxHealth)
             {
-                currentHealth = characterData.MaxHealth;
+                CurrentHealth = characterData.MaxHealth;
             }
         }
 
     }
     void Recover()
     {
-        if (currentHealth < characterData.MaxHealth)
+        if (CurrentHealth < characterData.MaxHealth)
         {
-            currentHealth += currentRecovery * Time.deltaTime;
+            CurrentHealth += CurrentRecovery * Time.deltaTime;
         }
-        if (currentHealth > characterData.MaxHealth)
+        if (CurrentHealth > characterData.MaxHealth)
         {
-            currentHealth = characterData.MaxHealth;
+            CurrentHealth = characterData.MaxHealth;
         }
     }
     public void SpawnWeapon(GameObject weapon)

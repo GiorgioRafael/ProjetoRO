@@ -31,7 +31,7 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
 
     public float GetCurrentDamage()
     {
-        return currentDamage *= FindFirstObjectByType<PlayerStats>().currentMight;
+        return currentDamage *= FindFirstObjectByType<PlayerStats>().CurrentMight;
     }
 
     protected virtual void Start()
@@ -41,52 +41,50 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
 
     // Update is called once per frame
     public void DirectionChecker(Vector3 dir)
+{
+    direction = dir;
+
+    float dirx = direction.x;
+    float diry = direction.y;
+
+    Vector3 scale = transform.localScale;
+    Vector3 rotation = transform.rotation.eulerAngles;
+
+    if (dirx > 0 && diry == 0) // right
     {
-        direction = dir;
-
-        float dirx = direction.x;
-        float diry = direction.y;
-
-        Vector3 scale = transform.localScale;
-        Vector3 rotation = transform.rotation.eulerAngles;
-
-        if(dirx < 0 && diry == 0) //rotacao do objeto
-        {
-            scale.x = scale.x * -1;
-            scale.y = scale.y * -1;
-        }
-        else if (dirx == 0 && diry < 0) //down
-        {
-            scale.y = scale.y * -1;
-        }
-        else if (dirx == 0 && diry > 0) //up
-        {
-            scale.x = scale.x * -1;
-        }
-        else if (dirx > 0 && diry > 0) //right up
-        {
-            rotation.z = 0f;
-        }
-        else if (dirx > 0 && diry < 0) //right down
-        {
-            rotation.z = -90f;
-        }
-        else if (dirx < 0 && diry > 0) //left up
-        {
-            scale.x = scale.x * -1;
-            scale.y = scale.y * -1;
-            rotation.z = -90f;
-        }
-        else if (dirx < 0 && diry < 0) //left down
-        {
-            scale.x = scale.x * -1;
-            scale.y = scale.y * -1;
-            rotation.z = 0f;
-        }
-
-        transform.localScale = scale;
-        transform.rotation = Quaternion.Euler(rotation); //nao pode setar o vector por que nao se converte
+        rotation.z = -90f;
     }
+    else if (dirx < 0 && diry == 0) // left
+    {
+        rotation.z = 90f;
+    }
+    else if (dirx == 0 && diry > 0) // up
+    {
+        rotation.z = 0f;
+    }
+    else if (dirx == 0 && diry < 0) // down
+    {
+        rotation.z = 180f;
+    }
+    else if (dirx > 0 && diry > 0) // right up
+    {
+        rotation.z = -45f;
+    }
+    else if (dirx > 0 && diry < 0) // right down
+    {
+        rotation.z = -135f;
+    }
+    else if (dirx < 0 && diry > 0) // left up
+    {
+        rotation.z = 45f;
+    }
+    else if (dirx < 0 && diry < 0) // left down
+    {
+        rotation.z = 135f;
+    }
+
+    transform.rotation = Quaternion.Euler(rotation);
+}
         protected virtual void OnTriggerEnter2D(Collider2D col)
     {
         
