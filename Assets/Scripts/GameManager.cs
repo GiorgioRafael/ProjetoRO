@@ -35,8 +35,14 @@ using UnityEngine;
         public Image chosenCharacterImage;
         public Text chosenCharacterName;
         public Text levelReachedDisplay;
+        public Text timeSurvivedDisplay;
         public List<Image> chosenWeaponsUI = new List<Image>(6);
         public List<Image> chosenPassiveItemsUI = new List<Image>(6);
+
+        [Header("Stopwatch")]
+        public float timeLimit; //o tempo limite em segundos
+        float stopWatchTime; //o tempo atual desde que o começou o jogo
+        public Text StopwatchDisplay; 
 
 
         public bool isGameOver = false;
@@ -68,6 +74,7 @@ using UnityEngine;
                 case GameState.Gameplay:
                     //codigo para quanto o jogo tiver rodando
                     CheckForPauseAndResume();
+                    UpdateStopwatch();
                     break;
                     
                 case GameState.Paused:
@@ -146,6 +153,7 @@ using UnityEngine;
         }
         public void GameOver()
         {
+            timeSurvivedDisplay.text = StopwatchDisplay.text;
             ChangeState(GameState.GameOver);
         }
         void DisplayResults()
@@ -205,5 +213,24 @@ using UnityEngine;
                     chosenPassiveItemsUI[i].enabled = false;
                 }
             }
+        }
+        void UpdateStopwatch()
+        {
+            stopWatchTime += Time.deltaTime;
+
+            UpdateStopwatchDisplay();
+
+            if(stopWatchTime >= timeLimit)
+            {
+                GameOver();
+            }
+        }
+        void UpdateStopwatchDisplay()
+        {
+            int minutes = Mathf.FloorToInt(stopWatchTime / 60);
+            int seconds = Mathf.FloorToInt(stopWatchTime % 60);
+            
+            //da uptadte no stopwatch text para o tempo do timer  
+            StopwatchDisplay.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
     }
