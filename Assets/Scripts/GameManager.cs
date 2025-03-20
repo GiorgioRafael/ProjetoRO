@@ -1,4 +1,5 @@
-    using UnityEngine;
+using System.Collections.Generic;
+using UnityEngine;
     using UnityEngine.UI;
 
     public class GameManager : MonoBehaviour
@@ -18,17 +19,28 @@
         //guarda o estado anterior do jogo
         public GameState previousState;
 
-        [Header("UI")]
+        [Header("Screens")]
         public GameObject pauseScreen;
+        public GameObject resultsScreen;
 
-        //current stats display
-
+        [Header("Current Stat Display")]
         public Text currentHealthDisplay;
         public Text currentRecoveryDisplay;
         public Text currentMoveSpeedDisplay;
         public Text currentMightDisplay;
         public Text currentProjectileSpeedDisplay;
         public Text currentMagnetDisplay;
+
+        [Header("Results Screen Display")]
+        public Image chosenCharacterImage;
+        public Text chosenCharacterName;
+        public Text levelReachedDisplay;
+        public List<Image> chosenWeaponsUI = new List<Image>(6);
+        public List<Image> chosenPassiveItemsUI = new List<Image>(6);
+
+
+        public bool isGameOver = false;
+        public bool isGamePaused = false;
 
         void Awake()
         {
@@ -64,7 +76,13 @@
                     break;
 
                 case GameState.GameOver:
-                    //codigo para quando o estiver gameover
+                    if(!isGameOver)
+                    {
+                        isGameOver = true;
+                        Time.timeScale = 0f; //stop the game
+                        Debug.Log("Game is over");
+                        DisplayResults();
+                    }
                     break;
 
                 default:
@@ -97,6 +115,7 @@
         {
             if(currentState == GameState.Paused)
             {
+                isGamePaused = false;
                 ChangeState(previousState);
                 Time.timeScale = 1f;
                 pauseScreen.SetActive(false);
@@ -110,10 +129,12 @@
             {
                 if(currentState == GameState.Paused)
                 {
+                    isGamePaused = false;
                     ResumeGame();
                 }
                 else 
                 {
+                    isGamePaused = true;
                     PauseGame();
                 }
             }
@@ -121,6 +142,68 @@
         void DisableScreens()
         {
             pauseScreen.SetActive(false);
+            resultsScreen.SetActive(false);
+        }
+        public void GameOver()
+        {
+            ChangeState(GameState.GameOver);
+        }
+        void DisplayResults()
+        {
+            resultsScreen.SetActive(true);
+        }
+        
+        public void AssignChosenCharacterUI(CharacterScriptableObject chosenCharacterData) 
+        {
+            chosenCharacterImage.sprite = chosenCharacterData.Icon;
+            chosenCharacterName.text = chosenCharacterData.name;
         }
 
+        public void AssignLevelReachedUI(int levelReachedData)
+        {
+            levelReachedDisplay.text = levelReachedData.ToString();
+        }
+
+        public void AssignChosenWeaponsAndPassiveItemsUI(List<Image> chosenWeaponsData, List<Image>chosenPassiveItemsData)
+        {
+            if(chosenWeaponsData.Count != chosenWeaponsUI.Count || chosenPassiveItemsData.Count != chosenPassiveItemsUI.Count)
+            {
+                Debug.Log("tamanho das listas de armas e itens passivos tem tamanhos diferentes");
+                return;
+            }
+
+            //assign chosen weapon to chosenweaponUI (game over screen)  
+            for (int i = 0; i < chosenWeaponsUI.Count; i++)
+            {
+                //verifica se o sprite correpondente nao é nulo
+                if(chosenWeaponsData[i].sprite)
+                {
+                    //habilita o elemento correspondente no chosenWeaponsUI e seta a sprite certa 
+                    chosenWeaponsUI[i].enabled = true;
+                    chosenWeaponsUI[i].sprite = chosenWeaponsData[i].sprite;
+                }
+                else 
+                {
+                    //se a sprite for vazia desabilita o elemento
+                    chosenWeaponsUI[i].enabled = false;
+                }
+            }
+
+            //assign chosen passive item to passiveItemsUI (game over screen)  
+            for (int i = 0; i < chosenPassiveItemsUI.Count; i++)
+            {
+                //verifica se o sprite correpondente nao é nulo
+                if(chosenPassiveItemsData[i].sprite)
+                {
+                    //habilita o elemento correspondente no chosenPassiveItemsUI e seta a sprite certa 
+                    chosenPassiveItemsUI[i].enabled = true;
+                    chosenPassiveItemsUI[i].sprite = chosenPassiveItemsData[i].sprite;
+                }
+                else 
+                {
+                    //se a sprite for vazia desabilita o elemento
+                    chosenPassiveItemsUI[i].enabled = false;
+                }
+            }
+        }
     }

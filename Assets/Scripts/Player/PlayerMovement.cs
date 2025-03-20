@@ -39,6 +39,12 @@ public class PlayerMovement : MonoBehaviour
 
     void InputManagement()
     {
+
+        if(GameManager.instance.isGameOver || GameManager.instance.isGamePaused)
+        {
+            return;
+        }
+
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 
@@ -63,6 +69,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
+         if(GameManager.instance.isGameOver || GameManager.instance.isGamePaused)
+        {
+            return;
+        }
         rb.linearVelocity = new Vector2(moveDir.x * player.CurrentMoveSpeed, moveDir.y * player.CurrentMoveSpeed);
     }
 }
