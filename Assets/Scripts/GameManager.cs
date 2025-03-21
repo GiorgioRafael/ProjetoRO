@@ -52,6 +52,9 @@ using UnityEngine;
         
         public bool choosingUpgrade;
 
+        //referencia o gameobject do player
+        public GameObject playerObject;
+
         void Awake()
         {
             //warning check to see if theres another singleton of this kind in the game
@@ -251,6 +254,7 @@ using UnityEngine;
         public void StartLevelUp()
         {
             ChangeState(GameState.LevelUp);
+            playerObject.SendMessage("RemoveAndApplyUpgrades");
         }
         public void EndLevelUp()
         {

@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0953af1837496524690b54cd71adc69d, type: 3}
   m_Name: Wings Passive Item
   m_EditorClassIdentifier: 
-  multipler: 50
+  multipler: 10
   level: 1
   nextLevelPrefab: {fileID: 2810199303019688387, guid: 7c0b8ce18cdc2ed439540b87d823d6d8, type: 3}
+  name: "Engrenagens R\xE1pidas"
+  description: Aumenta a velocidade em 10%
   icon: {fileID: -1579963860, guid: 21591577b23b8db41a0462e1839eedb6, type: 3}

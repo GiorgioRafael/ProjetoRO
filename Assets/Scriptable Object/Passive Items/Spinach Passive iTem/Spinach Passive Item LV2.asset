@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0953af1837496524690b54cd71adc69d, type: 3}
   m_Name: Spinach Passive Item LV2
   m_EditorClassIdentifier: 
-  multipler: 100
+  multipler: 20
   level: 2
   nextLevelPrefab: {fileID: 0}
+  name: "Po\xE7\xE3o de dano Level 2"
+  description: Aumenta todo o dano em 10%
   icon: {fileID: -1572861473, guid: 21591577b23b8db41a0462e1839eedb6, type: 3}

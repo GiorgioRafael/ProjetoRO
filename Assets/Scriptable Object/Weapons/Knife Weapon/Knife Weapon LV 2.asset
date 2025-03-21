@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27f7228e3671690418b46c86d84531f9, type: 3}
   m_Name: Knife Weapon LV 2
   m_EditorClassIdentifier: 
-  prefab: {fileID: 2870778423422897111, guid: bf4a1ceb8e74ebb4791fa3441b812439, type: 3}
-  damage: 5
-  speed: 15
-  cooldownDuration: 0.3
+  prefab: {fileID: 2870778423422897111, guid: 86cf9568c409055468adda5a626f9f60, type: 3}
+  damage: 10
+  speed: 10
+  cooldownDuration: 1.5
   pierce: 1
   destroyAfterSeconds: 3
   level: 2
   nextLevelPrefab: {fileID: 0}
+  name: "Faca r\xE1pida Level 2"
+  description: Aumenta o dano base em 5
   icon: {fileID: 135091557, guid: 21591577b23b8db41a0462e1839eedb6, type: 3}
