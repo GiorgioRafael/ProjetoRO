@@ -255,7 +255,9 @@ public class PlayerStats : MonoBehaviour
             //Debug.Log("Valor de xp necessario para o nivel atual: " + experienceCap);
             /*
             
+            
             */
+            GameManager.instance.StartLevelUp();
             LevelUpChecker(); //verifica novamente me caso de ganhar muito xp de uma vez
         }
     }

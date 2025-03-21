@@ -11,7 +11,8 @@ using UnityEngine;
         {
             Gameplay,
             Paused,
-            GameOver
+            GameOver,
+            LevelUp
         }
         //estado atual do jogo
         public GameState currentState;
@@ -22,6 +23,7 @@ using UnityEngine;
         [Header("Screens")]
         public GameObject pauseScreen;
         public GameObject resultsScreen;
+        public GameObject levelUpScreen;
 
         [Header("Current Stat Display")]
         public Text currentHealthDisplay;
@@ -47,6 +49,8 @@ using UnityEngine;
 
         public bool isGameOver = false;
         public bool isGamePaused = false;
+        
+        public bool choosingUpgrade;
 
         void Awake()
         {
@@ -89,6 +93,15 @@ using UnityEngine;
                         Time.timeScale = 0f; //stop the game
                         Debug.Log("Game is over");
                         DisplayResults();
+                    }
+                    break;
+                    case GameState.LevelUp:
+                    if(!choosingUpgrade)
+                    {
+                        choosingUpgrade = true;
+                        Time.timeScale = 0f;
+                        Debug.Log("upgrades shown");
+                        levelUpScreen.SetActive(true);
                     }
                     break;
 
@@ -150,6 +163,7 @@ using UnityEngine;
         {
             pauseScreen.SetActive(false);
             resultsScreen.SetActive(false);
+            levelUpScreen.SetActive(false);
         }
         public void GameOver()
         {
@@ -232,5 +246,17 @@ using UnityEngine;
             
             //da uptadte no stopwatch text para o tempo do timer  
             StopwatchDisplay.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        }
+
+        public void StartLevelUp()
+        {
+            ChangeState(GameState.LevelUp);
+        }
+        public void EndLevelUp()
+        {
+            choosingUpgrade = false;
+            Time.timeScale = 1f; 
+            levelUpScreen.SetActive(false);
+            ChangeState(GameState.Gameplay);
         }
     }
