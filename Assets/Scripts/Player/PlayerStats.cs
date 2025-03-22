@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -166,6 +168,11 @@ public class PlayerStats : MonoBehaviour
     public int weaponIndex;
     public int passiveItemIndex;
 
+    [Header("UI")]
+    public Image healthBar;
+    public Image expBar;
+    public Text levelText;
+
     public GameObject secondWeaponTest;
     public GameObject firstPassiveItemTest, secondPassiveItemTest;
 
@@ -207,6 +214,9 @@ public class PlayerStats : MonoBehaviour
         GameManager.instance.currentMagnetDisplay.text = "Magnet: " + currentMagnet;
 
         GameManager.instance.AssignChosenCharacterUI(characterData);
+        UpdateHealthBar();
+        UpdateExpBar();
+        UpdateLevelText();
     }
 
     void Update()
@@ -232,6 +242,8 @@ public class PlayerStats : MonoBehaviour
     {
         experience += amount;
         LevelUpChecker();
+
+        UpdateExpBar();
     }
     void LevelUpChecker()
     {
@@ -253,14 +265,25 @@ public class PlayerStats : MonoBehaviour
             /*experienceCap += experienceCapIncrease; //xp fixo por niveis */
             experienceCap = experienceCap + experienceCapIncrease; // xp aumenta a cada nivel o nivel do cap
             //Debug.Log("Valor de xp necessario para o nivel atual: " + experienceCap);
-            /*
-            
-            
-            */
             GameManager.instance.StartLevelUp();
+
+            UpdateLevelText();
+
             LevelUpChecker(); //verifica novamente me caso de ganhar muito xp de uma vez
         }
     }
+
+    void UpdateExpBar()
+    {
+        //da update na barra de xp
+        expBar.fillAmount = (float)experience / experienceCap;
+    }
+
+    void UpdateLevelText()
+    {
+        levelText.text = "LV" + level.ToString();
+    }    
+
     public void TakeDamage(float dmg)
     {
         if (!isInvincible)
@@ -275,8 +298,13 @@ public class PlayerStats : MonoBehaviour
             {
                 Kill();
             }
+            UpdateHealthBar();
         }
-
+    }
+    public void UpdateHealthBar()
+    {
+        //atualiza a barra de vida
+        healthBar.fillAmount = currentHealth / characterData.MaxHealth;
     }
     public void Kill()
     {

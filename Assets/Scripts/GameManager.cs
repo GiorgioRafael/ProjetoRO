@@ -24,6 +24,8 @@ using UnityEngine;
         public GameObject pauseScreen;
         public GameObject resultsScreen;
         public GameObject levelUpScreen;
+        [SerializeField]
+        public GameObject expBarHolder;
 
         [Header("Current Stat Display")]
         public Text currentHealthDisplay;
@@ -82,6 +84,7 @@ using UnityEngine;
                     //codigo para quanto o jogo tiver rodando
                     CheckForPauseAndResume();
                     UpdateStopwatch();
+                    EnableExpBar();
                     break;
                     
                 case GameState.Paused:
@@ -96,6 +99,7 @@ using UnityEngine;
                         Time.timeScale = 0f; //stop the game
                         Debug.Log("Game is over");
                         DisplayResults();
+                        DisableExpBar();
                     }
                     break;
                     case GameState.LevelUp:
@@ -105,6 +109,7 @@ using UnityEngine;
                         Time.timeScale = 0f;
                         Debug.Log("upgrades shown");
                         levelUpScreen.SetActive(true);
+                        DisableExpBar();
                     }
                     break;
 
@@ -262,5 +267,14 @@ using UnityEngine;
             Time.timeScale = 1f; 
             levelUpScreen.SetActive(false);
             ChangeState(GameState.Gameplay);
+        }
+
+        public void EnableExpBar()
+        {
+            expBarHolder.gameObject.SetActive(true);
+        }
+        public void DisableExpBar()
+        {
+            expBarHolder.gameObject.SetActive(false);
         }
     }
