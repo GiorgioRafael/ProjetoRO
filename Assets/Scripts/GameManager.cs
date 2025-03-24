@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
-    using UnityEngine.UI;
+using UnityEngine.UI;
+using TMPro;
 
     public class GameManager : MonoBehaviour
     {
@@ -28,25 +29,25 @@ using UnityEngine;
         public GameObject expBarHolder;
 
         [Header("Current Stat Display")]
-        public Text currentHealthDisplay;
-        public Text currentRecoveryDisplay;
-        public Text currentMoveSpeedDisplay;
-        public Text currentMightDisplay;
-        public Text currentProjectileSpeedDisplay;
-        public Text currentMagnetDisplay;
+        public TMP_Text currentHealthDisplay;
+        public TMP_Text currentRecoveryDisplay;
+        public TMP_Text currentMoveSpeedDisplay;
+        public TMP_Text currentMightDisplay;
+        public TMP_Text currentProjectileSpeedDisplay;
+        public TMP_Text currentMagnetDisplay;
 
         [Header("Results Screen Display")]
         public Image chosenCharacterImage;
-        public Text chosenCharacterName;
-        public Text levelReachedDisplay;
-        public Text timeSurvivedDisplay;
+        public TMP_Text chosenCharacterName;
+        public TMP_Text levelReachedDisplay;
+        public TMP_Text timeSurvivedDisplay;
         public List<Image> chosenWeaponsUI = new List<Image>(6);
         public List<Image> chosenPassiveItemsUI = new List<Image>(6);
 
         [Header("Stopwatch")]
         public float timeLimit; //o tempo limite em segundos
         float stopWatchTime; //o tempo atual desde que o começou o jogo
-        public Text StopwatchDisplay; 
+        public TMP_Text StopwatchDisplay; 
 
 
         public bool isGameOver = false;
