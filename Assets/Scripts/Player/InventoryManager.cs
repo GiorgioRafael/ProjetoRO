@@ -10,7 +10,6 @@ public class InventoryManager : MonoBehaviour
     public List<WeaponController> weaponSlots = new List<WeaponController>(6);
     public int[] weaponLevels = new int[6];
     public List<Image> weaponUISlots = new List<Image>(6);
-
     public List<PassiveItem> passiveItemSlots = new List<PassiveItem>(6);
     public int[] passiveItemLevels = new int[6];
     public List<Image> passiveItemUISlots = new List<Image>(6);
@@ -45,6 +44,7 @@ public class InventoryManager : MonoBehaviour
     public List<WeaponUpgrade> weaponUpgradeOptions = new List<WeaponUpgrade>();
     public List<PassiveItemUpgrade> passiveItemUpgradeOptions = new List<PassiveItemUpgrade>();
     public List<UpgradeUI> upgradeUIOptions = new List<UpgradeUI>(); //List of ui for upgrade options
+    public List<WeaponEvolutionBlueprint> weaponEvolutions = new List<WeaponEvolutionBlueprint>();
 
     PlayerStats player;
     void Start()
@@ -278,4 +278,29 @@ public class InventoryManager : MonoBehaviour
         ui.upgradeNameDisplay.transform.parent.gameObject.SetActive(true);
     }
 
+    public List<WeaponEvolutionBlueprint> GetPossibleEvolutions()
+    {
+        List<WeaponEvolutionBlueprint> possibleEvolutions = new List<WeaponEvolutionBlueprint>();
+
+        foreach (WeaponController weapon in weaponSlots)
+        {
+            if (weapon !=null)
+            {
+                foreach (PassiveItem catalyst in passiveItemSlots)
+                {
+                    if(catalyst != null)
+                    {
+                        foreach (WeaponEvolutionBlueprint evolution in weaponEvolutions)
+                        {
+                            if(weapon.weaponData.Level >= evolution.baseWeaponData.Level && catalyst.passiveItemData.Level >= evolution.catalystPassiveItemData.Level)
+                            {
+                                possibleEvolutions.Add(evolution);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return possibleEvolutions;
+    }
 }

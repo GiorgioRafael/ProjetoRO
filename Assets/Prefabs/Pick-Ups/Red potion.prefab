@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -383300486051814217}
   - component: {fileID: 8612942016465467941}
   - component: {fileID: -7615894713855757084}
+  - component: {fileID: 603235927594505892}
   m_Layer: 0
   m_Name: Red potion
   m_TagString: Untagged
@@ -189,3 +190,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e21a09124c11b44e84d06c1be460978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &603235927594505892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502375065708660715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9cab99c90840a9438ac3e7f7c458b74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frequency: 3
+  magnitude: 0.1
+  direction: {x: 0, y: 1, z: 0}
