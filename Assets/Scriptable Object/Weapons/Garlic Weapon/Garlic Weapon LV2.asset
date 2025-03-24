@@ -15,9 +15,9 @@ MonoBehaviour:
   prefab: {fileID: 8976645679002031799, guid: db42d67fe9f5e1745ac328c43b458f8b, type: 3}
   damage: 5
   speed: 0
-  cooldownDuration: 1.5
+  cooldownDuration: 3
   pierce: 0
-  destroyAfterSeconds: 0
+  destroyAfterSeconds: 0.01
   level: 2
   nextLevelPrefab: {fileID: 4179468507566992824, guid: e027ed37f28c8b541aa22af6cb15a578, type: 3}
   name: Aura poderosa Level 2

@@ -244,7 +244,7 @@ using UnityEngine;
 
             if(stopWatchTime >= timeLimit)
             {
-                GameOver();
+                playerObject.SendMessage("Kill");
             }
         }
         void UpdateStopwatchDisplay()

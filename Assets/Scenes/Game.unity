@@ -2009,7 +2009,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 383724002}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -6445,7 +6445,7 @@ MonoBehaviour:
   - {fileID: 2015898553}
   - {fileID: 223099687}
   - {fileID: 1094487858}
-  timeLimit: 300
+  timeLimit: 99999
   StopwatchDisplay: {fileID: 226161738}
   isGameOver: 0
   isGamePaused: 0
