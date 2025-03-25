@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEditor.ShaderGraph.Internal;
 
 public class GameManager : MonoBehaviour
     {

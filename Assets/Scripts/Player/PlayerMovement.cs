@@ -18,6 +18,9 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public Vector2 lastMovedVector;
 
+    [SerializeField] private GameObject joystick; // Keeps it private but still assignable in the Inspector
+
+
     //References
     Rigidbody2D rb;
     PlayerStats player;
@@ -47,8 +50,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
         float moveX, moveY;    
-        if(VirtualJoystick.CountActiveInstances() >0)
-        
+        if(joystick != null && joystick.gameObject.activeInHierarchy)
         {
             moveX = VirtualJoystick.GetAxisRaw("Horizontal");
             moveY = VirtualJoystick.GetAxisRaw("Vertical");

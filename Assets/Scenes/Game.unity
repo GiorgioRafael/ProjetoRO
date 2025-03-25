@@ -2329,6 +2329,7 @@ MonoBehaviour:
   lastVerticalVector: 0
   moveDir: {x: 0, y: 0}
   lastMovedVector: {x: 0, y: 0}
+  joystick: {fileID: 1933889037}
 --- !u!212 &383724006
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9910,6 +9911,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Native Joystick (White)
       objectReference: {fileID: 0}
+    - target: {fileID: 8834734170784175512, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8834734170784175513, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -10023,6 +10028,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
+--- !u!1 &1933889037 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8834734170784175512, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
+  m_PrefabInstance: {fileID: 1933889036}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1972251993
 GameObject:
   m_ObjectHideFlags: 0
