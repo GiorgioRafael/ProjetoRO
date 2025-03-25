@@ -49,4 +49,8 @@ public class WeaponScriptableObject : ScriptableObject
     [SerializeField]
     Sprite icon; //nao é pra ser modificado
     public Sprite Icon { get => icon; private set => icon = value; }
+
+    [SerializeField]
+    int evolvedUpgradeToRemove; //nao é pra ser modificado
+    public int EvolvedUpgradeToRemove{ get => evolvedUpgradeToRemove; private set => evolvedUpgradeToRemove = value; }
 }

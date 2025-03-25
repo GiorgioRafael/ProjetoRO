@@ -9,7 +9,6 @@ public class GarlicController : WeaponController
         base.Start();
     }
 
-    // Update is called once per frame
     protected override void Attack()
     {
         base.Attack();

@@ -15,11 +15,12 @@ MonoBehaviour:
   prefab: {fileID: 3885051503259894039, guid: ed76e04933634c549b45d56b99abb42f, type: 3}
   damage: 10
   speed: 0
-  cooldownDuration: 3
+  cooldownDuration: 1
   pierce: 0
-  destroyAfterSeconds: 0.01
+  destroyAfterSeconds: 0.5
   level: 2
   nextLevelPrefab: {fileID: 0}
   name: Aura poderosa Level 3
   description: Aumenta o dano base em 2
   icon: {fileID: 1996521656, guid: 55da63f400133864494098aa203de34a, type: 3}
+  evolvedUpgradeToRemove: 0

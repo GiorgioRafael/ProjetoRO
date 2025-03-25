@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Unity.Mathematics;
+using System.Data.Common;
 public class InventoryManager : MonoBehaviour
 {
     //dont use dictionary because unity dont have it on inspector  
@@ -337,6 +338,9 @@ public class InventoryManager : MonoBehaviour
 
                     weaponLevels[weaponSlotIndex] = evolvedWeaponController.weaponData.Level;
                     weaponUISlots[weaponSlotIndex].sprite = evolvedWeaponController.weaponData.Icon;
+
+                    // Da update na lista de opções de upgrade
+                    weaponUpgradeOptions.RemoveAt(evolvedWeaponController.weaponData.EvolvedUpgradeToRemove);
 
                     Debug.LogWarning("Evolved!");
 

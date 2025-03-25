@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: Garlic Weapon
   m_EditorClassIdentifier: 
   prefab: {fileID: 3885051503259894039, guid: 69dadc586ea881649835956aa0c7fed7, type: 3}
-  damage: 5
+  damage: 10
   speed: 0
-  cooldownDuration: 3
+  cooldownDuration: 1
   pierce: 0
-  destroyAfterSeconds: 0.01
+  destroyAfterSeconds: 0.5
   level: 1
   nextLevelPrefab: {fileID: 4179468507566992824, guid: 03c4d5a68058b8445802d7a9268f2a46, type: 3}
   name: Aura poderosa Level 2
   description: Uma aura poderosa que causa dano ao redor do jogador
   icon: {fileID: 1996521656, guid: 55da63f400133864494098aa203de34a, type: 3}
+  evolvedUpgradeToRemove: 0
