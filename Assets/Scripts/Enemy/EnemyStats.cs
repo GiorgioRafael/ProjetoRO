@@ -7,6 +7,8 @@ public class EnemyStats : MonoBehaviour
 {
     public EnemyScriptableObject enemyData;
 
+    private Animator animator;
+
     //Current stats
     [HideInInspector]
     public float currentMoveSpeed;
@@ -20,8 +22,8 @@ public class EnemyStats : MonoBehaviour
 
     [Header("Damage Feedback")]
     public Color damageColor = new Color(1,0,0,1);
-    public float damageFlashDuration = 0.2f;
-    public float deathFadeTime = 0.6f;
+    public float damageFlashDuration = 0.1f;
+    public float deathFadeTime = 0.1f;
     Color originalColor;
     SpriteRenderer sr;
     EnemyMovement movement;
@@ -36,6 +38,9 @@ public class EnemyStats : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponent<Animator>();
+
+
         player = FindFirstObjectByType<PlayerStats>().transform;
 
         sr = GetComponent<SpriteRenderer>();
@@ -52,10 +57,16 @@ public class EnemyStats : MonoBehaviour
         }
     }
 
+    float duration = 0.3f;
     public void TakeDamage(float dmg, Vector2 sourcePosition, float knockbackForce = 5f, float knockbackDuration = 0.2f)
     {
         currentHealth -= dmg;
         StartCoroutine(DamageFlash());
+
+        if(dmg > 0)
+        {
+            GameManager.GenerateFloatingText(Mathf.FloorToInt(dmg).ToString(), transform, duration);
+        }
 
         if(knockbackForce > 0)
         {
@@ -89,6 +100,7 @@ public class EnemyStats : MonoBehaviour
         while(t < deathFadeTime)
         {
             yield return w;
+            animator.enabled = false;
             t += Time.deltaTime;
 
             //set the colour for this frame
