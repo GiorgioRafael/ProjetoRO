@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd5814ec0fb245478ec319ccc65c52e, type: 3}
+  m_Name: New Knife
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  maxLevel: 8
+  behaviour: 
+  baseStats:
+    name: Knife
+    description: "Atira rapidamente na dire\xE7\xE3o que est\xE1 olhando."
+    hitEffect: {fileID: 0}
+    spawnVariance:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    lifespan: 3
+    damage: 6.5
+    damageVariance: 2
+    area: 1
+    speed: 1
+    cooldown: 1
+    projectileInterval: 0.1
+    knockback: 0.5
+    number: 1
+    piercing: 1
+    maxInstances: 70
+  linearGrowth:
+  - name: Knife Level 2
+    description: "Atira um proj\xE9til a mais."
+    hitEffect: {fileID: 0}
+    spawnVariance:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    lifespan: 0
+    damage: 0
+    damageVariance: 0
+    area: 0
+    speed: 0
+    cooldown: 0
+    projectileInterval: 0
+    knockback: 0
+    number: 1
+    piercing: 0
+    maxInstances: 0
+  - name: Knife Level 3
+    description: "Atira um proj\xE9til a mais."
+    hitEffect: {fileID: 0}
+    spawnVariance:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    lifespan: 0
+    damage: 0
+    damageVariance: 0
+    area: 0
+    speed: 0
+    cooldown: 0
+    projectileInterval: 0
+    knockback: 0
+    number: 1
+    piercing: 0
+    maxInstances: 0
+  randomGrowth: []
