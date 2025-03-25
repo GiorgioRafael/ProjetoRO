@@ -20,7 +20,15 @@ public class TreasureChests : MonoBehaviour
 
     public void OpenTreasureChest()
     {
-        Debug.Log("Chest opened");
+
+        if(inventory.GetPossibleEvolutions().Count <= 0)
+        {
+            Debug.LogWarning("No available Up");
+            return;
+        }
+
+        WeaponEvolutionBlueprint toEvolve = inventory.GetPossibleEvolutions()[Random.Range(0, inventory.GetPossibleEvolutions().Count)];
+        inventory.EvolveWeapon(toEvolve);
     }
 
 }

@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 27f7228e3671690418b46c86d84531f9, type: 3}
-  m_Name: Garlic Weapon LV3
+  m_Name: Evolved Knife Weapon
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3885051503259894039, guid: ed76e04933634c549b45d56b99abb42f, type: 3}
-  damage: 10
-  speed: 0
-  cooldownDuration: 3
-  pierce: 0
-  destroyAfterSeconds: 0.01
-  level: 2
+  prefab: {fileID: 2870778423422897111, guid: 9ea0e66886513684f89996bd954e39c9, type: 3}
+  damage: 30
+  speed: 20
+  cooldownDuration: 1
+  pierce: 2
+  destroyAfterSeconds: 3
+  level: 0
   nextLevelPrefab: {fileID: 0}
-  name: Aura poderosa Level 3
-  description: Aumenta o dano base em 2
-  icon: {fileID: 1996521656, guid: 55da63f400133864494098aa203de34a, type: 3}
+  name: 
+  description: 
+  icon: {fileID: -1404613553, guid: 21591577b23b8db41a0462e1839eedb6, type: 3}

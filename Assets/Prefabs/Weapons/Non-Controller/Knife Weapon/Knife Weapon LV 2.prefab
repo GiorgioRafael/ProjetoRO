@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2317877263417572574}
   - component: {fileID: -3761718143000133989}
   m_Layer: 0
-  m_Name: Knife Weapon LV2
+  m_Name: Knife Weapon LV 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

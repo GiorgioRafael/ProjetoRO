@@ -3,6 +3,7 @@ using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.Mathematics;
 public class InventoryManager : MonoBehaviour
 {
     //dont use dictionary because unity dont have it on inspector  
@@ -152,12 +153,12 @@ public class InventoryManager : MonoBehaviour
             }
             else
             {
-                upgradeType = Random.Range(1,3); //escolhe entre itens passivos e armas
+                upgradeType = UnityEngine.Random.Range(1,3); //escolhe entre itens passivos e armas
             }
 
             if(upgradeType == 1)
             {
-                WeaponUpgrade chosenWeaponUpgrade = availableWeaponUpgrades[Random.Range(0, availableWeaponUpgrades.Count)];
+                WeaponUpgrade chosenWeaponUpgrade = availableWeaponUpgrades[UnityEngine.Random.Range(0, availableWeaponUpgrades.Count)];
 
                 availableWeaponUpgrades.Remove(chosenWeaponUpgrade);
 
@@ -204,7 +205,7 @@ public class InventoryManager : MonoBehaviour
             }
             else if(upgradeType == 2)
             {
-                PassiveItemUpgrade chosenPassiveItemUpgrade = availablePassiveItemUpgrades[Random.Range(0, availablePassiveItemUpgrades.Count)];
+                PassiveItemUpgrade chosenPassiveItemUpgrade = availablePassiveItemUpgrades[UnityEngine.Random.Range(0, availablePassiveItemUpgrades.Count)];
 
                 availablePassiveItemUpgrades.Remove(chosenPassiveItemUpgrade);
 
@@ -302,5 +303,46 @@ public class InventoryManager : MonoBehaviour
             }
         }
         return possibleEvolutions;
+    }
+    public void EvolveWeapon(WeaponEvolutionBlueprint evolution)
+    {
+        for (int weaponSlotIndex = 0; weaponSlotIndex < weaponSlots.Count; weaponSlotIndex++)
+        {
+            WeaponController weapon = weaponSlots[weaponSlotIndex];
+
+            if(!weapon)
+            {
+                continue;
+            }
+
+            for (int catalystSlotIndex = 0; catalystSlotIndex < passiveItemSlots.Count; catalystSlotIndex++)
+            {
+                PassiveItem catalyst = passiveItemSlots[catalystSlotIndex];
+
+                if(!catalyst)
+                {
+                    continue;
+                }
+
+                if(weapon && catalyst && weapon.weaponData.Level >= evolution.baseWeaponData.Level && catalyst.passiveItemData.Level >= evolution.catalystPassiveItemData.Level)
+                {
+                    GameObject evolvedWeapon = Instantiate(evolution.evolvedWeapon, transform.position, Quaternion.identity);
+                    WeaponController evolvedWeaponController = evolvedWeapon.GetComponent<WeaponController>();
+
+                    evolvedWeapon.transform.SetParent(transform); //seta como child
+                    AddWeapon(weaponSlotIndex, evolvedWeaponController);
+                    Destroy(weapon.gameObject);
+
+                    //da update no nivel e no icone
+
+                    weaponLevels[weaponSlotIndex] = evolvedWeaponController.weaponData.Level;
+                    weaponUISlots[weaponSlotIndex].sprite = evolvedWeaponController.weaponData.Icon;
+
+                    Debug.LogWarning("Evolved!");
+
+                    return; 
+                }
+            }
+        }
     }
 }
