@@ -1,29 +1,33 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Weapon Data", menuName ="ProjectRO/WeaponData")]
-public class WeaponData : ScriptableObject
+/// <summary>
+/// Replacement for the WeaponScriptableObject class. The idea is we want to store all weapon evolution
+/// data in one single object, instead of having multiple objects to store a single weapon, which is
+/// what we would have had to do if we continued using WeaponScriptableObject.
+/// </summary>
+[CreateAssetMenu(fileName = "Weapon Data", menuName = "2D Top-down Rogue-like/Weapon Data")]
+public class WeaponData : ItemData
 {
-    public Sprite icon;
-    public int maxLevel;
 
     [HideInInspector] public string behaviour;
     public Weapon.Stats baseStats;
     public Weapon.Stats[] linearGrowth;
     public Weapon.Stats[] randomGrowth;
 
-    //gives us the stat growth / description of the next level.
+    // Gives us the stat growth / description of the next level.
     public Weapon.Stats GetLevelData(int level)
     {
-        //pega os status do proximo level
-        if(level - 2 < linearGrowth.Length)
-            return linearGrowth[level -2];
+        // Pick the stats from the next level.
+        if (level - 2 < linearGrowth.Length)
+            return linearGrowth[level - 2];
 
-        if(randomGrowth.Length > 0)
+        // Otherwise, pick one of the stats from the random growth array.
+        if (randomGrowth.Length > 0)
             return randomGrowth[Random.Range(0, randomGrowth.Length)];
 
-
-        //retorna um valor vazio e um warning
-        Debug.LogWarning(string.Format("Weapon doesnt gave its level up stats configured for level {0}!"));
-        return new Weapon.Stats();    
+        // Return an empty value and a warning.
+        Debug.LogWarning(string.Format("Weapon doesn't have its level up stats configured for Level {0}!",level));
+        return new Weapon.Stats();
     }
+
 }

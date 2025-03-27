@@ -10,12 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2132894914869355569}
   - component: {fileID: 451544800830698428}
-  - component: {fileID: 5547403386649348031}
   - component: {fileID: 4055360767056568390}
   - component: {fileID: 723842077542433033}
-  - component: {fileID: 6192260943981607470}
+  - component: {fileID: 7817262935685224443}
   m_Layer: 0
-  m_Name: Garlic Weapon LV2
+  m_Name: Garlic Weapon 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 3885051503259894039}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.8809438, y: -1.4288404, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -91,20 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5547403386649348031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3885051503259894039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 323e53c22fbc68f429c244aeab035d30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: 9f5186ced0bb9bf4a8d0fec1a6050123, type: 2}
-  destroyAfterSeconds: 0.5
 --- !u!95 &4055360767056568390
 Animator:
   serializedVersion: 7
@@ -163,7 +148,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.7
---- !u!114 &6192260943981607470
+--- !u!114 &7817262935685224443
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,7 +157,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3885051503259894039}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a27b917d2f8ca4942bf61107bf230cb6, type: 3}
+  m_Script: {fileID: 11500000, guid: d2d150e1720d1ac4683002bcadf96b49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: 9f5186ced0bb9bf4a8d0fec1a6050123, type: 2}
+  owner: {fileID: 0}
+  weapon: {fileID: 0}

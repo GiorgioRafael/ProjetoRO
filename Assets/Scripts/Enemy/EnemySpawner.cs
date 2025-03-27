@@ -87,7 +87,6 @@ public class EnemySpawner : MonoBehaviour
             currentWaveQuota += enemyGroup.enemyCount;
         }
         waves[currentWaveCount].waveQuota = currentWaveQuota;
-        Debug.LogWarning(currentWaveQuota);
     }
     /// <summary>
     /// esse metodo vai parar de spawnar inimigos se a quantidade de inimigos no mapa for a maxima

@@ -15,6 +15,6 @@ public class HealthPotion : Pickup
         }
         PlayerStats player = FindFirstObjectByType<PlayerStats>();
         player.RestoreHealth(healthToRestore);
-        player.UpdateHealthBar();
+        //player.UpdateHealthBar();
     }
 }

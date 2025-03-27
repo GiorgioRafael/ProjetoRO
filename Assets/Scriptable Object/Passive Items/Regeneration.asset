@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 880d98358dd449143adf751849f734ea, type: 3}
+  m_Name: Regeneration
+  m_EditorClassIdentifier: 
+  icon: {fileID: -1854595045, guid: 47a0d136e558be049b01252bc592ec76, type: 3}
+  maxLevel: 5
+  baseStats:
+    name: Wings
+    description: Increases regenaration by 0.2hp/s
+    boosts:
+      maxHealth: 0
+      recovery: 0.2
+      moveSpeed: 0
+      might: 0
+      speed: 0
+      magnet: 0
+  growth:
+  - name: Regeneration Level 2
+    description: Increases regenaration by 0.2hp/s
+    boosts:
+      maxHealth: 0
+      recovery: 0.2
+      moveSpeed: 0
+      might: 0
+      speed: 0
+      magnet: 0
+  - name: Regeneration Level 3
+    description: Increases regenaration by 0.2hp/s
+    boosts:
+      maxHealth: 0
+      recovery: 0.2
+      moveSpeed: 0
+      might: 0
+      speed: 0
+      magnet: 0
+  - name: Regeneration Level 4
+    description: Increases regenaration by 0.2hp/s
+    boosts:
+      maxHealth: 0
+      recovery: 0.2
+      moveSpeed: 0
+      might: 0
+      speed: 0
+      magnet: 0
+  - name: Regeneration Level 5
+    description: Increases regenaration by 0.2hp/s
+    boosts:
+      maxHealth: 0
+      recovery: 0.2
+      moveSpeed: 0
+      might: 0
+      speed: 0
+      magnet: 0

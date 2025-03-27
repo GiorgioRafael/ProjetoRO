@@ -9,16 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1812e8ed15e24874c9b26d0b458d54c3, type: 3}
+  m_Script: {fileID: 11500000, guid: e8a371504affb3544b15ee6c72cf2fb5, type: 3}
   m_Name: Knife Character
   m_EditorClassIdentifier: 
-  icon: {fileID: 8071111427214092540, guid: 35b45b786dc518c4685235de455fee33, type: 3}
+  icon: {fileID: 4106213231394428757, guid: 35b45b786dc518c4685235de455fee33, type: 3}
   name: Knife Character
-  startingWeapon: {fileID: 1115389980996547841, guid: ee993c00742a20946baa06d8e3f9b684, type: 3}
-  maxHealth: 1000
-  recovery: 1
-  moveSpeed: 5
-  might: 1
-  projectileSpeed: 0
-  projectileDuration: 0
-  magnet: 1.5
+  startingWeapon: {fileID: 11400000, guid: b75498fe315205f4a8d2e117db0949d3, type: 2}
+  stats:
+    maxHealth: 1000
+    recovery: 0
+    moveSpeed: 5
+    might: 1
+    speed: 1
+    magnet: 2

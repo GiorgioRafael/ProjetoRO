@@ -1,12 +1,12 @@
-using TMPro;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Componente que deve ser ligado a todas as prefabs das armas. O prefab funciona juntamente com o WeaponData
-/// ScriptableObjects para manusear e rodar os behaviours de todas as armas do jogo
+/// Component to be attached to all Weapon prefabs. The Weapon prefab works together with the WeaponData
+/// ScriptableObjects to manage and run the behaviours of all weapons in the game.
 /// </summary>
-public abstract class Weapon : MonoBehaviour
+public abstract class Weapon : Item
 {
     [System.Serializable]
     public struct Stats
@@ -14,21 +14,25 @@ public abstract class Weapon : MonoBehaviour
         public string name, description;
 
         [Header("Visuals")]
+        public Projectile projectilePrefab; // If attached, a projectile will spawn every time the weapon cools down.
+        public Aura auraPrefab; // If attached, an aura will spawn when weapon is equipped.
         public ParticleSystem hitEffect;
         public Rect spawnVariance;
 
         [Header("Values")]
-        public float lifespan; //se for 0 dura pra sempre
+        public float lifespan; // If 0, it will last forever.
         public float damage, damageVariance, area, speed, cooldown, projectileInterval, knockback;
         public int number, piercing, maxInstances;
 
+        // Allows us to use the + operator to add 2 Stats together.
+        // Very important later when we want to increase our weapon stats.
         public static Stats operator +(Stats s1, Stats s2)
         {
             Stats result = new Stats();
             result.name = s2.name ?? s1.name;
             result.description = s2.description ?? s1.description;
-            //result.projetilePrefab = s2.projectilePrefab ?? s1.projectilePrefab;
-            //result.auraPrefab = s2.auraPrefab ?? s1.auraPrefab;;
+            result.projectilePrefab = s2.projectilePrefab ?? s1.projectilePrefab;
+            result.auraPrefab = s2.auraPrefab ?? s1.auraPrefab;
             result.hitEffect = s2.hitEffect == null ? s1.hitEffect : s2.hitEffect;
             result.spawnVariance = s2.spawnVariance;
             result.lifespan = s1.lifespan + s2.lifespan;
@@ -44,15 +48,14 @@ public abstract class Weapon : MonoBehaviour
             return result;
         }
 
+        // Get damage dealt.
         public float GetDamage()
         {
             return damage + Random.Range(0, damageVariance);
         }
     }
 
-    public int currentLevel = 1, maxLevel = 1;
     
-    protected PlayerStats owner;
 
     protected Stats currentStats;
 
@@ -60,89 +63,88 @@ public abstract class Weapon : MonoBehaviour
 
     protected float currentCooldown;
 
-    protected PlayerMovement movement; //referencia para o player movement
+    protected PlayerMovement movement; // Reference to the player's movement.
 
-    //para criacao de armas dinamicas, chama a funcao initialise para setar tudo certinho.
-    public virtual void initialise(WeaponData data)
+    // For dynamically created weapons, call initialise to set everything up.
+    public virtual void Initialise(WeaponData data)
     {
-        maxLevel = data.maxLevel;
-        owner = FindObjectOfType<PlayerStats>();
 
+        base.Initialise(data);
         this.data = data;
         currentStats = data.baseStats;
         movement = GetComponentInParent<PlayerMovement>();
         currentCooldown = currentStats.cooldown;
     }
+
     protected virtual void Awake()
     {
-        if (data) currentStats = data.baseStats;
+        // Assign the stats early, as it will be used by other scripts later on.
+        if(data) currentStats = data.baseStats;
     }
 
     protected virtual void Start()
     {
+        // Don't initialise the weapon if the weapon data is not assigned.
         if(data)
         {
-            initialise(data);
+            Initialise(data);
         }
     }
+
     protected virtual void Update()
     {
         currentCooldown -= Time.deltaTime;
-        if(currentCooldown <= 0f) //quando o cooldown der 0, ataca
+        if (currentCooldown <= 0f) //Once the cooldown becomes 0, attack
         {
             Attack(currentStats.number);
         }
     }
 
-    public virtual bool CanLevelup()
-    {
-        return currentLevel <=maxLevel;
-    }
 
-    //Aumenta o level da arma em 1, e calcula os status correspondentes
-    public virtual bool DoLevelUp()
+
+    // Levels up the weapon by 1, and calculates the corresponding stats.
+    public override bool DoLevelUp()
     {
-        //evita aumentar o level se ja estiver no nivel maximo
-        if(!CanLevelup())
+        base.DoLevelUp();
+
+        // Prevent level up if we are already at max level.
+        if (!CanLevelUp())
         {
-            Debug.LogWarning(string.Format("Cannot level up {0} to level {1}, max level of {2} already reached.", name, currentLevel, data.maxLevel));
+            Debug.LogWarning(string.Format("Cannot level up {0} to Level {1}, max level of {2} already reached.", name, currentLevel, data.maxLevel));
             return false;
         }
 
-        //senao, adiciona os status do proximo level da arma
+        // Otherwise, add stats of the next level to our weapon.
         currentStats += data.GetLevelData(++currentLevel);
         return true;
     }
 
-    //verifica se a arma pode atacar nesse momento
+    // Lets us check whether this weapon can attack at this current moment.
     public virtual bool CanAttack()
     {
         return currentCooldown <= 0;
     }
 
-    //performa um ataque com a arma
-    //retorna true se o ataque for bem sucedido
-    //This doesnt do anything. we have to override this at the child class to add a behaviour.
-
+    // Performs an attack with the weapon.
+    // Returns true if the attack was successful.
+    // This doesn't do anything. We have to override this at the child class to add a behaviour.
     protected virtual bool Attack(int attackCount = 1)
     {
-        if(CanAttack())
-        {
-            currentCooldown += currentStats.cooldown;
+        if(CanAttack()) {
+	    currentCooldown += currentStats.cooldown;
             return true;
         }
         return false;
     }
 
-    //gets the amount of damage that the weapon is supposed to deal.
-    //incluindo a variacao de dano e o might do personagem
-
+    // Gets the amount of damage that the weapon is supposed to deal.
+    // Factoring in the weapon's stats (including damage variance),
+    // as well as the character's Might stat.
     public virtual float GetDamage()
     {
         return currentStats.GetDamage() * owner.CurrentMight;
     }
 
-    //para pegar os stats da arma
-    public virtual Stats GetStats() {return currentStats;}
-    
+    // For retrieving the weapon's stats.
+    public virtual Stats GetStats() { return currentStats; }
 }
