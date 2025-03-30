@@ -1,3 +1,4 @@
+using System.Numerics;
 using UnityEngine;
 
 public class AuraWeapon : Weapon
@@ -17,6 +18,7 @@ public class AuraWeapon : Weapon
             currentAura = Instantiate(currentStats.auraPrefab, transform);
             currentAura.weapon = this;
             currentAura.owner = owner;
+            currentAura.transform.localScale = new UnityEngine.Vector3(currentStats.area, currentStats.area, currentStats.area);
         }
     }
 
@@ -32,7 +34,7 @@ public class AuraWeapon : Weapon
         // If there is an aura attached to this weapon, we update the aura.
         if (currentAura)
         {
-            currentAura.transform.localScale = new Vector3(currentStats.area, currentStats.area, currentStats.area);
+            currentAura.transform.localScale = new UnityEngine.Vector3(currentStats.area, currentStats.area, currentStats.area);
         }
         return true;
     }

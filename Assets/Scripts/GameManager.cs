@@ -141,22 +141,30 @@ public class GameManager : MonoBehaviour
             Destroy(textObj, duration);
 
             textObj.transform.SetParent(instance.damageTextCanvas.transform);
+            textObj.transform.SetSiblingIndex(0);
 
             WaitForEndOfFrame w = new WaitForEndOfFrame();
             float t = 0;
             float yOffset = 0;
+            Vector3 lastKnownPosition = target.position;
             while (t < duration)
-            
-            {
-                yield return w;
-                t += Time.deltaTime;
-                
+            {   
+                //if the rect object is missing, terminates this loop
+                if(!rect) break;
+
                 //fade the text to the right alpha value
                 tmPro.color = new Color(tmPro.color.r, tmPro.color.g, tmPro.color.b, 1 - t / duration);
 
+                //if the target exists then save its position
+                if(target)
+                    lastKnownPosition = target.position;
+
                 //desloca o text pra cima
                 yOffset += speed * Time.deltaTime;
-                rect.position = referenceCamera.WorldToScreenPoint(target.position + new Vector3(0, yOffset));
+                rect.position = referenceCamera.WorldToScreenPoint(lastKnownPosition + new Vector3(0, yOffset));
+
+                yield return w;
+                t += Time.deltaTime;
             }
         }
         
@@ -247,7 +255,7 @@ public class GameManager : MonoBehaviour
             levelReachedDisplay.text = levelReachedData.ToString();
         }
 
-        public void AssignChosenWeaponsAndPassiveItemsUI(List<Image> chosenWeaponsData, List<Image>chosenPassiveItemsData)
+        public void AssignChosenWeaponsAndPassiveItemsUI(List<PlayerInventory.Slot> chosenWeaponsData, List<PlayerInventory.Slot>chosenPassiveItemsData)
         {
             if(chosenWeaponsData.Count != chosenWeaponsUI.Count || chosenPassiveItemsData.Count != chosenPassiveItemsUI.Count)
             {
@@ -259,11 +267,11 @@ public class GameManager : MonoBehaviour
             for (int i = 0; i < chosenWeaponsUI.Count; i++)
             {
                 //verifica se o sprite correpondente nao é nulo
-                if(chosenWeaponsData[i].sprite)
+                if(chosenWeaponsData[i].image.sprite)
                 {
                     //habilita o elemento correspondente no chosenWeaponsUI e seta a sprite certa 
                     chosenWeaponsUI[i].enabled = true;
-                    chosenWeaponsUI[i].sprite = chosenWeaponsData[i].sprite;
+                    chosenWeaponsUI[i].sprite = chosenWeaponsData[i].image.sprite;
                 }
                 else 
                 {
@@ -276,11 +284,11 @@ public class GameManager : MonoBehaviour
             for (int i = 0; i < chosenPassiveItemsUI.Count; i++)
             {
                 //verifica se o sprite correpondente nao é nulo
-                if(chosenPassiveItemsData[i].sprite)
+                if(chosenPassiveItemsData[i].image.sprite)
                 {
                     //habilita o elemento correspondente no chosenPassiveItemsUI e seta a sprite certa 
                     chosenPassiveItemsUI[i].enabled = true;
-                    chosenPassiveItemsUI[i].sprite = chosenPassiveItemsData[i].sprite;
+                    chosenPassiveItemsUI[i].sprite = chosenPassiveItemsData[i].image.sprite;
                 }
                 else 
                 {

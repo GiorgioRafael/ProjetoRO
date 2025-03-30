@@ -210,10 +210,16 @@ public class PlayerStats : MonoBehaviour
     public Image expBar;
     public TMP_Text levelText;
 
+    PlayerAnimator playerAnimator;
+
     void Awake()
     {
         characterData = CharacterSelector.GetData();
-        CharacterSelector.instance.DestroySingleton();
+
+        if(CharacterSelector.instance)
+        {
+            CharacterSelector.instance.DestroySingleton();
+        }
 
         
         inventory = GetComponent<PlayerInventory>();
@@ -222,6 +228,9 @@ public class PlayerStats : MonoBehaviour
         
         baseStats = actualStats = characterData.stats;
         health = actualStats.maxHealth;
+
+        playerAnimator = GetComponent<PlayerAnimator>();
+        playerAnimator.SetAnimatorController(characterData.controller);
 
         
     }
@@ -346,7 +355,7 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    void UpdateHealthBar()
+    public void UpdateHealthBar()
     {
         //Update the health bar
         healthBar.fillAmount = CurrentHealth / actualStats.maxHealth;
@@ -357,7 +366,7 @@ public class PlayerStats : MonoBehaviour
         if(!GameManager.instance.isGameOver)
         {
             GameManager.instance.AssignLevelReachedUI(level);
-            
+            GameManager.instance.AssignChosenWeaponsAndPassiveItemsUI(inventory.weaponSlots, inventory.passiveSlots);
             GameManager.instance.GameOver();
         }
     }

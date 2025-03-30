@@ -12,9 +12,10 @@ public class Aura : WeaponEffect
     Dictionary<EnemyStats, float> affectedTargets = new Dictionary<EnemyStats, float>();
     List<EnemyStats> targetsToUnaffect = new List<EnemyStats>();
 
-    // Update is called once per frame
     void Update()
     {
+        // We make a copy of the existing dictionary to prevent bugs from
+        // occurring as we will be modifying the original dictionary in a loop.
         Dictionary<EnemyStats, float> affectedTargsCopy = new Dictionary<EnemyStats, float>(affectedTargets);
 
         // Loop through every target affected by the aura, and reduce the cooldown

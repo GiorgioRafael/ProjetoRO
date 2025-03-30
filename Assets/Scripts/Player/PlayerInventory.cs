@@ -350,8 +350,8 @@ public class PlayerInventory : MonoBehaviour
                             // If the weapon is already at the max level, do not allow upgrade.
                             if (chosenWeaponUpgrade.maxLevel <= w.currentLevel)
                             {
-                                //DisableUpgradeUI(upgradeOption);
-                                isLevelUp = false;
+                                DisableUpgradeUI(upgradeOption);
+                                isLevelUp = true;
                                 break;
                             }
 
@@ -401,8 +401,8 @@ public class PlayerInventory : MonoBehaviour
                             // If the passive is already at the max level, do not allow upgrade.
                             if (chosenPassiveUpgrade.maxLevel <= p.currentLevel)
                             {
-                                //DisableUpgradeUI(upgradeOption);
-                                isLevelUp = false;
+                                DisableUpgradeUI(upgradeOption);
+                                isLevelUp = true;
                                 break;
                             }
                             upgradeOption.upgradeButton.onClick.AddListener(() => LevelUpPassiveItem(i, i)); //Apply button functionality

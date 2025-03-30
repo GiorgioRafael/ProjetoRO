@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebd5814ec0fb245478ec319ccc65c52e, type: 3}
   m_Name: Garlic
   m_EditorClassIdentifier: 
-  icon: {fileID: -135069572948851204, guid: bad2e68aaee08784a9632b89841678d2, type: 3}
+  icon: {fileID: 3586612281908082109, guid: 38af61fbf3ab04d498001764e164bd6b, type: 3}
   maxLevel: 8
   evolutionData: []
   behaviour: AuraWeapon

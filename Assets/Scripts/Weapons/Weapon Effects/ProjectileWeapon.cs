@@ -7,16 +7,18 @@ public class ProjectileWeapon : Weapon
     protected int currentAttackCount; // Number of times this attack will happen.
 
     protected override void Update()
-    {
-        base.Update();
+{
+    base.Update();
 
-        // Otherwise, if the attack interval goes from above 0 to below, we also call attack.
-        if (currentAttackInterval > 0)
+    if (currentAttackInterval > 0)
+    {
+        currentAttackInterval -= Time.deltaTime;
+        if (currentAttackInterval <= 0 && currentAttackCount > 0)
         {
-            currentAttackInterval -= Time.deltaTime;
-            if (currentAttackInterval <= 0) Attack(currentAttackCount);
+            Attack(currentAttackCount);
         }
     }
+}
 
     public override bool CanAttack()
     {
@@ -26,7 +28,7 @@ public class ProjectileWeapon : Weapon
 
     protected override bool Attack(int attackCount = 1)
     {
-        // If no projectile prefab is assigned, leave a warning message.
+        // If no projectile prefab = leave a warning message.
         if(!currentStats.projectilePrefab)
         {
             Debug.LogWarning(string.Format("Projectile prefab has not been set for {0}", name));

@@ -18,7 +18,7 @@ MonoBehaviour:
   - name: Knife + Spinach
     condition: 0
     consumes: 0
-    evolutionLevel: 2
+    evolutionLevel: 1
     catalysts:
     - itemType: {fileID: 11400000, guid: b75498fe315205f4a8d2e117db0949d3, type: 2}
       level: 8
