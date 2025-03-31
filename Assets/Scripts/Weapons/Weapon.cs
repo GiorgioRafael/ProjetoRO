@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -55,11 +56,12 @@ public abstract class Weapon : Item
         }
     }
 
-    
+
 
     protected Stats currentStats;
 
     public WeaponData data;
+    protected bool isExecutingAttack = false;
 
     protected float currentCooldown;
 
@@ -79,13 +81,13 @@ public abstract class Weapon : Item
     protected virtual void Awake()
     {
         // Assign the stats early, as it will be used by other scripts later on.
-        if(data) currentStats = data.baseStats;
+        if (data) currentStats = data.baseStats;
     }
 
     protected virtual void Start()
     {
         // Don't initialise the weapon if the weapon data is not assigned.
-        if(data)
+        if (data)
         {
             Initialise(data);
         }
@@ -93,11 +95,15 @@ public abstract class Weapon : Item
 
     protected virtual void Update()
     {
-        currentCooldown -= Time.deltaTime;
-        if (currentCooldown <= 0f) //Once the cooldown becomes 0, attack
+        if (!isExecutingAttack)
         {
-            Attack(currentStats.number);
+            currentCooldown -= Time.deltaTime;
+            if (currentCooldown <= 0f) //Once the cooldown becomes 0, attack
+            {
+                Attack(currentStats.number);
+            }
         }
+
     }
 
 
@@ -130,8 +136,9 @@ public abstract class Weapon : Item
     // This doesn't do anything. We have to override this at the child class to add a behaviour.
     protected virtual bool Attack(int attackCount = 1)
     {
-        if(CanAttack()) {
-	    currentCooldown += currentStats.cooldown;
+        if (CanAttack())
+        {
+            if (currentCooldown <= 0) currentCooldown += currentStats.cooldown;
             return true;
         }
         return false;

@@ -34,8 +34,8 @@ MonoBehaviour:
     hitEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
-      x: -0.1
-      y: 0.1
+      x: -0.2
+      y: 0.2
       width: -0.1
       height: 0.1
     lifespan: 3
@@ -46,7 +46,7 @@ MonoBehaviour:
     cooldown: 1
     projectileInterval: 0.1
     knockback: 0.5
-    number: 1
+    number: 3
     piercing: 1
     maxInstances: 70
   linearGrowth:
