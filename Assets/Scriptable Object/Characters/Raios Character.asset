@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8a371504affb3544b15ee6c72cf2fb5, type: 3}
-  m_Name: Knife Character
+  m_Name: Raios Character
   m_EditorClassIdentifier: 
-  icon: {fileID: 4106213231394428757, guid: 35b45b786dc518c4685235de455fee33, type: 3}
+  icon: {fileID: -5792612846293609617, guid: 3a2214144ee93bb4ca638e6be76f0d1b, type: 3}
   controller: {fileID: 9100000, guid: a73786bf4988c0b42ac90a6f8a988b9b, type: 2}
-  name: Knife Character
-  startingWeapon: {fileID: 11400000, guid: b75498fe315205f4a8d2e117db0949d3, type: 2}
+  name: 
+  startingWeapon: {fileID: 11400000, guid: 9bf048fd7f5cb514587191609f45458b, type: 2}
   stats:
     maxHealth: 1000
     recovery: 0
-    moveSpeed: 5
+    moveSpeed: 4
     might: 1
     speed: 1
     magnet: 2

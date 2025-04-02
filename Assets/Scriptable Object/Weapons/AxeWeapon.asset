@@ -10,44 +10,44 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebd5814ec0fb245478ec319ccc65c52e, type: 3}
-  m_Name: Whip
+  m_Name: AxeWeapon
   m_EditorClassIdentifier: 
-  icon: {fileID: -3074926159877256613, guid: 16f73e27a8f087743bff2f2060079c51, type: 3}
+  icon: {fileID: 0}
   maxLevel: 8
   evolutionData: []
-  behaviour: WhipWeapon
+  behaviour: AxeWeapon
   baseStats:
-    name: Whip
-    description: Atira rapidamente na direcao que esta olhando
-    projectilePrefab: {fileID: 1147868339696603228, guid: 555257d8b9851d043853828c5c5d5a0a, type: 3}
+    name: Machado
+    description: Dano alto, escala com Area.
+    projectilePrefab: {fileID: 5130397777953176692, guid: 0d85f64684385954180ece90bc46b3c5, type: 3}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
-      x: 2
-      y: 0
+      x: 0
+      y: 0.4
       width: 0
       height: 0
-    lifespan: 0.22
-    damage: 10
-    damageVariance: 2
+    lifespan: 2
+    damage: 20
+    damageVariance: 3
     area: 1
-    speed: 0
-    cooldown: 2
-    projectileInterval: 0.1
+    speed: 5
+    cooldown: 1
+    projectileInterval: 0.2
     knockback: 1
     number: 1
-    piercing: 999
-    maxInstances: 30
+    piercing: 3
+    maxInstances: 70
   linearGrowth:
-  - name: Whip Level 2
-    description: 1 more projectile
+  - name: Machado Level 2
+    description: Atira um projetil a mais
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
-      x: 2
+      x: 0
       y: 0
       width: 0
       height: 0
@@ -62,19 +62,19 @@ MonoBehaviour:
     number: 1
     piercing: 0
     maxInstances: 0
-  - name: Whip Level 3
-    description: Base damage up by 5
+  - name: Machado Level 3
+    description: Aumenta o dano base em 20
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
-      x: 2
+      x: 0
       y: 0
       width: 0
       height: 0
     lifespan: 0
-    damage: 5
+    damage: 20
     damageVariance: 0
     area: 0
     speed: 0
@@ -84,41 +84,19 @@ MonoBehaviour:
     number: 0
     piercing: 0
     maxInstances: 0
-  - name: Whip Level 4
-    description: Base area up by 10%. Base damage up by 5.
+  - name: Machado Level 4
+    description: Atravessa 2 inimigos a mais
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
-      x: 2
+      x: 0
       y: 0
       width: 0
       height: 0
     lifespan: 0
-    damage: 5
-    damageVariance: 0
-    area: 0.1
-    speed: 0
-    cooldown: 0
-    projectileInterval: 0
-    knockback: 0
-    number: 0
-    piercing: 0
-    maxInstances: 0
-  - name: Whip Level 5
-    description: Base damage up by 5.
-    projectilePrefab: {fileID: 0}
-    auraPrefab: {fileID: 0}
-    hitEffect: {fileID: 0}
-    spawnVariance:
-      serializedVersion: 2
-      x: 2
-      y: 0
-      width: 0
-      height: 0
-    lifespan: 0
-    damage: 5
+    damage: 0
     damageVariance: 0
     area: 0
     speed: 0
@@ -126,23 +104,23 @@ MonoBehaviour:
     projectileInterval: 0
     knockback: 0
     number: 0
-    piercing: 0
+    piercing: 2
     maxInstances: 0
-  - name: Whip Level 6
-    description: Base area up by 10%. Base damage up by 5.
+  - name: Machado Level 5
+    description: Atira mais um projetil.
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
-      x: 2
+      x: 0
       y: 0
       width: 0
       height: 0
     lifespan: 0
-    damage: 5
+    damage: 0
     damageVariance: 0
-    area: 0.1
+    area: 0
     speed: 0
     cooldown: 0
     projectileInterval: 0
@@ -150,19 +128,19 @@ MonoBehaviour:
     number: 1
     piercing: 0
     maxInstances: 0
-  - name: Whip Level 7
-    description: Base damage up by 5.
+  - name: Machado Level 6
+    description: Aumenta o dano base em 20.
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
-      x: 2
+      x: 0
       y: 0
       width: 0
       height: 0
     lifespan: 0
-    damage: 5
+    damage: 20
     damageVariance: 0
     area: 0
     speed: 0
@@ -172,19 +150,41 @@ MonoBehaviour:
     number: 0
     piercing: 0
     maxInstances: 0
-  - name: Whip Level 8
-    description: Base damage up by 5.
+  - name: Machado Level 7
+    description: Atravessa 2 inimigos a mais.
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
-      x: 2
+      x: 0
       y: 0
       width: 0
       height: 0
     lifespan: 0
-    damage: 5
+    damage: 0
+    damageVariance: 0
+    area: 0
+    speed: 0
+    cooldown: 0
+    projectileInterval: 0
+    knockback: 0
+    number: 0
+    piercing: 2
+    maxInstances: 0
+  - name: Machado Level 8
+    description: Aumenta o dano base em 20.
+    projectilePrefab: {fileID: 0}
+    auraPrefab: {fileID: 0}
+    hitEffect: {fileID: 0}
+    spawnVariance:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    lifespan: 0
+    damage: 20
     damageVariance: 0
     area: 0
     speed: 0

@@ -2528,6 +2528,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b75498fe315205f4a8d2e117db0949d3, type: 2}
   - {fileID: 11400000, guid: 8d1995268998ba84b9f50700e0e20a21, type: 2}
   - {fileID: 11400000, guid: e868d71e7944a1c47a16405dc9325893, type: 2}
+  - {fileID: 11400000, guid: 9bf048fd7f5cb514587191609f45458b, type: 2}
+  - {fileID: 11400000, guid: ee9e2488f7f110a4eaad79739c140221, type: 2}
+  - {fileID: 11400000, guid: 6119da3df69c1c549a7a6ab9f304180c, type: 2}
   availablePassives:
   - {fileID: 11400000, guid: 8f5bbead2aaad9743bfc4c55efb6478c, type: 2}
   - {fileID: 11400000, guid: 98fd50a6f24da8d48855c196b382b317, type: 2}

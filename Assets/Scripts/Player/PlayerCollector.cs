@@ -24,8 +24,10 @@ public class PlayerCollector : MonoBehaviour
         {
             //pega o componente rb do item 
             Rigidbody2D rb = col.gameObject.GetComponent<Rigidbody2D>();
+            
             //vector2 apaonta do item para o player
             Vector2 forceDirection = (transform.position - col.transform.position).normalized;
+            
             //aplica a forca que o item vai ser puxado para o player com o pullSpeed
             rb.AddForce(forceDirection * pullSpeed);
             //se tem, chama o metodo de coleta

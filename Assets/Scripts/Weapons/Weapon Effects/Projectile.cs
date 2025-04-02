@@ -40,7 +40,7 @@ public class Projectile : WeaponEffect
         if(weapon != null)
         {
             float lifespan = weapon.GetStats().lifespan;
-            Debug.Log("Projectile lifespan: " + lifespan);
+            //Debug.Log("Projectile lifespan: " + lifespan);
         }
         // Destroy the projectile after its lifespan expires.
         if(stats.lifespan > 0) Destroy(gameObject, stats.lifespan);
