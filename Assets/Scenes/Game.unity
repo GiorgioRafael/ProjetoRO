@@ -3614,7 +3614,7 @@ MonoBehaviour:
     spawnCount: 0
   currentWaveCount: 0
   enemiesAlive: 0
-  maxEnemiesAllowed: 3
+  maxEnemiesAllowed: 99
   maxEnemiesReached: 0
   waveInterval: 5
   isWaveActive: 0
@@ -5228,6 +5228,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TreasureChest
       objectReference: {fileID: 0}
+    - target: {fileID: 2705299165505418983, guid: 6bf99188d9ab8424ba846c5e9262f67d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7164213034426150642, guid: 6bf99188d9ab8424ba846c5e9262f67d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.367239
@@ -5971,7 +5975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd9741dc41a586041b362c8bd7e73d82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pullSpeed: 300
+  pullSpeed: 5
 --- !u!58 &1176616166
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7460,6 +7464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2077601c75a5fef42bfec03c2ebfc3f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  joystick: {fileID: 1933889037}
   currentState: 0
   previousState: 0
   damageTextCanvas: {fileID: 1254594196}
@@ -7499,6 +7504,7 @@ MonoBehaviour:
   isGameOver: 0
   isGamePaused: 0
   choosingUpgrade: 0
+  isPlayingOnJoystick: {fileID: 0}
   playerObject: {fileID: 383724002}
 --- !u!4 &1376082658
 Transform:
@@ -9957,15 +9963,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8834734169634807593, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 98
+      value: 63
       objectReference: {fileID: 0}
     - target: {fileID: 8834734169634807593, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 98
+      value: 63
       objectReference: {fileID: 0}
     - target: {fileID: 8834734170784175512, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
       propertyPath: m_Name
-      value: Native Joystick (White)
+      value: Joystick
       objectReference: {fileID: 0}
     - target: {fileID: 8834734170784175512, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
       propertyPath: m_IsActive
@@ -9981,27 +9987,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8834734170784175513, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8834734170784175513, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8834734170784175513, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8834734170784175513, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8834734170784175513, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 140
+      value: 126
       objectReference: {fileID: 0}
     - target: {fileID: 8834734170784175513, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 140
+      value: 126
       objectReference: {fileID: 0}
     - target: {fileID: 8834734170784175513, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10033,11 +10039,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8834734170784175513, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 100
+      value: -546
       objectReference: {fileID: 0}
     - target: {fileID: 8834734170784175513, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 100
+      value: -271
       objectReference: {fileID: 0}
     - target: {fileID: 8834734170784175513, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -10053,10 +10059,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8834734170784175514, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
       propertyPath: radius
-      value: 0.65
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 8834734170784175514, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
+      propertyPath: deadzone
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8834734170784175514, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
       propertyPath: edgeSnap
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8834734170784175514, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8834734170784175514, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
@@ -10064,7 +10078,15 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8834734170784175514, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
+      propertyPath: sensitivity
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8834734170784175514, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
       propertyPath: boundaries.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8834734170784175514, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
+      propertyPath: onlyOnMobile
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8834734170784175514, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
@@ -10073,11 +10095,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8834734170784175514, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
       propertyPath: boundaries.width
-      value: 0.5
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8834734170784175514, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
+      propertyPath: consolePrintAxis
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8834734170784175514, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
       propertyPath: boundaries.height
-      value: 0.5
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

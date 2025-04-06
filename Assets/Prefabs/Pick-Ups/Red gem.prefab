@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5136089942131724852}
   - component: {fileID: 7352182763546982130}
-  - component: {fileID: 5947132793452841381}
   - component: {fileID: 6742138379011509747}
   - component: {fileID: 2009551991227986637}
+  - component: {fileID: 8513790357162905820}
   m_Layer: 0
   m_Name: Red gem
   m_TagString: Untagged
@@ -90,20 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5947132793452841381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7936465947039557870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1a5525de295d1d4282c9142e59e0a85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hasBeenCollected: 0
-  experienceGranted: 300
 --- !u!58 &6742138379011509747
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -167,3 +153,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8513790357162905820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7936465947039557870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e21a09124c11b44e84d06c1be460978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifespan: 0.5
+  bobbingAnimation:
+    frequency: 2
+    direction: {x: 0, y: 0.3}
+  experience: 0
+  health: 0

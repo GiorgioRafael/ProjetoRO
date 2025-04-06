@@ -20,7 +20,7 @@ MonoBehaviour:
     name: Aura
     description: Da dano aos inimigos ao redor. reduz a resistencia a knockback
     projectilePrefab: {fileID: 0}
-    auraPrefab: {fileID: 7817262935685224443, guid: 0d2d542f9f43dce479e22a79f39635cf, type: 3}
+    auraPrefab: {fileID: 231819770193237326, guid: 05d486d1850e7384796a0e92647abbba, type: 3}
     hitEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2

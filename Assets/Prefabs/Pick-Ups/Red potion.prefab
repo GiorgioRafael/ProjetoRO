@@ -11,10 +11,8 @@ GameObject:
   - component: {fileID: 7726117727416756320}
   - component: {fileID: 3717202471318169909}
   - component: {fileID: -7529203142560352321}
-  - component: {fileID: -383300486051814217}
   - component: {fileID: 8612942016465467941}
   - component: {fileID: -7615894713855757084}
-  - component: {fileID: 603235927594505892}
   m_Layer: 0
   m_Name: Red potion
   m_TagString: Untagged
@@ -138,20 +136,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.40625, y: 0.59375}
   m_EdgeRadius: 0
---- !u!114 &-383300486051814217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502375065708660715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 750cd741c8069f041b3c6cbb80e45324, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hasBeenCollected: 0
-  healthToRestore: 400
 --- !u!50 &8612942016465467941
 Rigidbody2D:
   serializedVersion: 5
@@ -191,19 +175,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e21a09124c11b44e84d06c1be460978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasBeenCollected: 0
---- !u!114 &603235927594505892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502375065708660715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9cab99c90840a9438ac3e7f7c458b74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  frequency: 3
-  magnitude: 0.1
-  direction: {x: 0, y: 1, z: 0}
+  lifespan: 0.5
+  bobbingAnimation:
+    frequency: 2
+    direction: {x: 0, y: 0.3}
+  experience: 0
+  health: 30

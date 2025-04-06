@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +6,7 @@ using TMPro;
 
 public class PlayerStats : MonoBehaviour
 {
-    
+
     CharacterData characterData;
     public CharacterData.Stats baseStats;
     [SerializeField] CharacterData.Stats actualStats;
@@ -18,7 +17,7 @@ public class PlayerStats : MonoBehaviour
     #region Current Stats Properties
     public float CurrentHealth
     {
-        
+
         get { return health; }
 
         // If we try and set the current health, the UI interface
@@ -26,20 +25,20 @@ public class PlayerStats : MonoBehaviour
         set
         {
             //Check if the value has changed
-            
+
             if (health != value)
             {
-                
+
                 health = value;
-                if(GameManager.instance != null)
+                if (GameManager.instance != null)
                 {
-                    
+
                     GameManager.instance.currentHealthDisplay.text = string.Format(
                         "Health: {0} / {1}",
                         health, actualStats.maxHealth
                     );
                 }
-                
+
             }
         }
     }
@@ -69,8 +68,9 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    public float CurrentRecovery {
-        get { return Recovery; } 
+    public float CurrentRecovery
+    {
+        get { return Recovery; }
         set { Recovery = value; }
     }
     public float Recovery
@@ -90,7 +90,8 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    public float CurrentMoveSpeed {
+    public float CurrentMoveSpeed
+    {
         get { return MoveSpeed; }
         set { MoveSpeed = value; }
     }
@@ -111,7 +112,8 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    public float CurrentMight {
+    public float CurrentMight
+    {
         get { return Might; }
         set { Might = value; }
     }
@@ -132,7 +134,8 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    public float CurrentProjectileSpeed {
+    public float CurrentProjectileSpeed
+    {
         get { return Speed; }
         set { Speed = value; }
     }
@@ -153,7 +156,8 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    public float CurrentMagnet {
+    public float CurrentMagnet
+    {
         get { return Magnet; }
         set { Magnet = value; }
     }
@@ -200,8 +204,9 @@ public class PlayerStats : MonoBehaviour
 
     public List<LevelRange> levelRanges;
 
-    
+
     PlayerInventory inventory;
+    PlayerCollector collector;
     public int weaponIndex;
     public int passiveItemIndex;
 
@@ -210,29 +215,19 @@ public class PlayerStats : MonoBehaviour
     public Image expBar;
     public TMP_Text levelText;
 
-    PlayerAnimator playerAnimator;
-
     void Awake()
     {
         characterData = CharacterSelector.GetData();
-
-        if(CharacterSelector.instance)
-        {
+        if(CharacterSelector.instance) 
             CharacterSelector.instance.DestroySingleton();
-        }
 
-        
         inventory = GetComponent<PlayerInventory>();
+        collector = GetComponentInChildren<PlayerCollector>();
 
         //Assign the variables
-        
         baseStats = actualStats = characterData.stats;
+        collector.SetRadius(actualStats.magnet);
         health = actualStats.maxHealth;
-
-        playerAnimator = GetComponent<PlayerAnimator>();
-        playerAnimator.SetAnimatorController(characterData.controller);
-
-        
     }
 
     void Start()
@@ -276,14 +271,17 @@ public class PlayerStats : MonoBehaviour
     public void RecalculateStats()
     {
         actualStats = baseStats;
-        foreach(PlayerInventory.Slot s in inventory.passiveSlots)
+        foreach (PlayerInventory.Slot s in inventory.passiveSlots)
         {
             Passive p = s.item as Passive;
-            if(p)
+            if (p)
             {
                 actualStats += p.GetBoosts();
             }
         }
+
+        // Update the PlayerCollector's radius.
+        collector.SetRadius(actualStats.magnet);
     }
 
     public void IncreaseExperience(int amount)
@@ -291,7 +289,6 @@ public class PlayerStats : MonoBehaviour
         experience += amount;
 
         LevelUpChecker();
-
         UpdateExpBar();
     }
 
@@ -339,9 +336,9 @@ public class PlayerStats : MonoBehaviour
         if (!isInvincible)
         {
             CurrentHealth -= dmg;
-            
+
             // If there is a damage effect assigned, play it.
-            if(damageEffect) Destroy(Instantiate(damageEffect, transform.position, Quaternion.identity), 5f);
+            if (damageEffect) Destroy(Instantiate(damageEffect, transform.position, Quaternion.identity), 5f);
 
             invincibilityTimer = invincibilityDuration;
             isInvincible = true;
@@ -355,7 +352,7 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    public void UpdateHealthBar()
+    void UpdateHealthBar()
     {
         //Update the health bar
         healthBar.fillAmount = CurrentHealth / actualStats.maxHealth;
@@ -363,7 +360,7 @@ public class PlayerStats : MonoBehaviour
 
     public void Kill()
     {
-        if(!GameManager.instance.isGameOver)
+        if (!GameManager.instance.isGameOver)
         {
             GameManager.instance.AssignLevelReachedUI(level);
             GameManager.instance.AssignChosenWeaponsAndPassiveItemsUI(inventory.weaponSlots, inventory.passiveSlots);
@@ -383,12 +380,14 @@ public class PlayerStats : MonoBehaviour
             {
                 CurrentHealth = actualStats.maxHealth;
             }
+
+            UpdateHealthBar();
         }
     }
 
     void Recover()
     {
-        if(CurrentHealth < actualStats.maxHealth)
+        if (CurrentHealth < actualStats.maxHealth)
         {
             CurrentHealth += CurrentRecovery * Time.deltaTime;
             CurrentHealth += Recovery * Time.deltaTime;
@@ -398,6 +397,8 @@ public class PlayerStats : MonoBehaviour
             {
                 CurrentHealth = actualStats.maxHealth;
             }
+
+            UpdateHealthBar();
         }
     }
 

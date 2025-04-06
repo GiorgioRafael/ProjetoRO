@@ -5,6 +5,7 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
     {
+        [SerializeField] private GameObject joystick;
         public static GameManager instance;
 
         //define os diferentes estados do jogo
@@ -61,6 +62,8 @@ public class GameManager : MonoBehaviour
         
         public bool choosingUpgrade;
 
+        public Toggle isPlayingOnJoystick;
+
         //referencia o gameobject do player
         public GameObject playerObject;
 
@@ -76,7 +79,7 @@ public class GameManager : MonoBehaviour
                 Debug.LogWarning("EXTRA " + this + "DELETED");
                 Destroy(gameObject);
             }
-
+            joystick.SetActive(true);
             DisableScreens();
         }
 
@@ -195,6 +198,7 @@ public class GameManager : MonoBehaviour
                 ChangeState(GameState.Paused);
                 Time.timeScale = 0f; //pausa o jogo
                 pauseScreen.SetActive(true);
+                joystick.SetActive(false);
                 Debug.Log("Game is paused!");
             }
 
@@ -208,6 +212,7 @@ public class GameManager : MonoBehaviour
                 ChangeState(previousState);
                 Time.timeScale = 1f;
                 pauseScreen.SetActive(false);
+                joystick.SetActive(true);
                 Debug.Log("Game is resumed");
             }
         }
@@ -238,10 +243,12 @@ public class GameManager : MonoBehaviour
         {
             timeSurvivedDisplay.text = StopwatchDisplay.text;
             ChangeState(GameState.GameOver);
+            joystick.SetActive(false);
         }
         void DisplayResults()
         {
             resultsScreen.SetActive(true);
+            joystick.SetActive(false);
         }
         
         public void AssignChosenCharacterUI(CharacterData chosenCharacterData)  
@@ -321,6 +328,7 @@ public class GameManager : MonoBehaviour
         {
             ChangeState(GameState.LevelUp);
             playerObject.SendMessage("RemoveAndApplyUpgrades");
+            joystick.SetActive(false);
         }
         public void EndLevelUp()
         {
@@ -328,6 +336,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1f; 
             levelUpScreen.SetActive(false);
             ChangeState(GameState.Gameplay);
+            joystick.SetActive(true);
         }
 
         public void EnableExpBar()

@@ -365,6 +365,9 @@ namespace Terresquall {
 				Debug.LogWarning("Unable to remove disabled joystick from the global Virtual Joystick list. You may have changed the ID of your joystick on runtime.", this);
         }
 
+        private float lastUsedAt;
+        public float idleTime = 0.1f;
+
         void Update() {
             PositionUpdate();
             CheckForDrag();
@@ -386,6 +389,16 @@ namespace Terresquall {
                 string output = string.Format("Virtual Joystick ({0}): {1}",name,axis);
                 if(consolePrintAxis)
                     Debug.Log(output);
+            }
+            //se joystick nao estiver sendo utilizado, esconde ele da tela
+            if (axis.sqrMagnitude > 0) 
+            {
+                lastUsedAt = Time.time;
+            }
+            if (Time.time - lastUsedAt >= idleTime) {
+            gameObject.SetActive(false);
+            transform.position = new Vector3(-720, 0, 0);
+            gameObject.SetActive(true);
             }
         }
 

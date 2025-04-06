@@ -40,43 +40,45 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void InputManagement()
+{
+    if (GameManager.instance.isGameOver || GameManager.instance.isGamePaused)
     {
-
-        if(GameManager.instance.isGameOver || GameManager.instance.isGamePaused)
-        {
-            return;
-        }
-        float moveX, moveY;    
-        if(joystick != null && joystick.gameObject.activeInHierarchy)
-        {
-            moveX = VirtualJoystick.GetAxisRaw("Horizontal");
-            moveY = VirtualJoystick.GetAxisRaw("Vertical");
-        } else
-        {
-            moveX = Input.GetAxisRaw("Horizontal");
-            moveY = Input.GetAxisRaw("Vertical");
-        }
-
-
-
-        moveDir = new Vector2(moveX, moveY).normalized;
-
-        if(moveDir.x != 0)
-        {
-            lastHorizontalVector = moveDir.x;
-            lastMovedVector = new Vector2(lastHorizontalVector, 0f); //ultimo x
-        }
-        if(moveDir.y != 0)
-        {
-            lastVerticalVector = moveDir.y;
-            lastMovedVector = new Vector2(0f, lastVerticalVector); //ultimo y
-        }
-
-        if(moveDir.x != 0 && moveDir.y != 0)
-        {
-            lastMovedVector = new Vector2(lastHorizontalVector, lastVerticalVector); //enquanto estiver se mexendo
-        }
+        return;
     }
+
+    float moveX = 0f;
+    float moveY = 0f;
+
+    // Keyboard input
+    moveX += Input.GetAxisRaw("Horizontal");
+    moveY += Input.GetAxisRaw("Vertical");
+
+    // Joystick input (only if it's active)
+    if (joystick != null && joystick.gameObject.activeInHierarchy)
+    {
+        moveX += VirtualJoystick.GetAxisRaw("Horizontal");
+        moveY += VirtualJoystick.GetAxisRaw("Vertical");
+    }
+
+    moveDir = new Vector2(moveX, moveY).normalized;
+
+    // Save last direction moved
+    if (moveDir.x != 0)
+    {
+        lastHorizontalVector = moveDir.x;
+        lastMovedVector = new Vector2(lastHorizontalVector, 0f);
+    }
+    if (moveDir.y != 0)
+    {
+        lastVerticalVector = moveDir.y;
+        lastMovedVector = new Vector2(0f, lastVerticalVector);
+    }
+    if (moveDir.x != 0 && moveDir.y != 0)
+    {
+        lastMovedVector = new Vector2(lastHorizontalVector, lastVerticalVector);
+    }
+}
+
 
     void Move()
     {

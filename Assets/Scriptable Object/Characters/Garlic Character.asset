@@ -17,9 +17,9 @@ MonoBehaviour:
   name: Mago dos games
   startingWeapon: {fileID: 11400000, guid: 8d1995268998ba84b9f50700e0e20a21, type: 2}
   stats:
-    maxHealth: 1000
+    maxHealth: 100
     recovery: 0
-    moveSpeed: 5
+    moveSpeed: 3
     might: 1
     speed: 1
     magnet: 2
