@@ -172,8 +172,11 @@ public class PlayerStats : MonoBehaviour
             experienceCap += experienceCapIncrease;
 
             UpdateLevelText();
+            UpdateExpBar();
 
             GameManager.instance.StartLevelUp();
+
+            if(experience >= experienceCap) LevelUpChecker();
         }
     }
 

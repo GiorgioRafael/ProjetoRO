@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
         public GameObject pauseScreen;
         public GameObject resultsScreen;
         public GameObject levelUpScreen;
+        int stackedLevelUps = 0;
+
         [SerializeField]
         public GameObject expBarHolder;
 
@@ -57,15 +59,15 @@ public class GameManager : MonoBehaviour
         public TMP_Text StopwatchDisplay; 
 
 
-        public bool isGameOver = false;
         public bool isGamePaused = false;
-        
-        public bool choosingUpgrade;
 
         public Toggle isPlayingOnJoystick;
 
         //referencia o gameobject do player
         public GameObject playerObject;
+
+        public bool isGameOver {get { return currentState == GameState.GameOver; }}
+        public bool choosingUpgrade {get { return currentState == GameState.LevelUp; }}
 
         void Awake()
         {
@@ -103,24 +105,7 @@ public class GameManager : MonoBehaviour
                     break;
 
                 case GameState.GameOver:
-                    if(!isGameOver)
-                    {
-                        isGameOver = true;
-                        Time.timeScale = 0f; //stop the game
-                        Debug.Log("Game is over");
-                        DisplayResults();
-                        DisableExpBar();
-                    }
-                    break;
-                    case GameState.LevelUp:
-                    if(!choosingUpgrade)
-                    {
-                        choosingUpgrade = true;
-                        Time.timeScale = 0f;
-                        Debug.Log("upgrades shown");
-                        levelUpScreen.SetActive(true);
-                        DisableExpBar();
-                    }
+                case GameState.LevelUp:
                     break;
 
                 default:
@@ -187,6 +172,7 @@ public class GameManager : MonoBehaviour
         //define um metodo para trocar o estado do jogo
         public void ChangeState(GameState newState)
         {
+            previousState = currentState;
             currentState = newState;
         }
 
@@ -194,12 +180,10 @@ public class GameManager : MonoBehaviour
         {
             if(currentState != GameState.Paused)
             {
-                previousState = currentState;
                 ChangeState(GameState.Paused);
                 Time.timeScale = 0f; //pausa o jogo
                 pauseScreen.SetActive(true);
                 joystick.SetActive(false);
-                Debug.Log("Game is paused!");
             }
 
         }
@@ -213,7 +197,6 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 1f;
                 pauseScreen.SetActive(false);
                 joystick.SetActive(true);
-                Debug.Log("Game is resumed");
             }
         }
         //metodo para verificar input de pausa/resume
@@ -244,6 +227,9 @@ public class GameManager : MonoBehaviour
             timeSurvivedDisplay.text = StopwatchDisplay.text;
             ChangeState(GameState.GameOver);
             joystick.SetActive(false);
+            Time.timeScale = 0f;
+            DisableExpBar();
+            DisplayResults();
         }
         void DisplayResults()
         {
@@ -327,16 +313,29 @@ public class GameManager : MonoBehaviour
         public void StartLevelUp()
         {
             ChangeState(GameState.LevelUp);
-            playerObject.SendMessage("RemoveAndApplyUpgrades");
-            joystick.SetActive(false);
+            //if the level up screen is already active, then we make a record of it
+            if(levelUpScreen.activeSelf) stackedLevelUps++;
+            else
+            {
+                joystick.SetActive(false);
+                levelUpScreen.SetActive(true);
+                Time.timeScale= 0f;
+                playerObject.SendMessage("RemoveAndApplyUpgrades");
+            }
         }
+
         public void EndLevelUp()
         {
-            choosingUpgrade = false;
             Time.timeScale = 1f; 
             levelUpScreen.SetActive(false);
             ChangeState(GameState.Gameplay);
             joystick.SetActive(true);
+
+            if(stackedLevelUps > 0)
+            {
+                stackedLevelUps--;
+                StartLevelUp();
+            }
         }
 
         public void EnableExpBar()

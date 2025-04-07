@@ -21,8 +21,8 @@ MonoBehaviour:
     armor: 0
     moveSpeed: 1
     might: 1
-    area: 0
-    speed: 1
+    area: 1
+    speed: 1.1
     duration: 1
     amount: 0
     cooldown: 1

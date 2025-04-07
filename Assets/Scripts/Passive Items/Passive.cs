@@ -10,9 +10,8 @@ public class Passive : Item
     [SerializeField] CharacterData.Stats currentBoosts;
 
     [System.Serializable]
-    public struct Modifier
+    public class Modifier : LevelData
     {
-        public string name, description;
         public CharacterData.Stats boosts;
     }
 
@@ -42,7 +41,7 @@ public class Passive : Item
         }
 
         // Otherwise, add stats of the next level to our weapon.
-        currentBoosts += data.GetLevelData(++currentLevel).boosts;
+        currentBoosts += ((Modifier)data.GetLevelData(++currentLevel)).boosts;
         return true;
     }
 }

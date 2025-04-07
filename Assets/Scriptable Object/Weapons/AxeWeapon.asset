@@ -33,7 +33,7 @@ MonoBehaviour:
     damageVariance: 3
     area: 1
     speed: 5
-    cooldown: 1
+    cooldown: 4
     projectileInterval: 0.2
     knockback: 1
     number: 1
