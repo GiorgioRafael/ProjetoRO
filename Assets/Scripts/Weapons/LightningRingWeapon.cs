@@ -13,7 +13,7 @@ public class LightningRingWeapon : ProjectileWeapon
         if (!currentStats.hitEffect)
         {
             Debug.LogWarning(string.Format("Hit effect prefab has not been set for {0}", name));
-            currentCooldown = currentStats.cooldown;
+            ActivateCooldown(true);
             return false;
         }
 
@@ -25,21 +25,21 @@ public class LightningRingWeapon : ProjectileWeapon
         if (currentCooldown <= 0)
         {
             allSelectedEnemies = new List<EnemyStats>(FindObjectsOfType<EnemyStats>());
-            currentCooldown += currentStats.cooldown;
+            ActivateCooldown();
             currentAttackCount = attackCount;
         }
 
         // Find an enemy in the map to strike with lightning.
         EnemyStats target = PickEnemy();
-        if(target)
+        if (target)
         {
-            DamageArea(target.transform.position, currentStats.area, GetDamage());
+            DamageArea(target.transform.position, GetArea(), GetDamage());
 
             Instantiate(currentStats.hitEffect, target.transform.position, Quaternion.identity);
         }
 
         // If we have more than 1 attack count.
-        if(attackCount > 0)
+        if (attackCount > 0)
         {
             currentAttackCount = attackCount - 1;
             currentAttackInterval = currentStats.projectileInterval;
@@ -84,7 +84,7 @@ public class LightningRingWeapon : ProjectileWeapon
     void DamageArea(Vector2 position, float radius, float damage)
     {
         Collider2D[] targets = Physics2D.OverlapCircleAll(position, radius);
-        foreach(Collider2D t in targets)
+        foreach (Collider2D t in targets)
         {
             EnemyStats es = t.GetComponent<EnemyStats>();
             if (es) es.TakeDamage(damage, transform.position);

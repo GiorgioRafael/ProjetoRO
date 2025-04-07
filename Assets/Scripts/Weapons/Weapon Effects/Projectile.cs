@@ -21,29 +21,26 @@ public class Projectile : WeaponEffect
     {
         rb = GetComponent<Rigidbody2D>();
         Weapon.Stats stats = weapon.GetStats();
-        if(rb.bodyType == RigidbodyType2D.Dynamic)
+        if (rb.bodyType == RigidbodyType2D.Dynamic)
         {
             rb.angularVelocity = rotationSpeed.z;
             rb.linearVelocity = transform.right * stats.speed;
         }
 
         // Prevent the area from being 0, as it hides the projectile.
-        float area = stats.area == 0 ? 1 : stats.area;
+
+        float area = weapon.GetArea();
+        if(area <= 0) area = 1;
         transform.localScale = new Vector3(
-            area * Mathf.Sign(transform.localScale.x), 
+            area * Mathf.Sign(transform.localScale.x),
             area * Mathf.Sign(transform.localScale.y), 1
         );
 
         // Set how much piercing this object has.
         piercing = stats.piercing;
 
-        if(weapon != null)
-        {
-            float lifespan = weapon.GetStats().lifespan;
-            //Debug.Log("Projectile lifespan: " + lifespan);
-        }
         // Destroy the projectile after its lifespan expires.
-        if(stats.lifespan > 0) Destroy(gameObject, stats.lifespan);
+        if (stats.lifespan > 0) Destroy(gameObject, stats.lifespan);
 
         // If the projectile is auto-aiming, automatically find a suitable enemy.
         if (hasAutoAim) AcquireAutoAimFacing();
@@ -60,7 +57,7 @@ public class Projectile : WeaponEffect
 
         // Select a random enemy (if there is at least 1).
         // Otherwise, pick a random angle.
-        if(targets.Length > 0)
+        if (targets.Length > 0)
         {
             EnemyStats selectedTarget = targets[Random.Range(0, targets.Length)];
             Vector2 difference = selectedTarget.transform.position - transform.position;
@@ -70,7 +67,7 @@ public class Projectile : WeaponEffect
         {
             aimAngle = Random.Range(0f, 360f);
         }
-        
+
         // Point the projectile towards where we are aiming at.
         transform.rotation = Quaternion.Euler(0, 0, aimAngle);
     }
@@ -79,10 +76,10 @@ public class Projectile : WeaponEffect
     protected virtual void FixedUpdate()
     {
         // Only drive movement ourselves if this is a kinematic.
-        if(rb.bodyType == RigidbodyType2D.Kinematic)
+        if (rb.bodyType == RigidbodyType2D.Kinematic)
         {
             Weapon.Stats stats = weapon.GetStats();
-            transform.position += transform.right * stats.speed * Time.fixedDeltaTime;
+            transform.position += transform.right * stats.speed * weapon.Owner.Stats.speed * Time.fixedDeltaTime;
             rb.MovePosition(transform.position);
             transform.Rotate(rotationSpeed * Time.fixedDeltaTime);
         }
@@ -92,25 +89,25 @@ public class Projectile : WeaponEffect
     {
         EnemyStats es = other.GetComponent<EnemyStats>();
         BreakableProps p = other.GetComponent<BreakableProps>();
-        
+
         // Only collide with enemies or breakable stuff.
-        if(es)
+        if (es)
         {
             // If there is an owner, and the damage source is set to owner,
             // we will calculate knockback using the owner instead of the projectile.
             Vector3 source = damageSource == DamageSource.owner && owner ? owner.transform.position : transform.position;
-            
+
             // Deals damage and destroys the projectile.
             es.TakeDamage(GetDamage(), source);
-            
+
             Weapon.Stats stats = weapon.GetStats();
             piercing--;
-            if(stats.hitEffect)
+            if (stats.hitEffect)
             {
                 Destroy(Instantiate(stats.hitEffect, transform.position, Quaternion.identity), 5f);
             }
         }
-        else if(p)
+        else if (p)
         {
             p.TakeDamage(GetDamage());
             piercing--;
@@ -123,6 +120,6 @@ public class Projectile : WeaponEffect
         }
 
         // Destroy this object if it has run out of health from hitting other stuff.
-        if(piercing <= 0) Destroy(gameObject);
+        if (piercing <= 0) Destroy(gameObject);
     }
 }

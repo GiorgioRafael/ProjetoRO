@@ -13,13 +13,22 @@ MonoBehaviour:
   m_Name: Axe Character
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  controller: {fileID: 9100000, guid: a73786bf4988c0b42ac90a6f8a988b9b, type: 2}
   name: 
   startingWeapon: {fileID: 11400000, guid: ee9e2488f7f110a4eaad79739c140221, type: 2}
   stats:
     maxHealth: 100
-    recovery: 1
-    moveSpeed: 3
+    recovery: 0
+    armor: 0
+    moveSpeed: 1
     might: 1
+    area: 0
     speed: 1
+    duration: 1
+    amount: 0
+    cooldown: 1
+    luck: 1
+    growth: 1
+    greed: 1
+    curse: 1
     magnet: 2
+    revival: 0

@@ -13,13 +13,22 @@ MonoBehaviour:
   m_Name: Garlic Character
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  controller: {fileID: 22100000, guid: 4330775d09eb4d34384e3a0b8585bd32, type: 2}
   name: Mago dos games
   startingWeapon: {fileID: 11400000, guid: 8d1995268998ba84b9f50700e0e20a21, type: 2}
   stats:
     maxHealth: 100
     recovery: 0
-    moveSpeed: 3
+    armor: 0
+    moveSpeed: 1
     might: 1
+    area: 1
     speed: 1
+    duration: 1
+    amount: 0
+    cooldown: 1
+    luck: 1
+    growth: 1
+    greed: 1
+    curse: 1
     magnet: 2
+    revival: 0

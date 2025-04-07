@@ -13,13 +13,22 @@ MonoBehaviour:
   m_Name: Knife Character
   m_EditorClassIdentifier: 
   icon: {fileID: 4106213231394428757, guid: 35b45b786dc518c4685235de455fee33, type: 3}
-  controller: {fileID: 9100000, guid: a73786bf4988c0b42ac90a6f8a988b9b, type: 2}
   name: Knife Character
   startingWeapon: {fileID: 11400000, guid: b75498fe315205f4a8d2e117db0949d3, type: 2}
   stats:
     maxHealth: 100
     recovery: 0
-    moveSpeed: 3
+    armor: 0
+    moveSpeed: 1
     might: 1
+    area: 1
     speed: 1
+    duration: 1
+    amount: 0
+    cooldown: 1
+    luck: 1
+    growth: 1
+    greed: 1
+    curse: 1
     magnet: 2
+    revival: 0

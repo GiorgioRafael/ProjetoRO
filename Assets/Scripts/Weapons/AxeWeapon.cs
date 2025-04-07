@@ -41,11 +41,9 @@ public class AxeWeapon : ProjectileWeapon
 
     if (attackCount > 0)
     {
-        isExecutingAttack = true;
         currentAttackCount = attackCount;
         currentAttackInterval = data.baseStats.projectileInterval;
     }
-    else isExecutingAttack = false;
 
     return true;
 }

@@ -176,9 +176,9 @@ public class PlayerInventory : MonoBehaviour
             // Spawn the weapon GameObject.
             GameObject go = new GameObject(data.baseStats.name + " Controller");
             Weapon spawnedWeapon = (Weapon)go.AddComponent(weaponType);
-            spawnedWeapon.Initialise(data);
             spawnedWeapon.transform.SetParent(transform); //Set the weapon to be a child of the player
             spawnedWeapon.transform.localPosition = Vector2.zero;
+            spawnedWeapon.Initialise(data);
             spawnedWeapon.OnEquip();
 
             // Assign the weapon to the slot.

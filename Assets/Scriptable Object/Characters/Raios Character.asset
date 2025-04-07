@@ -13,13 +13,22 @@ MonoBehaviour:
   m_Name: Raios Character
   m_EditorClassIdentifier: 
   icon: {fileID: -5792612846293609617, guid: 3a2214144ee93bb4ca638e6be76f0d1b, type: 3}
-  controller: {fileID: 9100000, guid: a73786bf4988c0b42ac90a6f8a988b9b, type: 2}
   name: 
   startingWeapon: {fileID: 11400000, guid: 9bf048fd7f5cb514587191609f45458b, type: 2}
   stats:
     maxHealth: 100
     recovery: 0
-    moveSpeed: 3
+    armor: 0
+    moveSpeed: 1
     might: 1
+    area: 1
     speed: 1
+    duration: 1
+    amount: 0
+    cooldown: 1
+    luck: 1
+    growth: 1
+    greed: 1
+    curse: 1
     magnet: 2
+    revival: 0
