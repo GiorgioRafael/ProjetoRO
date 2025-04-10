@@ -10,7 +10,6 @@ public class PlayerInventory : MonoBehaviour
     public class Slot
     {
         public Item item;
-        public Image image;
 
         public void Assign(Item assignedItem)
         {
@@ -18,14 +17,10 @@ public class PlayerInventory : MonoBehaviour
             if(item is Weapon)
             {
                 Weapon w = item as Weapon;
-                image.enabled = true;
-                image.sprite = w.data.icon;
             }
             else
             {
                 Passive p = item as Passive;
-                image.enabled = true;
-                image.sprite = p.data.icon;
             }
             Debug.Log(string.Format("Assigned {0} to player.", item.name));
         }
@@ -33,16 +28,13 @@ public class PlayerInventory : MonoBehaviour
         public void Clear()
         {
             item = null;
-            image.enabled = false;
-            image.sprite = null;
         }
 
         public bool IsEmpty() { return item == null; }
     }
     public List<Slot> weaponSlots = new List<Slot>(6);
     public List<Slot> passiveSlots = new List<Slot>(6);
-
-
+    public UIInventoryIconsDisplay weaponUI, passiveUI;
 
     [Header("UI Elements")]
     public List<WeaponData> availableWeapons = new List<WeaponData>();    //List of upgrade options for weapons
@@ -177,6 +169,7 @@ public class PlayerInventory : MonoBehaviour
 
             // Assign the weapon to the slot.
             weaponSlots[slotNum].Assign(spawnedWeapon);
+            weaponUI.Refresh();
 
             // Close the level up UI if it is on.
             if (GameManager.instance != null && GameManager.instance.choosingUpgrade)
@@ -224,6 +217,7 @@ public class PlayerInventory : MonoBehaviour
 
         // Assign the passive to the slot.
         passiveSlots[slotNum].Assign(p);
+        passiveUI.Refresh();
 
         if (GameManager.instance != null && GameManager.instance.choosingUpgrade)
         {
@@ -263,6 +257,10 @@ public class PlayerInventory : MonoBehaviour
             ));
             return false;
         }
+
+        // Update the UI after the weapon has levelled up.
+        weaponUI.Refresh();
+        passiveUI.Refresh();
 
         // Close the level up screen afterwards.
         if (GameManager.instance != null && GameManager.instance.choosingUpgrade)
@@ -334,18 +332,12 @@ public class PlayerInventory : MonoBehaviour
         {
             GameManager.instance.EndLevelUp();
         }
-
-
     }
-
-
 
     public void RemoveAndApplyUpgrades()
     {
         
         ApplyUpgradeOptions();
     }
-
-
 
 }

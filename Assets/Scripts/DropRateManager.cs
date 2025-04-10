@@ -12,10 +12,12 @@ public class DropRateManager : MonoBehaviour
         public float dropRate; // Drop chance percentage
     }
 
+    public bool active = false;
     public List<Drops> drops;
 
     void OnDestroy()
     {
+        if(!active) return; //previne drops se tiver inativo
         if(!gameObject.scene.isLoaded)
         {
             return;

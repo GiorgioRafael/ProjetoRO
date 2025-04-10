@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Diagnostics;
 
 public class GameManager : MonoBehaviour
     {
@@ -50,8 +51,6 @@ public class GameManager : MonoBehaviour
         public TMP_Text chosenCharacterName;
         public TMP_Text levelReachedDisplay;
         public TMP_Text timeSurvivedDisplay;
-        public List<Image> chosenWeaponsUI = new List<Image>(6);
-        public List<Image> chosenPassiveItemsUI = new List<Image>(6);
 
         [Header("Stopwatch")]
         public float timeLimit; //o tempo limite em segundos
@@ -69,6 +68,9 @@ public class GameManager : MonoBehaviour
         public bool isGameOver {get { return currentState == GameState.GameOver; }}
         public bool choosingUpgrade {get { return currentState == GameState.LevelUp; }}
 
+
+        public float GetElapsedTime() { return stopWatchTime; }
+
         void Awake()
         {
             //warning check to see if theres another singleton of this kind in the game
@@ -78,7 +80,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("EXTRA " + this + "DELETED");
+                UnityEngine.Debug.LogWarning("EXTRA " + this + "DELETED");
                 Destroy(gameObject);
             }
             joystick.SetActive(true);
@@ -109,7 +111,7 @@ public class GameManager : MonoBehaviour
                     break;
 
                 default:
-                    Debug.LogWarning("estado nao existe");
+                    UnityEngine.Debug.LogWarning("estado nao existe");
                     break;
             //em vez de update fazer um callback para
             }
@@ -248,48 +250,6 @@ public class GameManager : MonoBehaviour
             levelReachedDisplay.text = levelReachedData.ToString();
         }
 
-        public void AssignChosenWeaponsAndPassiveItemsUI(List<PlayerInventory.Slot> chosenWeaponsData, List<PlayerInventory.Slot>chosenPassiveItemsData)
-        {
-            if(chosenWeaponsData.Count != chosenWeaponsUI.Count || chosenPassiveItemsData.Count != chosenPassiveItemsUI.Count)
-            {
-                Debug.Log("tamanho das listas de armas e itens passivos tem tamanhos diferentes");
-                return;
-            }
-
-            //assign chosen weapon to chosenweaponUI (game over screen)  
-            for (int i = 0; i < chosenWeaponsUI.Count; i++)
-            {
-                //verifica se o sprite correpondente nao é nulo
-                if(chosenWeaponsData[i].image.sprite)
-                {
-                    //habilita o elemento correspondente no chosenWeaponsUI e seta a sprite certa 
-                    chosenWeaponsUI[i].enabled = true;
-                    chosenWeaponsUI[i].sprite = chosenWeaponsData[i].image.sprite;
-                }
-                else 
-                {
-                    //se a sprite for vazia desabilita o elemento
-                    chosenWeaponsUI[i].enabled = false;
-                }
-            }
-
-            //assign chosen passive item to passiveItemsUI (game over screen)  
-            for (int i = 0; i < chosenPassiveItemsUI.Count; i++)
-            {
-                //verifica se o sprite correpondente nao é nulo
-                if(chosenPassiveItemsData[i].image.sprite)
-                {
-                    //habilita o elemento correspondente no chosenPassiveItemsUI e seta a sprite certa 
-                    chosenPassiveItemsUI[i].enabled = true;
-                    chosenPassiveItemsUI[i].sprite = chosenPassiveItemsData[i].image.sprite;
-                }
-                else 
-                {
-                    //se a sprite for vazia desabilita o elemento
-                    chosenPassiveItemsUI[i].enabled = false;
-                }
-            }
-        }
         void UpdateStopwatch()
         {
             stopWatchTime += Time.deltaTime;

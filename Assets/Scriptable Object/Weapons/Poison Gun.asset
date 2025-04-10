@@ -41,7 +41,7 @@ MonoBehaviour:
     maxInstances: 50
   linearGrowth:
   - name: Level 2
-    description: Increases damage by 5.
+    description: Increases damage by 5. Cooldown reduced by 0.5s
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
@@ -52,18 +52,18 @@ MonoBehaviour:
       width: 0
       height: 0
     lifespan: 0
-    damage: 0
+    damage: 5
     damageVariance: 0
     area: 0
     speed: 0
-    cooldown: 0
+    cooldown: -0.5
     projectileInterval: 0
     knockback: 0
     number: 0
     piercing: 0
     maxInstances: 0
   - name: Level 3
-    description: Increases damage by 5.
+    description: Increases damage by 5. Cooldown reduced by 0.1s.
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
@@ -74,11 +74,11 @@ MonoBehaviour:
       width: 0
       height: 0
     lifespan: 0
-    damage: 0
+    damage: 5
     damageVariance: 0
     area: 0
     speed: 0
-    cooldown: 0
+    cooldown: -0.1
     projectileInterval: 0
     knockback: 0
     number: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
       width: 0
       height: 0
     lifespan: 0
-    damage: 0
+    damage: 5
     damageVariance: 0
     area: 0
     speed: 0
@@ -118,7 +118,7 @@ MonoBehaviour:
       width: 0
       height: 0
     lifespan: 0
-    damage: 0
+    damage: 5
     damageVariance: 0
     area: 0
     speed: 0
@@ -140,7 +140,7 @@ MonoBehaviour:
       width: 0
       height: 0
     lifespan: 0
-    damage: 0
+    damage: 5
     damageVariance: 0
     area: 0
     speed: 0
@@ -162,7 +162,7 @@ MonoBehaviour:
       width: 0
       height: 0
     lifespan: 0
-    damage: 0
+    damage: 5
     damageVariance: 0
     area: 0
     speed: 0

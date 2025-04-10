@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebd5814ec0fb245478ec319ccc65c52e, type: 3}
   m_Name: Raios
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 1318207367883000954, guid: c657f7e1fb884c4499b24e811c3426a3, type: 3}
   maxLevel: 3
   evolutionData: []
   behaviour: LightningRingWeapon

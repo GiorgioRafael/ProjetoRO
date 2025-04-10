@@ -173,8 +173,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1000
-  m_LinearDamping: 0
+  m_Mass: 1
+  m_LinearDamping: 6
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -200,6 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2567c6e2393c7a47884014fdd03461b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outOfFrameAction: 1
 --- !u!114 &7868313104021592026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,6 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f66301e0d9c22347816d6c5a4947b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 0
   drops:
   - name: Blue gem
     itemPrefab: {fileID: 610303841448720195, guid: a5881a8cadb00894eaaafdb1c7ce5b13, type: 3}
@@ -228,11 +230,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b553bdccbb50da49b74525fa57d9149, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: f5fe26b708090c446900ed2edfff73e8, type: 2}
-  currentMoveSpeed: 0
-  currentHealth: 0
-  currentDamage: 0
-  despawnDistance: 20
+  currentMoveSpeed: 1.5
+  currentHealth: 10
+  currentDamage: 5
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   damageFlashDuration: 0.2
   deathFadeTime: 0.2

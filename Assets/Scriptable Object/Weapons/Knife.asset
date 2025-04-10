@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebd5814ec0fb245478ec319ccc65c52e, type: 3}
   m_Name: Knife
   m_EditorClassIdentifier: 
-  icon: {fileID: 191639751788296122, guid: 4ba550a9a02373a4eabe33663ab82d0d, type: 3}
+  icon: {fileID: 1752878568249331049, guid: 27b15b8be241c0147af87759cc6504f3, type: 3}
   maxLevel: 8
   evolutionData:
   - name: Extreme knife

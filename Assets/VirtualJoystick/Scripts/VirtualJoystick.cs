@@ -369,6 +369,7 @@ namespace Terresquall {
         public float idleTime = 0.1f;
 
         void Update() {
+
             PositionUpdate();
             CheckForDrag();
         
@@ -394,11 +395,12 @@ namespace Terresquall {
             if (axis.sqrMagnitude > 0) 
             {
                 lastUsedAt = Time.time;
+                gameObject.GetComponent<Image>().enabled = true;
+                gameObject.transform.GetChild(0).GetComponent<Image>().enabled = true;
             }
             if (Time.time - lastUsedAt >= idleTime) {
-            gameObject.SetActive(false);
-            transform.position = new Vector3(-720, 0, 0);
-            gameObject.SetActive(true);
+                gameObject.GetComponent<Image>().enabled = false;
+                gameObject.transform.GetChild(0).GetComponent<Image>().enabled = false;
             }
         }
 

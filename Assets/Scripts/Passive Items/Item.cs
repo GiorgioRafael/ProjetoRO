@@ -8,6 +8,7 @@ using UnityEngine;
 public abstract class Item : MonoBehaviour
 {
     public int currentLevel = 1, maxLevel = 1;
+    [HideInInspector] public ItemData data;
     protected ItemData.Evolution[] evolutionData;
     protected PlayerInventory inventory;
     protected PlayerStats owner;
