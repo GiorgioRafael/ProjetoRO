@@ -5155,8 +5155,8 @@ MonoBehaviour:
   events:
   - {fileID: 11400000, guid: 92b541cff2e29ad4b9ae362933491bb0, type: 2}
   - {fileID: 11400000, guid: 5b811cc5b3f729e4db95e0033bf1d6d8, type: 2}
-  firstTriggerDelay: 5
-  triggerInterval: 10
+  firstTriggerDelay: 120
+  triggerInterval: 30
 --- !u!1 &674534472
 GameObject:
   m_ObjectHideFlags: 0
@@ -11887,6 +11887,11 @@ MonoBehaviour:
   - {fileID: 8137769287933365625, guid: d247418dbc8094b42858f0a58e31edf9, type: 3}
   - {fileID: 8137769287933365625, guid: 1c424fdfea467954989530e42fa48414, type: 3}
   - {fileID: 8137769287933365625, guid: c7d5eb6256eac1c4a879ac05e78419f3, type: 3}
+  - {fileID: 8137769287933365625, guid: 7e40a0076741793468b23925946e310a, type: 3}
+  - {fileID: 8137769287933365625, guid: 7e40a0076741793468b23925946e310a, type: 3}
+  - {fileID: 8137769287933365625, guid: 7e40a0076741793468b23925946e310a, type: 3}
+  - {fileID: 8137769287933365625, guid: 7e40a0076741793468b23925946e310a, type: 3}
+  - {fileID: 8137769287933365625, guid: 7e40a0076741793468b23925946e310a, type: 3}
   player: {fileID: 383724002}
   checkerRadius: 0.2
   noTerrainPosition: {x: 0, y: 0, z: 0}
