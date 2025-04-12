@@ -55,7 +55,6 @@ public class WhipWeapon : ProjectileWeapon
                 prefab.transform.localScale.y,
                 prefab.transform.localScale.z
             );
-            Debug.Log(spawnDir + " | " + prefab.transform.localScale);
         }
         
 

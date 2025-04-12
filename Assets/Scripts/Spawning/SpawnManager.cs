@@ -59,7 +59,7 @@ public class SpawnManager : MonoBehaviour
             foreach(GameObject prefab in spawns)
             {
                 // Stop spawning enemies if we exceed the limit.
-                if (!CanSpawn()) continue;
+                if (!CanSpawn() || prefab == null) continue;
 
                 // Spawn the enemy.
                 Instantiate(prefab, GeneratePosition(), Quaternion.identity);

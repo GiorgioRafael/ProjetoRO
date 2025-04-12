@@ -2870,7 +2870,7 @@ MonoBehaviour:
   passiveUI: {fileID: 872154433}
   availableWeapons:
   - {fileID: 11400000, guid: b75498fe315205f4a8d2e117db0949d3, type: 2}
-  - {fileID: 11400000, guid: 8d1995268998ba84b9f50700e0e20a21, type: 2}
+  - {fileID: 11400000, guid: f9f79bf007893a94eb1da83d335da2bc, type: 2}
   - {fileID: 11400000, guid: e868d71e7944a1c47a16405dc9325893, type: 2}
   - {fileID: 11400000, guid: 9bf048fd7f5cb514587191609f45458b, type: 2}
   - {fileID: 11400000, guid: ee9e2488f7f110a4eaad79739c140221, type: 2}
@@ -5135,9 +5135,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
   - {fileID: 11400000, guid: 05c2301a139b3c046aa2f0db32e4064e, type: 2}
-  - {fileID: 11400000, guid: 27ed275bbe3f3fd4aa2c1a5759844b3d, type: 2}
   - {fileID: 11400000, guid: 50484f941685176458dcd769ee1bbe3f, type: 2}
-  - {fileID: 11400000, guid: 3c21cd5fa2fdcf14db7963181dda0193, type: 2}
+  - {fileID: 11400000, guid: b1de3f60424949c47af32efc190f3a63, type: 2}
+  - {fileID: 11400000, guid: 0ef33c541d36ac2469e0909fb081bb1f, type: 2}
   referenceCamera: {fileID: 519420031}
   maximumEnemyCount: 300
 --- !u!114 &667894846

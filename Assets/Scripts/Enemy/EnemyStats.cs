@@ -23,10 +23,15 @@ public class EnemyStats : MonoBehaviour
 
     public static int count; // Track the number of enemies on the screen.
 
+    [Tooltip("If true, this enemy will NOT be counted in the global enemy count.")]
+    public bool excludeFromCount = false;
+
     void Awake()
     {
-
-        count++;
+        if (!excludeFromCount)
+        {
+            count++;
+        }
 
     }
 
@@ -116,6 +121,9 @@ public class EnemyStats : MonoBehaviour
 
     private void OnDestroy()
     {
-        count--;
+        if (!excludeFromCount)
+        {
+            count--;
+        }
     }
 }

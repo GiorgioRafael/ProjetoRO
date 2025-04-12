@@ -7,7 +7,7 @@ public class WaveData : SpawnData
     [Header("Wave Data")]
 
     [Tooltip("If there are less than this number of enemies, we will keep spawning until we get there.")]
-    [Min(0)] public int startingCount = 0;
+    [Min(0)] public int minimumAmount = 0;
 
     [Tooltip("How many enemies can this wave spawn at maximum?")]
     [Min(1)] public uint totalSpawns = uint.MaxValue;
@@ -31,8 +31,8 @@ public class WaveData : SpawnData
         // If we have less than <minimumEnemies> on the screen, we will 
         // set the count to be equals to the number of enemies to spawn to
         // populate the screen until it has <minimumEnemies> within.
-        if (totalEnemies + count < startingCount)
-            count = startingCount - totalEnemies;
+        if (totalEnemies + count < minimumAmount)
+            count = minimumAmount - totalEnemies;
 
         // Generate the result.
         GameObject[] result = new GameObject[count];
