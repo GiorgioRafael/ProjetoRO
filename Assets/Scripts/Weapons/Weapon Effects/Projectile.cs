@@ -15,6 +15,7 @@ public class Projectile : WeaponEffect
 
     protected Rigidbody2D rb;
     protected int piercing;
+    protected float area;
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -24,12 +25,12 @@ public class Projectile : WeaponEffect
         if (rb.bodyType == RigidbodyType2D.Dynamic)
         {
             rb.angularVelocity = rotationSpeed.z;
-            rb.linearVelocity = transform.right * stats.speed;
+            rb.linearVelocity = transform.right * weapon.GetSpeed();
         }
 
         // Prevent the area from being 0, as it hides the projectile.
 
-        float area = weapon.GetArea();
+        area = weapon.GetArea();
         if(area <= 0) area = 1;
         transform.localScale = new Vector3(
             area * Mathf.Sign(transform.localScale.x),
@@ -40,7 +41,7 @@ public class Projectile : WeaponEffect
         piercing = stats.piercing;
 
         // Destroy the projectile after its lifespan expires.
-        if (stats.lifespan > 0) Destroy(gameObject, stats.lifespan);
+        if (weapon.GetLifespan() > 0) Destroy(gameObject, weapon.GetLifespan());
 
         // If the projectile is auto-aiming, automatically find a suitable enemy.
         if (hasAutoAim) AcquireAutoAimFacing();

@@ -150,4 +150,13 @@ public abstract class Weapon : Item
         currentCooldown = Mathf.Min(actualCooldown, currentCooldown + actualCooldown);
         return true;
     }
+
+    public virtual float GetSpeed()
+    {
+        return currentStats.speed * owner.Stats.speed;
+    }
+    public virtual float GetLifespan()
+    {
+        return currentStats.lifespan * owner.Stats.duration;
+    }
 }

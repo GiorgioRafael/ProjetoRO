@@ -2875,11 +2875,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9bf048fd7f5cb514587191609f45458b, type: 2}
   - {fileID: 11400000, guid: ee9e2488f7f110a4eaad79739c140221, type: 2}
   - {fileID: 11400000, guid: 6119da3df69c1c549a7a6ab9f304180c, type: 2}
+  - {fileID: 11400000, guid: 13e53431453f0674ca6ec49631c349c2, type: 2}
   availablePassives:
   - {fileID: 11400000, guid: 8f5bbead2aaad9743bfc4c55efb6478c, type: 2}
   - {fileID: 11400000, guid: 98fd50a6f24da8d48855c196b382b317, type: 2}
   - {fileID: 11400000, guid: d5cb8e6842e92394e9181089731e2ae2, type: 2}
   - {fileID: 11400000, guid: 352fb404a1ca0c8469442003ff92fffd, type: 2}
+  - {fileID: 11400000, guid: 22f5c248c47011641b36a5c50947eb29, type: 2}
+  - {fileID: 11400000, guid: cd19abaae5568f440a11776a0426bbb9, type: 2}
   upgradeWindow: {fileID: 2084125389}
 --- !u!1 &384206924
 GameObject:
