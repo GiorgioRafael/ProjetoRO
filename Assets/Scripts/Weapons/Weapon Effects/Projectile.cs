@@ -61,7 +61,7 @@ public class Projectile : WeaponEffect
         {
             EnemyStats selectedTarget = targets[Random.Range(0, targets.Length)];
             Vector2 difference = selectedTarget.transform.position - transform.position;
-            aimAngle = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+            aimAngle = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg; 
         }
         else
         {

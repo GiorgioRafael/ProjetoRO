@@ -129,12 +129,12 @@ TextureImporter:
       name: bullet sprite_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 1
-        width: 6
-        height: 14
+        x: 0
+        y: 4
+        width: 16
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 49779686e97382a4db46269693675aad
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 

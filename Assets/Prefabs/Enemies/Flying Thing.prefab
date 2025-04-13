@@ -235,5 +235,5 @@ MonoBehaviour:
   currentDamage: 10
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   damageFlashDuration: 0.1
-  deathFadeTime: 0.2
+  deathFadeTime: 0.1
   excludeFromCount: 0
