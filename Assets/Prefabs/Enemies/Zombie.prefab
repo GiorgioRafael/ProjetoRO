@@ -230,10 +230,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b553bdccbb50da49b74525fa57d9149, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentMoveSpeed: 0.7
-  currentHealth: 30
-  currentDamage: 5
+  baseStats:
+    maxHealth: 30
+    moveSpeed: 0.7
+    damage: 6
+    knockbackMultiplier: 0.7
+    resistances:
+      freeze: 0
+      kill: 0
+      debuff: 0
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   damageFlashDuration: 0.1
   deathFadeTime: 0.1
-  excludeFromCount: 0

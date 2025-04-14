@@ -19,6 +19,11 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    public CharacterData.Stats Actual
+    {
+        get { return actualStats; }
+    }
+
     float health;
 
     #region Current Stats Properties

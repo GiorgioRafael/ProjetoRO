@@ -2627,14 +2627,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 383724002}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -2658,6 +2658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61102d7c20f93624cbb9c769fec46f6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sortingActive: 1
   lastHorizontalVector: 0
   lastVerticalVector: 0
   moveDir: {x: 0, y: 0}
@@ -5143,6 +5144,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0ef33c541d36ac2469e0909fb081bb1f, type: 2}
   referenceCamera: {fileID: 519420031}
   maximumEnemyCount: 300
+  boostedByCurse: 1
 --- !u!114 &667894846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5156,7 +5158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   events:
-  - {fileID: 11400000, guid: 92b541cff2e29ad4b9ae362933491bb0, type: 2}
+  - {fileID: 11400000, guid: 5b811cc5b3f729e4db95e0033bf1d6d8, type: 2}
   - {fileID: 11400000, guid: 5b811cc5b3f729e4db95e0033bf1d6d8, type: 2}
   firstTriggerDelay: 120
   triggerInterval: 30
@@ -10404,7 +10406,6 @@ MonoBehaviour:
   StopwatchDisplay: {fileID: 226161741}
   isGamePaused: 0
   isPlayingOnJoystick: {fileID: 0}
-  playerObject: {fileID: 383724002}
 --- !u!4 &1376082658
 Transform:
   m_ObjectHideFlags: 0

@@ -169,7 +169,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7218548514692892823}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -230,10 +230,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b553bdccbb50da49b74525fa57d9149, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentMoveSpeed: 0
-  currentHealth: 50
-  currentDamage: 5
+  baseStats:
+    maxHealth: 50
+    moveSpeed: 0.01
+    damage: 5
+    knockbackMultiplier: 0.1
+    resistances:
+      freeze: 0
+      kill: 0
+      debuff: 0
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   damageFlashDuration: 0.1
   deathFadeTime: 0.1
-  excludeFromCount: 1

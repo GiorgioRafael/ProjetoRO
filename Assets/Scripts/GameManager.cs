@@ -62,8 +62,7 @@ public class GameManager : MonoBehaviour
 
         public Toggle isPlayingOnJoystick;
 
-        //referencia o gameobject do player
-        public GameObject playerObject;
+        PlayerStats[] players; //todos os players
 
         public bool isGameOver {get { return currentState == GameState.GameOver; }}
         public bool choosingUpgrade {get { return currentState == GameState.LevelUp; }}
@@ -71,8 +70,38 @@ public class GameManager : MonoBehaviour
 
         public float GetElapsedTime() { return stopWatchTime; }
 
+
+            // Sums up the curse stat of all players and returns the value.
+        public static float GetCumulativeCurse()
+        {
+        if (!instance) return 1;
+
+        float totalCurse = 0;
+        foreach(PlayerStats p in instance.players)
+        {
+            totalCurse += p.Actual.curse;
+        }
+        return Mathf.Max(1, totalCurse);
+        }
+
+        // Sum up the levels of all players and returns the value.
+        public static int GetCumulativeLevels()
+        {
+        if (!instance) return 1;
+
+        int totalLevel = 0;
+        foreach (PlayerStats p in instance.players)
+        {
+            totalLevel += p.level;
+        }
+        return Mathf.Max(1, totalLevel);
+        }
+
         void Awake()
         {
+
+            players = FindObjectsOfType<PlayerStats>();
+
             //warning check to see if theres another singleton of this kind in the game
             if(instance == null) 
             {
@@ -258,7 +287,8 @@ public class GameManager : MonoBehaviour
 
             if(stopWatchTime >= timeLimit)
             {
-                playerObject.SendMessage("Kill");
+                foreach(PlayerStats p in players)
+                p.SendMessage("Kill");
             }
         }
         void UpdateStopwatchDisplay()
@@ -280,7 +310,8 @@ public class GameManager : MonoBehaviour
                 joystick.SetActive(false);
                 levelUpScreen.SetActive(true);
                 Time.timeScale= 0f;
-                playerObject.SendMessage("RemoveAndApplyUpgrades");
+                foreach(PlayerStats p in players)
+                p.SendMessage("RemoveAndApplyUpgrades");
             }
         }
 

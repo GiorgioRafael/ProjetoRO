@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyMovement : Sortable
 {
-    protected EnemyStats enemy;
+    protected EnemyStats stats;
     protected Transform player;
+    protected Rigidbody2D rb; // For checking if enemy has a rigidbody.
 
     protected Vector2 knockbackVelocity;
     protected float knockbackDuration;
@@ -13,13 +12,18 @@ public class EnemyMovement : MonoBehaviour
     public enum OutOfFrameAction { none, respawnAtEdge, despawn }
     public OutOfFrameAction outOfFrameAction = OutOfFrameAction.respawnAtEdge;
 
+    [System.Flags]
+    public enum KnockbackVariance { duration = 1, velocity = 2 }
+    public KnockbackVariance knockbackVariance = KnockbackVariance.velocity;
+
     protected bool spawnedOutOfFrame = false;
 
-    protected virtual void Start()
+    protected override void Start()
     {
+        base.Start();
+        rb = GetComponent<Rigidbody2D>();
         spawnedOutOfFrame = !SpawnManager.IsWithinBoundaries(transform);
-        enemy = GetComponent<EnemyStats>();
-        
+        stats = GetComponent<EnemyStats>();
 
         // Picks a random player on the screen, instead of always picking the 1st player.
         PlayerMovement[] allPlayers = FindObjectsOfType<PlayerMovement>();
@@ -29,27 +33,28 @@ public class EnemyMovement : MonoBehaviour
     protected virtual void Update()
     {
         // If we are currently being knocked back, then process the knockback.
-        if(knockbackDuration > 0)
+        if (knockbackDuration > 0)
         {
             transform.position += (Vector3)knockbackVelocity * Time.deltaTime;
             knockbackDuration -= Time.deltaTime;
         }
         else
         {
-            
             Move();
             HandleOutOfFrameAction();
         }
     }
 
     // If the enemy falls outside of the frame, handle it.
-    protected virtual void HandleOutOfFrameAction() {
+    protected virtual void HandleOutOfFrameAction()
+    {
         // Handle the enemy when it is out of frame.
         if (!SpawnManager.IsWithinBoundaries(transform))
         {
-            switch(outOfFrameAction)
+            switch (outOfFrameAction)
             {
-                case OutOfFrameAction.none: default:
+                case OutOfFrameAction.none:
+                default:
                     break;
                 case OutOfFrameAction.respawnAtEdge:
                     // If the enemy is outside the camera frame, teleport it back to the edge of the frame.
@@ -63,23 +68,38 @@ public class EnemyMovement : MonoBehaviour
                     }
                     break;
             }
-        } else spawnedOutOfFrame = false;
+        }
+        else spawnedOutOfFrame = false;
     }
 
     // This is meant to be called from other scripts to create knockback.
     public virtual void Knockback(Vector2 velocity, float duration)
     {
         // Ignore the knockback if the duration is greater than 0.
-        if(knockbackDuration > 0) return;
+        if (knockbackDuration > 0) return;
 
-        // Begins the knockback.
-        knockbackVelocity = velocity;
-        knockbackDuration = duration;
+
+
+        // Ignore knockback if the knockback type is set to none.
+        if (knockbackVariance == 0) return;
+
+        // Only change the factor if the multiplier is not 0 or 1.
+        float pow = 1;
+        bool reducesVelocity = (knockbackVariance & KnockbackVariance.velocity) > 0,
+             reducesDuration = (knockbackVariance & KnockbackVariance.duration) > 0;
+
+        if (reducesVelocity && reducesDuration) pow = 0.5f;
+
+        // Check which knockback values to affect.
+        knockbackVelocity = velocity * (reducesVelocity ? Mathf.Pow(stats.Actual.knockbackMultiplier, pow) : 1);
+        knockbackDuration = duration * (reducesDuration ? Mathf.Pow(stats.Actual.knockbackMultiplier, pow) : 1);
     }
 
     public virtual void Move()
     {
-        // Constantly move the enemy towards the player
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemy.currentMoveSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(
+        transform.position,
+        player.transform.position, 
+        stats.Actual.moveSpeed * Time.deltaTime);
     }
 }

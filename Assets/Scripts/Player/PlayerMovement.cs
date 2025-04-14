@@ -1,7 +1,7 @@
 using UnityEngine;
 using Terresquall;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : Sortable
 {
     //define a velocidade de movimento padrão
     public const float DEFAULT_MOVESPEED = 5f;
@@ -25,8 +25,9 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     PlayerStats player;
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         player = GetComponent<PlayerStats>();
         rb = GetComponent<Rigidbody2D>();
         lastMovedVector = new Vector2(1, 0f); // se o jogo comecar e o player nao se mover, ainda sim a faca vai sair pra direita

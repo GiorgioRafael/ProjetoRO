@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5398299286555442252, guid: a4b683eb1487b0743a882439f0cb5aa3, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7566461839616508672, guid: a4b683eb1487b0743a882439f0cb5aa3, type: 3}
       propertyPath: m_Name
       value: Charging Bat
@@ -19,6 +23,10 @@ PrefabInstance:
     - target: {fileID: 8087615236494379562, guid: a4b683eb1487b0743a882439f0cb5aa3, type: 3}
       propertyPath: excludeFromCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087615236494379562, guid: a4b683eb1487b0743a882439f0cb5aa3, type: 3}
+      propertyPath: baseStats.moveSpeed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8243820467467161265, guid: a4b683eb1487b0743a882439f0cb5aa3, type: 3}
       propertyPath: m_LocalPosition.x

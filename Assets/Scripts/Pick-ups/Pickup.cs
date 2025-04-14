@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Pickup : MonoBehaviour
+public class Pickup : Sortable
 {
     public float lifespan = 0.5f;
     protected PlayerStats target; // If the pickup has a target, then fly towards the target.
@@ -23,8 +23,9 @@ public class Pickup : MonoBehaviour
     public int experience;
     public int health;
 
-    protected virtual void Start()
+    protected override void Start()
     {
+        base.Start();
         initialPosition = transform.position;
         initialOffset = Random.Range(0, bobbingAnimation.frequency);
     }
