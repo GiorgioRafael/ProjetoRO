@@ -98,10 +98,14 @@ public class Projectile : WeaponEffect
             // we will calculate knockback using the owner instead of the projectile.
             Vector3 source = damageSource == DamageSource.owner && owner ? owner.transform.position : transform.position;
 
-            // Deals damage and destroys the projectile.
+            // Deals damage
             es.TakeDamage(GetDamage(), source);
 
             Weapon.Stats stats = weapon.GetStats();
+
+            weapon.ApplyBuffs(es); // Apply all assigned buffs to the target.
+
+            // Reduce the piercing value, and destroy the projectile if it runs of out of piercing.
             piercing--;
             if (stats.hitEffect)
             {

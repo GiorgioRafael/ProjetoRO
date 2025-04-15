@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71f042fd3c621a0449a6823db3091b4d, type: 3}
+  m_Name: Freeze
+  m_EditorClassIdentifier: 
+  name: Freeze
+  icon: {fileID: 0}
+  type: 4
+  variations:
+  - name: Clock
+    effect: {fileID: 0}
+    tint: {r: 0, g: 0.17138863, b: 1, a: 1}
+    animationSpeed: 0
+    duration: 2
+    damagePerSecond: 0
+    healPerSecond: 0
+    tickInterval: 0.25
+    stackType: 0
+    modifierType: 1
+    playerModifier:
+      maxHealth: 1
+      recovery: 1
+      armor: 1
+      moveSpeed: 0
+      might: 0
+      area: 1
+      speed: 1
+      duration: 1
+      amount: 1
+      cooldown: 1
+      luck: 1
+      growth: 1
+      greed: 1
+      curse: 1
+      magnet: 1
+      revival: 1
+    enemyModifier:
+      maxHealth: 1
+      moveSpeed: 0
+      damage: 1
+      knockbackMultiplier: 1
+      resistances:
+        freeze: 1
+        kill: 1
+        debuff: 1
+      curseBoosts: 0
+      levelBoosts: 0

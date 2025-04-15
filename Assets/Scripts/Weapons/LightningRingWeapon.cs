@@ -38,6 +38,12 @@ public class LightningRingWeapon : ProjectileWeapon
             Instantiate(currentStats.hitEffect, target.transform.position, Quaternion.identity);
         }
 
+        // If there is a proc effect, play it on the player.
+        if (currentStats.procEffect)
+        {
+            Destroy(Instantiate(currentStats.procEffect, owner.transform), 5f);
+        }
+
         // If we have more than 1 attack count.
         if (attackCount > 0)
         {
@@ -87,7 +93,11 @@ public class LightningRingWeapon : ProjectileWeapon
         foreach (Collider2D t in targets)
         {
             EnemyStats es = t.GetComponent<EnemyStats>();
-            if (es) es.TakeDamage(damage, transform.position);
+            if (es)
+            {
+                es.TakeDamage(damage, transform.position);
+                ApplyBuffs(es);
+            }
         }
     }
 }

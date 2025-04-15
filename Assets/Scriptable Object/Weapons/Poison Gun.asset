@@ -17,11 +17,12 @@ MonoBehaviour:
   evolutionData: []
   behaviour: ProjectileWeapon
   baseStats:
-    name: Poison Gun
-    description: Shoots Poison bullets and poison Enemies.
+    name: "Pistola da P\xFAstola"
+    description: Atira balas venenosas.
     projectilePrefab: {fileID: 2538810432339626029, guid: c5acc0f741904a1458162f79f8392fc0, type: 3}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
       x: 0
@@ -30,7 +31,7 @@ MonoBehaviour:
       height: 0
     lifespan: 3
     damage: 5
-    damageVariance: 2
+    damageVariance: 0
     area: 1
     speed: 10
     cooldown: 2
@@ -39,12 +40,17 @@ MonoBehaviour:
     number: 1
     piercing: 2
     maxInstances: 50
+    appliedBuffs:
+    - data: {fileID: 11400000, guid: 954b91afb3bf9474b9b36ddf045251be, type: 2}
+      variant: 0
+      probability: 1
   linearGrowth:
   - name: Level 2
     description: Increases damage by 5. Cooldown reduced by 0.5s
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
       x: 0
@@ -62,11 +68,13 @@ MonoBehaviour:
     number: 0
     piercing: 0
     maxInstances: 0
+    appliedBuffs: []
   - name: Level 3
     description: Increases damage by 5. Cooldown reduced by 0.1s.
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
       x: 0
@@ -84,11 +92,13 @@ MonoBehaviour:
     number: 0
     piercing: 0
     maxInstances: 0
+    appliedBuffs: []
   - name: Level 4
     description: Increases damage by 5.
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
       x: 0
@@ -106,11 +116,13 @@ MonoBehaviour:
     number: 0
     piercing: 0
     maxInstances: 0
+    appliedBuffs: []
   - name: Level 5
     description: Increases damage by 5.
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
       x: 0
@@ -128,11 +140,13 @@ MonoBehaviour:
     number: 0
     piercing: 0
     maxInstances: 0
+    appliedBuffs: []
   - name: Level 6
     description: Increases damage by 5.
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
       x: 0
@@ -150,11 +164,13 @@ MonoBehaviour:
     number: 0
     piercing: 0
     maxInstances: 0
+    appliedBuffs: []
   - name: Level 7
     description: Increases damage by 5.
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
       x: 0
@@ -172,11 +188,13 @@ MonoBehaviour:
     number: 0
     piercing: 0
     maxInstances: 0
+    appliedBuffs: []
   - name: Level 8
     description: Increases damage by 5.
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
       x: 0
@@ -194,4 +212,5 @@ MonoBehaviour:
     number: 0
     piercing: 0
     maxInstances: 0
+    appliedBuffs: []
   randomGrowth: []

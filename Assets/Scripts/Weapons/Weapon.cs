@@ -15,13 +15,15 @@ public abstract class Weapon : Item
         [Header("Visuals")]
         public Projectile projectilePrefab; // If attached, a projectile will spawn every time the weapon cools down.
         public Aura auraPrefab; // If attached, an aura will spawn when weapon is equipped.
-        public ParticleSystem hitEffect;
+        public ParticleSystem hitEffect, procEffect;
         public Rect spawnVariance;
 
         [Header("Values")]
         public float lifespan; // If 0, it will last forever.
         public float damage, damageVariance, area, speed, cooldown, projectileInterval, knockback;
         public int number, piercing, maxInstances;
+
+        public EntityStats.BuffInfo[] appliedBuffs;
 
         // Allows us to use the + operator to add 2 Stats together.
         // Very important later when we want to increase our weapon stats.
@@ -44,6 +46,7 @@ public abstract class Weapon : Item
             result.piercing = s1.piercing + s2.piercing;
             result.projectileInterval = s1.projectileInterval + s2.projectileInterval;
             result.knockback = s1.knockback + s2.knockback;
+            result.appliedBuffs = s2.appliedBuffs == null || s2.appliedBuffs.Length <= 0 ? s1.appliedBuffs : s2.appliedBuffs;
             return result;
         }
 
@@ -99,6 +102,7 @@ public abstract class Weapon : Item
     // Lets us check whether this weapon can attack at this current moment.
     public virtual bool CanAttack()
     {
+        if (Mathf.Approximately(owner.Stats.might, 0)) return false;
         return currentCooldown <= 0;
     }
 
@@ -158,5 +162,12 @@ public abstract class Weapon : Item
     public virtual float GetLifespan()
     {
         return currentStats.lifespan * owner.Stats.duration;
+    }
+
+    public void ApplyBuffs(EntityStats e)
+    {
+        // Apply all assigned buffs to the target.
+        foreach (EntityStats.BuffInfo b in GetStats().appliedBuffs)
+            e.ApplyBuff(b, owner.Actual.duration);
     }
 }

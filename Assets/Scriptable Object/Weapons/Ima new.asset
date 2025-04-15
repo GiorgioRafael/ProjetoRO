@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebd5814ec0fb245478ec319ccc65c52e, type: 3}
   m_Name: Ima new
   m_EditorClassIdentifier: 
-  icon: {fileID: 8741912438522716447, guid: a634215231116404cb98c4984d810b34, type: 3}
+  icon: {fileID: 7955661465570078789, guid: b01bf52d7b26b374fa5533bada044808, type: 3}
   maxLevel: 8
   evolutionData: []
   behaviour: AuraWeapon
@@ -22,6 +22,7 @@ MonoBehaviour:
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 231819770193237326, guid: 285fa2dcb87b6d64bac3b37f2b7f8b5c, type: 3}
     hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
       x: 0
@@ -39,12 +40,17 @@ MonoBehaviour:
     number: 1
     piercing: 0
     maxInstances: 50
+    appliedBuffs:
+    - data: {fileID: 11400000, guid: 20624412809697547a4917112d7df3ea, type: 2}
+      variant: 0
+      probability: 1
   linearGrowth:
   - name: Aura Level 2
     description: Aumenta a area em 40%. Dano base +2
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
       x: 0
@@ -62,11 +68,13 @@ MonoBehaviour:
     number: 0
     piercing: 0
     maxInstances: 0
+    appliedBuffs: []
   - name: Aura Level 3
     description: Reduz o cooldown em 0.1 segundos. Dano base +1
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
       x: 0
@@ -84,12 +92,14 @@ MonoBehaviour:
     number: 0
     piercing: 0
     maxInstances: 0
+    appliedBuffs: []
   randomGrowth:
   - name: 
     description: Area base aumenta em 20%.
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
       x: 0
@@ -107,3 +117,4 @@ MonoBehaviour:
     number: 0
     piercing: 0
     maxInstances: 0
+    appliedBuffs: []

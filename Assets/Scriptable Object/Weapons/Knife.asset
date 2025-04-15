@@ -15,12 +15,12 @@ MonoBehaviour:
   icon: {fileID: 1752878568249331049, guid: 27b15b8be241c0147af87759cc6504f3, type: 3}
   maxLevel: 8
   evolutionData:
-  - name: Extreme knife
-    condition: 0
+  - name: "Mil l\xE2minas"
+    condition: 1
     consumes: 2
     evolutionLevel: 8
     catalysts:
-    - itemType: {fileID: 11400000, guid: 8f5bbead2aaad9743bfc4c55efb6478c, type: 2}
+    - itemType: {fileID: 11400000, guid: 38b8f81c8d75b5947af2870d2ee4a446, type: 2}
       level: 1
     outcome:
       itemType: {fileID: 11400000, guid: 21613bb3908746c43b256d30501cf76e, type: 2}
@@ -32,6 +32,7 @@ MonoBehaviour:
     projectilePrefab: {fileID: -3694094145128136163, guid: 1448d6882d1e97545b392ed70f4b594a, type: 3}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
       x: -0.2
@@ -49,12 +50,14 @@ MonoBehaviour:
     number: 1
     piercing: 1
     maxInstances: 70
+    appliedBuffs: []
   linearGrowth:
   - name: Knife Level 2
     description: "Atira um proj\xE9til a mais."
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
       x: 0
@@ -72,11 +75,13 @@ MonoBehaviour:
     number: 1
     piercing: 0
     maxInstances: 0
+    appliedBuffs: []
   - name: Knife Level 3
     description: "Atira um proj\xE9til a mais. Dano aumenta em 5."
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
       x: 0
@@ -94,11 +99,13 @@ MonoBehaviour:
     number: 1
     piercing: 0
     maxInstances: 0
+    appliedBuffs: []
   - name: Knife Level 4
     description: "Atira um proj\xE9til a mais."
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
       x: 0
@@ -116,11 +123,13 @@ MonoBehaviour:
     number: 1
     piercing: 0
     maxInstances: 0
+    appliedBuffs: []
   - name: Knife Level 5
     description: Atravessa um inimigo a mais
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
       x: 0
@@ -138,11 +147,13 @@ MonoBehaviour:
     number: 0
     piercing: 1
     maxInstances: 0
+    appliedBuffs: []
   - name: Knife Level 6
     description: "Atira um proj\xE9til a mais."
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
       x: 0
@@ -160,11 +171,13 @@ MonoBehaviour:
     number: 1
     piercing: 0
     maxInstances: 0
+    appliedBuffs: []
   - name: Knife Level 7
     description: Atravessa um inimigo a mais
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
       x: 0
@@ -182,11 +195,13 @@ MonoBehaviour:
     number: 0
     piercing: 1
     maxInstances: 0
+    appliedBuffs: []
   - name: Knife Level 8
     description: Atravessa um inimigo a mais
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
       x: 0
@@ -204,4 +219,5 @@ MonoBehaviour:
     number: 0
     piercing: 1
     maxInstances: 0
+    appliedBuffs: []
   randomGrowth: []

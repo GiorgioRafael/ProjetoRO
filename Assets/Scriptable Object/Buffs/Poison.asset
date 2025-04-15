@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71f042fd3c621a0449a6823db3091b4d, type: 3}
+  m_Name: Poison
+  m_EditorClassIdentifier: 
+  name: Poison
+  icon: {fileID: 0}
+  type: 2
+  variations:
+  - name: Level 1
+    effect: {fileID: 0}
+    tint: {r: 0.042575523, g: 0.5943396, b: 0, a: 0.78431374}
+    animationSpeed: 1
+    duration: 5
+    damagePerSecond: 3
+    healPerSecond: 0
+    tickInterval: 1
+    stackType: 0
+    modifierType: 0
+    playerModifier:
+      maxHealth: 0
+      recovery: 0
+      armor: 0
+      moveSpeed: 0
+      might: 0
+      area: 0
+      speed: 0
+      duration: 0
+      amount: 0
+      cooldown: 0
+      luck: 0
+      growth: 0
+      greed: 0
+      curse: 0
+      magnet: 0
+      revival: 0
+    enemyModifier:
+      maxHealth: 0
+      moveSpeed: 0
+      damage: 0
+      knockbackMultiplier: 0
+      resistances:
+        freeze: 0
+        kill: 0
+        debuff: 0
+      curseBoosts: 0
+      levelBoosts: 0

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebd5814ec0fb245478ec319ccc65c52e, type: 3}
-  m_Name: Knife Upada
+  m_Name: Knife Evo
   m_EditorClassIdentifier: 
   icon: {fileID: -7516880206183524999, guid: 35b45b786dc518c4685235de455fee33, type: 3}
   maxLevel: 1
@@ -22,6 +22,7 @@ MonoBehaviour:
     projectilePrefab: {fileID: -3694094145128136163, guid: 077a0c272cce7e44f853c420eec387b8, type: 3}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
       x: 0
@@ -39,5 +40,6 @@ MonoBehaviour:
     number: 6
     piercing: 3
     maxInstances: 70
+    appliedBuffs: []
   linearGrowth: []
   randomGrowth: []
