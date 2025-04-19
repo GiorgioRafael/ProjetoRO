@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -235111609
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -1705106476, guid: c8ec670f204012d4589f7b0f8f610159, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f66301e0d9c22347816d6c5a4947b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 0
   drops:
   - name: Red Potion
     itemPrefab: {fileID: 1502375065708660715, guid: 52f8777271a0489489b58c164baec686, type: 3}

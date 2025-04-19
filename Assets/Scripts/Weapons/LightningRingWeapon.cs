@@ -17,6 +17,7 @@ public class LightningRingWeapon : ProjectileWeapon
             return false;
         }
 
+
         // If there is no projectile assigned, set the weapon on cooldown.
         if (!CanAttack()) return false;
 
@@ -31,6 +32,7 @@ public class LightningRingWeapon : ProjectileWeapon
 
         // Find an enemy in the map to strike with lightning.
         EnemyStats target = PickEnemy();
+        
         if (target)
         {
             DamageArea(target.transform.position, GetArea(), GetDamage());

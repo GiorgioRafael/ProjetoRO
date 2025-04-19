@@ -35,11 +35,13 @@ MonoBehaviour:
     area: 0
     speed: 0
     cooldown: 0
+    auraCooldown: 0
     projectileInterval: 0
     knockback: 0
     number: 0
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   linearGrowth: []
   randomGrowth: []

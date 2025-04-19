@@ -10,17 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e789f5db9e51b804d95f48492e234c37, type: 3}
-  m_Name: Flying Wave 4
+  m_Name: 5M FLYING
   m_EditorClassIdentifier: 
   possibleSpawnPrefabs:
-  - {fileID: 3127632922449184759, guid: 004ce0f1287b31643923c2bdb6123f28, type: 3}
-  - {fileID: 7566461839616508672, guid: a4b683eb1487b0743a882439f0cb5aa3, type: 3}
-  - {fileID: 7566461839616508672, guid: a4b683eb1487b0743a882439f0cb5aa3, type: 3}
-  - {fileID: 7566461839616508672, guid: aa5e58316f8c3264c8966cf63f34acd5, type: 3}
-  spawnInterval: {x: 0.25, y: 0.25}
-  spawnsPerTick: {x: 1, y: 1}
+  - {fileID: 0}
+  spawnInterval: {x: 1, y: 1}
+  spawnsPerTick: {x: 1, y: 2}
   duration: 60
-  minimumAmount: 40
+  minimumAmount: 10
   totalSpawns: 4294967295
   exitConditions: 1
   mustKillAll: 0

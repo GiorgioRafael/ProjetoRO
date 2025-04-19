@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Raios Character
   m_EditorClassIdentifier: 
   icon: {fileID: -5792612846293609617, guid: 3a2214144ee93bb4ca638e6be76f0d1b, type: 3}
-  name: 
+  animator: {fileID: 0}
+  name: SEM NOME
   startingWeapon: {fileID: 11400000, guid: 9bf048fd7f5cb514587191609f45458b, type: 2}
   stats:
     maxHealth: 100
@@ -25,7 +26,7 @@ MonoBehaviour:
     speed: 1
     duration: 1
     amount: 0
-    cooldown: 1
+    cooldown: 0.8
     luck: 1
     growth: 1
     greed: 1

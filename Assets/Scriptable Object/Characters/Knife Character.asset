@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Knife Character
   m_EditorClassIdentifier: 
   icon: {fileID: 4106213231394428757, guid: 35b45b786dc518c4685235de455fee33, type: 3}
+  animator: {fileID: 0}
   name: Knife Character
   startingWeapon: {fileID: 11400000, guid: b75498fe315205f4a8d2e117db0949d3, type: 2}
   stats:
@@ -24,7 +25,7 @@ MonoBehaviour:
     area: 1
     speed: 1
     duration: 1
-    amount: 0
+    amount: 1
     cooldown: 1
     luck: 1
     growth: 1

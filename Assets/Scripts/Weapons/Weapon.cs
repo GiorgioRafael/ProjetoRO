@@ -20,8 +20,9 @@ public abstract class Weapon : Item
 
         [Header("Values")]
         public float lifespan; // If 0, it will last forever.
-        public float damage, damageVariance, area, speed, cooldown, projectileInterval, knockback;
+        public float damage, damageVariance, area, speed, cooldown, auraCooldown, projectileInterval, knockback;
         public int number, piercing, maxInstances;
+        public bool isSantaWater;
 
         public EntityStats.BuffInfo[] appliedBuffs;
 
@@ -42,11 +43,13 @@ public abstract class Weapon : Item
             result.area = s1.area + s2.area;
             result.speed = s1.speed + s2.speed;
             result.cooldown = s1.cooldown + s2.cooldown;
+            result.auraCooldown = s1.auraCooldown + s2.auraCooldown;
             result.number = s1.number + s2.number;
             result.piercing = s1.piercing + s2.piercing;
             result.projectileInterval = s1.projectileInterval + s2.projectileInterval;
             result.knockback = s1.knockback + s2.knockback;
-            result.appliedBuffs = s2.appliedBuffs == null || s2.appliedBuffs.Length <= 0 ? s1.appliedBuffs : s2.appliedBuffs;
+            result.appliedBuffs = s2.appliedBuffs == null || s2.appliedBuffs.Length <= 0 ? s1.appliedBuffs : s2.appliedBuffs;result.isSantaWater = s2.isSantaWater;
+            result.isSantaWater = s2.isSantaWater;
             return result;
         }
 

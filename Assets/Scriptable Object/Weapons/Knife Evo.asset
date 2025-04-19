@@ -35,6 +35,7 @@ MonoBehaviour:
     area: 1
     speed: 35
     cooldown: 0.35
+    auraCooldown: 0
     projectileInterval: 0.05
     knockback: 0.5
     number: 6

@@ -157,11 +157,14 @@ public class PlayerInventory : MonoBehaviour
         // Get the type of the weapon we want to spawn.
         Type weaponType = Type.GetType(data.behaviour);
 
+
+
         if (weaponType != null)
         {
-            // Spawn the weapon GameObject.
+            // Spawn the weapon controller game object
             GameObject go = new GameObject(data.baseStats.name + " Controller");
             Weapon spawnedWeapon = (Weapon)go.AddComponent(weaponType);
+            spawnedWeapon.enabled = true;
             spawnedWeapon.transform.SetParent(transform); //Set the weapon to be a child of the player
             spawnedWeapon.transform.localPosition = Vector2.zero;
             spawnedWeapon.Initialise(data);

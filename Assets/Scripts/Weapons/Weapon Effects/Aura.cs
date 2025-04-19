@@ -9,11 +9,11 @@ using UnityEngine;
 public class Aura : WeaponEffect
 {
 
-    Dictionary<EnemyStats, float> affectedTargets = new Dictionary<EnemyStats, float>();
-    List<EnemyStats> targetsToUnaffect = new List<EnemyStats>();
-
+    protected Dictionary<EnemyStats, float> affectedTargets = new Dictionary<EnemyStats, float>();
+    protected List<EnemyStats> targetsToUnaffect = new List<EnemyStats>();
+    public bool IsSantaWater = false;
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         Dictionary<EnemyStats, float> affectedTargsCopy = new Dictionary<EnemyStats, float>(affectedTargets);
 
@@ -34,7 +34,10 @@ public class Aura : WeaponEffect
                 {
                     // Reset the cooldown and deal damage.
                     Weapon.Stats stats = weapon.GetStats();
-                    affectedTargets[pair.Key] = stats.cooldown * Owner.Stats.cooldown;
+                    if (IsSantaWater)
+                    affectedTargets[pair.Key] = stats.auraCooldown * Owner.Stats.cooldown;
+                    else
+                        affectedTargets[pair.Key] = stats.cooldown * Owner.Stats.cooldown;
                     pair.Key.TakeDamage(GetDamage(), transform.position, stats.knockback);
 
                     weapon.ApplyBuffs(pair.Key); // Apply all assigned buffs to the target.
@@ -47,6 +50,11 @@ public class Aura : WeaponEffect
                 }
             }
         }
+    }
+
+    public void SetWeapon(Weapon weapon)
+    {
+        this.weapon = weapon;
     }
 
     void OnTriggerEnter2D(Collider2D other)

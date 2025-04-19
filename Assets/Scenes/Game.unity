@@ -2875,6 +2875,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ee9e2488f7f110a4eaad79739c140221, type: 2}
   - {fileID: 11400000, guid: 6119da3df69c1c549a7a6ab9f304180c, type: 2}
   - {fileID: 11400000, guid: 13e53431453f0674ca6ec49631c349c2, type: 2}
+  - {fileID: 11400000, guid: f43d3bc287c14414eab2e7f3248245ae, type: 2}
   availablePassives:
   - {fileID: 11400000, guid: 8f5bbead2aaad9743bfc4c55efb6478c, type: 2}
   - {fileID: 11400000, guid: 98fd50a6f24da8d48855c196b382b317, type: 2}
@@ -4120,7 +4121,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14304,7 +14305,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1983990414
 AudioSource:
   m_ObjectHideFlags: 0

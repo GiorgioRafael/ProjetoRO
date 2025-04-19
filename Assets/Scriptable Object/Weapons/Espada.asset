@@ -18,7 +18,7 @@ MonoBehaviour:
   behaviour: WhipWeapon
   baseStats:
     name: Whip
-    description: Atira rapidamente na direcao que esta olhando
+    description: Corta rapidamente na direcao que esta olhando
     projectilePrefab: {fileID: 1147868339696603228, guid: 555257d8b9851d043853828c5c5d5a0a, type: 3}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
@@ -35,11 +35,13 @@ MonoBehaviour:
     area: 1
     speed: 0
     cooldown: 2
+    auraCooldown: 0
     projectileInterval: 0.1
     knockback: 1
     number: 1
     piercing: 999
     maxInstances: 30
+    isSantaWater: 0
     appliedBuffs: []
   linearGrowth:
   - name: Whip Level 2
@@ -60,11 +62,13 @@ MonoBehaviour:
     area: 0
     speed: 0
     cooldown: 0
+    auraCooldown: 0
     projectileInterval: 0
     knockback: 0
     number: 1
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   - name: Whip Level 3
     description: Base damage up by 5
@@ -84,11 +88,13 @@ MonoBehaviour:
     area: 0
     speed: 0
     cooldown: 0
+    auraCooldown: 0
     projectileInterval: 0
     knockback: 0
     number: 0
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   - name: Whip Level 4
     description: Base area up by 10%. Base damage up by 5.
@@ -108,11 +114,13 @@ MonoBehaviour:
     area: 0.1
     speed: 0
     cooldown: 0
+    auraCooldown: 0
     projectileInterval: 0
     knockback: 0
     number: 0
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   - name: Whip Level 5
     description: Base damage up by 5.
@@ -132,11 +140,13 @@ MonoBehaviour:
     area: 0
     speed: 0
     cooldown: 0
+    auraCooldown: 0
     projectileInterval: 0
     knockback: 0
     number: 0
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   - name: Whip Level 6
     description: Base area up by 10%. Base damage up by 5.
@@ -156,11 +166,13 @@ MonoBehaviour:
     area: 0.1
     speed: 0
     cooldown: 0
+    auraCooldown: 0
     projectileInterval: 0
     knockback: 0
     number: 1
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   - name: Whip Level 7
     description: Base damage up by 5.
@@ -180,11 +192,13 @@ MonoBehaviour:
     area: 0
     speed: 0
     cooldown: 0
+    auraCooldown: 0
     projectileInterval: 0
     knockback: 0
     number: 0
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   - name: Whip Level 8
     description: Base damage up by 5.
@@ -204,10 +218,12 @@ MonoBehaviour:
     area: 0
     speed: 0
     cooldown: 0
+    auraCooldown: 0
     projectileInterval: 0
     knockback: 0
     number: 0
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   randomGrowth: []

@@ -35,18 +35,20 @@ MonoBehaviour:
     area: 1
     speed: 10
     cooldown: 2
+    auraCooldown: 0
     projectileInterval: 0.1
     knockback: 0.5
     number: 1
     piercing: 2
     maxInstances: 50
+    isSantaWater: 0
     appliedBuffs:
     - data: {fileID: 11400000, guid: 954b91afb3bf9474b9b36ddf045251be, type: 2}
       variant: 0
       probability: 1
   linearGrowth:
   - name: Level 2
-    description: Increases damage by 5. Cooldown reduced by 0.5s
+    description: Aumenta o dano em 5. Diminui o tempo para atirar novamente em 0.5s
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
@@ -63,14 +65,16 @@ MonoBehaviour:
     area: 0
     speed: 0
     cooldown: -0.5
+    auraCooldown: 0
     projectileInterval: 0
     knockback: 0
     number: 0
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   - name: Level 3
-    description: Increases damage by 5. Cooldown reduced by 0.1s.
+    description: Aumenta o dano em 5. Diminui o tempo para atirar novamente em 0.5s
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
@@ -87,14 +91,16 @@ MonoBehaviour:
     area: 0
     speed: 0
     cooldown: -0.1
+    auraCooldown: 0
     projectileInterval: 0
     knockback: 0
     number: 0
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   - name: Level 4
-    description: Increases damage by 5.
+    description: Aumenta o dano em 5.
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
@@ -111,14 +117,16 @@ MonoBehaviour:
     area: 0
     speed: 0
     cooldown: 0
+    auraCooldown: 0
     projectileInterval: 0
     knockback: 0
     number: 0
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   - name: Level 5
-    description: Increases damage by 5.
+    description: Aumenta o dano em 5.
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
@@ -135,14 +143,16 @@ MonoBehaviour:
     area: 0
     speed: 0
     cooldown: 0
+    auraCooldown: 0
     projectileInterval: 0
     knockback: 0
     number: 0
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   - name: Level 6
-    description: Increases damage by 5.
+    description: Aumenta o dano em 5.
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
@@ -159,14 +169,16 @@ MonoBehaviour:
     area: 0
     speed: 0
     cooldown: 0
+    auraCooldown: 0
     projectileInterval: 0
     knockback: 0
     number: 0
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   - name: Level 7
-    description: Increases damage by 5.
+    description: Aumenta o dano em 5.
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
@@ -183,14 +195,16 @@ MonoBehaviour:
     area: 0
     speed: 0
     cooldown: 0
+    auraCooldown: 0
     projectileInterval: 0
     knockback: 0
     number: 0
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   - name: Level 8
-    description: Increases damage by 5.
+    description: Aumenta o dano em 5.
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
@@ -207,10 +221,12 @@ MonoBehaviour:
     area: 0
     speed: 0
     cooldown: 0
+    auraCooldown: 0
     projectileInterval: 0
     knockback: 0
     number: 0
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   randomGrowth: []

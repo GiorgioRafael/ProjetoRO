@@ -18,7 +18,7 @@ MonoBehaviour:
   behaviour: AxeWeapon
   baseStats:
     name: Machado
-    description: Dano alto, escala com Area.
+    description: "Atira machados, d\xE1 um alto dano."
     projectilePrefab: {fileID: 5130397777953176692, guid: 0d85f64684385954180ece90bc46b3c5, type: 3}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
@@ -35,11 +35,13 @@ MonoBehaviour:
     area: 1
     speed: 5
     cooldown: 4
+    auraCooldown: 0
     projectileInterval: 0.2
     knockback: 1
     number: 1
     piercing: 3
     maxInstances: 70
+    isSantaWater: 0
     appliedBuffs: []
   linearGrowth:
   - name: Machado Level 2
@@ -60,11 +62,13 @@ MonoBehaviour:
     area: 0
     speed: 0
     cooldown: 0
+    auraCooldown: 0
     projectileInterval: 0
     knockback: 0
     number: 1
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   - name: Machado Level 3
     description: Aumenta o dano base em 20
@@ -84,11 +88,13 @@ MonoBehaviour:
     area: 0
     speed: 0
     cooldown: 0
+    auraCooldown: 0
     projectileInterval: 0
     knockback: 0
     number: 0
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   - name: Machado Level 4
     description: Atravessa 2 inimigos a mais
@@ -108,11 +114,13 @@ MonoBehaviour:
     area: 0
     speed: 0
     cooldown: 0
+    auraCooldown: 0
     projectileInterval: 0
     knockback: 0
     number: 0
     piercing: 2
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   - name: Machado Level 5
     description: Atira mais um projetil.
@@ -132,11 +140,13 @@ MonoBehaviour:
     area: 0
     speed: 0
     cooldown: 0
+    auraCooldown: 0
     projectileInterval: 0
     knockback: 0
     number: 1
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   - name: Machado Level 6
     description: Aumenta o dano base em 20.
@@ -156,11 +166,13 @@ MonoBehaviour:
     area: 0
     speed: 0
     cooldown: 0
+    auraCooldown: 0
     projectileInterval: 0
     knockback: 0
     number: 0
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   - name: Machado Level 7
     description: Atravessa 2 inimigos a mais.
@@ -180,11 +192,13 @@ MonoBehaviour:
     area: 0
     speed: 0
     cooldown: 0
+    auraCooldown: 0
     projectileInterval: 0
     knockback: 0
     number: 0
     piercing: 2
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   - name: Machado Level 8
     description: Aumenta o dano base em 20.
@@ -204,10 +218,12 @@ MonoBehaviour:
     area: 0
     speed: 0
     cooldown: 0
+    auraCooldown: 0
     projectileInterval: 0
     knockback: 0
     number: 0
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   randomGrowth: []

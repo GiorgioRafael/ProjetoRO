@@ -6,6 +6,7 @@ using TMPro;
 
 public class PlayerStats : EntityStats
 {
+    
 
     CharacterData characterData;
     public CharacterData.Stats baseStats;

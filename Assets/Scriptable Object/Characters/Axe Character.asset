@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Axe Character
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
+  animator: {fileID: 0}
   name: 
   startingWeapon: {fileID: 11400000, guid: ee9e2488f7f110a4eaad79739c140221, type: 2}
   stats:
@@ -22,10 +23,10 @@ MonoBehaviour:
     moveSpeed: 1
     might: 1
     area: 1
-    speed: 1.1
+    speed: 1
     duration: 1
     amount: 0
-    cooldown: 1
+    cooldown: 0.8
     luck: 1
     growth: 1
     greed: 1

@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: Ima Character
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
+  animator: {fileID: 0}
   name: Mago dos games
   startingWeapon: {fileID: 11400000, guid: f9f79bf007893a94eb1da83d335da2bc, type: 2}
   stats:
     maxHealth: 100
     recovery: 0
     armor: 0
-    moveSpeed: 1
+    moveSpeed: 0.6
     might: 1
     area: 1
     speed: 1
