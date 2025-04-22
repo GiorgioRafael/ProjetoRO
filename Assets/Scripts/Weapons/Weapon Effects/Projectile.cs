@@ -51,25 +51,43 @@ public class Projectile : WeaponEffect
     // to move towards.
     public virtual void AcquireAutoAimFacing()
     {
-        float aimAngle; // We need to determine where to aim.
+        float aimAngle;
 
-        // Find all enemies on the screen.
+        // Find all enemies
         EnemyStats[] targets = FindObjectsOfType<EnemyStats>();
 
-        // Select a random enemy (if there is at least 1).
-        // Otherwise, pick a random angle.
         if (targets.Length > 0)
         {
-            EnemyStats selectedTarget = targets[Random.Range(0, targets.Length)];
-            Vector2 difference = selectedTarget.transform.position - transform.position;
-            aimAngle = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg; 
+            // Track the closest enemy
+            EnemyStats closestTarget = null;
+            float closestDistance = Mathf.Infinity;
+
+            foreach (var enemy in targets)
+            {
+                float distance = Vector2.Distance(transform.position, enemy.transform.position);
+                if (distance < closestDistance)
+                {
+                    closestTarget = enemy;
+                    closestDistance = distance;
+                }
+            }
+
+            if (closestTarget != null)
+            {
+                Vector2 difference = closestTarget.transform.position - transform.position;
+                aimAngle = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+            }
+            else
+            {
+                aimAngle = Random.Range(0f, 360f);
+            }
         }
         else
         {
             aimAngle = Random.Range(0f, 360f);
         }
 
-        // Point the projectile towards where we are aiming at.
+        // Apply the rotation
         transform.rotation = Quaternion.Euler(0, 0, aimAngle);
     }
 

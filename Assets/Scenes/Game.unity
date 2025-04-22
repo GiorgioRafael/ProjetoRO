@@ -2794,6 +2794,7 @@ MonoBehaviour:
     duration: 0
     amount: 0
     cooldown: 0
+    expGain: 0
     luck: 0
     growth: 0
     greed: 0
@@ -2811,6 +2812,7 @@ MonoBehaviour:
     duration: 0
     amount: 0
     cooldown: 0
+    expGain: 0
     luck: 0
     growth: 0
     greed: 0
@@ -5142,6 +5144,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 50484f941685176458dcd769ee1bbe3f, type: 2}
   - {fileID: 11400000, guid: b1de3f60424949c47af32efc190f3a63, type: 2}
   - {fileID: 11400000, guid: 0ef33c541d36ac2469e0909fb081bb1f, type: 2}
+  - {fileID: 11400000, guid: 55a3238e83f6b474fa2c4781e84b04be, type: 2}
+  - {fileID: 11400000, guid: 3fb347eee86ae1d40bd2dabd76a817c2, type: 2}
+  - {fileID: 11400000, guid: c8634e860ccaebc4aa63393666d9f89e, type: 2}
+  - {fileID: 11400000, guid: 8cb57bf220bf014428b3d92805564add, type: 2}
   referenceCamera: {fileID: 519420031}
   maximumEnemyCount: 300
   boostedByCurse: 1
@@ -5158,7 +5164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   events:
-  - {fileID: 11400000, guid: 5b811cc5b3f729e4db95e0033bf1d6d8, type: 2}
+  - {fileID: 11400000, guid: 92b541cff2e29ad4b9ae362933491bb0, type: 2}
   - {fileID: 11400000, guid: 5b811cc5b3f729e4db95e0033bf1d6d8, type: 2}
   firstTriggerDelay: 120
   triggerInterval: 30
@@ -14147,7 +14153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8834734170784175514, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
       propertyPath: radius
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8834734170784175514, guid: 5c2cb823f1af59541974bd4a360355f6, type: 3}
       propertyPath: deadzone

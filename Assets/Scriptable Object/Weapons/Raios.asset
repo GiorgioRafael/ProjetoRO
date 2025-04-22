@@ -41,6 +41,7 @@ MonoBehaviour:
     number: 2
     piercing: 0
     maxInstances: 50
+    isSantaWater: 0
     appliedBuffs: []
   linearGrowth:
   - name: Raio level 2
@@ -67,6 +68,7 @@ MonoBehaviour:
     number: 0
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   - name: Raio Level 3
     description: Aumenta o dano em 5
@@ -92,5 +94,6 @@ MonoBehaviour:
     number: 0
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   randomGrowth: []

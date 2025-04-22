@@ -41,6 +41,7 @@ MonoBehaviour:
     number: 1
     piercing: 0
     maxInstances: 50
+    isSantaWater: 0
     appliedBuffs: []
   linearGrowth:
   - name: Aura Level 2
@@ -67,6 +68,7 @@ MonoBehaviour:
     number: 0
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   - name: Aura Level 3
     description: Reduz o cooldown em 0.1 segundos. Dano base +1
@@ -92,6 +94,7 @@ MonoBehaviour:
     number: 0
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   randomGrowth:
   - name: 
@@ -118,4 +121,5 @@ MonoBehaviour:
     number: 0
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []

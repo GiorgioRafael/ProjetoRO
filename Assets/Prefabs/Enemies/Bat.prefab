@@ -200,6 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2567c6e2393c7a47884014fdd03461b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sortingActive: 1
   outOfFrameAction: 1
   knockbackVariance: 2
 --- !u!114 &7868313104021592026
@@ -242,6 +243,7 @@ MonoBehaviour:
       debuff: 0
     curseBoosts: 3
     levelBoosts: 0
+  attackEffects: []
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   damageFlashDuration: 0.1
   deathFadeTime: 0.1

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Prop
+  - GhostEnemy
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - UI
   - Terrain
   - Enemy
-  - 
+  - GhostEnemy
   - 
   - 
   - 

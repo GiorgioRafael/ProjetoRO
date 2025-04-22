@@ -85,6 +85,8 @@ public class PlayerStats : EntityStats
     public Image expBar;
     public TMP_Text levelText;
 
+    PlayerAnimator playerAnimator;
+
     void Awake()
     {
         characterData = CharacterSelector.GetData();
@@ -98,6 +100,9 @@ public class PlayerStats : EntityStats
         baseStats = actualStats = characterData.stats;
         collector.SetRadius(actualStats.magnet);
         health = actualStats.maxHealth;
+
+        playerAnimator = GetComponent<PlayerAnimator>();
+        playerAnimator.SetAnimatorController(characterData.animator);
     }
 
     protected override void Start()
@@ -175,8 +180,9 @@ public class PlayerStats : EntityStats
 
     public void IncreaseExperience(int amount)
     {
-        experience += amount;
 
+        experience += Mathf.RoundToInt(amount * actualStats.expGain);
+        
         LevelUpChecker();
         UpdateExpBar();
     }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Poison Character
   m_EditorClassIdentifier: 
   icon: {fileID: 2674983801438639533, guid: a7515d5ff23ed5446ae01405c2dc6372, type: 3}
-  animator: {fileID: 0}
+  animator: {fileID: 22100000, guid: 069d992ffd104bd4b8f4583f42e62c5d, type: 2}
   name: Poison Guy
   startingWeapon: {fileID: 11400000, guid: 6119da3df69c1c549a7a6ab9f304180c, type: 2}
   stats:
@@ -27,6 +27,7 @@ MonoBehaviour:
     duration: 1
     amount: 0
     cooldown: 1
+    expGain: 1
     luck: 1
     growth: 1
     greed: 1

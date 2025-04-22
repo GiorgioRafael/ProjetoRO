@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5398299286555442252, guid: a4b683eb1487b0743a882439f0cb5aa3, type: 3}
       propertyPath: m_BodyType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7566461839616508672, guid: a4b683eb1487b0743a882439f0cb5aa3, type: 3}
       propertyPath: m_Name
@@ -94,4 +94,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 973b10f6f78182945a8e9fb62c673808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sortingActive: 1
   outOfFrameAction: 2
+  knockbackVariance: 2

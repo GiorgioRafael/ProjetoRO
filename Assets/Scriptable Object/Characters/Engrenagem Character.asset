@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Engrenagem Character
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  animator: {fileID: 0}
+  animator: {fileID: 9100000, guid: a73786bf4988c0b42ac90a6f8a988b9b, type: 2}
   name: Engrenagem
   startingWeapon: {fileID: 11400000, guid: 13e53431453f0674ca6ec49631c349c2, type: 2}
   stats:
@@ -27,6 +27,7 @@ MonoBehaviour:
     duration: 1.3
     amount: 0
     cooldown: 1
+    expGain: 1
     luck: 1
     growth: 1
     greed: 1

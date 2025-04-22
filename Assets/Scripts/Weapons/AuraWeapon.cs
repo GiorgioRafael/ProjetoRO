@@ -8,39 +8,30 @@ public class AuraWeapon : Weapon
     protected bool isSpawning = false;
     private CharacterData.Stats actualStats;
     protected bool SantaWaterBeheaviour;
-    
+
     private bool isInitialized = false;
-
-
     List<EnemyStats> allSelectedEnemies = new List<EnemyStats>();
 
     private void Init()
     {
         if (isInitialized) return;
-        
+
         SantaWaterBeheaviour = currentStats.isSantaWater;
         Debug.Log(currentStats.isSantaWater);
-        
+
         isInitialized = true;
     }
-    /*
-    void Start()
-    {   
-        Debug.Log(currentStats.isSantaWater);
-        if(currentStats.isSantaWater == false)
-        {
-            SantaWaterBeheaviour = false ;
-        }
-    }
-    */
 
     protected override void Update()
     {
-        if (!isInitialized) return;
+        if (!isInitialized) 
+         Init(); 
+        
+        if(!isInitialized) return;
+        
         if (SantaWaterBeheaviour && !isSpawning)
         {
             StartCoroutine(SpawnAurasCoroutine());
-            //Debug.Log("Tentando iniciar Coroutine");
         }
     }
 
@@ -56,7 +47,7 @@ public class AuraWeapon : Weapon
                 currentAura = Instantiate(currentStats.auraPrefab, transform);
                 currentAura.weapon = this;
                 currentAura.owner = owner;
-                
+
                 float area = GetArea();
                 currentAura.transform.localScale = new Vector3(area, area, area);
             }
@@ -89,18 +80,16 @@ public class AuraWeapon : Weapon
 
     private IEnumerator SpawnAurasCoroutine()
     {
-        //Debug.Log("Coroutine iniciada");
         isSpawning = true;
 
-        int count = currentStats.number + Owner.Stats.amount -1;
+        int count = currentStats.number + Owner.Stats.amount;
         float interval = currentStats.projectileInterval;
 
-        // Refresh enemy list
         allSelectedEnemies = new List<EnemyStats>(FindObjectsOfType<EnemyStats>());
 
         for (int i = 0; i < count; i++)
         {
-            EnemyStats target = PickEnemy();
+            EnemyStats target = PickClosestFreeEnemy();
 
             if (target)
             {
@@ -125,39 +114,50 @@ public class AuraWeapon : Weapon
         aura.weapon = this;
         aura.owner = owner;
 
-
         float area = GetArea();
         aura.transform.localScale = new Vector3(area, area, area);
         Destroy(aura.gameObject, currentStats.lifespan * Owner.Stats.duration);
     }
 
-    // Randomly picks a visible enemy on screen
-    private EnemyStats PickEnemy()
+    private EnemyStats PickClosestFreeEnemy()
     {
-        EnemyStats target = null;
+        Vector2 playerPosition = owner.transform.position;
+        float minDistanceBetweenAuras = 1.5f; // Ajuste conforme o tamanho da aura
 
-        while (!target && allSelectedEnemies.Count > 0)
+        List<EnemyStats> sortedEnemies = new List<EnemyStats>(allSelectedEnemies);
+        sortedEnemies.Sort((a, b) =>
+            Vector2.Distance(a.transform.position, playerPosition)
+            .CompareTo(Vector2.Distance(b.transform.position, playerPosition))
+        );
+
+        foreach (var enemy in sortedEnemies)
         {
-            int idx = Random.Range(0, allSelectedEnemies.Count);
-            target = allSelectedEnemies[idx];
+            if (!enemy) continue;
 
-            if (!target)
-            {
-                allSelectedEnemies.RemoveAt(idx);
-                continue;
-            }
+            Renderer r = enemy.GetComponent<Renderer>();
+            if (!r || !r.isVisible) continue;
 
-            Renderer r = target.GetComponent<Renderer>();
-            if (!r || !r.isVisible)
+            Vector2 pos = enemy.transform.position;
+            if (!IsAuraNear(pos, minDistanceBetweenAuras))
             {
-                allSelectedEnemies.Remove(target);
-                target = null;
-                continue;
+                allSelectedEnemies.Remove(enemy);
+                return enemy;
             }
         }
 
-        if (target) allSelectedEnemies.Remove(target);
+        return null;
+    }
 
-        return target;
+    private bool IsAuraNear(Vector2 position, float minDistance)
+    {
+        Aura[] existingAuras = FindObjectsOfType<Aura>();
+        foreach (var aura in existingAuras)
+        {
+            if (Vector2.Distance(aura.transform.position, position) < minDistance)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

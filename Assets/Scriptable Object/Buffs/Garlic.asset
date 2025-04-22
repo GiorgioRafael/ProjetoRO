@@ -21,8 +21,8 @@ MonoBehaviour:
     tint: {r: 0, g: 0, b: 0, a: 0}
     animationSpeed: 1
     duration: 1.3
-    damagePerSecond: 1
-    healPerSecond: 1
+    damagePerSecond: 0
+    healPerSecond: 0
     tickInterval: 0.25
     stackType: 1
     modifierType: 0
@@ -37,6 +37,7 @@ MonoBehaviour:
       duration: 0
       amount: 0
       cooldown: 0
+      expGain: 0
       luck: 0
       growth: 0
       greed: 0

@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 6267109583213233546}
   m_Layer: 6
   m_Name: Plant
-  m_TagString: Enemy
+  m_TagString: GhostEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -200,7 +200,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2567c6e2393c7a47884014fdd03461b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sortingActive: 1
   outOfFrameAction: 0
+  knockbackVariance: 2
 --- !u!114 &7617733616570292480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,7 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseStats:
-    maxHealth: 50
+    maxHealth: 250
     moveSpeed: 0.01
     damage: 5
     knockbackMultiplier: 0.1
@@ -239,6 +241,9 @@ MonoBehaviour:
       freeze: 0
       kill: 0
       debuff: 0
+    curseBoosts: 3
+    levelBoosts: 0
+  attackEffects: []
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   damageFlashDuration: 0.1
   deathFadeTime: 0.1
