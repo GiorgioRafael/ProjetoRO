@@ -31,12 +31,12 @@ MonoBehaviour:
       width: 0
       height: 0
     lifespan: 2
-    damage: 10
+    damage: 5
     damageVariance: 1
     area: 1
     speed: 1
     cooldown: 5
-    auraCooldown: 0.3
+    auraCooldown: 0.5
     projectileInterval: 0.1
     knockback: 0
     number: 1

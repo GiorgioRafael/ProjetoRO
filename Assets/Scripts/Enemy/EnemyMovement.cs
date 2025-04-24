@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class EnemyMovement : Sortable
 {
+    [SerializeField]
+    protected bool LeftEnemy;
+
     protected EnemyStats stats;
     protected Transform player;
     protected Rigidbody2D rb; // For checking if enemy has a rigidbody.
@@ -17,6 +20,11 @@ public class EnemyMovement : Sortable
     public KnockbackVariance knockbackVariance = KnockbackVariance.velocity;
 
     protected bool spawnedOutOfFrame = false;
+
+    void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     protected override void Start()
     {
@@ -95,11 +103,27 @@ public class EnemyMovement : Sortable
         knockbackDuration = duration * (reducesDuration ? Mathf.Pow(stats.Actual.knockbackMultiplier, pow) : 1);
     }
 
+    public SpriteRenderer spriteRenderer;
+
     public virtual void Move()
     {
+        Vector3 direction = player.transform.position - transform.position;
+
+        // Move towards the player
         transform.position = Vector2.MoveTowards(
-        transform.position,
-        player.transform.position, 
-        stats.Actual.moveSpeed * Time.deltaTime);
+            transform.position,
+            player.transform.position, 
+            stats.Actual.moveSpeed * Time.deltaTime);
+
+        // Flip the sprite based on movement direction
+        if (direction.x < 0)
+        {
+            spriteRenderer.flipX = !LeftEnemy; // Moving left
+        }
+        else if (direction.x > 0)
+        {
+            spriteRenderer.flipX = LeftEnemy; // Moving right
+        }
     }
+
 }
