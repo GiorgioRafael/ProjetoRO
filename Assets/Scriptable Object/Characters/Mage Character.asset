@@ -12,16 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8a371504affb3544b15ee6c72cf2fb5, type: 3}
   m_Name: Mage Character
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 3713219614965599903, guid: 1f50da4a632d6c345b06bc93f3eb4f72, type: 3}
   animator: {fileID: 22100000, guid: 3927417d7dd117f46bf0732d154c012d, type: 2}
-  name: Davy
+  name: Mago
+  fullName: Sr. Mago
+  characterDescription: "O maguinho come\xE7a com o cooldown reduzido em 10% e o
+    dano aumentado em 20% (todas as armas)"
   startingWeapon: {fileID: 11400000, guid: 7f4867403f6f5da4d903d8c077da062b, type: 2}
   stats:
     maxHealth: 100
     recovery: 0
     armor: 0
     moveSpeed: 1
-    might: 1.1
+    might: 1.2
     area: 1
     speed: 1
     duration: 1

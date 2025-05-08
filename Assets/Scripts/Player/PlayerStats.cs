@@ -89,9 +89,10 @@ public class PlayerStats : EntityStats
 
     void Awake()
     {
-        characterData = CharacterSelector.GetData();
-        if(CharacterSelector.instance) 
-            CharacterSelector.instance.DestroySingleton();
+        characterData = UICharacterSelector.GetData();
+
+        //if(CharacterSelector.instance) 
+        //    CharacterSelector.instance.DestroySingleton();
 
         inventory = GetComponent<PlayerInventory>();
         collector = GetComponentInChildren<PlayerCollector>();
@@ -108,6 +109,9 @@ public class PlayerStats : EntityStats
     protected override void Start()
     {
         base.Start();
+
+        RecalculateStats();
+
         //Spawn the starting weapon
         inventory.Add(characterData.StartingWeapon);
 
@@ -170,10 +174,72 @@ public class PlayerStats : EntityStats
                     break;
             }
         }
+
+         // Apply permanent upgrades from UpgradeManager
+    if (UpgradeManager.instance != null)
+    {
+        foreach (var upgrade in UpgradeManager.instance.upgrades)
+        {
+            foreach (var boost in upgrade.boosts)
+            {
+                switch (boost.statName)
+                {
+                    case "maxHealth":
+                        actualStats.maxHealth += upgrade.GetBoost("maxHealth");
+                        break;
+                    case "recovery":
+                        actualStats.recovery += upgrade.GetBoost("recovery");
+                        break;
+                    case "armor":
+                        actualStats.armor += upgrade.GetBoost("armor");
+                        break;
+                    case "moveSpeed":
+                        actualStats.moveSpeed += upgrade.GetBoost("moveSpeed");
+                        break;
+                    case "might":
+                        actualStats.might += upgrade.GetBoost("might");
+                        break;
+                    case "area":
+                        actualStats.area += upgrade.GetBoost("area");
+                        break;
+                    case "speed":
+                        actualStats.speed += upgrade.GetBoost("speed");
+                        break;
+                    case "duration":
+                        actualStats.duration += upgrade.GetBoost("duration");
+                        break;
+                    case "amount":
+                        actualStats.amount += (int)upgrade.GetBoost("amount");
+                        break;
+                    case "cooldown":
+                        actualStats.cooldown += upgrade.GetBoost("cooldown");
+                        break;
+                    case "luck":
+                        actualStats.luck += upgrade.GetBoost("luck");
+                        break;
+                    case "growth":
+                        actualStats.growth += upgrade.GetBoost("growth");
+                        break;
+                    case "greed":
+                        actualStats.greed += upgrade.GetBoost("greed");
+                        break;
+                    case "curse":
+                        actualStats.curse += upgrade.GetBoost("curse");
+                        break;
+                    case "magnet":
+                        actualStats.magnet += upgrade.GetBoost("magnet");
+                        break;
+                    case "revival":
+                        actualStats.revival += (int)upgrade.GetBoost("revival");
+                        break;
+                }
+            }
+        }
+    }
         
+        //Aplica modificadores
         actualStats *= multiplier;
-
-
+        
         // Update the PlayerCollector's radius.
         collector.SetRadius(actualStats.magnet);
     }

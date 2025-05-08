@@ -15,15 +15,17 @@ MonoBehaviour:
   icon: {fileID: -4665311039209658066, guid: 16f73e27a8f087743bff2f2060079c51, type: 3}
   animator: {fileID: 9100000, guid: a73786bf4988c0b42ac90a6f8a988b9b, type: 2}
   name: Nightborn
+  fullName: Sr. Nightborn
+  characterDescription: "Come\xE7a 20% mais r\xE1pido."
   startingWeapon: {fileID: 11400000, guid: e868d71e7944a1c47a16405dc9325893, type: 2}
   stats:
     maxHealth: 100
     recovery: 0
     armor: 0
-    moveSpeed: 1
+    moveSpeed: 1.2
     might: 1
     area: 1
-    speed: 1.2
+    speed: 1
     duration: 1
     amount: 0
     cooldown: 1

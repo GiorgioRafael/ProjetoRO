@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8a371504affb3544b15ee6c72cf2fb5, type: 3}
   m_Name: Axe Character
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: -7705136319623115422, guid: 16f73e27a8f087743bff2f2060079c51, type: 3}
   animator: {fileID: 9100000, guid: a73786bf4988c0b42ac90a6f8a988b9b, type: 2}
-  name: 
+  name: Axeios
+  fullName: Axeios Glory
+  characterDescription: "Come\xE7a com o cooldown reduzido em 20% (Todas as armas)"
   startingWeapon: {fileID: 11400000, guid: ee9e2488f7f110a4eaad79739c140221, type: 2}
   stats:
     maxHealth: 100

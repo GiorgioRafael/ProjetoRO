@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: 0MBat Wave
   m_EditorClassIdentifier: 
   possibleSpawnPrefabs:
-  - {fileID: 4538963437100557417, guid: 11d2f6c250cc4774fb656d59c743247e, type: 3}
+  - {fileID: 7566461839616508672, guid: a4b683eb1487b0743a882439f0cb5aa3, type: 3}
   spawnInterval: {x: 1, y: 1}
   spawnsPerTick: {x: 1, y: 1}
   duration: 60
-  minimumAmount: 60
+  minimumAmount: 20
   totalSpawns: 4294967295
   exitConditions: 1
   mustKillAll: 0

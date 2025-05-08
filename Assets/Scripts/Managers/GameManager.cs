@@ -128,6 +128,7 @@ public class GameManager : MonoBehaviour
                     CheckForPauseAndResume();
                     UpdateStopwatch();
                     EnableExpBar();
+
                     break;
                     
                 case GameState.Paused:
@@ -215,6 +216,7 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 0f; //pausa o jogo
                 pauseScreen.SetActive(true);
                 joystick.SetActive(false);
+                DataPersistenceManager.instance.SaveGame();
             }
 
         }
@@ -261,6 +263,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0f;
             DisableExpBar();
             DisplayResults();
+            DataPersistenceManager.instance.SaveGame();
         }
         void DisplayResults()
         {

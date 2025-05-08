@@ -7,6 +7,7 @@ public class UIStatDisplay : MonoBehaviour
 {
 
     public PlayerStats player; // The player that this stat display is rendering stats for.
+    public CharacterData character;
     public bool displayCurrentHealth = false;
     public bool updateInEditor = false;
     TextMeshProUGUI statNames, statValues;
@@ -22,9 +23,17 @@ public class UIStatDisplay : MonoBehaviour
         if(updateInEditor) UpdateStatFields();
     }
 
+    public CharacterData.Stats GetDisplayedStats()
+    {
+        //retorna o playerstats em jogo e o characterstats na tela de selecionar personagem
+        if (player) return player.Stats;
+        else if (character) return character.stats;
+        return new CharacterData.Stats();
+    }
+
     public void UpdateStatFields()
     {
-        if (!player) return;
+        if (!player && !character) return;
 
         // Get a reference to both Text objects to render stat names and stat values.
         if (!statNames) statNames = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
@@ -48,7 +57,7 @@ public class UIStatDisplay : MonoBehaviour
             names.AppendLine(field.Name);
 
             // Get the stat value.
-            object val = field.GetValue(player.Stats);
+            object val = field.GetValue(GetDisplayedStats());
             float fval = val is int ? (int)val : (float)val;
 
             // Print it as a percentage if it has an attribute assigned and is a float.

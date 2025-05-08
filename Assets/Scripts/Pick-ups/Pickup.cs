@@ -22,6 +22,7 @@ public class Pickup : Sortable
     [Header("Bonuses")]
     public int experience;
     public int health;
+    public int coinValue;
 
     protected override void Start()
     {
@@ -65,7 +66,13 @@ public class Pickup : Sortable
     protected virtual void OnDestroy()
     {
         if(!target) return;
+
         target.IncreaseExperience(experience);
         target.RestoreHealth(health);
+
+        if(coinValue >0)
+        {
+            DataManager.instance.AddCoin(coinValue);
+        }
     }
 }

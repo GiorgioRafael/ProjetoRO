@@ -12,15 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8a371504affb3544b15ee6c72cf2fb5, type: 3}
   m_Name: Ima Character
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: -207805132581120700, guid: f0d83478fd8bc334ea196321d28c5b1e, type: 3}
   animator: {fileID: 9100000, guid: a73786bf4988c0b42ac90a6f8a988b9b, type: 2}
-  name: Mago dos games
+  name: Davy Jones
+  fullName: Mago dos games
+  characterDescription: O mago dos games tem a velocidade reduzida em 30%
   startingWeapon: {fileID: 11400000, guid: f9f79bf007893a94eb1da83d335da2bc, type: 2}
   stats:
     maxHealth: 100
     recovery: 0
     armor: 0
-    moveSpeed: 0.6
+    moveSpeed: 0.7
     might: 1
     area: 1
     speed: 1
