@@ -6474,7 +6474,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62fc9af199109d244b06576297972b87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgrades: []
+  upgrades:
+  - {fileID: 11400000, guid: e7523511e320e9d408de103d5d619902, type: 2}
+  - {fileID: 11400000, guid: 0945ad4d1516989479b435a7170680c4, type: 2}
+  - {fileID: 11400000, guid: 9a517cef896f4c149a5cc01154bbe6e6, type: 2}
 --- !u!1 &798784134
 GameObject:
   m_ObjectHideFlags: 0
@@ -16362,6 +16365,14 @@ PrefabInstance:
     - target: {fileID: 256683598972022559, guid: a0b405cc67c4e9e4b9bec2f40deaa8a5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2350926684496354492, guid: a0b405cc67c4e9e4b9bec2f40deaa8a5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 6.9013
+      objectReference: {fileID: 0}
+    - target: {fileID: 2350926684496354492, guid: a0b405cc67c4e9e4b9bec2f40deaa8a5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 13.4507
       objectReference: {fileID: 0}
     - target: {fileID: 4878667274554568887, guid: a0b405cc67c4e9e4b9bec2f40deaa8a5, type: 3}
       propertyPath: m_Name

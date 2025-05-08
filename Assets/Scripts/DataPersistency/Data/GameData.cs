@@ -28,5 +28,4 @@ public class GameData
             this.upgradeLevel = level;
         }
     }
-    
 }

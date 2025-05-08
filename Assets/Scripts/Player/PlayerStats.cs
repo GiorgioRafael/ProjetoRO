@@ -141,108 +141,118 @@ public class PlayerStats : EntityStats
         Recover();
     }
 
-    public override void RecalculateStats()
+public override void RecalculateStats()
+{
+    // Reset stats to base values
+    actualStats = baseStats;
+
+    // Apply passive item boosts
+    foreach (PlayerInventory.Slot s in inventory.passiveSlots)
     {
-        actualStats = baseStats;
-        foreach (PlayerInventory.Slot s in inventory.passiveSlots)
+        Passive p = s.item as Passive;
+        if (p)
         {
-            Passive p = s.item as Passive;
-            if (p)
-            {
-                actualStats += p.GetBoosts();
-            }
+            actualStats += p.GetBoosts();
         }
+    }
 
-        // Create a variable to store all the cumulative multiplier values.
-        CharacterData.Stats multiplier = new CharacterData.Stats
+    // Create multiplier stats initialized to 1
+    CharacterData.Stats multiplier = new CharacterData.Stats
+    {
+        maxHealth = 1f, recovery = 1f, armor = 1f, moveSpeed = 1f, might = 1f,
+        area = 1f, speed = 1f, duration = 1f, amount = 1, cooldown = 1f,
+        luck = 1f, growth = 1f, greed = 1f, curse = 1f, magnet = 1f, revival = 1
+    };
+
+    // Apply buffs
+    foreach(Buff b in activeBuffs)
+    {
+        BuffData.Stats bd = b.GetData();
+        switch(bd.modifierType)
         {
-            maxHealth = 1f, recovery = 1f, armor = 1f, moveSpeed = 1f, might = 1f,
-            area = 1f, speed = 1f, duration = 1f, amount = 1, cooldown = 1f,
-            luck = 1f, growth = 1f, greed = 1f, curse = 1f, magnet = 1f, revival = 1
-        };
-        // We have to account for the buffs from EntityStats as well.
-        foreach(Buff b in activeBuffs)
-        {
-            BuffData.Stats bd = b.GetData();
-            switch(bd.modifierType)
-            {
-                case BuffData.ModifierType.additive:
-                    actualStats += bd.playerModifier;
-                    break;
-                case BuffData.ModifierType.multiplicative:
-                    multiplier *= bd.playerModifier;
-                    break;
-            }
+            case BuffData.ModifierType.additive:
+                actualStats += bd.playerModifier;
+                break;
+            case BuffData.ModifierType.multiplicative:
+                multiplier *= bd.playerModifier;
+                break;
         }
+    }
 
-         // Apply permanent upgrades from UpgradeManager
+    // Apply permanent upgrades from UpgradeManager
     if (UpgradeManager.instance != null)
     {
         foreach (var upgrade in UpgradeManager.instance.upgrades)
         {
+            // Get the current level for this upgrade
+            int currentLevel = UpgradeManager.instance.GetUpgradeLevel(upgrade.upgradeName);
+            
+            // Skip if level is 0
+            if (currentLevel <= 0) continue;
+
             foreach (var boost in upgrade.boosts)
             {
                 switch (boost.statName)
                 {
-                    case "maxHealth":
-                        actualStats.maxHealth += upgrade.GetBoost("maxHealth");
+                    case "maxhealth":
+                        actualStats.maxHealth += upgrade.GetBoost("maxhealth", currentLevel);
                         break;
                     case "recovery":
-                        actualStats.recovery += upgrade.GetBoost("recovery");
+                        actualStats.recovery += upgrade.GetBoost("recovery", currentLevel);
                         break;
                     case "armor":
-                        actualStats.armor += upgrade.GetBoost("armor");
+                        actualStats.armor += upgrade.GetBoost("armor", currentLevel);
                         break;
-                    case "moveSpeed":
-                        actualStats.moveSpeed += upgrade.GetBoost("moveSpeed");
+                    case "movespeed":
+                        actualStats.moveSpeed += upgrade.GetBoost("movespeed", currentLevel);
                         break;
                     case "might":
-                        actualStats.might += upgrade.GetBoost("might");
+                        actualStats.might += upgrade.GetBoost("might", currentLevel);
                         break;
                     case "area":
-                        actualStats.area += upgrade.GetBoost("area");
+                        actualStats.area += upgrade.GetBoost("area", currentLevel);
                         break;
                     case "speed":
-                        actualStats.speed += upgrade.GetBoost("speed");
+                        actualStats.speed += upgrade.GetBoost("speed", currentLevel);
                         break;
                     case "duration":
-                        actualStats.duration += upgrade.GetBoost("duration");
+                        actualStats.duration += upgrade.GetBoost("duration", currentLevel);
                         break;
                     case "amount":
-                        actualStats.amount += (int)upgrade.GetBoost("amount");
+                        actualStats.amount += (int)upgrade.GetBoost("amount", currentLevel);
                         break;
                     case "cooldown":
-                        actualStats.cooldown += upgrade.GetBoost("cooldown");
+                        actualStats.cooldown += upgrade.GetBoost("cooldown", currentLevel);
                         break;
                     case "luck":
-                        actualStats.luck += upgrade.GetBoost("luck");
+                        actualStats.luck += upgrade.GetBoost("luck", currentLevel);
                         break;
                     case "growth":
-                        actualStats.growth += upgrade.GetBoost("growth");
+                        actualStats.growth += upgrade.GetBoost("growth", currentLevel);
                         break;
                     case "greed":
-                        actualStats.greed += upgrade.GetBoost("greed");
+                        actualStats.greed += upgrade.GetBoost("greed", currentLevel);
                         break;
                     case "curse":
-                        actualStats.curse += upgrade.GetBoost("curse");
+                        actualStats.curse += upgrade.GetBoost("curse", currentLevel);
                         break;
                     case "magnet":
-                        actualStats.magnet += upgrade.GetBoost("magnet");
+                        actualStats.magnet += upgrade.GetBoost("magnet", currentLevel);
                         break;
                     case "revival":
-                        actualStats.revival += (int)upgrade.GetBoost("revival");
+                        actualStats.revival += (int)upgrade.GetBoost("revival", currentLevel);
                         break;
                 }
             }
         }
     }
-        
-        //Aplica modificadores
-        actualStats *= multiplier;
-        
-        // Update the PlayerCollector's radius.
-        collector.SetRadius(actualStats.magnet);
-    }
+    
+    // Apply multipliers
+    actualStats *= multiplier;
+    
+    // Update collector radius
+    collector.SetRadius(actualStats.magnet);
+}
 
     public void IncreaseExperience(int amount)
     {

@@ -38,16 +38,15 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void LoadGame()
     {
-        //todo
+        
         this.gameData = dataHandler.Load();
-
-        //if no data
+        
         if (this.gameData == null)
         {
             Debug.Log("NO data was found, initializing data to defaults");
             NewGame();
         }
-        //todo
+        
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
         {
             dataPersistenceObj.LoadData(gameData);

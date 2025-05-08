@@ -81,28 +81,29 @@ public class UIUpgradeScreenEditor : Editor
     }
 
     private void AssignUpgradeDataToUI(GameObject upgradeElement, UpgradeData upgradeData)
+{
+    // Set the upgrade name
+    Transform nameTransform = upgradeElement.transform.Find(upgradeScreen.upgradeNamePath);
+    if (nameTransform && nameTransform.TryGetComponent(out TextMeshProUGUI nameText))
     {
-        // Set the upgrade name
-        Transform nameTransform = upgradeElement.transform.Find(upgradeScreen.upgradeNamePath);
-        if (nameTransform && nameTransform.TryGetComponent(out TextMeshProUGUI nameText))
-        {
-            nameText.text = upgradeData.upgradeName;
-        }
-
-        // Set the upgrade level
-        Transform levelTransform = upgradeElement.transform.Find(upgradeScreen.upgradeLevelPath);
-        if (levelTransform && levelTransform.TryGetComponent(out TextMeshProUGUI levelText))
-        {
-            levelText.text = $"Level: {upgradeData.currentLevel}/{upgradeData.maxLevel}";
-        }
-
-        // Set the upgrade icon
-        Transform iconTransform = upgradeElement.transform.Find(upgradeScreen.upgradeIconPath);
-        if (iconTransform && iconTransform.TryGetComponent(out Image iconImage))
-        {
-            iconImage.sprite = upgradeData.icon;
-        }
+        nameText.text = upgradeData.upgradeName;
     }
+
+    // Set the upgrade level
+    Transform levelTransform = upgradeElement.transform.Find(upgradeScreen.upgradeLevelPath);
+    if (levelTransform && levelTransform.TryGetComponent(out TextMeshProUGUI levelText))
+    {
+        // Since we're in editor, just show 0/maxLevel as the default
+        levelText.text = $"Level: 0/{upgradeData.maxLevel}";
+    }
+
+    // Set the upgrade icon
+    Transform iconTransform = upgradeElement.transform.Find(upgradeScreen.upgradeIconPath);
+    if (iconTransform && iconTransform.TryGetComponent(out Image iconImage))
+    {
+        iconImage.sprite = upgradeData.icon;
+    }
+}
 
     private UpgradeData[] GetAllUpgradeDataAssets()
     {

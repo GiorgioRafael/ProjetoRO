@@ -17,7 +17,6 @@ public class AuraWeapon : Weapon
         if (isInitialized) return;
 
         SantaWaterBeheaviour = currentStats.isSantaWater;
-        Debug.Log(currentStats.isSantaWater);
 
         isInitialized = true;
     }

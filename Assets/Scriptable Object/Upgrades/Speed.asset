@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6eb243ccf3539c47a61a8365bfa1dbd, type: 3}
-  m_Name: Wings MoveSpeed
+  m_Name: Speed
   m_EditorClassIdentifier: 
-  icon: {fileID: -6175435858512121732, guid: 35b45b786dc518c4685235de455fee33, type: 3}
-  upgradeName: Wings
+  icon: {fileID: 21300000, guid: ed3b800b1ce091e46a3d0f7ddd1f2d5b, type: 3}
+  upgradeName: Propulsor
   maxLevel: 3
-  currentLevel: 0
   costPerLevel: 500
+  upgradeDescription: Aumenta a velocidade de todos os projeteis em 10%
   boosts:
-  - statName: moveSpeed
-    boostAmount: 0.5
+  - statType: 6
+    boostAmount: 0.1

@@ -87,6 +87,5 @@ public class UICharacterSelector : MonoBehaviour
         characterDescription.text = character.CharacterDescription;
         selectedCharacterIcon.sprite = character.Icon;
         selectedCharacterWeapon.sprite = character.StartingWeapon.icon;
-        //Debug.Log($"Current selected on UICharacterSelector: {selected}");
     }
 }

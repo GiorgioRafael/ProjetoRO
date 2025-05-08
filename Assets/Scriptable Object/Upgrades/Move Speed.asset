@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6eb243ccf3539c47a61a8365bfa1dbd, type: 3}
-  m_Name: Wings MoveSpeed 1
+  m_Name: Move Speed
   m_EditorClassIdentifier: 
-  icon: {fileID: -207805132581120700, guid: f0d83478fd8bc334ea196321d28c5b1e, type: 3}
-  upgradeName: Davy jones
+  icon: {fileID: -6175435858512121732, guid: 35b45b786dc518c4685235de455fee33, type: 3}
+  upgradeName: Wings
   maxLevel: 3
-  currentLevel: 0
   costPerLevel: 500
+  upgradeDescription: Aumenta a velocidade do personagem em 10%
   boosts:
-  - statName: moveSpeed
-    boostAmount: 0.5
+  - statType: 3
+    boostAmount: 0.1
