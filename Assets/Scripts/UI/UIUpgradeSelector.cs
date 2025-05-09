@@ -3,9 +3,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
 using TMPro;
+using System.Linq;
 
 public class UIUpgradeSelector : MonoBehaviour, IDataPersistence
 {
+    public UpgradeData defaultUpgrade;
+
     [Header("Template")]
     public Toggle toggleTemplate;
     public string upgradeNamePath = "Upgrade Name";
@@ -37,6 +40,31 @@ public class UIUpgradeSelector : MonoBehaviour, IDataPersistence
             purchaseButton.interactable = false;
         }
         UpdateCoinsDisplay();
+        SelectNextAvailableUpgrade();
+    }
+
+    private void SelectNextAvailableUpgrade()
+    {
+        var allUpgrades = GetAllUpgradeDataAssets();
+        if (allUpgrades.Length == 0) return;
+
+        // Try to find first non-maxed upgrade
+        UpgradeData nextUpgrade = allUpgrades.FirstOrDefault(upgrade => 
+        {
+            if (upgradeLevels.TryGetValue(upgrade.upgradeName, out int level))
+            {
+                return level < upgrade.maxLevel;
+            }
+            return true; // If upgrade not found in dictionary, it's level 0
+        });
+
+        // If all upgrades are maxed, select the first one
+        if (nextUpgrade == null)
+        {
+            nextUpgrade = allUpgrades[0];
+        }
+
+        Select(nextUpgrade);
     }
 
     public void LoadData(GameData data)
@@ -68,7 +96,7 @@ public class UIUpgradeSelector : MonoBehaviour, IDataPersistence
             }
             Debug.Log($"Loaded upgrade: {upgrade.upgradeName} at level {upgradeLevels[upgrade.upgradeName]}");
         }
-
+        UpdateAllToggleLevels();
         DataPersistenceManager.instance.SaveGame();
     }
 
@@ -80,6 +108,27 @@ public class UIUpgradeSelector : MonoBehaviour, IDataPersistence
             if (upgradeLevels.TryGetValue(upgrade.upgradeName, out int level))
             {
                 data.upgrades.Add(new GameData.UpgradeInfo(upgrade.upgradeName, level));
+            }
+        }
+    }
+
+    private void UpdateAllToggleLevels()
+    {
+        foreach (Toggle toggle in selectableToggles)
+        {
+            // Get the upgrade name from the toggle's name
+            string upgradeName = toggle.gameObject.name;
+            
+            // Find the level text component
+            Transform levelTransform = toggle.transform.Find(upgradeLevelPath);
+            if (levelTransform && levelTransform.TryGetComponent(out TextMeshProUGUI levelText))
+            {
+                // Get the upgrade data to get maxLevel
+                var upgradeData = GetAllUpgradeDataAssets().FirstOrDefault(u => u.upgradeName == upgradeName);
+                if (upgradeData != null && upgradeLevels.TryGetValue(upgradeName, out int level))
+                {
+                    levelText.text = $"Level: {level}/{upgradeData.maxLevel}";
+                }
             }
         }
     }
@@ -121,7 +170,7 @@ public class UIUpgradeSelector : MonoBehaviour, IDataPersistence
         upgradeName.text = upgrade.upgradeName;
         upgradeLevel.text = $"Level: {currentLevel}/{upgrade.maxLevel}";
         upgradeIcon.sprite = upgrade.icon;
-        costText.text = $"Cost: {upgrade.costPerLevel}";
+        costText.text = $"{upgrade.costPerLevel}";
         descriptionText.text = upgrade.upgradeDescription;
 
         if (purchaseButton)
@@ -156,6 +205,7 @@ public class UIUpgradeSelector : MonoBehaviour, IDataPersistence
             upgradeLevels[selectedUpgrade.upgradeName] = currentLevel + 1;
             Select(selectedUpgrade);
             UpdateCoinsDisplay();
+            UpdateAllToggleLevels(); // Add this line
 
             DataPersistenceManager.instance.SaveGame();
         }
