@@ -35,16 +35,20 @@ public class PlayerMovement : Sortable
 
     void Update()
     {
+        if(!GameManager.instance.gameHasStarted) return;
         InputManagement();
     }
 
     void FixedUpdate()
     {
+        if(!GameManager.instance.gameHasStarted) return;
         Move();
     }
 
     void InputManagement()
 {
+    if(!GameManager.instance.gameHasStarted) return;
+
     if (GameManager.instance.isGameOver || GameManager.instance.isGamePaused)
     {
         return;

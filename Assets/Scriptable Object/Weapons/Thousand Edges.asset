@@ -41,6 +41,7 @@ MonoBehaviour:
     number: 6
     piercing: 3
     maxInstances: 70
+    isSantaWater: 0
     appliedBuffs: []
   linearGrowth: []
   randomGrowth: []

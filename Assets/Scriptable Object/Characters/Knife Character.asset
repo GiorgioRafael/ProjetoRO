@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 4106213231394428757, guid: 35b45b786dc518c4685235de455fee33, type: 3}
   animator: {fileID: 22100000, guid: 4330775d09eb4d34384e3a0b8585bd32, type: 2}
-  name: Knife Character
+  name: Tupiniquim
+  fullName: Salamandra Tupiniquim
+  characterDescription: "Come\xE7a com um projetil a mais (todas as armas)"
   startingWeapon: {fileID: 11400000, guid: b75498fe315205f4a8d2e117db0949d3, type: 2}
   stats:
     maxHealth: 100

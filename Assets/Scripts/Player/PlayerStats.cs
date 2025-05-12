@@ -346,6 +346,7 @@ public override void RecalculateStats()
     {
         if (!GameManager.instance.isGameOver)
         {
+            AudioController.instance.StopBackgroundMusic(1f);
             GameManager.instance.AssignLevelReachedUI(level);
             GameManager.instance.GameOver();
         }

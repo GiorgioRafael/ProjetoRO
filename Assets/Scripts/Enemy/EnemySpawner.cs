@@ -48,11 +48,20 @@ public class EnemySpawner : MonoBehaviour
     {
         player = FindFirstObjectByType<PlayerStats>().transform;
         CalculateWaveQuota();
+        spawnTimer = 0f;
+        currentWaveCount = 0;
+        enemiesAlive = 0;
+        maxEnemiesReached = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!GameManager.instance.gameHasStarted)
+        {
+            return;
+        }
+
         if(currentWaveCount < waves.Count && waves[currentWaveCount].spawnCount == 0 && !isWaveActive) //verifica se a wave terminou e a proxima wave deve comecar
         {
             StartCoroutine(BeginNextWave());
@@ -69,11 +78,13 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator BeginNextWave()
     {
         isWaveActive = true;
-        //wait for waveInterval seconds before starting the next wave
+
+        // Wait until game has properly started
+        yield return new WaitUntil(() => GameManager.instance.gameHasStarted);
+        
         yield return new WaitForSeconds(waveInterval);
 
-        //IOf verifica se tem mais wave para spawnar depois da wave atual, vai para proxima wave
-        if(currentWaveCount < waves.Count - 1)
+        if (currentWaveCount < waves.Count - 1)
         {
             isWaveActive = false;
             currentWaveCount++;

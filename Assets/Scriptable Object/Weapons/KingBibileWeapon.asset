@@ -41,6 +41,7 @@ MonoBehaviour:
     number: 1
     piercing: 99999
     maxInstances: 50
+    isSantaWater: 0
     appliedBuffs: []
   linearGrowth:
   - name: Level 2
@@ -67,6 +68,7 @@ MonoBehaviour:
     number: 1
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   - name: Level 3
     description: Tamanho base +25%. Velocidade base +30%
@@ -92,6 +94,7 @@ MonoBehaviour:
     number: 0
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   - name: Level 4
     description: Efeito dura 0.5 segundos a mais. Aumenta o dano base em 10.
@@ -117,6 +120,7 @@ MonoBehaviour:
     number: 0
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   - name: Level 5
     description: Atira mais um projetil.
@@ -142,6 +146,7 @@ MonoBehaviour:
     number: 1
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   - name: Level 6
     description: Tamanho base +25%. Velocidade base +30%
@@ -167,6 +172,7 @@ MonoBehaviour:
     number: 1
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   - name: Level 7
     description: Efeito dura 0.5 segundos a mais. Aumenta o dano base em 10.
@@ -192,6 +198,7 @@ MonoBehaviour:
     number: 0
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   - name: Level 8
     description: Atira um projetil a mais
@@ -217,5 +224,6 @@ MonoBehaviour:
     number: 1
     piercing: 0
     maxInstances: 0
+    isSantaWater: 0
     appliedBuffs: []
   randomGrowth: []
