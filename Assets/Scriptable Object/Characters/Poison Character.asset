@@ -17,6 +17,7 @@ MonoBehaviour:
   name: Singed
   fullName: Peste bubonica singed
   characterDescription: Velocidade +25% e +10% de dano
+  characterLore: Falta escrever a historia.
   startingWeapon: {fileID: 11400000, guid: 6119da3df69c1c549a7a6ab9f304180c, type: 2}
   stats:
     maxHealth: 100

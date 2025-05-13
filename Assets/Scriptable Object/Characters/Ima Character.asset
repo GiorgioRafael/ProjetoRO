@@ -17,6 +17,7 @@ MonoBehaviour:
   name: Davy Jones
   fullName: Mago dos games
   characterDescription: O mago dos games tem a velocidade reduzida em 30%
+  characterLore: Falta escrever a historia.
   startingWeapon: {fileID: 11400000, guid: f9f79bf007893a94eb1da83d335da2bc, type: 2}
   stats:
     maxHealth: 100

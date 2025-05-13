@@ -31,6 +31,9 @@ public class UIUpgradeSelector : MonoBehaviour, IDataPersistence
     [Header("Currency")]
     private int currentCoins;
     private Dictionary<string, int> upgradeLevels = new Dictionary<string, int>();
+        
+    [Header("Toggle Group")]
+    [SerializeField] private ToggleGroup characterToggleGroup;
 
     void Start()
     {
@@ -41,6 +44,11 @@ public class UIUpgradeSelector : MonoBehaviour, IDataPersistence
         }
         UpdateCoinsDisplay();
         SelectNextAvailableUpgrade();
+
+       foreach(Toggle toggle in selectableToggles)
+        {
+            toggle.group = characterToggleGroup;
+        }
     }
 
     private void SelectNextAvailableUpgrade()

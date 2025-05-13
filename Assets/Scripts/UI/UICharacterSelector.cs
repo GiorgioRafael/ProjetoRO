@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
 using TMPro;
+using Unity.VisualScripting;
 
 public class UICharacterSelector : MonoBehaviour
 {
@@ -21,11 +22,27 @@ public class UICharacterSelector : MonoBehaviour
     public TextMeshProUGUI characterFullName;
     public TextMeshProUGUI characterDescription;
     public Image selectedCharacterIcon;
+    public TextMeshProUGUI characterLore;
+
+    [Header("WeaponDescriptionBox")]
     public Image selectedCharacterWeapon;
+    public TextMeshProUGUI weaponName;
+    public TextMeshProUGUI weaponDescription;
+
+        
+    [Header("Toggle Group")]
+    [SerializeField] private ToggleGroup characterToggleGroup;
+    
 
     void Start()
     {
         if(defaultCharacter) Select(defaultCharacter);
+
+
+        foreach(Toggle toggle in selectableToggles)
+        {
+            toggle.group = characterToggleGroup;
+        }
     }  
 
     //public CharacterData characterData;
@@ -86,6 +103,13 @@ public class UICharacterSelector : MonoBehaviour
         characterFullName.text = character.FullName;
         characterDescription.text = character.CharacterDescription;
         selectedCharacterIcon.sprite = character.Icon;
-        selectedCharacterWeapon.sprite = character.StartingWeapon.icon;
+        characterLore.text = character.CharacterLore;
+
+        //SET DA ARMA
+        //pega os dados do nivel 1 da arma para colocar a descricao 
+        Item.LevelData weaponLevelData = character.StartingWeapon.GetLevelData(1);
+        weaponName.text = weaponLevelData.name;
+        weaponDescription.text = weaponLevelData.description;
+        selectedCharacterWeapon.sprite = character.StartingWeapon.icon; 
     }
 }

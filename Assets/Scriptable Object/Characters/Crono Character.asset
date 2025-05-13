@@ -17,6 +17,7 @@ MonoBehaviour:
   name: Cronos
   fullName: Sr. Cronos
   characterDescription: "Come\xE7a com a area aumentada em 20% (Todas as armas)"
+  characterLore: Falta escrever a historia.
   startingWeapon: {fileID: 11400000, guid: f43d3bc287c14414eab2e7f3248245ae, type: 2}
   stats:
     maxHealth: 100

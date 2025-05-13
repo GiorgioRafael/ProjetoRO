@@ -17,6 +17,7 @@ MonoBehaviour:
   name: Tupiniquim
   fullName: Salamandra Tupiniquim
   characterDescription: "Come\xE7a com um projetil a mais (todas as armas)"
+  characterLore: Falta escrever a historia.
   startingWeapon: {fileID: 11400000, guid: b75498fe315205f4a8d2e117db0949d3, type: 2}
   stats:
     maxHealth: 100

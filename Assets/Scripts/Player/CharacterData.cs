@@ -20,6 +20,11 @@ public class CharacterData : ScriptableObject
     [TextArea]
     string characterDescription;
     public string CharacterDescription { get => characterDescription; private set => characterDescription = value; }
+
+    [SerializeField]
+    [TextArea]
+    string characterLore;
+    public string CharacterLore { get => characterLore; private set => characterLore = value; }
     
 
     [SerializeField]

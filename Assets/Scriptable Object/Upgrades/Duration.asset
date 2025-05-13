@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6eb243ccf3539c47a61a8365bfa1dbd, type: 3}
-  m_Name: Cooldown
+  m_Name: Duration
   m_EditorClassIdentifier: 
-  icon: {fileID: -3306583105286333510, guid: 9b617c1ae829e7a4da21c040967719ed, type: 3}
-  upgradeName: "Ampulheta \xE0 manivela"
+  icon: {fileID: -1653007286563728191, guid: 1df69651d1ae9904ca8d17b47f0d8522, type: 3}
+  upgradeName: Cronometro quebrado
   maxLevel: 3
   costPerLevel: 1000
-  upgradeDescription: "Faz com que as armas recarreguem 10% mais r\xE1pido"
+  upgradeDescription: "Aumenta a dura\xE7\xE3o dos projeteis em 10%"
   boosts:
-  - statType: 9
-    boostAmount: -0.1
+  - statType: 7
+    boostAmount: 0.1

@@ -17,6 +17,7 @@ MonoBehaviour:
   name: Raikou
   fullName: Raikou foda
   characterDescription: "Come\xE7a com o cooldown reduzido em 20%"
+  characterLore: Falta escrever a historia.
   startingWeapon: {fileID: 11400000, guid: 9bf048fd7f5cb514587191609f45458b, type: 2}
   stats:
     maxHealth: 100

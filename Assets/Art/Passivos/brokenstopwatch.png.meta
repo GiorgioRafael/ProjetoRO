@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ed3b800b1ce091e46a3d0f7ddd1f2d5b
+guid: 1df69651d1ae9904ca8d17b47f0d8522
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8504579637914777556
-    second: Propulsor_0
+      213: -1653007286563728191
+    second: brokenstopwatch_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Propulsor_0
+      name: brokenstopwatch_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 4
-        width: 26
-        height: 24
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4d73ee91f16560670800000000000000
-      internalID: 8504579637914777556
+      spriteID: 1c49c3181a65f09e0800000000000000
+      internalID: -1653007286563728191
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 2bc3b32924443d54aa223607c8de6a9f
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Propulsor_0: 8504579637914777556
+      brokenstopwatch_0: -1653007286563728191
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

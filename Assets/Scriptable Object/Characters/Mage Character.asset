@@ -18,6 +18,7 @@ MonoBehaviour:
   fullName: Sr. Mago
   characterDescription: "O maguinho come\xE7a com o cooldown reduzido em 10% e o
     dano aumentado em 20% (todas as armas)"
+  characterLore: Falta escrever a historia.
   startingWeapon: {fileID: 11400000, guid: 7f4867403f6f5da4d903d8c077da062b, type: 2}
   stats:
     maxHealth: 100
