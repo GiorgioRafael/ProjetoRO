@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2254954549490155909}
   - component: {fileID: 3842910514519731043}
   m_Layer: 6
-  m_Name: Escorpiao
+  m_Name: "Escorpi\xE3o gigante"
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 5040455102157269666, guid: 192061bcdd3fa714dbdf43149e3df22d, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6886792, g: 0.30210927, b: 0.30210927, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -235,9 +235,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseStats:
-    maxHealth: 12
+    maxHealth: 100
     moveSpeed: 1
-    damage: 10
+    damage: 20
     knockbackMultiplier: 0.7
     resistances:
       freeze: 0
@@ -249,6 +249,8 @@ MonoBehaviour:
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   damageFlashDuration: 0.1
   deathFadeTime: 0.1
-  isFinalBoss: 0
-  bossName: 
-  bossUIprefab: {fileID: 0}
+  isFinalBoss: 1
+  bossName: "Escorpi\xE3o Gigante"
+  healthBarDrainDelay: 0.5
+  healthBarDrainSpeed: 0.5
+  finalBossKilled: 0

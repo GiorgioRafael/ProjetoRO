@@ -1,9 +1,34 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using System.Linq;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class EnemyStats : EntityStats
 {
+
+        public float CurrentHealth
+        {
+
+            get { return health; }
+
+            // If we try and set the current health, the UI interface
+            // on the pause screen will also be updated.
+            set
+            {
+                //Check if the value has changed
+
+                if (health != value)
+                {
+                    health = value;
+                    if(isFinalBoss)
+                    {
+                        UpdateBossHealthBar();
+                    }
+                }
+            }
+        }
 
     [System.Serializable]
     public struct Resistances
@@ -105,6 +130,56 @@ public class EnemyStats : EntityStats
     public float deathFadeTime = 0.6f; // How much time it takes for the enemy to fade.
     EnemyMovement movement;
 
+    [Header("Boss Info")]
+    public bool isFinalBoss = false;
+    public string bossName;
+    public float healthBarDrainDelay = 0.5f;
+    public float healthBarDrainSpeed = 2f;
+    public bool finalBossKilled = false;
+
+    private GameObject bossHealthBar;
+    private Image healthBarFill;
+    private Image delayedHealthBarFill;
+    private TextMeshProUGUI bossNameText;
+    private float lastDamageTime;
+    private Coroutine drainBarCoroutine;
+
+    public void UpdateBossHealthBar() 
+    {
+        if(isFinalBoss && healthBarFill != null)
+        {
+            if(actualStats.maxHealth <= 0)
+            {
+                Debug.LogError($"Invalid maxHealth: {actualStats.maxHealth}");
+                return;
+            }
+
+            float fillAmount = Mathf.Clamp01(CurrentHealth / actualStats.maxHealth);
+            healthBarFill.fillAmount = fillAmount;
+            
+            if(drainBarCoroutine != null)
+            {
+                StopCoroutine(drainBarCoroutine);
+            }
+            
+            lastDamageTime = Time.time;
+            drainBarCoroutine = StartCoroutine(DrainDelayedHealthBar());
+        }
+    }
+    private IEnumerator DrainDelayedHealthBar()
+    {
+        yield return new WaitForSeconds(healthBarDrainDelay);
+        
+        while(delayedHealthBarFill.fillAmount > healthBarFill.fillAmount)
+        {
+            delayedHealthBarFill.fillAmount -= healthBarDrainSpeed * Time.deltaTime;
+            yield return null;
+        }
+        
+        delayedHealthBarFill.fillAmount = healthBarFill.fillAmount;
+    }
+
+
     public static int count; // Track the number of enemies on the screen.
 
     void Awake()
@@ -115,11 +190,30 @@ public class EnemyStats : EntityStats
     protected override void Start()
     {
         base.Start();
-
-        RecalculateStats();
-
-        // Calculate the health and check for level boosts.
-        health = actualStats.maxHealth;
+        
+        if(isFinalBoss)
+        {
+            var allObjects = Resources.FindObjectsOfTypeAll<GameObject>();
+            bossHealthBar = allObjects.FirstOrDefault(obj => obj.name == "BossHealthBar");
+                
+            if(bossHealthBar != null)
+            {
+                bossNameText = bossHealthBar.transform.Find("Boss Name").GetComponent<TextMeshProUGUI>();
+                healthBarFill = bossHealthBar.transform.Find("Health Bar").GetComponent<Image>();
+                delayedHealthBarFill = bossHealthBar.transform.Find("Delayed Health Bar").GetComponent<Image>();
+                
+                bossHealthBar.SetActive(true);
+                if(bossNameText != null)
+                {
+                    bossNameText.text = bossName;
+                }
+                RecalculateStats();
+                health = actualStats.maxHealth;
+                
+                UpdateBossHealthBar();
+                delayedHealthBarFill.fillAmount = 1f;
+            }
+        }
         movement = GetComponent<EnemyMovement>();
     }
 
@@ -173,28 +267,33 @@ public class EnemyStats : EntityStats
 
     public override void TakeDamage(float dmg)
     {
+        // Store old health for debug
+        float oldHealth = health;
+        
         health -= dmg;
         
-        // If damage is exactly equal to maximum health, we assume it is an insta-kill and 
-        // check for the kill resistance to see if we can dodge this damage.
-        if (dmg == actualStats.maxHealth)
+        // Debug log for health change
+        if(isFinalBoss)
         {
-            // Roll a die to check if we can dodge the damage.
-            // Gets a random value between 0 to 1, and if the number is 
-            // below the kill resistance, then we avoid getting killed.
-            if (Random.value < actualStats.resistances.kill)
-            {
-                return; // Don't take damage.
-            }
+            Debug.Log($"Boss took damage: {dmg}. Health: {oldHealth} -> {health}");
         }
+        
+        // If damage is exactly equal to maximum health...
+        // ...existing damage resistance check code...
 
         // Create the text popup when enemy takes damage.
         if (dmg > 0)
         {
             StartCoroutine(DamageFlash());
             GameManager.GenerateFloatingText(Mathf.FloorToInt(dmg).ToString(), transform);
-        }
             
+            // Make sure health bar updates after damage
+            if(isFinalBoss)
+            {
+                UpdateBossHealthBar();
+            }
+        }
+        
         // Kills the enemy if the health drops below zero.
         if (health <= 0)
         {
@@ -239,11 +338,21 @@ public class EnemyStats : EntityStats
     }
     public override void Kill()
     {
+        if(isFinalBoss)
+        {
+            finalBossKilled = true;
+            Debug.Log("Final boss killed");
+        }
         // Enable drops if the enemy is killed,
         // since drops are disabled by default.
         DropRateManager drops = GetComponent<DropRateManager>();
         if (drops) drops.active = true;
 
+        if(isFinalBoss && bossHealthBar != null)
+        {
+            bossHealthBar.SetActive(false);
+        }
+        
         StartCoroutine(KillFade());
     }
 

@@ -46,6 +46,10 @@ public class GameManager : MonoBehaviour
     public GameObject coinsDisplay;
     public GameObject inventoryDisplay;
 
+    [Header("Win Screen")]
+    public GameObject winScreen;
+    public bool hasWon = false;
+
     int stackedLevelUps = 0;
 
     [SerializeField]
@@ -69,8 +73,15 @@ public class GameManager : MonoBehaviour
     public float timeLimit = 900f; //o tempo limite em segundos
     float remainingTime;
     public TMP_Text StopwatchDisplay;
+    float timeCounter;
 
 
+    [Header("Boss settings")]
+    public GameObject bossPrefab;
+    public Vector2 bossSpawnOffset = new Vector2(0, 5f);
+    private bool bossSpawned = false;
+
+    [Header("Outras configuracoes")]
     public bool isGamePaused = false;
 
     public Toggle isPlayingOnJoystick;
@@ -145,7 +156,7 @@ public class GameManager : MonoBehaviour
                 CheckForPauseAndResume();
                 UpdateStopwatch();
                 EnableExpBar();
-
+                CheckForWinCondition();
                 break;
 
             case GameState.Paused:
@@ -347,7 +358,7 @@ public class GameManager : MonoBehaviour
     }
     public void GameOver()
     {
-        timeSurvivedDisplay.text = StopwatchDisplay.text;
+        timeSurvivedDisplay.text = Mathf.RoundToInt(timeCounter).ToString();
         ChangeState(GameState.GameOver);
         joystick.SetActive(false);
         Time.timeScale = 0f;
@@ -375,15 +386,39 @@ public class GameManager : MonoBehaviour
     void UpdateStopwatch()
     {
         remainingTime -= Time.deltaTime;
+        timeCounter += Time.deltaTime;
+        UnityEngine.Debug.Log("Contador de tempo"+timeCounter);
 
         if (remainingTime <= 0)
         {
             remainingTime = 0;
-            foreach (PlayerStats p in players)
+            if(!bossSpawned)
+            {
+                SpawnFinalBoss();
+            }
                 //TODO - INICIAR TRANSICAO DE MAPA
-                p.SendMessage("Kill");
+                //p.SendMessage("Kill");
         }
         UpdateStopwatchDisplay();
+    }
+
+    private void SpawnFinalBoss()
+    {
+        if (bossSpawned || players.Length == 0) return;
+
+        // Get player position
+        Vector3 playerPos = players[0].transform.position;
+        
+        // Calculate spawn position above player
+        Vector3 spawnPos = playerPos + new Vector3(bossSpawnOffset.x, bossSpawnOffset.y, 0);
+        
+        // Spawn the boss
+        GameObject boss = Instantiate(bossPrefab, spawnPos, Quaternion.identity);
+        
+        // Optional: Play effects
+        
+        bossSpawned = true;
+        UnityEngine.Debug.Log("Final Boss has spawned!");
     }
 
     void UpdateStopwatchDisplay()
@@ -431,5 +466,27 @@ public class GameManager : MonoBehaviour
     public void DisableExpBar()
     {
         expBarHolder.gameObject.SetActive(false);
+    }
+
+        private void CheckForWinCondition()
+    {
+        if (hasWon || !bossSpawned) return;
+
+        // Find the boss in the scene
+        EnemyStats boss = FindObjectOfType<EnemyStats>();
+        if (boss != null && boss.isFinalBoss && boss.finalBossKilled)
+        {
+            Victory();
+        }
+    }
+  
+    private void Victory()
+    {
+        hasWon = true;
+        Time.timeScale = 0f;
+        joystick.SetActive(false);
+        DisableExpBar();
+        winScreen.SetActive(true);
+        DataPersistenceManager.instance.SaveGame();
     }
 }
