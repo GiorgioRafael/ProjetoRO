@@ -190,26 +190,29 @@ public class EnemyStats : EntityStats
     protected override void Start()
     {
         base.Start();
+
+        RecalculateStats();
+        health = actualStats.maxHealth;
+
+        Debug.Log($"Enemy spawned with health: {health}, maxHealth: {actualStats.maxHealth}");
         
-        if(isFinalBoss)
+        if (isFinalBoss)
         {
             var allObjects = Resources.FindObjectsOfTypeAll<GameObject>();
             bossHealthBar = allObjects.FirstOrDefault(obj => obj.name == "BossHealthBar");
-                
-            if(bossHealthBar != null)
+
+            if (bossHealthBar != null)
             {
                 bossNameText = bossHealthBar.transform.Find("Boss Name").GetComponent<TextMeshProUGUI>();
                 healthBarFill = bossHealthBar.transform.Find("Health Bar").GetComponent<Image>();
                 delayedHealthBarFill = bossHealthBar.transform.Find("Delayed Health Bar").GetComponent<Image>();
-                
+
                 bossHealthBar.SetActive(true);
-                if(bossNameText != null)
+                if (bossNameText != null)
                 {
                     bossNameText.text = bossName;
                 }
-                RecalculateStats();
-                health = actualStats.maxHealth;
-                
+
                 UpdateBossHealthBar();
                 delayedHealthBarFill.fillAmount = 1f;
             }
