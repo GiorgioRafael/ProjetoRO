@@ -89,7 +89,7 @@ public class UICharacterSelector : MonoBehaviour
     public void Select(CharacterData character)
     {
 
-        Debug.Log($"Select method called for character: {character?.FullName ?? "null"}");
+        //Debug.Log($"Select method called for character: {character?.FullName ?? "null"}");
 
         if (character == null)
         {

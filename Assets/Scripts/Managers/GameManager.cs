@@ -69,6 +69,16 @@ public class GameManager : MonoBehaviour
     public TMP_Text levelReachedDisplay;
     public TMP_Text timeSurvivedDisplay;
 
+    [Header("Treasure Chest Screen")]
+    public GameObject treasureChestScreen;
+    public Image chestImage;
+    public Image[] upgradeIcons = new Image[5];
+    public Button continueButton;
+
+    [Header ("Treasure Chest Upgrades Info")]
+    public GameObject upgradeDisplayTemplate; // Template prefab
+    public Transform upgradeDisplayContainer;    // Parent object with Layout Group
+
     [Header("Stopwatch")]
     public float timeLimit = 900f; //o tempo limite em segundos
     float remainingTime;
@@ -387,7 +397,6 @@ public class GameManager : MonoBehaviour
     {
         remainingTime -= Time.deltaTime;
         timeCounter += Time.deltaTime;
-        UnityEngine.Debug.Log("Contador de tempo"+timeCounter);
 
         if (remainingTime <= 0)
         {
@@ -478,6 +487,14 @@ public class GameManager : MonoBehaviour
         {
             Victory();
         }
+    }
+
+    public void CloseTreasureScreen()
+    {
+        
+        treasureChestScreen.SetActive(false);
+        Time.timeScale = 1f;
+        joystick.SetActive(true);
     }
   
     private void Victory()

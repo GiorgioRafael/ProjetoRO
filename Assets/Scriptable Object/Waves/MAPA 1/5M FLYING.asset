@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: 5M FLYING
   m_EditorClassIdentifier: 
   possibleSpawnPrefabs:
-  - {fileID: 0}
+  - {fileID: 3127632922449184759, guid: b43f5b092176e6c40b8a30473f6fe823, type: 3}
   spawnInterval: {x: 1, y: 1}
   spawnsPerTick: {x: 1, y: 2}
-  duration: 60
+  duration: 30
   minimumAmount: 10
   totalSpawns: 4294967295
   exitConditions: 1

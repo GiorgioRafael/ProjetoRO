@@ -14,12 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleSpawnPrefabs:
   - {fileID: 3127632922449184759, guid: 004ce0f1287b31643923c2bdb6123f28, type: 3}
-  - {fileID: 7566461839616508672, guid: a4b683eb1487b0743a882439f0cb5aa3, type: 3}
-  - {fileID: 7566461839616508672, guid: a4b683eb1487b0743a882439f0cb5aa3, type: 3}
-  - {fileID: 7566461839616508672, guid: aa5e58316f8c3264c8966cf63f34acd5, type: 3}
+  - {fileID: 3647913809013864582, guid: 8402270e1b35f204282b51e22c03bd4f, type: 3}
   spawnInterval: {x: 0.25, y: 0.25}
   spawnsPerTick: {x: 1, y: 1}
-  duration: 60
+  duration: 30
   minimumAmount: 40
   totalSpawns: 4294967295
   exitConditions: 1

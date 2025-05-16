@@ -10,54 +10,110 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 880d98358dd449143adf751849f734ea, type: 3}
-  m_Name: Wings
+  m_Name: Move Speed
   m_EditorClassIdentifier: 
-  icon: {fileID: -7257403696482743351, guid: 16f73e27a8f087743bff2f2060079c51, type: 3}
+  icon: {fileID: 5307271874982059136, guid: d7d4f732effe4da44ad0c4b063b11d3c, type: 3}
   maxLevel: 5
+  evolutionData: []
   baseStats:
     name: Wings
     description: Increase movement speed by 10%
     boosts:
       maxHealth: 0
       recovery: 0
+      armor: 0
       moveSpeed: 0.1
       might: 0
+      area: 0
       speed: 0
+      duration: 0
+      amount: 0
+      cooldown: 0
+      expGain: 0
+      luck: 0
+      growth: 0
+      greed: 0
+      curse: 0
       magnet: 0
+      revival: 0
   growth:
   - name: Wings Level 2
     description: Increase movement speed by 10%
     boosts:
       maxHealth: 0
       recovery: 0
+      armor: 0
       moveSpeed: 0.1
       might: 0
+      area: 0
       speed: 0
+      duration: 0
+      amount: 0
+      cooldown: 0
+      expGain: 0
+      luck: 0
+      growth: 0
+      greed: 0
+      curse: 0
       magnet: 0
+      revival: 0
   - name: Wings Level 3
     description: Increase movement speed by 10%
     boosts:
       maxHealth: 0
       recovery: 0
+      armor: 0
       moveSpeed: 0.1
       might: 0
+      area: 0
       speed: 0
+      duration: 0
+      amount: 0
+      cooldown: 0
+      expGain: 0
+      luck: 0
+      growth: 0
+      greed: 0
+      curse: 0
       magnet: 0
+      revival: 0
   - name: Wings Level 4
     description: Increase movement speed by 10%
     boosts:
       maxHealth: 0
       recovery: 0
+      armor: 0
       moveSpeed: 0.1
       might: 0
+      area: 0
       speed: 0
+      duration: 0
+      amount: 0
+      cooldown: 0
+      expGain: 0
+      luck: 0
+      growth: 0
+      greed: 0
+      curse: 0
       magnet: 0
+      revival: 0
   - name: Wings Level 5
     description: Increase movement speed by 10%
     boosts:
       maxHealth: 0
       recovery: 0
+      armor: 0
       moveSpeed: 0.1
       might: 0
+      area: 0
       speed: 0
+      duration: 0
+      amount: 0
+      cooldown: 0
+      expGain: 0
+      luck: 0
+      growth: 0
+      greed: 0
+      curse: 0
       magnet: 0
+      revival: 0

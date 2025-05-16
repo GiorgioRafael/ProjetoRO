@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebd5814ec0fb245478ec319ccc65c52e, type: 3}
-  m_Name: Magia
+  m_Name: Cetro de fogo
   m_EditorClassIdentifier: 
   icon: {fileID: -1286768236951378217, guid: a277fdfd00a87f640a5a3bdcc119a7f2, type: 3}
-  maxLevel: 0
+  maxLevel: 8
   evolutionData: []
   behaviour: ProjectileWeapon
   baseStats:
-    name: Magica
+    name: Cetro de fogo
     description: "Atira um orbe m\xE1gico no inimigo mais proximo"
     projectilePrefab: {fileID: 7633640824649445408, guid: 135ee024beefdb64ca9a93b555681ad1, type: 3}
     auraPrefab: {fileID: 0}
@@ -197,32 +197,6 @@ MonoBehaviour:
     knockback: 0
     number: 1
     piercing: 0
-    maxInstances: 0
-    isSantaWater: 0
-    appliedBuffs: []
-  - name: Level 7
-    description: Atravessa todos os inimigos. Aumenta mais dois projeteis.
-    projectilePrefab: {fileID: 0}
-    auraPrefab: {fileID: 0}
-    hitEffect: {fileID: 0}
-    procEffect: {fileID: 0}
-    spawnVariance:
-      serializedVersion: 2
-      x: 0
-      y: 0
-      width: 0
-      height: 0
-    lifespan: 0
-    damage: 10
-    damageVariance: 0
-    area: 0
-    speed: 0
-    cooldown: 0
-    auraCooldown: 0
-    projectileInterval: 0
-    knockback: 0
-    number: 2
-    piercing: 999
     maxInstances: 0
     isSantaWater: 0
     appliedBuffs: []

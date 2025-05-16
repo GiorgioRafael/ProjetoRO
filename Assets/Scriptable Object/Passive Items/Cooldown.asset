@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 880d98358dd449143adf751849f734ea, type: 3}
   m_Name: Cooldown
   m_EditorClassIdentifier: 
-  icon: {fileID: 1752878568249331049, guid: 27b15b8be241c0147af87759cc6504f3, type: 3}
+  icon: {fileID: -3306583105286333510, guid: 9b617c1ae829e7a4da21c040967719ed, type: 3}
   maxLevel: 0
   evolutionData: []
   baseStats:
@@ -29,6 +29,7 @@ MonoBehaviour:
       duration: 0
       amount: 0
       cooldown: -0.1
+      expGain: 0
       luck: 0
       growth: 0
       greed: 0
@@ -49,6 +50,7 @@ MonoBehaviour:
       duration: 0
       amount: 0
       cooldown: -0.1
+      expGain: 0
       luck: 0
       growth: 0
       greed: 0
@@ -68,6 +70,7 @@ MonoBehaviour:
       duration: 0
       amount: 0
       cooldown: -0.1
+      expGain: 0
       luck: 0
       growth: 0
       greed: 0
@@ -87,6 +90,7 @@ MonoBehaviour:
       duration: 0
       amount: 0
       cooldown: -0.1
+      expGain: 0
       luck: 0
       growth: 0
       greed: 0
@@ -106,6 +110,7 @@ MonoBehaviour:
       duration: 0
       amount: 0
       cooldown: -0.1
+      expGain: 0
       luck: 0
       growth: 0
       greed: 0
@@ -125,6 +130,7 @@ MonoBehaviour:
       duration: 0
       amount: 0
       cooldown: -0.1
+      expGain: 0
       luck: 0
       growth: 0
       greed: 0
@@ -144,6 +150,7 @@ MonoBehaviour:
       duration: 0
       amount: 0
       cooldown: -0.1
+      expGain: 0
       luck: 0
       growth: 0
       greed: 0
@@ -163,6 +170,7 @@ MonoBehaviour:
       duration: 0
       amount: 0
       cooldown: -0.1
+      expGain: 0
       luck: 0
       growth: 0
       greed: 0

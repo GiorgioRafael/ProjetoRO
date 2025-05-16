@@ -188,8 +188,10 @@ public class UIUpgradeWindow : MonoBehaviour
     // and we will call RecalculateLayout() to update the height of our buttons.
     void Update()
     {
+        if (GameManager.instance?.treasureChestScreen?.activeSelf == true) return;
+
         // Redraws the boxes in this element if the screen size changes.
-        if(lastScreen.x != Screen.width || lastScreen.y != Screen.height)
+        if (lastScreen.x != Screen.width || lastScreen.y != Screen.height)
         {
             RecalculateLayout();
             lastScreen = new Vector2(Screen.width, Screen.height);
