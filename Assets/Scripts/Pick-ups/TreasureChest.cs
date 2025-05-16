@@ -85,6 +85,7 @@ public class TreasureChest : MonoBehaviour
         // Pause game and show screen
         Time.timeScale = 0f;
         GameManager.instance.treasureChestScreen.SetActive(true);
+        GameManager.instance.treasureScreenBackground.SetActive(true);
 
         // Disable all upgrade icons first
         for (int i = 0; i < GameManager.instance.upgradeIcons.Length; i++)
@@ -137,6 +138,11 @@ public class TreasureChest : MonoBehaviour
         // Clear previous detailed upgrade displays
         foreach (Transform child in GameManager.instance.upgradeDisplayContainer)
         {
+                // Skip if it's the template or the Frame
+            if (child.gameObject == GameManager.instance.upgradeDisplayTemplate || 
+                child.name == "Frame" || child.name == "Itens melhorados")
+                continue;
+
             if (child.gameObject != GameManager.instance.upgradeDisplayTemplate)
                 Destroy(child.gameObject);
         }

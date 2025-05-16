@@ -74,8 +74,11 @@ public class GameManager : MonoBehaviour
     public Image chestImage;
     public Image[] upgradeIcons = new Image[5];
     public Button continueButton;
+    public int continueButtonTimes = 0;
+    public GameObject treasureScreenBackground;
 
-    [Header ("Treasure Chest Upgrades Info")]
+    [Header("Treasure Chest Upgrades Info")]
+    public GameObject upgradeDisplayHolder;
     public GameObject upgradeDisplayTemplate; // Template prefab
     public Transform upgradeDisplayContainer;    // Parent object with Layout Group
 
@@ -365,6 +368,8 @@ public class GameManager : MonoBehaviour
         pauseScreen.SetActive(false);
         resultsScreen.SetActive(false);
         levelUpScreen.SetActive(false);
+        upgradeDisplayHolder.SetActive(false);
+        treasureChestScreen.SetActive(false);
     }
     public void GameOver()
     {
@@ -489,12 +494,80 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     public void CloseTreasureScreen()
     {
-        
-        treasureChestScreen.SetActive(false);
-        Time.timeScale = 1f;
-        joystick.SetActive(true);
+        UnityEngine.Debug.Log($"Button clicked. continueButtonTimes: {continueButtonTimes}");
+
+        if (continueButtonTimes == 0)
+        {
+            continueButton.interactable = false;
+
+            RectTransform chestRect = treasureChestScreen.GetComponent<RectTransform>();
+            RectTransform upgradeRect = upgradeDisplayHolder.GetComponent<RectTransform>();
+            
+            if (chestRect == null || upgradeRect == null)
+            {
+                UnityEngine.Debug.LogError("Missing RectTransform components!");
+                return;
+            }
+
+            // Store original positions
+            Vector3 chestOriginalPos = chestRect.position;
+            float originalUpgradeY = upgradeRect.position.y;  // Store original Y position
+            float offsetAmount = Screen.width * 0.19f;
+
+            // Move chest screen slightly to the left (only X axis)
+            Vector3 chestTargetPos = chestOriginalPos;
+            chestTargetPos.x -= offsetAmount;
+            
+            LeanTween.move(chestRect.gameObject, chestTargetPos, 0.5f)
+                .setIgnoreTimeScale(true)
+                .setEase(LeanTweenType.easeOutQuad)
+                .setOnComplete(() => {
+                    upgradeDisplayHolder.SetActive(true);
+                    
+                    // Keep original Y position, only change X
+                    Vector3 upgradeStartPos = new Vector3(chestOriginalPos.x + Screen.width, originalUpgradeY, 0);
+                    upgradeRect.position = upgradeStartPos;
+
+                    // Move to final position maintaining original Y position
+                    Vector3 upgradeTargetPos = new Vector3(chestOriginalPos.x + offsetAmount, originalUpgradeY, 0);
+                    
+                    LeanTween.move(upgradeRect.gameObject, upgradeTargetPos, 0.5f)
+                        .setIgnoreTimeScale(true)
+                        .setEase(LeanTweenType.easeOutQuad)
+                        .setOnComplete(() => {
+                            continueButton.interactable = true;
+                        });
+                });
+
+            continueButtonTimes++;
+            return;
+        }
+
+        if (continueButtonTimes == 1)
+        {
+            // Store references before disabling
+            RectTransform chestRect = treasureChestScreen.GetComponent<RectTransform>();
+            RectTransform upgradeRect = upgradeDisplayHolder.GetComponent<RectTransform>();
+
+            // Reset positions to their original setup
+            Vector3 screenCenter = new Vector3(Screen.width / 2, Screen.height / 2, 0);
+            chestRect.position = screenCenter; // Chest goes to center
+                                               //upgradeRect.position = screenCenter; // Upgrade holder also goes to center for next time
+
+            // Disable screens
+            upgradeDisplayHolder.SetActive(false);
+            treasureChestScreen.SetActive(false);
+
+            // Resume game
+
+            Time.timeScale = 1f;
+            joystick.SetActive(true);
+            continueButtonTimes = 0;
+            treasureScreenBackground.SetActive(false);
+        }
     }
   
     private void Victory()

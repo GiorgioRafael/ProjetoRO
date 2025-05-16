@@ -15,6 +15,8 @@ public class SpawnManager : MonoBehaviour
     float currentWaveDuration = 0f;
     public bool boostedByCurse = true;
 
+    [Header("Bosses")]
+
     public static SpawnManager instance;
 
     void Start()
