@@ -2,6 +2,14 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+
+    [System.Serializable]
+    public struct MiniBossData
+    {
+        public GameObject enemyPrefab;
+        [Tooltip("Time in seconds before this mini-boss spawns")]
+        public float spawnTime;
+    }
     
     int currentWaveIndex; //The index of the current wave [Remember, a list starts from 0]
     int currentWaveSpawnCount = 0; // Tracks how many enemies current wave has spawned.
@@ -15,8 +23,6 @@ public class SpawnManager : MonoBehaviour
     float currentWaveDuration = 0f;
     public bool boostedByCurse = true;
 
-    [Header("Bosses")]
-
     public static SpawnManager instance;
 
     void Start()
@@ -25,8 +31,16 @@ public class SpawnManager : MonoBehaviour
         instance = this;
     }
 
+    [Header("Mini Boss System")]
+    public MiniBossData[] miniBosses;
+    private float gameTimer = 0f;
+    private int currentMiniBossIndex = 0;
+
     void Update()
     {
+        gameTimer += Time.deltaTime;
+        CheckMiniBossSpawns();
+
         // Updates the spawn timer at every frame.
         spawnTimer -= Time.deltaTime;
         currentWaveDuration += Time.deltaTime;
@@ -71,6 +85,27 @@ public class SpawnManager : MonoBehaviour
             
             ActivateCooldown();
         }
+    }
+
+    private void CheckMiniBossSpawns()
+    {
+        if (currentMiniBossIndex >= miniBosses.Length) return;
+
+        MiniBossData currentBoss = miniBosses[currentMiniBossIndex];
+        if (gameTimer >= currentBoss.spawnTime)
+        {
+            SpawnMiniBoss(currentBoss);
+            currentMiniBossIndex++;
+        }
+    }
+
+    private void SpawnMiniBoss(MiniBossData bossData)
+    {
+        if (bossData.enemyPrefab == null) return;
+
+        Vector3 spawnPosition = GeneratePosition();
+        GameObject miniBoss = Instantiate(bossData.enemyPrefab, spawnPosition, Quaternion.identity);
+        Debug.Log($"Mini-boss {bossData.enemyPrefab.name} spawned at {gameTimer} seconds");
     }
     //resets the spawn interval
     public void ActivateCooldown()

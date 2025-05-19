@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 3127632922449184759}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.921044, y: 0.19717589, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -201,8 +201,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortingActive: 1
+  LeftEnemy: 0
   outOfFrameAction: 1
   knockbackVariance: 2
+  spriteRenderer: {fileID: 0}
 --- !u!114 &6822425035523871155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,6 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseStats:
     maxHealth: 150
+    hpXHealth: 0
     moveSpeed: 1
     damage: 10
     knockbackMultiplier: 1
@@ -247,3 +250,8 @@ MonoBehaviour:
   damageColor: {r: 0, g: 0, b: 0, a: 1}
   damageFlashDuration: 0.1
   deathFadeTime: 0.1
+  isFinalBoss: 0
+  bossName: 
+  healthBarDrainDelay: 0.5
+  healthBarDrainSpeed: 2
+  finalBossKilled: 0

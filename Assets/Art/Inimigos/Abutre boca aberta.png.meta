@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 2ac6e5ab6f625704d86cd4c00f4c5dae
+guid: ad2aa481501fbc6419281c9a3c9d8653
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9150290544469228377
-    second: Abutre bica aberta_0
+      213: -557532515691322436
+    second: Abutre boca aberta_0
   - first:
-      213: 3377295980043400669
-    second: Abutre bica aberta_1
+      213: -305315303923019071
+    second: Abutre boca aberta_1
   - first:
-      213: -6759938835604990605
-    second: Abutre bica aberta_2
+      213: 3231308953739473828
+    second: Abutre boca aberta_2
   - first:
-      213: -1349180764396352182
-    second: Abutre bica aberta_3
+      213: -8648136000948761398
+    second: Abutre boca aberta_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -84,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -135,13 +135,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Abutre bica aberta_0
+      name: Abutre boca aberta_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 8
         y: 0
-        width: 48
-        height: 48
+        width: 39
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7a4cb49ea33a30180800000000000000
-      internalID: -9150290544469228377
+      spriteID: cb32d73812f3348f0800000000000000
+      internalID: -557532515691322436
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Abutre bica aberta_1
+      name: Abutre boca aberta_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
-        width: 48
-        height: 48
+        x: 56
+        y: 2
+        width: 40
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,20 +172,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dd577d7dcc09ede20800000000000000
-      internalID: 3377295980043400669
+      spriteID: 1c29d25495d43cbf0800000000000000
+      internalID: -305315303923019071
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Abutre bica aberta_2
+      name: Abutre boca aberta_2
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
-        width: 48
-        height: 48
+        x: 104
+        y: 4
+        width: 40
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3759568d17fdf22a0800000000000000
-      internalID: -6759938835604990605
+      spriteID: 4a33e2b8f5ae7dc20800000000000000
+      internalID: 3231308953739473828
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Abutre bica aberta_3
+      name: Abutre boca aberta_3
       rect:
         serializedVersion: 2
-        x: 144
-        y: 0
-        width: 48
-        height: 48
+        x: 152
+        y: 3
+        width: 40
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,8 +216,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a4d8d583e3fb64de0800000000000000
-      internalID: -1349180764396352182
+      spriteID: acc8e2e7026abf780800000000000000
+      internalID: -8648136000948761398
       vertices: []
       indices: 
       edges: []
@@ -226,7 +226,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 91ea3aa3682580345b7246dac224486a
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -236,10 +236,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Abutre bica aberta_0: -9150290544469228377
-      Abutre bica aberta_1: 3377295980043400669
-      Abutre bica aberta_2: -6759938835604990605
-      Abutre bica aberta_3: -1349180764396352182
+      Abutre boca aberta_0: -557532515691322436
+      Abutre boca aberta_1: -305315303923019071
+      Abutre boca aberta_2: 3231308953739473828
+      Abutre boca aberta_3: -8648136000948761398
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

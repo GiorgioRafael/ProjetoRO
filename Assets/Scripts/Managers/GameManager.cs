@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public GameObject startGameUI;
     public TMP_Text countdownText;
     public GameObject countdownTextGameObject;
+    public GameObject enemySpawner;
     
     public bool startTypeWriter = false;
 
@@ -248,6 +249,7 @@ public class GameManager : MonoBehaviour
         startGameUI.SetActive(false);
         joystick.SetActive(true);
         gameHasStarted = true;
+        enemySpawner.SetActive(true);
         coinsDisplay.SetActive(true);
         countdownTextGameObject.SetActive(true);
         inventoryDisplay.SetActive(true);

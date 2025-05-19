@@ -65,7 +65,9 @@ public class EnemyStats : EntityStats
     [System.Serializable]
     public struct Stats
     {
-        public float maxHealth, moveSpeed, damage;
+        public float maxHealth;
+        public bool hpXHealth;
+        public float moveSpeed, damage;
         public float knockbackMultiplier;
         public Resistances resistances;
 
@@ -242,6 +244,19 @@ public class EnemyStats : EntityStats
         float curse = GameManager.GetCumulativeCurse(),
               level = GameManager.GetCumulativeLevels();
         actualStats = (baseStats * curse) ^ level;
+
+        if (baseStats.hpXHealth)
+        {
+            PlayerStats player = FindObjectOfType<PlayerStats>();
+            if (player != null)
+            {
+                actualStats.maxHealth *= player.level;
+                if (isFinalBoss)
+                {
+                    Debug.Log($"Boss HP scaled with player level: {actualStats.maxHealth}");
+                }
+            }
+        }
 
         // Create a variable to store all the cumulative multiplier values.
         Stats multiplier = new Stats{
