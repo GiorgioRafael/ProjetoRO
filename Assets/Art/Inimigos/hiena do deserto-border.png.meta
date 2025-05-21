@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: 4667bca1f9ae15e45822b4f4cc009467
+guid: b4fa0c23065f30549be043fca9c7a287
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3423471436400145703
-    second: esqueletao_0
+      213: -727518693685955992
+    second: hiena do deserto-border_0
   - first:
-      213: 3651218148802526055
-    second: esqueletao_1
+      213: 5380902064004789230
+    second: hiena do deserto-border_1
   - first:
-      213: 4851919288945553149
-    second: esqueletao_2
+      213: 5210042966753153218
+    second: hiena do deserto-border_2
   - first:
-      213: 8425457131355502788
-    second: esqueletao_3
+      213: -8307533794967944491
+    second: hiena do deserto-border_3
+  - first:
+      213: 5806687846716025753
+    second: hiena do deserto-border_4
+  - first:
+      213: -1672692718275944234
+    second: hiena do deserto-border_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -57,7 +63,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
@@ -135,13 +141,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: esqueletao_0
+      name: hiena do deserto-border_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 128
-        height: 128
+        x: 12
+        y: 14
+        width: 36
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +156,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 725b351122d928f20800000000000000
-      internalID: 3423471436400145703
+      spriteID: 86274674a9557e5f0800000000000000
+      internalID: -727518693685955992
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: esqueletao_1
+      name: hiena do deserto-border_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 128
-        height: 128
+        x: 53
+        y: 14
+        width: 36
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,20 +178,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 76b75d4bf8bbba230800000000000000
-      internalID: 3651218148802526055
+      spriteID: ee3fb200bedccaa40800000000000000
+      internalID: 5380902064004789230
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: esqueletao_2
+      name: hiena do deserto-border_2
       rect:
         serializedVersion: 2
-        x: 256
-        y: 0
-        width: 128
-        height: 128
+        x: 94
+        y: 14
+        width: 36
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dfe277003ea755340800000000000000
-      internalID: 4851919288945553149
+      spriteID: 2c018d9697acd4840800000000000000
+      internalID: 5210042966753153218
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: esqueletao_3
+      name: hiena do deserto-border_3
       rect:
         serializedVersion: 2
-        x: 384
-        y: 0
-        width: 128
-        height: 128
+        x: 135
+        y: 14
+        width: 36
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,8 +222,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4c8f9b8fe9c3de470800000000000000
-      internalID: 8425457131355502788
+      spriteID: 5d202675706b5bc80800000000000000
+      internalID: -8307533794967944491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiena do deserto-border_4
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 14
+        width: 36
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99b2619d4df759050800000000000000
+      internalID: 5806687846716025753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiena do deserto-border_5
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 14
+        width: 36
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d0a7c4c5d669c8e0800000000000000
+      internalID: -1672692718275944234
       vertices: []
       indices: 
       edges: []
@@ -226,7 +276,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f9d702fcd50500347b4c6b9c0eddcc28
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -236,10 +286,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      esqueletao_0: 3423471436400145703
-      esqueletao_1: 3651218148802526055
-      esqueletao_2: 4851919288945553149
-      esqueletao_3: 8425457131355502788
+      hiena do deserto-border_0: -727518693685955992
+      hiena do deserto-border_1: 5380902064004789230
+      hiena do deserto-border_2: 5210042966753153218
+      hiena do deserto-border_3: -8307533794967944491
+      hiena do deserto-border_4: 5806687846716025753
+      hiena do deserto-border_5: -1672692718275944234
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

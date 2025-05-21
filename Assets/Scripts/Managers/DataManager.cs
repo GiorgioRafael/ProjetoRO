@@ -39,7 +39,7 @@ public class DataManager : MonoBehaviour, IDataPersistence
     public void AddCoin(int amount)
     {
         coinCount += amount;
-        //DataPersistenceManager.instance.SaveGame();
+        DataPersistenceManager.instance.SaveGame();
         
         if (coinText != null)
         {

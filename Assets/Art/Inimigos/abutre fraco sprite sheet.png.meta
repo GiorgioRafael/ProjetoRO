@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 4667bca1f9ae15e45822b4f4cc009467
+guid: 6371850e455235e40b3174e12294b209
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3423471436400145703
-    second: esqueletao_0
+      213: 6517766508296836008
+    second: vulture fraco sprite sheet_0
   - first:
-      213: 3651218148802526055
-    second: esqueletao_1
+      213: 4674336821053338435
+    second: vulture fraco sprite sheet_1
   - first:
-      213: 4851919288945553149
-    second: esqueletao_2
+      213: -2611064025370022161
+    second: vulture fraco sprite sheet_2
   - first:
-      213: 8425457131355502788
-    second: esqueletao_3
+      213: -3209270630530696967
+    second: vulture fraco sprite sheet_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -57,7 +57,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
@@ -135,13 +135,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: esqueletao_0
+      name: vulture fraco sprite sheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 128
-        height: 128
+        x: 2
+        y: 3
+        width: 39
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 725b351122d928f20800000000000000
-      internalID: 3423471436400145703
+      spriteID: 8a398ff4b12c37a50800000000000000
+      internalID: 6517766508296836008
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: esqueletao_1
+      name: vulture fraco sprite sheet_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 128
-        height: 128
+        x: 50
+        y: 7
+        width: 39
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,20 +172,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 76b75d4bf8bbba230800000000000000
-      internalID: 3651218148802526055
+      spriteID: 343b963b2949ed040800000000000000
+      internalID: 4674336821053338435
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: esqueletao_2
+      name: vulture fraco sprite sheet_2
       rect:
         serializedVersion: 2
-        x: 256
-        y: 0
-        width: 128
-        height: 128
+        x: 98
+        y: 5
+        width: 39
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dfe277003ea755340800000000000000
-      internalID: 4851919288945553149
+      spriteID: feea40a5a13a3cbd0800000000000000
+      internalID: -2611064025370022161
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: esqueletao_3
+      name: vulture fraco sprite sheet_3
       rect:
         serializedVersion: 2
-        x: 384
-        y: 0
-        width: 128
-        height: 128
+        x: 145
+        y: 5
+        width: 40
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,8 +216,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4c8f9b8fe9c3de470800000000000000
-      internalID: 8425457131355502788
+      spriteID: 9f8bf1f6d516673d0800000000000000
+      internalID: -3209270630530696967
       vertices: []
       indices: 
       edges: []
@@ -226,7 +226,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f9d702fcd50500347b4c6b9c0eddcc28
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -236,10 +236,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      esqueletao_0: 3423471436400145703
-      esqueletao_1: 3651218148802526055
-      esqueletao_2: 4851919288945553149
-      esqueletao_3: 8425457131355502788
+      vulture fraco sprite sheet_0: 6517766508296836008
+      vulture fraco sprite sheet_1: 4674336821053338435
+      vulture fraco sprite sheet_2: -2611064025370022161
+      vulture fraco sprite sheet_3: -3209270630530696967
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

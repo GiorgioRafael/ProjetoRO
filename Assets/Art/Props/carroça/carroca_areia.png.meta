@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 4667bca1f9ae15e45822b4f4cc009467
+guid: 4d42717e017836e4cad19fff671577b7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3423471436400145703
-    second: esqueletao_0
-  - first:
-      213: 3651218148802526055
-    second: esqueletao_1
-  - first:
-      213: 4851919288945553149
-    second: esqueletao_2
-  - first:
-      213: 8425457131355502788
-    second: esqueletao_3
+      213: 722361920149968818
+    second: carroca_areia_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -57,10 +48,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -135,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: esqueletao_0
+      name: carroca_areia_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 128
-        height: 128
+        y: 17
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,74 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 725b351122d928f20800000000000000
-      internalID: 3423471436400145703
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: esqueletao_1
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 76b75d4bf8bbba230800000000000000
-      internalID: 3651218148802526055
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: esqueletao_2
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dfe277003ea755340800000000000000
-      internalID: 4851919288945553149
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: esqueletao_3
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4c8f9b8fe9c3de470800000000000000
-      internalID: 8425457131355502788
+      spriteID: 2b7dec1d658560a00800000000000000
+      internalID: 722361920149968818
       vertices: []
       indices: 
       edges: []
@@ -226,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f9d702fcd50500347b4c6b9c0eddcc28
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -236,10 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      esqueletao_0: 3423471436400145703
-      esqueletao_1: 3651218148802526055
-      esqueletao_2: 4851919288945553149
-      esqueletao_3: 8425457131355502788
+      carroca_areia_0: 722361920149968818
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

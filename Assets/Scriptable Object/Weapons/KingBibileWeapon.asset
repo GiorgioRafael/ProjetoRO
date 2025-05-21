@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: KingBibileWeapon
   m_EditorClassIdentifier: 
   icon: {fileID: -3519485329308665578, guid: e50cab7c6093f7f4aabf7e0c9aa396cd, type: 3}
-  maxLevel: 8
+  maxLevel: 7
   evolutionData: []
   behaviour: KingBibleWeapon
   baseStats:

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Knife
   m_EditorClassIdentifier: 
   icon: {fileID: 1752878568249331049, guid: 27b15b8be241c0147af87759cc6504f3, type: 3}
-  maxLevel: 8
+  maxLevel: 7
   evolutionData:
   - name: "Mil l\xE2minas"
     condition: 1

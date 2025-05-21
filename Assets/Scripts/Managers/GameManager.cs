@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
     public Button continueButton;
     public int continueButtonTimes = 0;
     public GameObject treasureScreenBackground;
+    public TMP_Text coinsToAddText;
 
     [Header("Treasure Chest Upgrades Info")]
     public GameObject upgradeDisplayHolder;
@@ -109,6 +110,21 @@ public class GameManager : MonoBehaviour
     public float GetElapsedTime() { return timeLimit - remainingTime; }
 
 
+    public void DisableScreensForChest()
+    {
+        inventoryDisplay.SetActive(false);
+        DisableExpBar();
+        coinsDisplay.SetActive(false);
+        
+        
+    }
+    void EnableScreensForChest()
+    {
+        inventoryDisplay.SetActive(true);
+        EnableExpBar();
+        coinsDisplay.SetActive(true);
+        
+    }
     // Sums up the curse stat of all players and returns the value.
     public static float GetCumulativeCurse()
     {
@@ -507,7 +523,7 @@ public class GameManager : MonoBehaviour
 
             RectTransform chestRect = treasureChestScreen.GetComponent<RectTransform>();
             RectTransform upgradeRect = upgradeDisplayHolder.GetComponent<RectTransform>();
-            
+
             if (chestRect == null || upgradeRect == null)
             {
                 UnityEngine.Debug.LogError("Missing RectTransform components!");
@@ -522,24 +538,26 @@ public class GameManager : MonoBehaviour
             // Move chest screen slightly to the left (only X axis)
             Vector3 chestTargetPos = chestOriginalPos;
             chestTargetPos.x -= offsetAmount;
-            
+
             LeanTween.move(chestRect.gameObject, chestTargetPos, 0.5f)
                 .setIgnoreTimeScale(true)
                 .setEase(LeanTweenType.easeOutQuad)
-                .setOnComplete(() => {
+                .setOnComplete(() =>
+                {
                     upgradeDisplayHolder.SetActive(true);
-                    
+
                     // Keep original Y position, only change X
                     Vector3 upgradeStartPos = new Vector3(chestOriginalPos.x + Screen.width, originalUpgradeY, 0);
                     upgradeRect.position = upgradeStartPos;
 
                     // Move to final position maintaining original Y position
                     Vector3 upgradeTargetPos = new Vector3(chestOriginalPos.x + offsetAmount, originalUpgradeY, 0);
-                    
+
                     LeanTween.move(upgradeRect.gameObject, upgradeTargetPos, 0.5f)
                         .setIgnoreTimeScale(true)
                         .setEase(LeanTweenType.easeOutQuad)
-                        .setOnComplete(() => {
+                        .setOnComplete(() =>
+                        {
                             continueButton.interactable = true;
                         });
                 });
@@ -570,6 +588,7 @@ public class GameManager : MonoBehaviour
             continueButtonTimes = 0;
             treasureScreenBackground.SetActive(false);
         }
+        EnableScreensForChest();
     }
   
     private void Victory()

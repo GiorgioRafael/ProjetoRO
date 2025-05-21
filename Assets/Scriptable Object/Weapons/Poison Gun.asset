@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Poison Gun
   m_EditorClassIdentifier: 
   icon: {fileID: 2674983801438639533, guid: a7515d5ff23ed5446ae01405c2dc6372, type: 3}
-  maxLevel: 8
+  maxLevel: 7
   evolutionData: []
   behaviour: ProjectileWeapon
   baseStats:

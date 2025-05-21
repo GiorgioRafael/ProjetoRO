@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Raios
   m_EditorClassIdentifier: 
   icon: {fileID: 1318207367883000954, guid: c657f7e1fb884c4499b24e811c3426a3, type: 3}
-  maxLevel: 3
+  maxLevel: 7
   evolutionData: []
   behaviour: LightningRingWeapon
   baseStats:

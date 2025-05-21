@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 4667bca1f9ae15e45822b4f4cc009467
+guid: cfac4713fb98f1b4ca2f2cd7393a7935
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3423471436400145703
-    second: esqueletao_0
+      213: 8054092724046282357
+    second: Abutre lvl final_0
   - first:
-      213: 3651218148802526055
-    second: esqueletao_1
+      213: -2589786623735539692
+    second: Abutre lvl final_1
   - first:
-      213: 4851919288945553149
-    second: esqueletao_2
+      213: 4694225284746198665
+    second: Abutre lvl final_2
   - first:
-      213: 8425457131355502788
-    second: esqueletao_3
+      213: 8855169005296567301
+    second: Abutre lvl final_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -57,7 +57,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
@@ -135,13 +135,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: esqueletao_0
+      name: Abutre lvl final_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 128
-        height: 128
+        x: 3
+        y: 1
+        width: 39
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 725b351122d928f20800000000000000
-      internalID: 3423471436400145703
+      spriteID: 57e36dcf8a2e5cf60800000000000000
+      internalID: 8054092724046282357
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: esqueletao_1
+      name: Abutre lvl final_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 128
-        height: 128
+        x: 50
+        y: 2
+        width: 40
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,20 +172,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 76b75d4bf8bbba230800000000000000
-      internalID: 3651218148802526055
+      spriteID: 4185f2879ca3f0cd0800000000000000
+      internalID: -2589786623735539692
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: esqueletao_2
+      name: Abutre lvl final_2
       rect:
         serializedVersion: 2
-        x: 256
-        y: 0
-        width: 128
-        height: 128
+        x: 98
+        y: 6
+        width: 40
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dfe277003ea755340800000000000000
-      internalID: 4851919288945553149
+      spriteID: 98e34f0860d352140800000000000000
+      internalID: 4694225284746198665
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: esqueletao_3
+      name: Abutre lvl final_3
       rect:
         serializedVersion: 2
-        x: 384
-        y: 0
-        width: 128
-        height: 128
+        x: 145
+        y: 4
+        width: 41
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,8 +216,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4c8f9b8fe9c3de470800000000000000
-      internalID: 8425457131355502788
+      spriteID: 50440ca2b41e3ea70800000000000000
+      internalID: 8855169005296567301
       vertices: []
       indices: 
       edges: []
@@ -226,7 +226,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f9d702fcd50500347b4c6b9c0eddcc28
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -236,10 +236,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      esqueletao_0: 3423471436400145703
-      esqueletao_1: 3651218148802526055
-      esqueletao_2: 4851919288945553149
-      esqueletao_3: 8425457131355502788
+      Abutre lvl final_0: 8054092724046282357
+      Abutre lvl final_1: -2589786623735539692
+      Abutre lvl final_2: 4694225284746198665
+      Abutre lvl final_3: 8855169005296567301
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -6,7 +6,50 @@ using TMPro;
 
 public class TreasureChest : MonoBehaviour
 {
+    [Header("Coin Rewards")]
+    [SerializeField] private Vector2Int commonCoins = new Vector2Int(20, 50);
+    [SerializeField] private Vector2Int uncommonCoins = new Vector2Int(50, 100);
+    [SerializeField] private Vector2Int rareCoins = new Vector2Int(100, 200);
+    [SerializeField] private Vector2Int ultraRareCoins = new Vector2Int(350, 500);
 
+
+    private void GiveCoinsForTier(int upgradeCount)
+    {
+        Vector2Int coinRange;
+        string tierName;
+
+        switch (upgradeCount)
+        {
+            case 5: // Ultra Rare
+                coinRange = ultraRareCoins;
+                tierName = "Ultra Rare";
+                break;
+            case 3: // Rare
+                coinRange = rareCoins;
+                tierName = "Rare";
+                break;
+            case 2: // Uncommon
+                coinRange = uncommonCoins;
+                tierName = "Uncommon";
+                break;
+            default: // Common
+                coinRange = commonCoins;
+                tierName = "Common";
+                break;
+        }
+
+        int coinsToAdd = Random.Range(coinRange.x, coinRange.y + 1);
+        DataManager.instance.AddCoin(coinsToAdd);
+
+        // Show floating text for coins
+        GameManager.GenerateFloatingText($"+{coinsToAdd} coins", transform);
+        
+        // Update the coins text in the treasure screen
+        if (GameManager.instance && GameManager.instance.coinsToAddText != null)
+        {
+            GameManager.instance.coinsToAddText.text = $"+{coinsToAdd}";
+        }
+    }
 
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -26,12 +69,16 @@ public class TreasureChest : MonoBehaviour
 
     public void OpenTreasureChest(PlayerInventory inventory, bool isHigherTier)
     {
+        GameManager.instance.DisableScreensForChest();
         // Try weapon evolution first
         if (TryWeaponEvolution(inventory)) return;
 
         // If no evolution happened, give random upgrades
         int upgradeCount = DetermineUpgradeCount(isHigherTier);
         Debug.Log("UpgradeCount = " + upgradeCount);
+
+        GiveCoinsForTier(upgradeCount);
+
         ApplyRandomUpgrades(inventory, upgradeCount);
     }
 
@@ -134,12 +181,14 @@ public class TreasureChest : MonoBehaviour
                 iconImage.sprite = passive.data.icon;
             }
         }
+        
+        
 
         // Clear previous detailed upgrade displays
         foreach (Transform child in GameManager.instance.upgradeDisplayContainer)
         {
-                // Skip if it's the template or the Frame
-            if (child.gameObject == GameManager.instance.upgradeDisplayTemplate || 
+            // Skip if it's the template or the Frame
+            if (child.gameObject == GameManager.instance.upgradeDisplayTemplate ||
                 child.name == "Frame" || child.name == "Itens melhorados")
                 continue;
 

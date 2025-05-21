@@ -54,9 +54,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Thickness: 0.00509
-    - _ThicknessY: 0.0207
+    - _PixelSizeX: 1
+    - _PixelSizeY: 1
+    - _TexelSizeY: 48
+    - _Thickness: 0
+    - _ThicknessY: 0.0209
     m_Colors:
     - _Color: {r: 309.13202, g: 56.437492, b: 0, a: 1}
+    - _PixelSize: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

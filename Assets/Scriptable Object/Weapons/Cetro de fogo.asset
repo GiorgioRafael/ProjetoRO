@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cetro de fogo
   m_EditorClassIdentifier: 
   icon: {fileID: -1286768236951378217, guid: a277fdfd00a87f640a5a3bdcc119a7f2, type: 3}
-  maxLevel: 8
+  maxLevel: 7
   evolutionData: []
   behaviour: ProjectileWeapon
   baseStats:

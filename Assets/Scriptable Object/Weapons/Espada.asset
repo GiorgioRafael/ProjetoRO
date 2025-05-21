@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Espada
   m_EditorClassIdentifier: 
   icon: {fileID: 8704291380340930943, guid: 9952f68a6ce317943831c3f4d0d27b5b, type: 3}
-  maxLevel: 8
+  maxLevel: 7
   evolutionData: []
   behaviour: WhipWeapon
   baseStats:

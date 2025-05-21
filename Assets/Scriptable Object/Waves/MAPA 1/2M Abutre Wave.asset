@@ -10,17 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e789f5db9e51b804d95f48492e234c37, type: 3}
-  m_Name: 1MBat Wave
+  m_Name: 2M Abutre Wave
   m_EditorClassIdentifier: 
   possibleSpawnPrefabs:
   - {fileID: 7566461839616508672, guid: 8f90ee0234b461f428d192e02d65d4d9, type: 3}
-  - {fileID: 7566461839616508672, guid: 8f90ee0234b461f428d192e02d65d4d9, type: 3}
-  - {fileID: 7566461839616508672, guid: 8f90ee0234b461f428d192e02d65d4d9, type: 3}
   - {fileID: 7566461839616508672, guid: aa5e58316f8c3264c8966cf63f34acd5, type: 3}
-  spawnInterval: {x: 1, y: 1}
+  spawnInterval: {x: 0.5, y: 0.5}
   spawnsPerTick: {x: 1, y: 1}
   duration: 30
-  minimumAmount: 30
+  minimumAmount: 50
   totalSpawns: 4294967295
   exitConditions: 1
   mustKillAll: 0
