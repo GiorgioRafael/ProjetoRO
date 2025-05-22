@@ -13,13 +13,11 @@ MonoBehaviour:
   m_Name: 1M Abutre Wave
   m_EditorClassIdentifier: 
   possibleSpawnPrefabs:
-  - {fileID: 4091895465962986527, guid: 09ae8ed6a5ff3b54e89dffde9a55e8b7, type: 3}
-  - {fileID: 4091895465962986527, guid: 09ae8ed6a5ff3b54e89dffde9a55e8b7, type: 3}
-  - {fileID: 4091895465962986527, guid: 09ae8ed6a5ff3b54e89dffde9a55e8b7, type: 3}
-  - {fileID: 1315851815828738692, guid: 28d76601983d4384e836cda286b07c81, type: 3}
+  - {fileID: 6439432904146936302, guid: b3d016b512295a044adab6f5c30bb31a, type: 3}
+  - {fileID: 602159891051471539, guid: 244281c2c8c272742b8f6261d06d7ad4, type: 3}
   spawnInterval: {x: 1, y: 1}
   spawnsPerTick: {x: 1, y: 1}
-  duration: 30
+  duration: 60
   minimumAmount: 30
   totalSpawns: 4294967295
   exitConditions: 1
