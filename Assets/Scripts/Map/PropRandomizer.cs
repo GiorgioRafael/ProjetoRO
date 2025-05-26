@@ -8,6 +8,8 @@ public class PropRandomizer : MonoBehaviour
     public List<GameObject> propPrefabs;
 
 
+    
+
     void Start()
     {
         SpawnProps();

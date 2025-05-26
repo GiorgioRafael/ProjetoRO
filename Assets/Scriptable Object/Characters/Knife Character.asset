@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8a371504affb3544b15ee6c72cf2fb5, type: 3}
   m_Name: Knife Character
   m_EditorClassIdentifier: 
-  icon: {fileID: 4106213231394428757, guid: 35b45b786dc518c4685235de455fee33, type: 3}
-  animator: {fileID: 22100000, guid: 4330775d09eb4d34384e3a0b8585bd32, type: 2}
-  name: Tupiniquim
-  fullName: Salamandra Tupiniquim
+  icon: {fileID: -3279935201429492530, guid: b8133f5f61383cb408a49fec42cb7fb1, type: 3}
+  animator: {fileID: 9100000, guid: 56ae331ed87d6b1449d102015209b874, type: 2}
+  name: Liz
+  fullName: Shiranui Liz
   characterDescription: "Come\xE7a com um projetil a mais (todas as armas)"
   characterLore: Falta escrever a historia.
   startingWeapon: {fileID: 11400000, guid: b75498fe315205f4a8d2e117db0949d3, type: 2}

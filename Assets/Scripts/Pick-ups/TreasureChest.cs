@@ -5,8 +5,10 @@ using UnityEngine.UI;
 using TMPro;
 
 public class TreasureChest : MonoBehaviour
-{
-    [Header("Coin Rewards")]
+{   
+    [Header("UI")]
+    public Color plusCoinsTextColor = Color.white;
+
     [SerializeField] private Vector2Int commonCoins = new Vector2Int(20, 50);
     [SerializeField] private Vector2Int uncommonCoins = new Vector2Int(50, 100);
     [SerializeField] private Vector2Int rareCoins = new Vector2Int(100, 200);
@@ -42,7 +44,7 @@ public class TreasureChest : MonoBehaviour
         DataManager.instance.AddCoin(coinsToAdd);
 
         // Show floating text for coins
-        GameManager.GenerateFloatingText($"+{coinsToAdd} coins", transform);
+        GameManager.GenerateFloatingText($"+{coinsToAdd} coins", transform, 1f, 1f, plusCoinsTextColor);
         
         // Update the coins text in the treasure screen
         if (GameManager.instance && GameManager.instance.coinsToAddText != null)
@@ -129,6 +131,8 @@ public class TreasureChest : MonoBehaviour
     {
         if (GameManager.instance == null) return;
 
+        GameManager.instance.SetActiveIconCount(upgradeEvents.Count);
+
         // Pause game and show screen
         Time.timeScale = 0f;
         GameManager.instance.treasureChestScreen.SetActive(true);
@@ -170,8 +174,6 @@ public class TreasureChest : MonoBehaviour
         void SetUpgradeIcon(int iconIndex, UpgradeEvent upgradeEvent)
         {
             Image iconImage = GameManager.instance.upgradeIcons[iconIndex];
-            iconImage.gameObject.SetActive(true);
-
             if (upgradeEvent.item is Weapon weapon)
             {
                 iconImage.sprite = weapon.data.icon;
@@ -180,6 +182,7 @@ public class TreasureChest : MonoBehaviour
             {
                 iconImage.sprite = passive.data.icon;
             }
+            iconImage.gameObject.SetActive(false);
         }
         
         
@@ -284,7 +287,6 @@ public class TreasureChest : MonoBehaviour
             if (selectedItem.DoLevelUp())
             {
                 upgradeEvents.Add(new UpgradeEvent(selectedItem, selectedItem.currentLevel));
-                GameManager.GenerateFloatingText("Level Up!", selectedItem.transform);
             }
 
             // Only remove from available items if it can't level up anymore

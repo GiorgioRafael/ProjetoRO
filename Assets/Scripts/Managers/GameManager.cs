@@ -4,6 +4,10 @@ using UnityEngine.UI;
 using TMPro;
 using System.Diagnostics;
 using UnityEditor;
+using System.Collections;
+using System;
+using Unity.Properties;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -31,14 +35,8 @@ public class GameManager : MonoBehaviour
     public TMP_Text countdownText;
     public GameObject countdownTextGameObject;
     public GameObject enemySpawner;
-    
-    public bool startTypeWriter = false;
 
-    [Header("Damage Text Settings")]
-    public Canvas damageTextCanvas;
-    public float textFontSize = 20;
-    public TMP_FontAsset textFont;
-    public Camera referenceCamera;
+    public bool startTypeWriter = false;
 
     [Header("Screens")]
     public GameObject pauseScreen;
@@ -52,7 +50,6 @@ public class GameManager : MonoBehaviour
     public bool hasWon = false;
 
     int stackedLevelUps = 0;
-
     [SerializeField]
     public GameObject expBarHolder;
 
@@ -79,10 +76,28 @@ public class GameManager : MonoBehaviour
     public GameObject treasureScreenBackground;
     public TMP_Text coinsToAddText;
 
+    [Header("Damage Text Settings")]
+    public Canvas damageTextCanvas;
+    public float textFontSize = 20;
+    public TMP_FontAsset textFont;
+    public TMP_FontAsset floatingTextFont; // Add this new field
+    public Camera referenceCamera;
+    public Color textColor = Color.white; // Adicione esta linha para a cor padrão
+    public float textOutlineWidth = 0.2f;
+    public Color textOutlineColor = Color.black;
+
     [Header("Treasure Chest Upgrades Info")]
     public GameObject upgradeDisplayHolder;
     public GameObject upgradeDisplayTemplate; // Template prefab
     public Transform upgradeDisplayContainer;    // Parent object with Layout Group
+
+    private int activeIconCount = 0; // Add this field to track active icons
+
+    public void SetActiveIconCount(int count)
+        {
+            activeIconCount = count;
+        }
+
 
     [Header("Stopwatch")]
     public float timeLimit = 900f; //o tempo limite em segundos
@@ -115,15 +130,22 @@ public class GameManager : MonoBehaviour
         inventoryDisplay.SetActive(false);
         DisableExpBar();
         coinsDisplay.SetActive(false);
-        
-        
+
+        // Hide all upgrade icons initially
+        foreach (Image icon in upgradeIcons)
+        {
+            if (icon != null)
+            {
+                icon.gameObject.SetActive(false);
+            }
+        }
     }
     void EnableScreensForChest()
     {
         inventoryDisplay.SetActive(true);
         EnableExpBar();
         coinsDisplay.SetActive(true);
-        
+
     }
     // Sums up the curse stat of all players and returns the value.
     public static float GetCumulativeCurse()
@@ -220,7 +242,7 @@ public class GameManager : MonoBehaviour
         if (countdownText != null)
         {
             string fullText = "SOBREVIVA!";
-            
+
             // Countdown first
             for (int i = 3; i > 0; i--)
             {
@@ -249,7 +271,7 @@ public class GameManager : MonoBehaviour
                     AudioController.instance.PlayTypewriterSound();
                 }
                 countdownText.maxVisibleCharacters = i;
-                
+
                 yield return new WaitForSecondsRealtime(charDelay);
             }
 
@@ -286,6 +308,13 @@ public class GameManager : MonoBehaviour
         tmPro.verticalAlignment = VerticalAlignmentOptions.Middle;
         tmPro.fontSize = textFontSize;
         if (textFont) tmPro.font = textFont;
+        tmPro.color = textColor; // Define a cor inicial do texto
+
+
+        TMPro.TMP_Text textComponent = tmPro;
+        textComponent.outlineWidth = textOutlineWidth;  // Thin outline
+        textComponent.outlineColor = textOutlineColor;
+
         rect.position = referenceCamera.WorldToScreenPoint(target.position);
 
         Destroy(textObj, duration);
@@ -303,7 +332,7 @@ public class GameManager : MonoBehaviour
             if (!rect) break;
 
             //fade the text to the right alpha value
-            tmPro.color = new Color(tmPro.color.r, tmPro.color.g, tmPro.color.b, 1 - t / duration);
+            tmPro.color = new Color(textColor.r, textColor.g, textColor.b, 1 - t / duration);
 
             //if the target exists then save its position
             if (target)
@@ -319,16 +348,24 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public static void GenerateFloatingText(string text, Transform target, float duration = 1f, float speed = 1)
+    public static void GenerateFloatingText(string text, Transform target, float duration = 1f, float speed = 1, Color? color = null)
     {
         //se o canvas nao tiver setado, acaba a funcao
         if (!instance.damageTextCanvas) return;
-
         if (!instance.referenceCamera) instance.referenceCamera = Camera.main;
+
+        Color originalColor = instance.textColor;
+        if (color.HasValue)
+        {
+            instance.textColor = color.Value;
+        }
 
         instance.StartCoroutine(instance.GenerateFloatingTextCoroutine(
             text, target, duration, speed
         ));
+
+        // Restaura a cor original
+        instance.textColor = originalColor;
     }
 
     //define um metodo para trocar o estado do jogo
@@ -424,12 +461,12 @@ public class GameManager : MonoBehaviour
         if (remainingTime <= 0)
         {
             remainingTime = 0;
-            if(!bossSpawned)
+            if (!bossSpawned)
             {
                 SpawnFinalBoss();
             }
-                //TODO - INICIAR TRANSICAO DE MAPA
-                //p.SendMessage("Kill");
+            //TODO - INICIAR TRANSICAO DE MAPA
+            //p.SendMessage("Kill");
         }
         UpdateStopwatchDisplay();
     }
@@ -440,15 +477,15 @@ public class GameManager : MonoBehaviour
 
         // Get player position
         Vector3 playerPos = players[0].transform.position;
-        
+
         // Calculate spawn position above player
         Vector3 spawnPos = playerPos + new Vector3(bossSpawnOffset.x, bossSpawnOffset.y, 0);
-        
+
         // Spawn the boss
         GameObject boss = Instantiate(bossPrefab, spawnPos, Quaternion.identity);
-        
+
         // Optional: Play effects
-        
+
         bossSpawned = true;
         UnityEngine.Debug.Log("Final Boss has spawned!");
     }
@@ -500,7 +537,7 @@ public class GameManager : MonoBehaviour
         expBarHolder.gameObject.SetActive(false);
     }
 
-        private void CheckForWinCondition()
+    private void CheckForWinCondition()
     {
         if (hasWon || !bossSpawned) return;
 
@@ -512,85 +549,203 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private IEnumerator AnimateIconFromChest(RectTransform icon, Vector2 targetPos)
+    {
+        float duration = 0.5f;
+        float t = 0;
+
+        // Store and set initial values
+        Vector2 startPos = new Vector2(0, -120);
+        icon.anchoredPosition = startPos;
+        icon.localScale = Vector3.zero;
+
+        while (t < 1)
+        {
+            t += Time.unscaledDeltaTime / duration;
+            float smoothT = Mathf.SmoothStep(0, 1, t);
+
+            // Animate position
+            icon.anchoredPosition = Vector2.Lerp(startPos, targetPos, smoothT);
+
+            // Animate scale with bounce effect
+            float scaleT = Mathf.Sin(smoothT * Mathf.PI * 0.5f);
+            icon.localScale = Vector3.one * scaleT;
+
+            yield return null;
+        }
+
+        // Ensure final values
+        icon.anchoredPosition = targetPos;
+        icon.localScale = Vector3.one;
+    }
 
     public void CloseTreasureScreen()
     {
+
         UnityEngine.Debug.Log($"Button clicked. continueButtonTimes: {continueButtonTimes}");
 
         if (continueButtonTimes == 0)
         {
-            continueButton.interactable = false;
+            Dictionary<RectTransform, Vector2> iconPositions = new Dictionary<RectTransform, Vector2>();
 
-            RectTransform chestRect = treasureChestScreen.GetComponent<RectTransform>();
-            RectTransform upgradeRect = upgradeDisplayHolder.GetComponent<RectTransform>();
-
-            if (chestRect == null || upgradeRect == null)
-            {
-                UnityEngine.Debug.LogError("Missing RectTransform components!");
-                return;
-            }
-
-            // Store original positions
-            Vector3 chestOriginalPos = chestRect.position;
-            float originalUpgradeY = upgradeRect.position.y;  // Store original Y position
-            float offsetAmount = Screen.width * 0.19f;
-
-            // Move chest screen slightly to the left (only X axis)
-            Vector3 chestTargetPos = chestOriginalPos;
-            chestTargetPos.x -= offsetAmount;
-
-            LeanTween.move(chestRect.gameObject, chestTargetPos, 0.5f)
-                .setIgnoreTimeScale(true)
-                .setEase(LeanTweenType.easeOutQuad)
-                .setOnComplete(() =>
+                    switch (activeIconCount)
+        {
+            case 1:
+                // For 1 upgrade, use icon 0
+                StoreIconPosition(0);
+                break;
+            case 2:
+                // For 2 upgrades, use icons 1 and 2
+                StoreIconPosition(1);
+                StoreIconPosition(2);
+                break;
+            case 3:
+                // For 3 upgrades, use icons 0, 1, and 2
+                StoreIconPosition(0);
+                StoreIconPosition(1);
+                StoreIconPosition(2);
+                break;
+            case 5:
+                // For 5 upgrades, use all icons
+                for (int i = 0; i < activeIconCount; i++)
                 {
-                    upgradeDisplayHolder.SetActive(true);
-
-                    // Keep original Y position, only change X
-                    Vector3 upgradeStartPos = new Vector3(chestOriginalPos.x + Screen.width, originalUpgradeY, 0);
-                    upgradeRect.position = upgradeStartPos;
-
-                    // Move to final position maintaining original Y position
-                    Vector3 upgradeTargetPos = new Vector3(chestOriginalPos.x + offsetAmount, originalUpgradeY, 0);
-
-                    LeanTween.move(upgradeRect.gameObject, upgradeTargetPos, 0.5f)
-                        .setIgnoreTimeScale(true)
-                        .setEase(LeanTweenType.easeOutQuad)
-                        .setOnComplete(() =>
-                        {
-                            continueButton.interactable = true;
-                        });
-                });
-
-            continueButtonTimes++;
-            return;
+                    StoreIconPosition(i);
+                }
+                break;
         }
+
+                // Now animate the icons in the same order
+        switch (activeIconCount)
+        {
+            case 1:
+                AnimateIcon(0);
+                break;
+            case 2:
+                AnimateIcon(1);
+                AnimateIcon(2);
+                break;
+            case 3:
+                AnimateIcon(0);
+                AnimateIcon(1);
+                AnimateIcon(2);
+                break;
+            case 5:
+                for (int i = 0; i < activeIconCount; i++)
+                {
+                    AnimateIcon(i);
+                }
+                break;
+        }
+
+        // Disable button until animation completes
+        continueButton.interactable = false;
+        StartCoroutine(EnableButtonAfterAnimation());
+        continueButtonTimes++;
+        return;
+
+        // Helper methods
+        void StoreIconPosition(int index)
+        {
+            iconPositions[upgradeIcons[index].rectTransform] = upgradeIcons[index].rectTransform.anchoredPosition;
+            upgradeIcons[index].gameObject.SetActive(false);
+        }
+
+        void AnimateIcon(int index)
+        {
+            RectTransform iconRect = upgradeIcons[index].rectTransform;
+            iconRect.anchoredPosition = new Vector2(0, -120);
+            iconRect.localScale = Vector3.zero;
+            upgradeIcons[index].gameObject.SetActive(true);
+            StartCoroutine(AnimateIconFromChest(iconRect, iconPositions[iconRect]));
+        }
+    }
 
         if (continueButtonTimes == 1)
         {
-            // Store references before disabling
-            RectTransform chestRect = treasureChestScreen.GetComponent<RectTransform>();
-            RectTransform upgradeRect = upgradeDisplayHolder.GetComponent<RectTransform>();
-
-            // Reset positions to their original setup
-            Vector3 screenCenter = new Vector3(Screen.width / 2, Screen.height / 2, 0);
-            chestRect.position = screenCenter; // Chest goes to center
-                                               //upgradeRect.position = screenCenter; // Upgrade holder also goes to center for next time
-
-            // Disable screens
-            upgradeDisplayHolder.SetActive(false);
-            treasureChestScreen.SetActive(false);
-
-            // Resume game
-
-            Time.timeScale = 1f;
-            joystick.SetActive(true);
-            continueButtonTimes = 0;
-            treasureScreenBackground.SetActive(false);
+            // Step 2: Show upgrade details screen
+            continueButtonTimes++;
+            StartSlideAnimation();
+            return;
         }
-        EnableScreensForChest();
+
+        if (continueButtonTimes == 2)
+        {
+            // Step 3: Close everything and reset
+            CloseAndReset();
+            EnableScreensForChest();
+        }
     }
-  
+
+    private IEnumerator EnableButtonAfterAnimation()
+    {
+        // Wait for animation duration
+        yield return new WaitForSecondsRealtime(0.5f);
+        continueButton.interactable = true;
+    }
+
+    private void StartSlideAnimation()
+    {
+        continueButton.interactable = false;
+        RectTransform chestRect = treasureChestScreen.GetComponent<RectTransform>();
+        RectTransform upgradeRect = upgradeDisplayHolder.GetComponent<RectTransform>();
+
+        if (chestRect == null || upgradeRect == null)
+        {
+            UnityEngine.Debug.LogError("Missing RectTransform components!");
+            return;
+        }
+
+        Vector3 chestOriginalPos = chestRect.position;
+        float originalUpgradeY = upgradeRect.position.y;
+        float offsetAmount = Screen.width * 0.19f;
+
+        Vector3 chestTargetPos = chestOriginalPos;
+        chestTargetPos.x -= offsetAmount;
+
+        // Animate chest moving left
+        LeanTween.move(chestRect.gameObject, chestTargetPos, 0.5f)
+            .setIgnoreTimeScale(true)
+            .setEase(LeanTweenType.easeOutQuad)
+            .setOnComplete(() =>
+            {
+                upgradeDisplayHolder.SetActive(true);
+                Vector3 upgradeStartPos = new Vector3(chestOriginalPos.x + Screen.width, originalUpgradeY, 0);
+                upgradeRect.position = upgradeStartPos;
+
+                Vector3 upgradeTargetPos = new Vector3(chestOriginalPos.x + offsetAmount, originalUpgradeY, 0);
+
+                // Animate upgrade panel sliding in
+                LeanTween.move(upgradeRect.gameObject, upgradeTargetPos, 0.5f)
+                    .setIgnoreTimeScale(true)
+                    .setEase(LeanTweenType.easeOutQuad)
+                    .setOnComplete(() => continueButton.interactable = true);
+            });
+    }
+
+    private void CloseAndReset()
+    {
+        RectTransform chestRect = treasureChestScreen.GetComponent<RectTransform>();
+
+        // Reset positions
+        Vector3 screenCenter = new Vector3(Screen.width / 2, Screen.height / 2, 0);
+        chestRect.position = screenCenter;
+
+        // Disable all icons
+        foreach (Image icon in upgradeIcons)
+        {
+            icon.gameObject.SetActive(false);
+        }
+
+        // Disable screens
+        upgradeDisplayHolder.SetActive(false);
+        treasureChestScreen.SetActive(false);
+        treasureScreenBackground.SetActive(false);
+
+        // Resume game
+        Time.timeScale = 1f;
+        joystick.SetActive(true);
+        continueButtonTimes = 0;
+    }
     private void Victory()
     {
         hasWon = true;

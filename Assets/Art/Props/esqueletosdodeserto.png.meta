@@ -1,0 +1,300 @@
+fileFormatVersion: 2
+guid: 01bd0eba600400e40b0f3a92825edcaf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8491014699367882088
+    second: esqueletosdodeserto_0
+  - first:
+      213: -9035712905855930673
+    second: esqueletosdodeserto_1
+  - first:
+      213: -7846612438221905848
+    second: esqueletosdodeserto_2
+  - first:
+      213: -7018465428288454578
+    second: esqueletosdodeserto_3
+  - first:
+      213: 3193385906519506503
+    second: esqueletosdodeserto_4
+  - first:
+      213: 1484979228248590332
+    second: esqueletosdodeserto_5
+  - first:
+      213: 6452766872529626774
+    second: esqueletosdodeserto_6
+  - first:
+      213: -5550888465589295760
+    second: esqueletosdodeserto_7
+  - first:
+      213: 4485627800520884412
+    second: esqueletosdodeserto_8
+  - first:
+      213: 4680963276360083858
+    second: esqueletosdodeserto_9
+  - first:
+      213: 7821135370859395640
+    second: esqueletosdodeserto_10
+  - first:
+      213: -2753244295123015972
+    second: esqueletosdodeserto_11
+  - first:
+      213: -1393977688498629653
+    second: esqueletosdodeserto_12
+  - first:
+      213: 5030344220792781143
+    second: esqueletosdodeserto_13
+  - first:
+      213: -8822018909959734325
+    second: esqueletosdodeserto_14
+  - first:
+      213: 4063216879576922063
+    second: esqueletosdodeserto_15
+  - first:
+      213: 3134401123340609951
+    second: esqueletosdodeserto_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: esqueletosdodeserto_0
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 28
+        width: 50
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86d517ab1e426d570800000000000000
+      internalID: 8491014699367882088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: esqueletosdodeserto_1
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 107
+        width: 91
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fce6b024cf2ba9280800000000000000
+      internalID: -9035712905855930673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: esqueletosdodeserto_16
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 25
+        width: 23
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f996d440731af7b20800000000000000
+      internalID: 3134401123340609951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: esqueletosdodeserto_17
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 50
+        width: 38
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18a5123882a81d643bf5bdb79b165f51
+      internalID: -93093357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5b7a27f2fa2ac474da4532482d0ce76d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      esqueletosdodeserto_0: 8491014699367882088
+      esqueletosdodeserto_1: -9035712905855930673
+      esqueletosdodeserto_10: 7821135370859395640
+      esqueletosdodeserto_11: -2753244295123015972
+      esqueletosdodeserto_12: -1393977688498629653
+      esqueletosdodeserto_13: 5030344220792781143
+      esqueletosdodeserto_14: -8822018909959734325
+      esqueletosdodeserto_15: 4063216879576922063
+      esqueletosdodeserto_16: 3134401123340609951
+      esqueletosdodeserto_17: -93093357
+      esqueletosdodeserto_2: -7846612438221905848
+      esqueletosdodeserto_3: -7018465428288454578
+      esqueletosdodeserto_4: 3193385906519506503
+      esqueletosdodeserto_5: 1484979228248590332
+      esqueletosdodeserto_6: 6452766872529626774
+      esqueletosdodeserto_7: -5550888465589295760
+      esqueletosdodeserto_8: 4485627800520884412
+      esqueletosdodeserto_9: 4680963276360083858
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
