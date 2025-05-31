@@ -193,11 +193,12 @@ public class EnemyStats : EntityStats
     {
         base.Start();
 
+        if (UILevelSelector.globalBuff && !UILevelSelector.globalBuffAffectsEnemies)
+            ApplyBuff(UILevelSelector.globalBuff);
+
         RecalculateStats();
         health = actualStats.maxHealth;
 
-        Debug.Log($"Enemy spawned with health: {health}, maxHealth: {actualStats.maxHealth}");
-        
         if (isFinalBoss)
         {
             var allObjects = Resources.FindObjectsOfTypeAll<GameObject>();

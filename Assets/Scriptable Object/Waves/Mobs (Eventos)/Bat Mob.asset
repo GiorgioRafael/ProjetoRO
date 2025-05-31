@@ -17,7 +17,7 @@ MonoBehaviour:
   spawnInterval: {x: 3, y: 4}
   spawnsPerTick: {x: 20, y: 25}
   duration: 10
-  probability: 0.8
+  probability: 0.2
   luckFactor: 1
   activeAfter: 0
   possibleAngles: 360

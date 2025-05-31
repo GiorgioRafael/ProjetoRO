@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 880d98358dd449143adf751849f734ea, type: 3}
   m_Name: Duracao
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  maxLevel: 0
+  icon: {fileID: 21300000, guid: ed3b800b1ce091e46a3d0f7ddd1f2d5b, type: 3}
+  maxLevel: 4
   evolutionData: []
   baseStats:
     name: Duracao

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cooldown
   m_EditorClassIdentifier: 
   icon: {fileID: -3306583105286333510, guid: 9b617c1ae829e7a4da21c040967719ed, type: 3}
-  maxLevel: 0
+  maxLevel: 7
   evolutionData: []
   baseStats:
     name: Acelerador de tempo pessoal
@@ -29,7 +29,6 @@ MonoBehaviour:
       duration: 0
       amount: 0
       cooldown: -0.1
-      expGain: 0
       luck: 0
       growth: 0
       greed: 0
@@ -50,7 +49,6 @@ MonoBehaviour:
       duration: 0
       amount: 0
       cooldown: -0.1
-      expGain: 0
       luck: 0
       growth: 0
       greed: 0
@@ -70,7 +68,6 @@ MonoBehaviour:
       duration: 0
       amount: 0
       cooldown: -0.1
-      expGain: 0
       luck: 0
       growth: 0
       greed: 0
@@ -90,7 +87,6 @@ MonoBehaviour:
       duration: 0
       amount: 0
       cooldown: -0.1
-      expGain: 0
       luck: 0
       growth: 0
       greed: 0
@@ -110,7 +106,6 @@ MonoBehaviour:
       duration: 0
       amount: 0
       cooldown: -0.1
-      expGain: 0
       luck: 0
       growth: 0
       greed: 0
@@ -130,7 +125,6 @@ MonoBehaviour:
       duration: 0
       amount: 0
       cooldown: -0.1
-      expGain: 0
       luck: 0
       growth: 0
       greed: 0
@@ -150,7 +144,6 @@ MonoBehaviour:
       duration: 0
       amount: 0
       cooldown: -0.1
-      expGain: 0
       luck: 0
       growth: 0
       greed: 0
@@ -170,7 +163,6 @@ MonoBehaviour:
       duration: 0
       amount: 0
       cooldown: -0.1
-      expGain: 0
       luck: 0
       growth: 0
       greed: 0

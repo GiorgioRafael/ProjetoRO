@@ -201,6 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortingActive: 1
+  LeftEnemy: 0
   outOfFrameAction: 0
   knockbackVariance: 2
   spriteRenderer: {fileID: 0}
@@ -221,6 +222,9 @@ MonoBehaviour:
   - name: Blue gem
     itemPrefab: {fileID: 610303841448720195, guid: a5881a8cadb00894eaaafdb1c7ce5b13, type: 3}
     dropRate: 100
+    minAmount: 1
+    maxAmount: 1
+    spreadRadius: 0.5
 --- !u!114 &6267109583213233546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,7 +238,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseStats:
-    maxHealth: 250
+    maxHealth: 70
+    hpXHealth: 1
     moveSpeed: 0.01
     damage: 5
     knockbackMultiplier: 0.1
@@ -248,3 +253,8 @@ MonoBehaviour:
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   damageFlashDuration: 0.1
   deathFadeTime: 0.1
+  isFinalBoss: 0
+  bossName: 
+  healthBarDrainDelay: 0.5
+  healthBarDrainSpeed: 2
+  finalBossKilled: 0

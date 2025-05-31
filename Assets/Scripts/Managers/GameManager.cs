@@ -177,6 +177,8 @@ public class GameManager : MonoBehaviour
     {
         countdownText.text = "";
         players = FindObjectsOfType<PlayerStats>();
+        
+        timeLimit = UILevelSelector.currentLevel.timeLimit;
 
         //warning check to see if theres another singleton of this kind in the game
         if (instance == null)
@@ -428,13 +430,14 @@ public class GameManager : MonoBehaviour
     }
     public void GameOver()
     {
+        DataPersistenceManager.instance.SaveGame();
+
         timeSurvivedDisplay.text = Mathf.RoundToInt(timeCounter).ToString();
         ChangeState(GameState.GameOver);
         joystick.SetActive(false);
         Time.timeScale = 0f;
         DisableExpBar();
         DisplayResults();
-        DataPersistenceManager.instance.SaveGame();
     }
     void DisplayResults()
     {
@@ -455,7 +458,8 @@ public class GameManager : MonoBehaviour
 
     void UpdateStopwatch()
     {
-        remainingTime -= Time.deltaTime;
+        remainingTime -= Time.deltaTime * UILevelSelector.currentLevel.clockSpeed;
+        //remainingTime -= Time.deltaTime;
         timeCounter += Time.deltaTime;
 
         if (remainingTime <= 0)
@@ -749,10 +753,12 @@ public class GameManager : MonoBehaviour
     private void Victory()
     {
         hasWon = true;
+
+        DataPersistenceManager.instance.SaveGame();
+
         Time.timeScale = 0f;
         joystick.SetActive(false);
         DisableExpBar();
         winScreen.SetActive(true);
-        DataPersistenceManager.instance.SaveGame();
     }
 }

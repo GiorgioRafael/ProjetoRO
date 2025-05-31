@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &538221112043885640
+--- !u!1 &2587235980780442311
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,11 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6415766690103253263}
-  - component: {fileID: 4284271528812746483}
-  - component: {fileID: 5500705934517824016}
-  - component: {fileID: 8631363932112453970}
-  - component: {fileID: 1183718299982526412}
+  - component: {fileID: 8738299213464036200}
+  - component: {fileID: 5857990232499217104}
+  - component: {fileID: 408938200798230238}
+  - component: {fileID: 1042115595027149280}
+  - component: {fileID: 2524877925082506529}
+  - component: {fileID: 5601034500658087061}
   m_Layer: 0
   m_Name: esqueleto_1
   m_TagString: Untagged
@@ -20,28 +21,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6415766690103253263
+--- !u!4 &8738299213464036200
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 538221112043885640}
+  m_GameObject: {fileID: 2587235980780442311}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.26, y: -1.39, z: 0}
+  m_LocalPosition: {x: 3.158887, y: -2.8808877, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4284271528812746483
+--- !u!212 &5857990232499217104
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 538221112043885640}
+  m_GameObject: {fileID: 2587235980780442311}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -90,30 +91,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5500705934517824016
+--- !u!114 &408938200798230238
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 538221112043885640}
+  m_GameObject: {fileID: 2587235980780442311}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f66301e0d9c22347816d6c5a4947b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   drops:
   - name: Coin
     itemPrefab: {fileID: 1502375065708660715, guid: cd93f2f11af5b794f8eb081c4cb7f9a9, type: 3}
-    dropRate: 100
---- !u!58 &8631363932112453970
+    dropRate: 50
+    minAmount: 1
+    maxAmount: 10
+    spreadRadius: 0.5
+  - name: Red Potio
+    itemPrefab: {fileID: 1502375065708660715, guid: 52f8777271a0489489b58c164baec686, type: 3}
+    dropRate: 50
+    minAmount: 1
+    maxAmount: 1
+    spreadRadius: 0.5
+--- !u!58 &1042115595027149280
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 538221112043885640}
+  m_GameObject: {fileID: 2587235980780442311}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -143,13 +153,13 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: -0.21, y: 0.23903781}
   m_Radius: 0.5578372
---- !u!58 &1183718299982526412
+--- !u!58 &2524877925082506529
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 538221112043885640}
+  m_GameObject: {fileID: 2587235980780442311}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -179,3 +189,16 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0.4, y: -0.42}
   m_Radius: 0.4755876
+--- !u!114 &5601034500658087061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2587235980780442311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df9c8f2b2e4c94e42a11fac2acd2059c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10

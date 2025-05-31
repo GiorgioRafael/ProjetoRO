@@ -27,48 +27,98 @@ MonoBehaviour:
       level: 0
   baseStats:
     name: Spinach
-    description: Increase damage of all weapons by 10%
+    description: Aumenta o dano de todas as armas em 10%
     boosts:
       maxHealth: 0
       recovery: 0
+      armor: 0
       moveSpeed: 0
       might: 0.1
+      area: 0
       speed: 0
+      duration: 0
+      amount: 0
+      cooldown: 0
+      luck: 0
+      growth: 0
+      greed: 0
+      curse: 0
       magnet: 0
+      revival: 0
   growth:
   - name: Spinach Level 2
     description: Increase damage of all weapons by 10%
     boosts:
       maxHealth: 0
       recovery: 0
+      armor: 0
       moveSpeed: 0
       might: 0.1
+      area: 0
       speed: 0
+      duration: 0
+      amount: 0
+      cooldown: 0
+      luck: 0
+      growth: 0
+      greed: 0
+      curse: 0
       magnet: 0
+      revival: 0
   - name: Spinach Level 3
     description: Increase damage of all weapons by 10%
     boosts:
       maxHealth: 0
       recovery: 0
+      armor: 0
       moveSpeed: 0
       might: 0.1
+      area: 0
       speed: 0
+      duration: 0
+      amount: 0
+      cooldown: 0
+      luck: 0
+      growth: 0
+      greed: 0
+      curse: 0
       magnet: 0
+      revival: 0
   - name: Spinach Level 4
     description: Increase damage of all weapons by 10%
     boosts:
       maxHealth: 0
       recovery: 0
+      armor: 0
       moveSpeed: 0
       might: 0.1
+      area: 0
       speed: 0
+      duration: 0
+      amount: 0
+      cooldown: 0
+      luck: 0
+      growth: 0
+      greed: 0
+      curse: 0
       magnet: 0
+      revival: 0
   - name: Spinach Level 5
     description: Increase damage of all weapons by 10%
     boosts:
       maxHealth: 0
       recovery: 0
+      armor: 0
       moveSpeed: 0
       might: 0.1
+      area: 0
       speed: 0
+      duration: 0
+      amount: 0
+      cooldown: 0
+      luck: 0
+      growth: 0
+      greed: 0
+      curse: 0
       magnet: 0
+      revival: 0

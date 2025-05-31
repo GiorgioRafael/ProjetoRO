@@ -10,6 +10,9 @@ public class DropRateManager : MonoBehaviour
         public string name;
         public GameObject itemPrefab;
         public float dropRate; // Drop chance percentage
+        public int minAmount = 1;
+        public int maxAmount = 1;
+        public float spreadRadius = 0.5f; // Maximum distance from center point
     }
 
     public bool active = false;
@@ -17,11 +20,8 @@ public class DropRateManager : MonoBehaviour
 
     void OnDestroy()
     {
-        if(!active) return; //previne drops se tiver inativo
-        if(!gameObject.scene.isLoaded)
-        {
-            return;
-        }
+        if(!active) return;
+        if(!gameObject.scene.isLoaded) return;
         
         float randomNumber = UnityEngine.Random.Range(0f, 100f);
         Drops rarestDrop = null;
@@ -30,7 +30,6 @@ public class DropRateManager : MonoBehaviour
         {
             if (randomNumber <= drop.dropRate)
             {
-                // Always pick the rarest drop possible
                 if (rarestDrop == null || drop.dropRate < rarestDrop.dropRate)
                 {
                     rarestDrop = drop;
@@ -38,10 +37,24 @@ public class DropRateManager : MonoBehaviour
             }
         }
 
-        // Ensure scene is still active before spawning
         if (rarestDrop != null && gameObject.scene.isLoaded)
         {
-            Instantiate(rarestDrop.itemPrefab, transform.position, Quaternion.identity);
+            int amount = UnityEngine.Random.Range(rarestDrop.minAmount, rarestDrop.maxAmount + 1);
+            
+            for(int i = 0; i < amount; i++)
+            {
+                // Calculate random position within a circle
+                float angle = UnityEngine.Random.Range(0f, 360f) * Mathf.Deg2Rad;
+                float radius = UnityEngine.Random.Range(0f, rarestDrop.spreadRadius);
+                
+                Vector3 offset = new Vector3(
+                    Mathf.Cos(angle) * radius,
+                    Mathf.Sin(angle) * radius,
+                    0
+                );
+                
+                Instantiate(rarestDrop.itemPrefab, transform.position + offset, Quaternion.identity);
+            }
         }
     }
 }

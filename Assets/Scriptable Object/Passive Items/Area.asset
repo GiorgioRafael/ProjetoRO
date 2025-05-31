@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Area
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  maxLevel: 0
+  maxLevel: 4
   evolutionData: []
   baseStats:
     name: Area buff
-    description: Area up by 10%
+    description: Aumenta a area em de todas as armas em 10%
     boosts:
       maxHealth: 0
       recovery: 0

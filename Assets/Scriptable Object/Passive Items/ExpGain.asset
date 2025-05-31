@@ -29,7 +29,6 @@ MonoBehaviour:
       duration: 0
       amount: 0
       cooldown: 0
-      expGain: 0.08
       luck: 0
       growth: 0
       greed: 0
@@ -50,9 +49,8 @@ MonoBehaviour:
       duration: 0
       amount: 0
       cooldown: 0
-      expGain: 0.08
       luck: 0
-      growth: 0
+      growth: 0.08
       greed: 0
       curse: 0
       magnet: 0
@@ -70,9 +68,8 @@ MonoBehaviour:
       duration: 0
       amount: 0
       cooldown: 0
-      expGain: 0.08
       luck: 0
-      growth: 0
+      growth: 0.08
       greed: 0
       curse: 0
       magnet: 0
@@ -90,9 +87,8 @@ MonoBehaviour:
       duration: 0
       amount: 0
       cooldown: 0
-      expGain: 0.08
       luck: 0
-      growth: 0
+      growth: 0.08
       greed: 0
       curse: 0
       magnet: 0
@@ -110,9 +106,8 @@ MonoBehaviour:
       duration: 0
       amount: 0
       cooldown: 0
-      expGain: 0.08
       luck: 0
-      growth: 0
+      growth: 0.08
       greed: 0
       curse: 0
       magnet: 0

@@ -18,7 +18,7 @@ MonoBehaviour:
   behaviour: LightningRingWeapon
   baseStats:
     name: Raio
-    description: Raio
+    description: "Lan\xE7a raios nos inimigos causando muito dano."
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 40732847801695904, guid: b3a12eea11177994a8f87c3b85d47a6c, type: 3}

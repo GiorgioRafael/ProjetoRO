@@ -222,6 +222,9 @@ MonoBehaviour:
   - name: Blue gem
     itemPrefab: {fileID: 610303841448720195, guid: a5881a8cadb00894eaaafdb1c7ce5b13, type: 3}
     dropRate: 50
+    minAmount: 1
+    maxAmount: 1
+    spreadRadius: 0.5
 --- !u!114 &3842910514519731043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,6 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseStats:
     maxHealth: 15
+    hpXHealth: 0
     moveSpeed: 1
     damage: 10
     knockbackMultiplier: 1

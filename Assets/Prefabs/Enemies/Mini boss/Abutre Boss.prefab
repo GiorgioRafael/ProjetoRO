@@ -32,8 +32,8 @@ Transform:
   m_GameObject: {fileID: 5248290366417717920}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.902241, y: -3.642187, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,12 +82,12 @@ SpriteRenderer:
   m_SortingLayerID: 555623393
   m_SortingLayer: 3
   m_SortingOrder: 20
-  m_Sprite: {fileID: -557532515691322436, guid: ad2aa481501fbc6419281c9a3c9d8653, type: 3}
+  m_Sprite: {fileID: -3083727463663013758, guid: 000702bdbe90a5c41b41584f12400b0d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.21875, y: 0.90625}
+  m_Size: {x: 0.39, y: 0.27}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -103,7 +103,7 @@ Animator:
   m_GameObject: {fileID: 5248290366417717920}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 2a445b81b227ee148b7d3e508bbffe53, type: 2}
+  m_Controller: {fileID: 22100000, guid: 746699ad594f12441b3f225e4548abb7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -153,8 +153,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.21875, y: 0.90625}
-    newSize: {x: 1.21875, y: 0.90625}
+    oldSize: {x: 1.28125, y: 0.875}
+    newSize: {x: 0.39, y: 0.27}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -219,12 +219,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   drops:
-  - name: Blue gem
-    itemPrefab: {fileID: 610303841448720195, guid: a5881a8cadb00894eaaafdb1c7ce5b13, type: 3}
-    dropRate: 100
   - name: Chest
     itemPrefab: {fileID: 2705299165505418983, guid: 6bf99188d9ab8424ba846c5e9262f67d, type: 3}
     dropRate: 100
+    minAmount: 1
+    maxAmount: 1
+    spreadRadius: 0.5
+  - name: Chest
+    itemPrefab: {fileID: 2705299165505418983, guid: 6bf99188d9ab8424ba846c5e9262f67d, type: 3}
+    dropRate: 100
+    minAmount: 1
+    maxAmount: 1
+    spreadRadius: 0.5
 --- !u!114 &8956340644959112213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseStats:
-    maxHealth: 50
+    maxHealth: 40
     hpXHealth: 1
     moveSpeed: 1.5
     damage: 15

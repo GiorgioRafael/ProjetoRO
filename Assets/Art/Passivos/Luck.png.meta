@@ -129,9 +129,9 @@ TextureImporter:
       name: Luck_0
       rect:
         serializedVersion: 2
-        x: 7
+        x: 0
         y: 0
-        width: 17
+        width: 32
         height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f93946d862ac37a40b0c4ab5bc5ba06d
     internalID: 0
     vertices: []
     indices: 

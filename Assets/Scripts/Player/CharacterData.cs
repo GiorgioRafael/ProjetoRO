@@ -39,7 +39,6 @@ public class CharacterData : ScriptableObject
         [Range(-1, 5)] public float speed, duration;
         [Range(-1, 10)] public int amount;
         [Range(-1, 1)] public float cooldown;
-        [Range(-1, 10)] public float expGain;
         [Min(-1)] public float luck, growth, greed, curse;
         public float magnet;
         public int revival;
@@ -56,7 +55,6 @@ public class CharacterData : ScriptableObject
             s1.duration += s2.duration;
             s1.amount += s2.amount;
             s1.cooldown += s2.cooldown;
-            s1.expGain += s2.expGain;
             s1.luck += s2.luck;
             s1.growth += s2.growth;
             s1.greed += s2.greed;
@@ -87,7 +85,7 @@ public class CharacterData : ScriptableObject
     public Stats stats = new Stats
     {
         maxHealth = 100, moveSpeed = 1, might = 1, amount = 0,
-        area = 1, speed = 1, duration = 1, cooldown = 1, expGain = 1,
+        area = 1, speed = 1, duration = 1, cooldown = 1,
         luck = 1, greed = 1, growth = 1, curse = 1
     };
 }

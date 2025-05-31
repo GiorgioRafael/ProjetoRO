@@ -9,6 +9,10 @@ public class UIUpgradeSelector : MonoBehaviour, IDataPersistence
 {
     public UpgradeData defaultUpgrade;
 
+    private float saveDelay = 2f; // Save after 2 seconds of no purchases
+    private float lastPurchaseTime;
+    private bool needsSave = false;
+
     [Header("Template")]
     public Toggle toggleTemplate;
     public string upgradeNamePath = "Upgrade Name";
@@ -110,6 +114,7 @@ public class UIUpgradeSelector : MonoBehaviour, IDataPersistence
 
     public void SaveData(ref GameData data)
     {
+        data.coinCount = currentCoins;
         data.upgrades.Clear();
         foreach (var upgrade in GetAllUpgradeDataAssets())
         {
@@ -188,6 +193,15 @@ public class UIUpgradeSelector : MonoBehaviour, IDataPersistence
             purchaseButton.interactable = canAfford && notMaxLevel;
         }
     }
+    
+    void Update()
+    {
+        if (needsSave && Time.time - lastPurchaseTime >= saveDelay)
+        {
+            needsSave = false;
+            DataPersistenceManager.instance.SaveGame();
+        }
+    }
 
     public void BuyUpgrade()
     {
@@ -209,11 +223,12 @@ public class UIUpgradeSelector : MonoBehaviour, IDataPersistence
         {
             currentCoins -= selectedUpgrade.costPerLevel;
             DataManager.instance.AddCoin(-selectedUpgrade.costPerLevel);
-            
+
             upgradeLevels[selectedUpgrade.upgradeName] = currentLevel + 1;
             Select(selectedUpgrade);
             UpdateCoinsDisplay();
             UpdateAllToggleLevels(); // Add this line
+
 
             DataPersistenceManager.instance.SaveGame();
         }

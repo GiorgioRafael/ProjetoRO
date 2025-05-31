@@ -30,7 +30,6 @@ MonoBehaviour:
     duration: 1
     amount: 1
     cooldown: 1
-    expGain: 1
     luck: 1
     growth: 1
     greed: 1

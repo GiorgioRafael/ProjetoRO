@@ -7,7 +7,7 @@ using TMPro;
 public class PlayerStats : EntityStats
 {
     
-
+    private int remainingRevivals; // Add this field
     CharacterData characterData;
     public CharacterData.Stats baseStats;
     [SerializeField] CharacterData.Stats actualStats;
@@ -104,11 +104,17 @@ public class PlayerStats : EntityStats
 
         playerAnimator = GetComponent<PlayerAnimator>();
         playerAnimator.SetAnimatorController(characterData.animator);
+        remainingRevivals = actualStats.revival; // Initialize remaining revivals
+        Debug.Log("Remaining revivals: " + remainingRevivals);
+
     }
 
     protected override void Start()
     {
         base.Start();
+
+        if (UILevelSelector.globalBuff && !UILevelSelector.globalBuffAffectsPlayer)
+            ApplyBuff(UILevelSelector.globalBuff);
 
         RecalculateStats();
 
@@ -256,8 +262,11 @@ public override void RecalculateStats()
 
     public void IncreaseExperience(int amount)
     {
-
-        experience += Mathf.RoundToInt(amount * actualStats.expGain);
+        float growthModifier = actualStats.growth;
+        // Subtract 1 since growth of 1 means 0% bonus
+        float finalExp = amount * growthModifier;
+        
+        experience += (int)finalExp;
         
         LevelUpChecker();
         UpdateExpBar();
@@ -344,7 +353,15 @@ public override void RecalculateStats()
 
     public override void Kill()
     {
-        if (!GameManager.instance.isGameOver)
+        if (actualStats.revival > 0)
+        {
+            Debug.Log("REVIVED");
+            remainingRevivals--;
+            CurrentHealth = actualStats.maxHealth;
+            return;
+        }
+
+        if (!GameManager.instance.isGameOver && actualStats.revival == 0)
         {
             AudioController.instance.StopBackgroundMusic(1f);
             GameManager.instance.AssignLevelReachedUI(level);

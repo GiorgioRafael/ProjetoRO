@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6eb243ccf3539c47a61a8365bfa1dbd, type: 3}
   m_Name: Recovery
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: -4120698413642233404, guid: 0fb8bfa08c89fbe4db6f6fac68e07afc, type: 3}
   upgradeName: "Cora\xE7\xE3o de engrenagens"
   maxLevel: 3
   costPerLevel: 1000
