@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseStats:
-    maxHealth: 40
+    maxHealth: 90
     hpXHealth: 1
     moveSpeed: 1.5
     damage: 15

@@ -15,6 +15,7 @@ MonoBehaviour:
   icon: {fileID: -3279935201429492530, guid: b8133f5f61383cb408a49fec42cb7fb1, type: 3}
   animator: {fileID: 9100000, guid: 56ae331ed87d6b1449d102015209b874, type: 2}
   name: Liz
+  price: 0
   fullName: Shiranui Liz
   characterDescription: "Come\xE7a com um projetil a mais (todas as armas)"
   characterLore: Falta escrever a historia.

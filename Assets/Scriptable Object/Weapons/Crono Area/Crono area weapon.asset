@@ -17,9 +17,8 @@ MonoBehaviour:
   evolutionData: []
   behaviour: SantaWaterWeapon
   baseStats:
-    name: "Zona de CronoV\xE1cuo"
-    description: Um dispositivo estranho. Gera Areas ao redor do jogador que diminuem
-      a velocidade do inimigo.
+    name: Amuleto gelado
+    description: "Um amuleto que gera \xE1reas de gelo ao seu redor, quando necess\xE1rio."
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: -2003256718227135944, guid: 7e2db89520b31fd4eb8a873ab2b27542, type: 3}
     hitEffect: {fileID: 0}

@@ -15,6 +15,7 @@ MonoBehaviour:
   icon: {fileID: 2674983801438639533, guid: a7515d5ff23ed5446ae01405c2dc6372, type: 3}
   animator: {fileID: 22100000, guid: 069d992ffd104bd4b8f4583f42e62c5d, type: 2}
   name: Singed
+  price: 500
   fullName: Peste bubonica singed
   characterDescription: Velocidade +25% e +10% de dano
   characterLore: Falta escrever a historia.
@@ -30,7 +31,6 @@ MonoBehaviour:
     duration: 1
     amount: 0
     cooldown: 1
-    expGain: 1
     luck: 1
     growth: 1
     greed: 1

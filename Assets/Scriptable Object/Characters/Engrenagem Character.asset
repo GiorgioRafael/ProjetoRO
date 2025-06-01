@@ -15,6 +15,7 @@ MonoBehaviour:
   icon: {fileID: 3869693628239404480, guid: c1b4152d6cee76b4880d3229be1d8821, type: 3}
   animator: {fileID: 9100000, guid: a73786bf4988c0b42ac90a6f8a988b9b, type: 2}
   name: Engenhoca
+  price: 500
   fullName: Sr. Engenhoca
   characterDescription: "Come\xE7a com a dura\xE7\xE3o  aumentada em 25% (Todas as
     armas)"
@@ -31,7 +32,6 @@ MonoBehaviour:
     duration: 1.25
     amount: 0
     cooldown: 1
-    expGain: 1
     luck: 1
     growth: 1
     greed: 1

@@ -3703,7 +3703,7 @@ Animator:
   m_GameObject: {fileID: 383724002}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 56ae331ed87d6b1449d102015209b874, type: 2}
+  m_Controller: {fileID: 22100000, guid: c98c2056b4e686f43acf2ca665391ba3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -6963,10 +6963,26 @@ MonoBehaviour:
   maximumEnemyCount: 300
   boostedByCurse: 1
   miniBosses:
-  - enemyPrefab: {fileID: 5248290366417717920, guid: 2f30ed26f4470864ab47c2f7c435a7a8, type: 3}
+  - enemyPrefab: {fileID: 1539141408922665822, guid: 1e3f7e25d5aae27469e48c342e77ccad, type: 3}
     spawnTime: 60
   - enemyPrefab: {fileID: 1539141408922665822, guid: 1e3f7e25d5aae27469e48c342e77ccad, type: 3}
     spawnTime: 120
+  - enemyPrefab: {fileID: 5248290366417717920, guid: 2f30ed26f4470864ab47c2f7c435a7a8, type: 3}
+    spawnTime: 180
+  - enemyPrefab: {fileID: 5248290366417717920, guid: 2f30ed26f4470864ab47c2f7c435a7a8, type: 3}
+    spawnTime: 240
+  - enemyPrefab: {fileID: 5248290366417717920, guid: 2f30ed26f4470864ab47c2f7c435a7a8, type: 3}
+    spawnTime: 300
+  - enemyPrefab: {fileID: 5248290366417717920, guid: 2f30ed26f4470864ab47c2f7c435a7a8, type: 3}
+    spawnTime: 360
+  - enemyPrefab: {fileID: 5248290366417717920, guid: 2f30ed26f4470864ab47c2f7c435a7a8, type: 3}
+    spawnTime: 420
+  - enemyPrefab: {fileID: 5248290366417717920, guid: 2f30ed26f4470864ab47c2f7c435a7a8, type: 3}
+    spawnTime: 480
+  - enemyPrefab: {fileID: 5248290366417717920, guid: 2f30ed26f4470864ab47c2f7c435a7a8, type: 3}
+    spawnTime: 540
+  - enemyPrefab: {fileID: 5248290366417717920, guid: 2f30ed26f4470864ab47c2f7c435a7a8, type: 3}
+    spawnTime: 540
 --- !u!114 &667894846
 MonoBehaviour:
   m_ObjectHideFlags: 0

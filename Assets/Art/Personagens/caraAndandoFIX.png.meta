@@ -1,19 +1,28 @@
 fileFormatVersion: 2
-guid: 29731410d88badf48b57e2e45b8d417a
+guid: a4f99b95841a0f54990c5180775e73dd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4307908153332599531
-    second: Abutre lvl 1_0
+      213: -1465754779805035344
+    second: caraAndandoFIX_0
   - first:
-      213: -4283617309500681227
-    second: Abutre lvl 1_1
+      213: 8409016711596491807
+    second: caraAndandoFIX_1
   - first:
-      213: -8811995876328971573
-    second: Abutre lvl 1_2
+      213: -6047598449507817028
+    second: caraAndandoFIX_2
   - first:
-      213: -4205208158520003826
-    second: Abutre lvl 1_3
+      213: 2315429843813256249
+    second: caraAndandoFIX_3
+  - first:
+      213: -3791184183529404173
+    second: caraAndandoFIX_4
+  - first:
+      213: 7162054189129396991
+    second: caraAndandoFIX_5
+  - first:
+      213: 6005553733809922957
+    second: caraAndandoFIX_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +55,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,7 +69,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,7 +93,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -135,12 +144,34 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Abutre lvl 1_0
+      name: caraAndandoFIX_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 3
-        width: 39
+        x: 6
+        y: 0
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b4d3ed2bc798abe0800000000000000
+      internalID: -1465754779805035344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caraAndandoFIX_1
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 0
+        width: 21
         height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -150,20 +181,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bea066424a3c8cb30800000000000000
-      internalID: 4307908153332599531
+      spriteID: f1448057524d2b470800000000000000
+      internalID: 8409016711596491807
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Abutre lvl 1_1
+      name: caraAndandoFIX_2
       rect:
         serializedVersion: 2
-        x: 50
-        y: 7
-        width: 39
-        height: 21
+        x: 70
+        y: 0
+        width: 20
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,19 +203,85 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5f35f79a0c88d84c0800000000000000
-      internalID: -4283617309500681227
+      spriteID: cb922e0704d921ca0800000000000000
+      internalID: -6047598449507817028
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Abutre lvl 1_2
+      name: caraAndandoFIX_3
       rect:
         serializedVersion: 2
-        x: 98
-        y: 5
-        width: 39
+        x: 102
+        y: 0
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93cc3dedc2f022020800000000000000
+      internalID: 2315429843813256249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caraAndandoFIX_4
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 0
+        width: 21
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f886a65212036bc0800000000000000
+      internalID: -3791184183529404173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caraAndandoFIX_5
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 0
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff2f72db65ab46360800000000000000
+      internalID: 7162054189129396991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caraAndandoFIX_6
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 0
+        width: 20
         height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -194,30 +291,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bc2643d307085b580800000000000000
-      internalID: -8811995876328971573
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Abutre lvl 1_3
-      rect:
-        serializedVersion: 2
-        x: 145
-        y: 5
-        width: 40
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e0337d0c57914a5c0800000000000000
-      internalID: -4205208158520003826
+      spriteID: d83e2475d43085350800000000000000
+      internalID: 6005553733809922957
       vertices: []
       indices: 
       edges: []
@@ -236,10 +311,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Abutre lvl 1_0: 4307908153332599531
-      Abutre lvl 1_1: -4283617309500681227
-      Abutre lvl 1_2: -8811995876328971573
-      Abutre lvl 1_3: -4205208158520003826
+      caraAndandoFIX_0: -1465754779805035344
+      caraAndandoFIX_1: 8409016711596491807
+      caraAndandoFIX_2: -6047598449507817028
+      caraAndandoFIX_3: 2315429843813256249
+      caraAndandoFIX_4: -3791184183529404173
+      caraAndandoFIX_5: 7162054189129396991
+      caraAndandoFIX_6: 6005553733809922957
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

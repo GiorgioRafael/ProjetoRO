@@ -15,6 +15,7 @@ MonoBehaviour:
   icon: {fileID: 3713219614965599903, guid: 1f50da4a632d6c345b06bc93f3eb4f72, type: 3}
   animator: {fileID: 22100000, guid: 3927417d7dd117f46bf0732d154c012d, type: 2}
   name: Mago
+  price: 500
   fullName: Sr. Mago
   characterDescription: "O maguinho come\xE7a com o cooldown reduzido em 10% e o
     dano aumentado em 20% (todas as armas)"
@@ -31,7 +32,6 @@ MonoBehaviour:
     duration: 1
     amount: 0
     cooldown: 0.9
-    expGain: 1
     luck: 1
     growth: 1
     greed: 1

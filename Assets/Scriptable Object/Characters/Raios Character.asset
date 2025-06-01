@@ -15,6 +15,7 @@ MonoBehaviour:
   icon: {fileID: -5792612846293609617, guid: 3a2214144ee93bb4ca638e6be76f0d1b, type: 3}
   animator: {fileID: 9100000, guid: a73786bf4988c0b42ac90a6f8a988b9b, type: 2}
   name: Raikou
+  price: 500
   fullName: Raikou foda
   characterDescription: "Come\xE7a com o cooldown reduzido em 20%"
   characterLore: Falta escrever a historia.
@@ -30,7 +31,6 @@ MonoBehaviour:
     duration: 1
     amount: 0
     cooldown: 0.8
-    expGain: 1
     luck: 1
     growth: 1
     greed: 1

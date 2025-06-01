@@ -10,27 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8a371504affb3544b15ee6c72cf2fb5, type: 3}
-  m_Name: Crono Character
+  m_Name: Chicote
   m_EditorClassIdentifier: 
-  icon: {fileID: 8436351475699356356, guid: c1b4152d6cee76b4880d3229be1d8821, type: 3}
-  animator: {fileID: 9100000, guid: a73786bf4988c0b42ac90a6f8a988b9b, type: 2}
-  name: Cronos
-  fullName: Sr. Cronos
-  characterDescription: "Come\xE7a com a area aumentada em 20% (Todas as armas)"
+  icon: {fileID: 6051658887027529134, guid: d4bd70bc76f096d49a865ed70e3d6547, type: 3}
+  animator: {fileID: 22100000, guid: 2c98a7394641316488502bfe6d33e958, type: 2}
+  name: Cara da Capa
+  price: 500
+  fullName: Cara da CapaFN
+  characterDescription: "Anda 20% mais r\xE1pido."
   characterLore: Falta escrever a historia.
-  startingWeapon: {fileID: 11400000, guid: f43d3bc287c14414eab2e7f3248245ae, type: 2}
+  startingWeapon: {fileID: 11400000, guid: e868d71e7944a1c47a16405dc9325893, type: 2}
   stats:
     maxHealth: 100
     recovery: 0
     armor: 0
-    moveSpeed: 1
+    moveSpeed: 1.2
     might: 1
-    area: 1.2
+    area: 1
     speed: 1
     duration: 1
     amount: 0
     cooldown: 1
-    expGain: 1
     luck: 1
     growth: 1
     greed: 1

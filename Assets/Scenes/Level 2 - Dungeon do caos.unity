@@ -7039,7 +7039,7 @@ MonoBehaviour:
   events:
   - {fileID: 11400000, guid: 92b541cff2e29ad4b9ae362933491bb0, type: 2}
   - {fileID: 11400000, guid: 5b811cc5b3f729e4db95e0033bf1d6d8, type: 2}
-  firstTriggerDelay: 5
+  firstTriggerDelay: 120
   triggerInterval: 30
 --- !u!1 &674534472
 GameObject:
@@ -14095,7 +14095,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1312269218
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17608,8 +17608,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commonChunks:
-  - chunkPrefab: {fileID: 8137769287933365625, guid: 6fb25bbabe0d6534f857571d03ac8525, type: 3}
-  - chunkPrefab: {fileID: 8137769287933365625, guid: 6fb25bbabe0d6534f857571d03ac8525, type: 3}
+  - chunkPrefab: {fileID: 8137769287933365625, guid: 45fb242125353704b9950d65952deee9, type: 3}
+  - chunkPrefab: {fileID: 8137769287933365625, guid: 743bd2483dd5c83478e4cb7fedb6018a, type: 3}
   - chunkPrefab: {fileID: 8137769287933365625, guid: 76e4f37f19a17a44b878f3244a9a17a3, type: 3}
   uncommonChunks: []
   rareChunks:
