@@ -164,7 +164,15 @@ public class UIUpgradeSelector : MonoBehaviour, IDataPersistence
             }
         }
 #else
-        Debug.LogWarning("This function cannot be called on builds.");
+        UpgradeData[] loadedUpgrades = Resources.LoadAll<UpgradeData>("UpgradeData"); // Assuming "Resources/UpgradeData"
+        if (loadedUpgrades != null && loadedUpgrades.Length > 0)
+        {
+            upgrades.AddRange(loadedUpgrades);
+        }
+    else
+    {
+        Debug.LogWarning("No UpgradeData assets found in Resources. Make sure they are in a 'Resources/UpgradeData' folder (or the specified path) for builds.");
+    }
 #endif
         return upgrades.ToArray();
     }

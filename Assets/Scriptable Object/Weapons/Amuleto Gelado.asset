@@ -1,0 +1,236 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd5814ec0fb245478ec319ccc65c52e, type: 3}
+  m_Name: Amuleto Gelado
+  m_EditorClassIdentifier: 
+  icon: {fileID: -7890849018175301293, guid: 0b5d2ad212cc4ba43b5410ecc4ed864e, type: 3}
+  maxLevel: 8
+  appearanceChance: 1
+  evolutionData: []
+  behaviour: SantaWaterWeapon
+  baseStats:
+    name: Amuleto gelado
+    description: "Um amuleto que gera \xE1reas de gelo ao seu redor, quando necess\xE1rio."
+    projectilePrefab: {fileID: 0}
+    auraPrefab: {fileID: -2003256718227135944, guid: 7e2db89520b31fd4eb8a873ab2b27542, type: 3}
+    hitEffect: {fileID: 0}
+    procEffect: {fileID: 40732847801695904, guid: b3a12eea11177994a8f87c3b85d47a6c, type: 3}
+    spawnVariance:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    lifespan: 2
+    damage: 5
+    damageVariance: 1
+    area: 1
+    speed: 1
+    cooldown: 5
+    auraCooldown: 0.5
+    projectileInterval: 0.1
+    knockback: 0
+    number: 1
+    piercing: 9999
+    maxInstances: 80
+    isSantaWater: 1
+    appliedBuffs:
+    - data: {fileID: 11400000, guid: 712d29013638372478d0c41c93f24276, type: 2}
+      variant: 0
+      probability: 1
+  linearGrowth:
+  - name: Level 2
+    description: Mais um projetil. Area base aumenta em 20%.
+    projectilePrefab: {fileID: 0}
+    auraPrefab: {fileID: 0}
+    hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
+    spawnVariance:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    lifespan: 0
+    damage: 0
+    damageVariance: 0
+    area: 0.2
+    speed: 0
+    cooldown: 0
+    auraCooldown: 0
+    projectileInterval: 0
+    knockback: 0
+    number: 1
+    piercing: 0
+    maxInstances: 0
+    isSantaWater: 0
+    appliedBuffs: []
+  - name: Level 3
+    description: Efeito dura 0.5 segundos a mais. Diminui o cooldown em 0.5s
+    projectilePrefab: {fileID: 0}
+    auraPrefab: {fileID: 0}
+    hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
+    spawnVariance:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    lifespan: 0.5
+    damage: 0
+    damageVariance: 0
+    area: 0
+    speed: 0
+    cooldown: -0.5
+    auraCooldown: -0.5
+    projectileInterval: 0
+    knockback: 0
+    number: 0
+    piercing: 0
+    maxInstances: 0
+    isSantaWater: 0
+    appliedBuffs: []
+  - name: Level 4
+    description: Atira mais um projetil. Dano aumenta em 5.
+    projectilePrefab: {fileID: 0}
+    auraPrefab: {fileID: 0}
+    hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
+    spawnVariance:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    lifespan: 0
+    damage: 5
+    damageVariance: 1
+    area: 0
+    speed: 0
+    cooldown: 0
+    auraCooldown: 0
+    projectileInterval: 0
+    knockback: 0
+    number: 1
+    piercing: 0
+    maxInstances: 0
+    isSantaWater: 0
+    appliedBuffs: []
+  - name: Level 5
+    description: Aumenta a area em 10%. Deixa os inimigos mais lentos ainda.
+    projectilePrefab: {fileID: 0}
+    auraPrefab: {fileID: 0}
+    hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
+    spawnVariance:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    lifespan: 0
+    damage: 0
+    damageVariance: 0
+    area: 0.1
+    speed: 0
+    cooldown: 0
+    auraCooldown: 0
+    projectileInterval: 0
+    knockback: 0
+    number: 0
+    piercing: 0
+    maxInstances: 0
+    isSantaWater: 0
+    appliedBuffs:
+    - data: {fileID: 11400000, guid: 585478502cb01a34c911a6a11a7f3f3e, type: 2}
+      variant: 0
+      probability: 1
+  - name: Level 6
+    description: Diminui o tempo de recarga em 0.3s
+    projectilePrefab: {fileID: 0}
+    auraPrefab: {fileID: 0}
+    hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
+    spawnVariance:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    lifespan: 0
+    damage: 0
+    damageVariance: 0
+    area: 0
+    speed: 0
+    cooldown: 0.3
+    auraCooldown: 0
+    projectileInterval: 0
+    knockback: 0
+    number: 0
+    piercing: 0
+    maxInstances: 0
+    isSantaWater: 0
+    appliedBuffs: []
+  - name: Level 7
+    description: "Aumenta a \xE1rea em 10%"
+    projectilePrefab: {fileID: 0}
+    auraPrefab: {fileID: 0}
+    hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
+    spawnVariance:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    lifespan: 0
+    damage: 0
+    damageVariance: 0
+    area: 0.1
+    speed: 0
+    cooldown: 0
+    auraCooldown: 0
+    projectileInterval: 0
+    knockback: 0
+    number: 0
+    piercing: 0
+    maxInstances: 0
+    isSantaWater: 0
+    appliedBuffs: []
+  - name: Level 8
+    description: "Aumenta a dura\xE7\xE3o em 1s."
+    projectilePrefab: {fileID: 0}
+    auraPrefab: {fileID: 0}
+    hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
+    spawnVariance:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    lifespan: 1
+    damage: 0
+    damageVariance: 0
+    area: 0
+    speed: 0
+    cooldown: 0
+    auraCooldown: 0
+    projectileInterval: 0
+    knockback: 0
+    number: 0
+    piercing: 0
+    maxInstances: 0
+    isSantaWater: 0
+    appliedBuffs: []
+  randomGrowth: []

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6eb243ccf3539c47a61a8365bfa1dbd, type: 3}
+  m_Name: Greed
+  m_EditorClassIdentifier: 
+  icon: {fileID: -3120302708392793311, guid: d4835be8a8e733a47bcbd93bfe7b3ddb, type: 3}
+  upgradeName: "Gan\xE2ncia"
+  maxLevel: 5
+  costPerLevel: 1000
+  upgradeDescription: Aumenta a quantidade de moedas ganhas em 20%
+  boosts:
+  - statType: 12
+    boostAmount: 0.2

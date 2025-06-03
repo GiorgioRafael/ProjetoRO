@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 8741912438522716447, guid: a634215231116404cb98c4984d810b34, type: 3}
   maxLevel: 7
+  appearanceChance: 1
   evolutionData: []
   behaviour: AuraWeapon
   baseStats:

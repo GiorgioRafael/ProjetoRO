@@ -9,6 +9,10 @@ public abstract class ItemData : ScriptableObject
     public Sprite icon;
     public int maxLevel;
 
+    [Range(0f, 5f)]
+    [Tooltip("Controls how often this item appears in upgrades. 1 is default, higher values increase frequency, lower values decrease it.")]
+    public float appearanceChance = 1f; // Default neutral value
+
     [System.Serializable]
     public struct Evolution
     {

@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f66301e0d9c22347816d6c5a4947b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   drops:
   - name: Red Potion
     itemPrefab: {fileID: 1502375065708660715, guid: 52f8777271a0489489b58c164baec686, type: 3}

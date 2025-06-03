@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour
     public GameObject levelUpScreen;
     public GameObject coinsDisplay;
     public GameObject inventoryDisplay;
+    public GameObject pauseDisplay;
+
 
     [Header("Win Screen")]
     public GameObject winScreen;
@@ -385,6 +387,8 @@ public class GameManager : MonoBehaviour
         {
             ChangeState(GameState.Paused);
             Time.timeScale = 0f; //pausa o jogo
+            pauseDisplay.SetActive(false);
+            inventoryDisplay.SetActive(false);
             pauseScreen.SetActive(true);
             joystick.SetActive(false);
             DataPersistenceManager.instance.SaveGame();
@@ -400,6 +404,8 @@ public class GameManager : MonoBehaviour
             ChangeState(previousState);
             Time.timeScale = 1f;
             pauseScreen.SetActive(false);
+            inventoryDisplay.SetActive(true);
+            pauseDisplay.SetActive(true);
             joystick.SetActive(true);
         }
     }
@@ -410,12 +416,15 @@ public class GameManager : MonoBehaviour
         {
             if (currentState == GameState.Paused)
             {
+                
                 isGamePaused = false;
+                pauseDisplay.SetActive(false);
                 ResumeGame();
             }
             else
             {
                 isGamePaused = true;
+                pauseDisplay.SetActive(true);
                 PauseGame();
             }
         }
@@ -535,10 +544,14 @@ public class GameManager : MonoBehaviour
     public void EnableExpBar()
     {
         expBarHolder.gameObject.SetActive(true);
+        pauseDisplay.SetActive(true);
+
     }
     public void DisableExpBar()
     {
         expBarHolder.gameObject.SetActive(false);
+        pauseDisplay.SetActive(false);
+
     }
 
     private void CheckForWinCondition()

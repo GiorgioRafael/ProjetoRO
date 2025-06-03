@@ -288,16 +288,15 @@ public class PlayerInventory : MonoBehaviour
         return count;
     }
 
-    // Determines what upgrade options should appear.
     void ApplyUpgradeOptions()
     {
-	// <availableUpgrades> is an empty list that will be filtered from
-	// <allUpgrades>, which is the list of ALL upgrades in PlayerInventory.
-	// Not all upgrades can be applied, as some may have already been
-	// maxed out the player, or the player may not have enough inventory slots.
-	List<ItemData> availableUpgrades = new List<ItemData>();
-	List<ItemData> allUpgrades = new List<ItemData>(availableWeapons);
-	allUpgrades.AddRange(availablePassives);
+        // <availableUpgrades> is an empty list that will be filtered from
+        // <allUpgrades>, which is the list of ALL upgrades in PlayerInventory.
+        // Not all upgrades can be applied, as some may have already been
+        // maxed out the player, or the player may not have enough inventory slots.
+        List<ItemData> availableUpgrades = new List<ItemData>();
+        List<ItemData> allUpgrades = new List<ItemData>(availableWeapons);
+        allUpgrades.AddRange(availablePassives);
 
         // We need to know how many weapon / passive slots are left.
         int weaponSlotsLeft = GetSlotsLeft(weaponSlots);
@@ -328,18 +327,67 @@ public class PlayerInventory : MonoBehaviour
         if (availUpgradeCount > 0)
         {
             bool getExtraItem = 1f - 1f / player.Stats.luck > UnityEngine.Random.value;
-            if (getExtraItem || availUpgradeCount < 4) upgradeWindow.SetUpgrades(this, availableUpgrades, 4);
-            else upgradeWindow.SetUpgrades(this, availableUpgrades, 3, "Increase your Luck stat for a chance to get 4 items!");
+            
+            // Apply weighted selection based on appearance chance
+            List<ItemData> selectedUpgrades = SelectWeightedUpgrades(availableUpgrades, getExtraItem ? 4 : 3);
+            
+            if (getExtraItem || availUpgradeCount < 4) 
+                upgradeWindow.SetUpgrades(this, selectedUpgrades, 4);
+            else 
+                upgradeWindow.SetUpgrades(this, selectedUpgrades, 3, "Aumente sua sorte para ter mais uma opção!");
         }
         else if(GameManager.instance != null && GameManager.instance.choosingUpgrade)
         {
             GameManager.instance.EndLevelUp();
         }
     }
+    
+    // New method to select upgrades based on weighted appearance chance
+    private List<ItemData> SelectWeightedUpgrades(List<ItemData> availableUpgrades, int count)
+    {
+        // If we have fewer upgrades than requested, return them all
+        if (availableUpgrades.Count <= count)
+            return new List<ItemData>(availableUpgrades);
+
+        List<ItemData> selectedUpgrades = new List<ItemData>();
+        List<ItemData> remainingUpgrades = new List<ItemData>(availableUpgrades);
+        
+        // Calculate the total weight of all available upgrades
+        float totalWeight = 0;
+        foreach (ItemData item in availableUpgrades)
+        {
+            totalWeight += item.appearanceChance;
+        }
+        
+        // Select items based on their weight
+        for (int i = 0; i < count; i++)
+        {
+            if (remainingUpgrades.Count == 0)
+                break;
+                
+            float randomValue = UnityEngine.Random.Range(0, totalWeight);
+            float currentWeight = 0;
+            
+            for (int j = 0; j < remainingUpgrades.Count; j++)
+            {
+                currentWeight += remainingUpgrades[j].appearanceChance;
+                
+                if (randomValue <= currentWeight)
+                {
+                    selectedUpgrades.Add(remainingUpgrades[j]);
+                    totalWeight -= remainingUpgrades[j].appearanceChance;
+                    remainingUpgrades.RemoveAt(j);
+                    break;
+                }
+            }
+        }
+        
+        return selectedUpgrades;
+}
 
     public void RemoveAndApplyUpgrades()
     {
-        
+
         ApplyUpgradeOptions();
     }
 

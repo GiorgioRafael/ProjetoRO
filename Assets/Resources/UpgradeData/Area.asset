@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6eb243ccf3539c47a61a8365bfa1dbd, type: 3}
+  m_Name: Area
+  m_EditorClassIdentifier: 
+  icon: {fileID: 7091095262819006777, guid: 3d84a04683d4a5f428b6cc903a8fcb12, type: 3}
+  upgradeName: "Peda\xE7o de estrela"
+  maxLevel: 2
+  costPerLevel: 500
+  upgradeDescription: Aumenta o tamanho das armas em 5%
+  boosts:
+  - statType: 5
+    boostAmount: 0.05

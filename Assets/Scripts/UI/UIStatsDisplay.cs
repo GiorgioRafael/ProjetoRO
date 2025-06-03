@@ -29,11 +29,11 @@ public class UIStatDisplay : UIPropertyDisplay
 
         if (displayCurrentHealth)
         {
-            allStats[0].Insert(0, "Health\n");
+            allStats[0].Insert(0, "Vida\n");
             allStats[1].Insert(0, player.CurrentHealth + "\n");
         }
 
-        if (propertyNames) propertyNames.text = allStats[0].ToString();
+        //if (propertyNames) propertyNames.text = allStats[0].ToString();
         if (propertyValues) propertyValues.text = allStats[1].ToString();
 
         propertyValues.fontSize = propertyNames.fontSize;

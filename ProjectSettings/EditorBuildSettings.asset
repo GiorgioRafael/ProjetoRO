@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Level Select.unity
     guid: 6f34b6773dc443143ba1bf5daa748db9
   - enabled: 1
-    path: Assets/Scenes/Level 2 - Dungeon do caos.unity
+    path: Assets/Scenes/Level 2 - Caverna Cintilante.unity
     guid: 90580a81e60d46647b69977cc1a05603
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

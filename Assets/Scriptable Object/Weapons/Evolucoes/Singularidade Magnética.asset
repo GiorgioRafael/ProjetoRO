@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd5814ec0fb245478ec319ccc65c52e, type: 3}
+  m_Name: "Singularidade Magn\xE9tica"
+  m_EditorClassIdentifier: 
+  icon: {fileID: -7100806192235780801, guid: 35b45b786dc518c4685235de455fee33, type: 3}
+  maxLevel: 0
+  appearanceChance: 1
+  evolutionData: []
+  behaviour: AuraWeapon
+  baseStats:
+    name: Singularidade Magnetica
+    description: Destroi tudo.
+    projectilePrefab: {fileID: 7633640824649445408, guid: 135ee024beefdb64ca9a93b555681ad1, type: 3}
+    auraPrefab: {fileID: 0}
+    hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
+    spawnVariance:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    lifespan: 0
+    damage: 20
+    damageVariance: 5
+    area: 4
+    speed: 0
+    cooldown: 0
+    auraCooldown: 0
+    projectileInterval: 0
+    knockback: 1
+    number: 0
+    piercing: 0
+    maxInstances: 0
+    isSantaWater: 0
+    appliedBuffs: []
+  linearGrowth: []
+  randomGrowth: []

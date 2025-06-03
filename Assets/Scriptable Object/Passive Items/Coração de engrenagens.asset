@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 880d98358dd449143adf751849f734ea, type: 3}
+  m_Name: "Cora\xE7\xE3o de engrenagens"
+  m_EditorClassIdentifier: 
+  icon: {fileID: -4120698413642233404, guid: 0fb8bfa08c89fbe4db6f6fac68e07afc, type: 3}
+  maxLevel: 5
+  appearanceChance: 1
+  evolutionData: []
+  baseStats:
+    name: "Cora\xE7\xE3o de engrenagens"
+    description: Increases regenaration by 0.2hp/s
+    boosts:
+      maxHealth: 0
+      recovery: 0.2
+      armor: 0
+      moveSpeed: 0
+      might: 0
+      area: 0
+      speed: 0
+      duration: 0
+      amount: 0
+      cooldown: 0
+      luck: 0
+      growth: 0
+      greed: 0
+      curse: 0
+      magnet: 0
+      revival: 0
+  growth:
+  - name: Regeneration Level 2
+    description: Increases regenaration by 0.2hp/s
+    boosts:
+      maxHealth: 0
+      recovery: 0.2
+      armor: 0
+      moveSpeed: 0
+      might: 0
+      area: 0
+      speed: 0
+      duration: 0
+      amount: 0
+      cooldown: 0
+      luck: 0
+      growth: 0
+      greed: 0
+      curse: 0
+      magnet: 0
+      revival: 0
+  - name: Regeneration Level 3
+    description: Increases regenaration by 0.2hp/s
+    boosts:
+      maxHealth: 0
+      recovery: 0.2
+      armor: 0
+      moveSpeed: 0
+      might: 0
+      area: 0
+      speed: 0
+      duration: 0
+      amount: 0
+      cooldown: 0
+      luck: 0
+      growth: 0
+      greed: 0
+      curse: 0
+      magnet: 0
+      revival: 0
+  - name: Regeneration Level 4
+    description: Increases regenaration by 0.2hp/s
+    boosts:
+      maxHealth: 0
+      recovery: 0.2
+      armor: 0
+      moveSpeed: 0
+      might: 0
+      area: 0
+      speed: 0
+      duration: 0
+      amount: 0
+      cooldown: 0
+      luck: 0
+      growth: 0
+      greed: 0
+      curse: 0
+      magnet: 0
+      revival: 0
+  - name: Regeneration Level 5
+    description: Increases regenaration by 0.2hp/s
+    boosts:
+      maxHealth: 0
+      recovery: 0.2
+      armor: 0
+      moveSpeed: 0
+      might: 0
+      area: 0
+      speed: 0
+      duration: 0
+      amount: 0
+      cooldown: 0
+      luck: 0
+      growth: 0
+      greed: 0
+      curse: 0
+      magnet: 0
+      revival: 0

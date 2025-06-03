@@ -18,7 +18,7 @@ public class CharacterData : ScriptableObject
 
     [SerializeField]
     string fullName;
-    public string FullName {get => fullName; private set => fullName = value;}
+    public string FullName { get => fullName; private set => fullName = value; }
 
     [SerializeField]
     [TextArea]
@@ -29,7 +29,7 @@ public class CharacterData : ScriptableObject
     [TextArea]
     string characterLore;
     public string CharacterLore { get => characterLore; private set => characterLore = value; }
-    
+
 
     [SerializeField]
     WeaponData startingWeapon;
@@ -88,8 +88,17 @@ public class CharacterData : ScriptableObject
     }
     public Stats stats = new Stats
     {
-        maxHealth = 100, moveSpeed = 1, might = 1, amount = 0,
-        area = 1, speed = 1, duration = 1, cooldown = 1,
-        luck = 1, greed = 1, growth = 1, curse = 1
+        maxHealth = 100,
+        moveSpeed = 1,
+        might = 1,
+        amount = 0,
+        area = 1,
+        speed = 1,
+        duration = 1,
+        cooldown = 1,
+        luck = 1,
+        greed = 1,
+        growth = 1,
+        curse = 1
     };
 }

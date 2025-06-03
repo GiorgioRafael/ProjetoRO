@@ -1,0 +1,240 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd5814ec0fb245478ec319ccc65c52e, type: 3}
+  m_Name: Facas
+  m_EditorClassIdentifier: 
+  icon: {fileID: 1752878568249331049, guid: 27b15b8be241c0147af87759cc6504f3, type: 3}
+  maxLevel: 7
+  appearanceChance: 1.5
+  evolutionData:
+  - name: "Mil l\xE2minas"
+    condition: 1
+    consumes: 2
+    evolutionLevel: 8
+    catalysts:
+    - itemType: {fileID: 11400000, guid: 38b8f81c8d75b5947af2870d2ee4a446, type: 2}
+      level: 1
+    outcome:
+      itemType: {fileID: 11400000, guid: 5fcc00dd6d91fc1488b04f56293ba998, type: 2}
+      level: 1
+  behaviour: ProjectileWeapon
+  baseStats:
+    name: Adaga de marmore
+    description: "Atira rapidamente na dire\xE7\xE3o que est\xE1 olhando."
+    projectilePrefab: {fileID: -3694094145128136163, guid: 1448d6882d1e97545b392ed70f4b594a, type: 3}
+    auraPrefab: {fileID: 0}
+    hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
+    spawnVariance:
+      serializedVersion: 2
+      x: -0.2
+      y: 0.2
+      width: -0.1
+      height: 0.1
+    lifespan: 3
+    damage: 5
+    damageVariance: 0
+    area: 1
+    speed: 10
+    cooldown: 1
+    auraCooldown: 0
+    projectileInterval: 0.1
+    knockback: 0.5
+    number: 1
+    piercing: 1
+    maxInstances: 70
+    isSantaWater: 0
+    appliedBuffs: []
+  linearGrowth:
+  - name: Knife Level 2
+    description: "Atira um proj\xE9til a mais."
+    projectilePrefab: {fileID: 0}
+    auraPrefab: {fileID: 0}
+    hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
+    spawnVariance:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    lifespan: 0
+    damage: 0
+    damageVariance: 0
+    area: 0
+    speed: 0
+    cooldown: 0
+    auraCooldown: 0
+    projectileInterval: 0
+    knockback: 0
+    number: 1
+    piercing: 0
+    maxInstances: 0
+    isSantaWater: 0
+    appliedBuffs: []
+  - name: Knife Level 3
+    description: "Atira um proj\xE9til a mais. Dano aumenta em 5."
+    projectilePrefab: {fileID: 0}
+    auraPrefab: {fileID: 0}
+    hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
+    spawnVariance:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    lifespan: 0
+    damage: 5
+    damageVariance: 0
+    area: 0
+    speed: 0
+    cooldown: 0
+    auraCooldown: 0
+    projectileInterval: 0
+    knockback: 0
+    number: 1
+    piercing: 0
+    maxInstances: 0
+    isSantaWater: 0
+    appliedBuffs: []
+  - name: Knife Level 4
+    description: "Atira um proj\xE9til a mais."
+    projectilePrefab: {fileID: 0}
+    auraPrefab: {fileID: 0}
+    hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
+    spawnVariance:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    lifespan: 0
+    damage: 0
+    damageVariance: 0
+    area: 0
+    speed: 0
+    cooldown: -0.02
+    auraCooldown: 0
+    projectileInterval: 0
+    knockback: 0
+    number: 1
+    piercing: 0
+    maxInstances: 0
+    isSantaWater: 0
+    appliedBuffs: []
+  - name: Knife Level 5
+    description: Atravessa um inimigo a mais
+    projectilePrefab: {fileID: 0}
+    auraPrefab: {fileID: 0}
+    hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
+    spawnVariance:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    lifespan: 0
+    damage: 5
+    damageVariance: 0
+    area: 0
+    speed: 0
+    cooldown: 0
+    auraCooldown: 0
+    projectileInterval: 0
+    knockback: 0
+    number: 0
+    piercing: 1
+    maxInstances: 0
+    isSantaWater: 0
+    appliedBuffs: []
+  - name: Knife Level 6
+    description: "Atira um proj\xE9til a mais."
+    projectilePrefab: {fileID: 0}
+    auraPrefab: {fileID: 0}
+    hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
+    spawnVariance:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    lifespan: 0
+    damage: 5
+    damageVariance: 0
+    area: 0
+    speed: 0
+    cooldown: -0.02
+    auraCooldown: 0
+    projectileInterval: 0
+    knockback: 0
+    number: 1
+    piercing: 0
+    maxInstances: 0
+    isSantaWater: 0
+    appliedBuffs: []
+  - name: Knife Level 7
+    description: Atravessa um inimigo a mais
+    projectilePrefab: {fileID: 0}
+    auraPrefab: {fileID: 0}
+    hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
+    spawnVariance:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    lifespan: 0
+    damage: 5
+    damageVariance: 0
+    area: 0
+    speed: 0
+    cooldown: 0
+    auraCooldown: 0
+    projectileInterval: 0
+    knockback: 0
+    number: 0
+    piercing: 1
+    maxInstances: 0
+    isSantaWater: 0
+    appliedBuffs: []
+  - name: Knife Level 8
+    description: Atravessa um inimigo a mais
+    projectilePrefab: {fileID: 0}
+    auraPrefab: {fileID: 0}
+    hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
+    spawnVariance:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    lifespan: 0
+    damage: 5
+    damageVariance: 0
+    area: 0
+    speed: 0
+    cooldown: -0.02
+    auraCooldown: 0
+    projectileInterval: 0
+    knockback: 0
+    number: 0
+    piercing: 1
+    maxInstances: 0
+    isSantaWater: 0
+    appliedBuffs: []
+  randomGrowth: []

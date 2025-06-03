@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd5814ec0fb245478ec319ccc65c52e, type: 3}
+  m_Name: "Mil L\xE2minas"
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  maxLevel: 0
+  appearanceChance: 1
+  evolutionData: []
+  behaviour: ProjectileWeapon
+  baseStats:
+    name: "Mil L\xE2minas"
+    description: Faca evoluida. Atira MUITO rapido.
+    projectilePrefab: {fileID: -3694094145128136163, guid: 1448d6882d1e97545b392ed70f4b594a, type: 3}
+    auraPrefab: {fileID: 0}
+    hitEffect: {fileID: 0}
+    procEffect: {fileID: 0}
+    spawnVariance:
+      serializedVersion: 2
+      x: 0
+      y: -0.5
+      width: 0
+      height: 1
+    lifespan: 5
+    damage: 16.5
+    damageVariance: 2
+    area: 1
+    speed: 15
+    cooldown: 0.35
+    auraCooldown: 0
+    projectileInterval: 0.05
+    knockback: 0
+    number: 6
+    piercing: 3
+    maxInstances: 70
+    isSantaWater: 0
+    appliedBuffs: []
+  linearGrowth: []
+  randomGrowth: []
