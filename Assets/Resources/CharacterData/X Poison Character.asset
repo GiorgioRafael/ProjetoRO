@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8a371504affb3544b15ee6c72cf2fb5, type: 3}
-  m_Name: Poison Character
+  m_Name: X Poison Character
   m_EditorClassIdentifier: 
   icon: {fileID: 2674983801438639533, guid: a7515d5ff23ed5446ae01405c2dc6372, type: 3}
   animator: {fileID: 22100000, guid: 069d992ffd104bd4b8f4583f42e62c5d, type: 2}

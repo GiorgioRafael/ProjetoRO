@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Barragon
+  m_Controller: {fileID: 9100000, guid: a73786bf4988c0b42ac90a6f8a988b9b, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 0f6fe158c70eb944b993d85ca1cd5906, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: fc8b0b7332f1c7a4f8a5bf768257fb4f, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 28b91f2dd2d38a64c96c9d41bde6cd05, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 353572e83df335243896435d5fa88831, type: 2}

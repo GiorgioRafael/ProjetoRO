@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 880d98358dd449143adf751849f734ea, type: 3}
   m_Name: "Modificador de Experi\xEAcia"
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: -3266546494930711831, guid: b6e266fa5870dea4190fe93e92f6da42, type: 3}
   maxLevel: 5
   appearanceChance: 1
   evolutionData: []

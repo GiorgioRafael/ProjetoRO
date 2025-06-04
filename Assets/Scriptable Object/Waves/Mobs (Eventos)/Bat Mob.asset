@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bat Mob
   m_EditorClassIdentifier: 
   possibleSpawnPrefabs:
-  - {fileID: 1591930592892164473, guid: 82c375e565e49394b8b68e2cd1d71e27, type: 3}
+  - {fileID: 565495109805169342, guid: b45a87f9d5ac2274583809c058bc3af0, type: 3}
   spawnInterval: {x: 3, y: 4}
   spawnsPerTick: {x: 20, y: 25}
   duration: 10

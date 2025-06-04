@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 6051658887027529134, guid: d4bd70bc76f096d49a865ed70e3d6547, type: 3}
   animator: {fileID: 22100000, guid: 2c98a7394641316488502bfe6d33e958, type: 2}
-  name: Cara da Capa
+  name: Arandu
   price: 500
-  fullName: Cara da CapaFN
+  fullName: Arandu Pium
   characterDescription: "Anda 20% mais r\xE1pido."
-  characterLore: Falta escrever a historia.
+  characterLore: "Viu sua floresta sangrar. Com o Chicote Negro, forjado na f\xFAria
+    da natureza, ele se ergueu, a sombra protetora da Amaz\xF4nia, um guardi\xE3o
+    ancestral contra a destrui\xE7\xE3o implac\xE1vel."
   startingWeapon: {fileID: 11400000, guid: e868d71e7944a1c47a16405dc9325893, type: 2}
   stats:
     maxHealth: 100

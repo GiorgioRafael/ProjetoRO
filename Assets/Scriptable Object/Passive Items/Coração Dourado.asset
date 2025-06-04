@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 880d98358dd449143adf751849f734ea, type: 3}
   m_Name: "Cora\xE7\xE3o Dourado"
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 4606908045521496030, guid: 85ca3ccedf7732f45baee7c5864c2a2d, type: 3}
   maxLevel: 5
+  appearanceChance: 1
   evolutionData: []
   baseStats:
     name: "Cora\xE7\xE3o Dourado"

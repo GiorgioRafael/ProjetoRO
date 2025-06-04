@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: -5268389352966164600, guid: 741f22e425d7ab7469708d740141f463, type: 3}
   animator: {fileID: 22100000, guid: a72af794a2e3bda46ad46d5616458294, type: 2}
-  name: Mago dos raios
+  name: Celeris Volt
   price: 500
-  fullName: Raikou foda
+  fullName: Celeris
   characterDescription: "Come\xE7a com o cooldown reduzido em 20%"
-  characterLore: Falta escrever a historia.
+  characterLore: "Um antigo mago, forjou seu cajado com rel\xE2mpagos primordiais.
+    Ele canaliza a f\xFAria das tempestades, seu corpo envelhecido pulsando com a
+    energia r\xE1pida e imprevis\xEDvel que domina h\xE1 s\xE9culos."
   startingWeapon: {fileID: 11400000, guid: 9bf048fd7f5cb514587191609f45458b, type: 2}
   stats:
     maxHealth: 100

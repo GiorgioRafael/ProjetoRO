@@ -36,7 +36,7 @@ MonoBehaviour:
     damageVariance: 5
     area: 1
     speed: 3
-    cooldown: 0.1
+    cooldown: 0.3
     auraCooldown: 0
     projectileInterval: 0.05
     knockback: 0.3

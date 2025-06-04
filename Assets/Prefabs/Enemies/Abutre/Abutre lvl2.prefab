@@ -217,13 +217,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f66301e0d9c22347816d6c5a4947b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   drops:
   - name: Blue gem
     itemPrefab: {fileID: 610303841448720195, guid: a5881a8cadb00894eaaafdb1c7ce5b13, type: 3}
     dropRate: 60
-    minAmount: 10
-    maxAmount: 10
+    minAmount: 1
+    maxAmount: 1
     spreadRadius: 0.5
 --- !u!114 &4681841729242025920
 MonoBehaviour:

@@ -12,13 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8a371504affb3544b15ee6c72cf2fb5, type: 3}
   m_Name: Axe Character
   m_EditorClassIdentifier: 
-  icon: {fileID: -7705136319623115422, guid: 16f73e27a8f087743bff2f2060079c51, type: 3}
-  animator: {fileID: 9100000, guid: a73786bf4988c0b42ac90a6f8a988b9b, type: 2}
-  name: Axeios
+  icon: {fileID: -2311673934648537008, guid: b1b4f37e9daa66f4f95250d93fbc7d1b, type: 3}
+  animator: {fileID: 22100000, guid: 5b741d3fdc40ec349be26dcaf2325f5a, type: 2}
+  name: Barragan
   price: 500
-  fullName: Axeios Glory
+  fullName: Barragan Ruizenban
   characterDescription: "Come\xE7a com o cooldown reduzido em 20% (Todas as armas)"
-  characterLore: Falta escrever a historia.
+  characterLore: "Barragan Ruizenban n\xE3o luta; ele coreografa a destrui\xE7\xE3o.
+    Seus machados, Ceifadores Sombrios, singram o ar com precis\xE3o letal, retornando
+    \xE0 sua m\xE3o espectralmente. Cada arremesso \xE9 uma senten\xE7a, cada l\xE2mina
+    um press\xE1gio de um fim inevit\xE1vel."
   startingWeapon: {fileID: 11400000, guid: ee9e2488f7f110a4eaad79739c140221, type: 2}
   stats:
     maxHealth: 100

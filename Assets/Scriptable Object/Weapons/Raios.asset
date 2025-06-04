@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: -263159164933159427, guid: 15c6fafcf3f161044b52836650f17201, type: 3}
   maxLevel: 7
+  appearanceChance: 1
   evolutionData: []
   behaviour: LightningRingWeapon
   baseStats:

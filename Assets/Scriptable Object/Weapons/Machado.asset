@@ -15,7 +15,17 @@ MonoBehaviour:
   icon: {fileID: 8082157731986116008, guid: e9706002bcad7b240877f96c2ef8070f, type: 3}
   maxLevel: 7
   appearanceChance: 1
-  evolutionData: []
+  evolutionData:
+  - name: Machado de Barragon
+    condition: 1
+    consumes: 2
+    evolutionLevel: 0
+    catalysts:
+    - itemType: {fileID: 11400000, guid: 8f5bbead2aaad9743bfc4c55efb6478c, type: 2}
+      level: 1
+    outcome:
+      itemType: {fileID: 11400000, guid: 05e79e0c8c9cdde4bbb5da22c7d5c9f4, type: 2}
+      level: 0
   behaviour: AxeWeapon
   baseStats:
     name: Machado
@@ -45,9 +55,9 @@ MonoBehaviour:
     isSantaWater: 0
     appliedBuffs: []
   linearGrowth:
-  - name: Machado Level 2
+  - name: Level 2
     description: Atira um projetil a mais
-    projectilePrefab: {fileID: 0}
+    projectilePrefab: {fileID: 5130397777953176692, guid: 0d85f64684385954180ece90bc46b3c5, type: 3}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
     procEffect: {fileID: 0}
@@ -71,7 +81,7 @@ MonoBehaviour:
     maxInstances: 0
     isSantaWater: 0
     appliedBuffs: []
-  - name: Machado Level 3
+  - name: Level 3
     description: Aumenta o dano base em 20
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
@@ -97,7 +107,7 @@ MonoBehaviour:
     maxInstances: 0
     isSantaWater: 0
     appliedBuffs: []
-  - name: Machado Level 4
+  - name: Level 4
     description: Atravessa 2 inimigos a mais
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
@@ -123,7 +133,7 @@ MonoBehaviour:
     maxInstances: 0
     isSantaWater: 0
     appliedBuffs: []
-  - name: Machado Level 5
+  - name: Level 5
     description: Atira mais um projetil.
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
@@ -149,7 +159,7 @@ MonoBehaviour:
     maxInstances: 0
     isSantaWater: 0
     appliedBuffs: []
-  - name: Machado Level 6
+  - name: Level 6
     description: Aumenta o dano base em 20.
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
@@ -175,7 +185,7 @@ MonoBehaviour:
     maxInstances: 0
     isSantaWater: 0
     appliedBuffs: []
-  - name: Machado Level 7
+  - name: Level 7
     description: Atravessa 2 inimigos a mais.
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
@@ -201,7 +211,7 @@ MonoBehaviour:
     maxInstances: 0
     isSantaWater: 0
     appliedBuffs: []
-  - name: Machado Level 8
+  - name: Level 8
     description: Aumenta o dano base em 20.
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}

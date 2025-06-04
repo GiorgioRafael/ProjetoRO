@@ -14,12 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 3713219614965599903, guid: 1f50da4a632d6c345b06bc93f3eb4f72, type: 3}
   animator: {fileID: 22100000, guid: 3927417d7dd117f46bf0732d154c012d, type: 2}
-  name: Mago
+  name: Malakar
   price: 500
   fullName: Sr. Mago
   characterDescription: "O maguinho come\xE7a com o cooldown reduzido em 10% e o
     dano aumentado em 20% (todas as armas)"
-  characterLore: Falta escrever a historia.
+  characterLore: "Perpetuamente oculto pela sombra de um capuz profundo, guarda segredos
+    que ardem mais intensamente que as chamas que agora manipula. Ningu\xE9m sabe
+    sua origem, apenas que seu poder de fogo, antes latente, irrompeu de um passado
+    esquecido."
   startingWeapon: {fileID: 11400000, guid: 7f4867403f6f5da4d903d8c077da062b, type: 2}
   stats:
     maxHealth: 100

@@ -18,7 +18,9 @@ MonoBehaviour:
   price: 0
   fullName: Shiranui Liz
   characterDescription: "Come\xE7a com um projetil a mais (todas as armas)"
-  characterLore: Falta escrever a historia.
+  characterLore: "Liz tece um bal\xE9 de l\xE2minas. Cada faca, um prolongamento
+    de sua vontade, encontra o alvo com precis\xE3o mortal. Sua origem, um sussurro,
+    torna-a uma sombra ef\xEAmera que surge e desaparece no ar."
   startingWeapon: {fileID: 11400000, guid: b75498fe315205f4a8d2e117db0949d3, type: 2}
   stats:
     maxHealth: 100

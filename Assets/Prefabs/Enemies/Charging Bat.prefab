@@ -17,6 +17,10 @@ PrefabInstance:
       value: Charging Bat
       objectReference: {fileID: 0}
     - target: {fileID: 7868313104021592026, guid: a4b683eb1487b0743a882439f0cb5aa3, type: 3}
+      propertyPath: active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7868313104021592026, guid: a4b683eb1487b0743a882439f0cb5aa3, type: 3}
       propertyPath: drops.Array.data[0].dropRate
       value: 45
       objectReference: {fileID: 0}

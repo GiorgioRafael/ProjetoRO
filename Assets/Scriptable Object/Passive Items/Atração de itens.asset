@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 880d98358dd449143adf751849f734ea, type: 3}
   m_Name: "Atra\xE7\xE3o de itens"
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: -6566300186675474305, guid: f2fd506721498b543a92e6192a740e5a, type: 3}
   maxLevel: 0
   appearanceChance: 1
   evolutionData: []

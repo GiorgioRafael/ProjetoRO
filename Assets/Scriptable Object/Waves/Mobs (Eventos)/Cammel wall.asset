@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae25db776025b374787c37d47657191b, type: 3}
-  m_Name: Flower Wall
+  m_Name: Cammel wall
   m_EditorClassIdentifier: 
   possibleSpawnPrefabs:
-  - {fileID: 7218548514692892823, guid: 70b6b62f8f62fd94580c47b74aab87fe, type: 3}
+  - {fileID: 1437837222520046125, guid: 296075b6c1eb27b48a00374c81d58550, type: 3}
   spawnInterval: {x: 2, y: 3}
   spawnsPerTick: {x: 50, y: 60}
   duration: 1

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 6516552066226656986, guid: 808acd81187f04843ba6ec2b28dc5f10, type: 3}
   maxLevel: 7
-  appearanceChance: 1
+  appearanceChance: 5
   evolutionData:
   - name: " N\xFAcleo \xCDgneo "
     condition: 1
@@ -82,7 +82,7 @@ MonoBehaviour:
     isSantaWater: 0
     appliedBuffs: []
   - name: Level 3
-    description: Reduz o cooldown em 0.5s.
+    description: Reduz o cooldown em 0.3s.
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
@@ -98,7 +98,7 @@ MonoBehaviour:
     damageVariance: 0
     area: 0
     speed: 0
-    cooldown: -0.5
+    cooldown: -0.3
     auraCooldown: 0
     projectileInterval: 0
     knockback: 0
@@ -134,7 +134,7 @@ MonoBehaviour:
     isSantaWater: 0
     appliedBuffs: []
   - name: Level 5
-    description: Diminui o cooldown em 0.5s. Aumenta o dano base em 5.
+    description: Diminui o cooldown em 0.3s. Aumenta o dano base em 5.
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
@@ -150,7 +150,7 @@ MonoBehaviour:
     damageVariance: 0
     area: 0
     speed: 0
-    cooldown: -0.5
+    cooldown: -0.3
     auraCooldown: 0
     projectileInterval: 0
     knockback: 0

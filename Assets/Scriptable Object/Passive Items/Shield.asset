@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 880d98358dd449143adf751849f734ea, type: 3}
   m_Name: Shield
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: -4887077406757233458, guid: b778a0ddab5d5b3479e4bf686c870458, type: 3}
   maxLevel: 5
+  appearanceChance: 1
   evolutionData: []
   baseStats:
     name: "Escudo \xE0 Vapor."

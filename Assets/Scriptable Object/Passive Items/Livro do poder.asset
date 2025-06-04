@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 3862273165461876074, guid: 730a093149767ca42bae6a01109fde97, type: 3}
   maxLevel: 5
+  appearanceChance: 3.73
   evolutionData:
   - name: Knife + Spinach
     condition: 0

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5130397777953176692}
   - component: {fileID: 5017600479572533844}
   m_Layer: 0
-  m_Name: AXe Projectile
+  m_Name: Machado de Barragon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 555623393
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8082157731986116008, guid: e9706002bcad7b240877f96c2ef8070f, type: 3}
+  m_Sprite: {fileID: -7555949676679285149, guid: 848eb97ce62a80a438f2884e9de32481, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 880d98358dd449143adf751849f734ea, type: 3}
   m_Name: "Pena de F\xEAnix"
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 1749478216438046155, guid: 38b0975e29027ef459da87976314a901, type: 3}
   maxLevel: 2
   appearanceChance: 0.5
   evolutionData: []

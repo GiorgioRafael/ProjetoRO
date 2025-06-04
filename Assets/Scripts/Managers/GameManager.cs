@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
     public int continueButtonTimes = 0;
     public GameObject treasureScreenBackground;
     public TMP_Text coinsToAddText;
+    public Sprite defaultChestSprite; // Add this field and assign in Inspector
 
     [Header("Damage Text Settings")]
     public Canvas damageTextCanvas;
@@ -600,30 +601,93 @@ public class GameManager : MonoBehaviour
     {
 
         UnityEngine.Debug.Log($"Button clicked. continueButtonTimes: {continueButtonTimes}");
+        Animator chestAnimator = chestImage.GetComponent<Animator>();
 
-        if (continueButtonTimes == 0)
+    if (continueButtonTimes == 0)
+    {
+        // Disable button immediately to prevent multiple clicks
+        continueButton.interactable = false;
+        
+        if (chestAnimator != null)
         {
-            Dictionary<RectTransform, Vector2> iconPositions = new Dictionary<RectTransform, Vector2>();
+            // Play the animation
+            chestAnimator.Play("Abrir");
+            
+            // Start a coroutine to wait for animation to complete before showing items
+            StartCoroutine(ShowItemsAfterAnimation(chestAnimator));
+        }
+        
+        continueButtonTimes++;
+        return;
+    }
 
-                    switch (activeIconCount)
+        if (continueButtonTimes == 1)
+        {
+            // Step 2: Show upgrade details screen
+            continueButtonTimes++;
+            StartSlideAnimation();
+            return;
+        }
+
+        if (continueButtonTimes == 2)
+        {
+            // Step 3: Close everything and reset
+            chestAnimator.speed = 1.0f;
+            CloseAndReset();
+            EnableScreensForChest();
+            chestImage.sprite = defaultChestSprite;
+        }
+    }
+    private float GetAnimationLength(Animator animator, string stateName)
+    {
+        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+        foreach (AnimationClip clip in clips)
+        {
+            if (clip.name.Contains(stateName))
+            {
+                return clip.length;
+            }
+        }
+        return 1.0f; // Default fallback
+    }
+
+    private IEnumerator ShowItemsAfterAnimation(Animator animator)
+    {
+        // Ensure the animation is set to update in realtime (unaffected by timeScale)
+        animator.updateMode = AnimatorUpdateMode.UnscaledTime;
+
+        // Play the animation (you already did this in CloseTreasureScreen)
+        // animator.Play("Abrir");
+
+        // Get the length of the animation clip
+        float animationLength = GetAnimationLength(animator, "Abrir");
+
+        float elapsedTime = 0f;
+        while (elapsedTime < animationLength)
+        {
+            elapsedTime += Time.unscaledDeltaTime;
+
+            // Debug.Log($"Animation progress: {elapsedTime}/{animationLength}");
+
+            yield return null;
+        }
+        Dictionary<RectTransform, Vector2> iconPositions = new Dictionary<RectTransform, Vector2>();
+
+        switch (activeIconCount)
         {
             case 1:
-                // For 1 upgrade, use icon 0
                 StoreIconPosition(0);
                 break;
             case 2:
-                // For 2 upgrades, use icons 1 and 2
                 StoreIconPosition(1);
                 StoreIconPosition(2);
                 break;
             case 3:
-                // For 3 upgrades, use icons 0, 1, and 2
                 StoreIconPosition(0);
                 StoreIconPosition(1);
                 StoreIconPosition(2);
                 break;
             case 5:
-                // For 5 upgrades, use all icons
                 for (int i = 0; i < activeIconCount; i++)
                 {
                     StoreIconPosition(i);
@@ -631,7 +695,6 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
-                // Now animate the icons in the same order
         switch (activeIconCount)
         {
             case 1:
@@ -654,11 +717,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
-        // Disable button until animation completes
-        continueButton.interactable = false;
         StartCoroutine(EnableButtonAfterAnimation());
-        continueButtonTimes++;
-        return;
 
         // Helper methods
         void StoreIconPosition(int index)
@@ -674,22 +733,6 @@ public class GameManager : MonoBehaviour
             iconRect.localScale = Vector3.zero;
             upgradeIcons[index].gameObject.SetActive(true);
             StartCoroutine(AnimateIconFromChest(iconRect, iconPositions[iconRect]));
-        }
-    }
-
-        if (continueButtonTimes == 1)
-        {
-            // Step 2: Show upgrade details screen
-            continueButtonTimes++;
-            StartSlideAnimation();
-            return;
-        }
-
-        if (continueButtonTimes == 2)
-        {
-            // Step 3: Close everything and reset
-            CloseAndReset();
-            EnableScreensForChest();
         }
     }
 

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8a371504affb3544b15ee6c72cf2fb5, type: 3}
-  m_Name: Ima Character
+  m_Name: X Ima Character
   m_EditorClassIdentifier: 
   icon: {fileID: -207805132581120700, guid: f0d83478fd8bc334ea196321d28c5b1e, type: 3}
   animator: {fileID: 9100000, guid: a73786bf4988c0b42ac90a6f8a988b9b, type: 2}
